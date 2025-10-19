@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+src/unpack/** text eol=lf
+src/index.ts text eol=lf
