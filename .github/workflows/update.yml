@@ -19,6 +19,12 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
       - name: Checkout
         uses: actions/checkout@v5
         with:
@@ -28,8 +34,6 @@ jobs:
         with:
           repository: MooncellWiki/OpenArknightsFBS
           path: OpenArknightsFBS
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
       - name: Install Dependencies
         run: bun install --frozen-lockfile
       - name: Setup Flatc
@@ -45,11 +49,11 @@ jobs:
           commit_user_email: amiya-bot@users.noreply.github.com
           commit_author: アーミヤ <amiya-bot@users.noreply.github.com>
       - name: Build and Publish
-        if: inputs.force == 'true' || steps.auto-commit.outputs.changes_detected == 'true'
+        if: inputs.force || steps.auto-commit.outputs.changes_detected == 'true'
         run: |
+          bun run build
           git config --global user.name "アーミヤ"
           git config --global user.email "amiya-bot@users.noreply.github.com"
-          bun run build
           npm version patch
           npm publish
           git push
