@@ -1,0 +1,48 @@
+{
+  "name": "@arkntools/arknights-fbs-js",
+  "version": "0.0.0",
+  "type": "module",
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "setup-flatc": "bun run scripts/setupFlatc.ts",
+    "generate": "bun run scripts/generate.ts",
+    "build": "tsdown",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write ./scripts"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^6.0.0",
+    "@tsuk1ko/eslint-config": "^1.1.1",
+    "@types/bun": "latest",
+    "es-toolkit": "^1.40.0",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "flatbuffers": "^25.9.23",
+    "jszip": "^3.10.1",
+    "prettier": "^3.6.2",
+    "tsdown": "^0.15.8",
+    "typescript": "^5.9.3"
+  },
+  "author": "神代綺凛 <i@loli.best>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arkntools/arknights-fbs-js.git"
+  },
+  "keywords": [
+    "arknights",
+    "fbs"
+  ],
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
