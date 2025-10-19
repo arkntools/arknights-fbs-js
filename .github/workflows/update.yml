@@ -47,8 +47,10 @@ jobs:
       - name: Build and Publish
         if: inputs.force == 'true' || steps.auto-commit.outputs.changes_detected == 'true'
         run: |
+          git config --global user.name "アーミヤ"
+          git config --global user.email "amiya-bot@users.noreply.github.com"
           bun run build
-          bun pm version patch
+          npm version patch
           npm publish
           git push
           git push --tags

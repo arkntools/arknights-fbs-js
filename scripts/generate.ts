@@ -5,7 +5,7 @@ import { FbsParser } from './utils/fbs';
 
 const FBS_DIR = 'OpenArknightsFBS/FBS';
 
-const files = await readdir(FBS_DIR);
+const files = (await readdir(FBS_DIR)).sort();
 
 await execAsync(
   `flatc --ts --gen-object-api --no-warnings -o ${join('src', 'fbs')} ${files.map(file => join(FBS_DIR, file)).join(' ')}`,
