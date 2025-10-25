@@ -44,7 +44,6 @@ export * from './unpack/resource_manifest';
 export * from './unpack/retro_table';
 export * from './unpack/roguelike_topic_table';
 export * from './unpack/sandbox_perm_table';
-export * from './unpack/sandbox_table';
 export * from './unpack/shop_client_table';
 export * from './unpack/skill_table';
 export * from './unpack/skin_table';
