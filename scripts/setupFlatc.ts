@@ -1,6 +1,6 @@
 import { writeFile } from 'node:fs/promises';
+import { $ } from 'bun';
 import JSZip from 'jszip';
-import { execAsync } from './utils/exec';
 
 const VERSION = '25.9.23';
 
@@ -18,9 +18,7 @@ const flatcSetupInfo: Partial<Record<NodeJS.Platform, { name: string; dest: stri
   },
 };
 
-const flatcVer = await execAsync('flatc --version')
-  .then(({ stdout }) => stdout.trim())
-  .catch(() => '');
+const flatcVer = await $`flatc --version`.text().catch(() => '');
 
 if (flatcVer) {
   console.log(flatcVer);
