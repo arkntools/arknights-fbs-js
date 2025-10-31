@@ -48,8 +48,39 @@ stageCanNotUseTrapLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+mustSelectTrap():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+systemUnlockToast():string|null
+systemUnlockToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+systemUnlockToast(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+squadSaveSuccessToast():string|null
+squadSaveSuccessToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+squadSaveSuccessToast(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+lockedToast():string|null
+lockedToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+lockedToast(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+showBtnBack():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 18);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
 static startclz_Torappu_ActivityTable_ActivityTrapConstData(builder:flatbuffers.Builder) {
-  builder.startObject(3);
+  builder.startObject(8);
 }
 
 static addStageUnlockTrapDesc(builder:flatbuffers.Builder, stageUnlockTrapDescOffset:flatbuffers.Offset) {
@@ -76,16 +107,41 @@ static startStageCanNotUseTrapVector(builder:flatbuffers.Builder, numElems:numbe
   builder.startVector(4, numElems, 4);
 }
 
+static addMustSelectTrap(builder:flatbuffers.Builder, mustSelectTrap:boolean) {
+  builder.addFieldInt8(3, +mustSelectTrap, +false);
+}
+
+static addSystemUnlockToast(builder:flatbuffers.Builder, systemUnlockToastOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(4, systemUnlockToastOffset, 0);
+}
+
+static addSquadSaveSuccessToast(builder:flatbuffers.Builder, squadSaveSuccessToastOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(5, squadSaveSuccessToastOffset, 0);
+}
+
+static addLockedToast(builder:flatbuffers.Builder, lockedToastOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(6, lockedToastOffset, 0);
+}
+
+static addShowBtnBack(builder:flatbuffers.Builder, showBtnBack:boolean) {
+  builder.addFieldInt8(7, +showBtnBack, +false);
+}
+
 static endclz_Torappu_ActivityTable_ActivityTrapConstData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_ActivityTable_ActivityTrapConstData(builder:flatbuffers.Builder, stageUnlockTrapDescOffset:flatbuffers.Offset, trapMaximum:number, stageCanNotUseTrapOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_ActivityTable_ActivityTrapConstData(builder:flatbuffers.Builder, stageUnlockTrapDescOffset:flatbuffers.Offset, trapMaximum:number, stageCanNotUseTrapOffset:flatbuffers.Offset, mustSelectTrap:boolean, systemUnlockToastOffset:flatbuffers.Offset, squadSaveSuccessToastOffset:flatbuffers.Offset, lockedToastOffset:flatbuffers.Offset, showBtnBack:boolean):flatbuffers.Offset {
   clz_Torappu_ActivityTable_ActivityTrapConstData.startclz_Torappu_ActivityTable_ActivityTrapConstData(builder);
   clz_Torappu_ActivityTable_ActivityTrapConstData.addStageUnlockTrapDesc(builder, stageUnlockTrapDescOffset);
   clz_Torappu_ActivityTable_ActivityTrapConstData.addTrapMaximum(builder, trapMaximum);
   clz_Torappu_ActivityTable_ActivityTrapConstData.addStageCanNotUseTrap(builder, stageCanNotUseTrapOffset);
+  clz_Torappu_ActivityTable_ActivityTrapConstData.addMustSelectTrap(builder, mustSelectTrap);
+  clz_Torappu_ActivityTable_ActivityTrapConstData.addSystemUnlockToast(builder, systemUnlockToastOffset);
+  clz_Torappu_ActivityTable_ActivityTrapConstData.addSquadSaveSuccessToast(builder, squadSaveSuccessToastOffset);
+  clz_Torappu_ActivityTable_ActivityTrapConstData.addLockedToast(builder, lockedToastOffset);
+  clz_Torappu_ActivityTable_ActivityTrapConstData.addShowBtnBack(builder, showBtnBack);
   return clz_Torappu_ActivityTable_ActivityTrapConstData.endclz_Torappu_ActivityTable_ActivityTrapConstData(builder);
 }
 
@@ -93,7 +149,12 @@ unpack(): clz_Torappu_ActivityTable_ActivityTrapConstDataT {
   return new clz_Torappu_ActivityTable_ActivityTrapConstDataT(
     this.stageUnlockTrapDesc(),
     this.trapMaximum(),
-    this.bb!.createScalarList<string>(this.stageCanNotUseTrap.bind(this), this.stageCanNotUseTrapLength())
+    this.bb!.createScalarList<string>(this.stageCanNotUseTrap.bind(this), this.stageCanNotUseTrapLength()),
+    this.mustSelectTrap(),
+    this.systemUnlockToast(),
+    this.squadSaveSuccessToast(),
+    this.lockedToast(),
+    this.showBtnBack()
   );
 }
 
@@ -102,6 +163,11 @@ unpackTo(_o: clz_Torappu_ActivityTable_ActivityTrapConstDataT): void {
   _o.stageUnlockTrapDesc = this.stageUnlockTrapDesc();
   _o.trapMaximum = this.trapMaximum();
   _o.stageCanNotUseTrap = this.bb!.createScalarList<string>(this.stageCanNotUseTrap.bind(this), this.stageCanNotUseTrapLength());
+  _o.mustSelectTrap = this.mustSelectTrap();
+  _o.systemUnlockToast = this.systemUnlockToast();
+  _o.squadSaveSuccessToast = this.squadSaveSuccessToast();
+  _o.lockedToast = this.lockedToast();
+  _o.showBtnBack = this.showBtnBack();
 }
 }
 
@@ -109,18 +175,31 @@ export class clz_Torappu_ActivityTable_ActivityTrapConstDataT implements flatbuf
 constructor(
   public stageUnlockTrapDesc: string|Uint8Array|null = null,
   public trapMaximum: number = 0,
-  public stageCanNotUseTrap: (string)[] = []
+  public stageCanNotUseTrap: (string)[] = [],
+  public mustSelectTrap: boolean = false,
+  public systemUnlockToast: string|Uint8Array|null = null,
+  public squadSaveSuccessToast: string|Uint8Array|null = null,
+  public lockedToast: string|Uint8Array|null = null,
+  public showBtnBack: boolean = false
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const stageUnlockTrapDesc = (this.stageUnlockTrapDesc !== null ? builder.createString(this.stageUnlockTrapDesc!) : 0);
   const stageCanNotUseTrap = clz_Torappu_ActivityTable_ActivityTrapConstData.createStageCanNotUseTrapVector(builder, builder.createObjectOffsetList(this.stageCanNotUseTrap));
+  const systemUnlockToast = (this.systemUnlockToast !== null ? builder.createString(this.systemUnlockToast!) : 0);
+  const squadSaveSuccessToast = (this.squadSaveSuccessToast !== null ? builder.createString(this.squadSaveSuccessToast!) : 0);
+  const lockedToast = (this.lockedToast !== null ? builder.createString(this.lockedToast!) : 0);
 
   return clz_Torappu_ActivityTable_ActivityTrapConstData.createclz_Torappu_ActivityTable_ActivityTrapConstData(builder,
     stageUnlockTrapDesc,
     this.trapMaximum,
-    stageCanNotUseTrap
+    stageCanNotUseTrap,
+    this.mustSelectTrap,
+    systemUnlockToast,
+    squadSaveSuccessToast,
+    lockedToast,
+    this.showBtnBack
   );
 }
 }

@@ -400,8 +400,13 @@ advancedRuneIdList2Length():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+useSpecialSizeMapPreview():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 124);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
 static startclz_Torappu_StageData(builder:flatbuffers.Builder) {
-  builder.startObject(60);
+  builder.startObject(61);
 }
 
 static addStageType(builder:flatbuffers.Builder, stageType:enum__Torappu_StageType) {
@@ -716,6 +721,10 @@ static startAdvancedRuneIdList2Vector(builder:flatbuffers.Builder, numElems:numb
   builder.startVector(4, numElems, 4);
 }
 
+static addUseSpecialSizeMapPreview(builder:flatbuffers.Builder, useSpecialSizeMapPreview:boolean) {
+  builder.addFieldInt8(60, +useSpecialSizeMapPreview, +false);
+}
+
 static endclz_Torappu_StageData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -783,7 +792,8 @@ unpack(): clz_Torappu_StageDataT {
     this.sixStarBaseDesc(),
     this.bb!.createObjList<clz_Torappu_ItemBundle, clz_Torappu_ItemBundleT>(this.sixStarDisplayRewardList.bind(this), this.sixStarDisplayRewardListLength()),
     this.bb!.createScalarList<string>(this.advancedRuneIdList1.bind(this), this.advancedRuneIdList1Length()),
-    this.bb!.createScalarList<string>(this.advancedRuneIdList2.bind(this), this.advancedRuneIdList2Length())
+    this.bb!.createScalarList<string>(this.advancedRuneIdList2.bind(this), this.advancedRuneIdList2Length()),
+    this.useSpecialSizeMapPreview()
   );
 }
 
@@ -849,6 +859,7 @@ unpackTo(_o: clz_Torappu_StageDataT): void {
   _o.sixStarDisplayRewardList = this.bb!.createObjList<clz_Torappu_ItemBundle, clz_Torappu_ItemBundleT>(this.sixStarDisplayRewardList.bind(this), this.sixStarDisplayRewardListLength());
   _o.advancedRuneIdList1 = this.bb!.createScalarList<string>(this.advancedRuneIdList1.bind(this), this.advancedRuneIdList1Length());
   _o.advancedRuneIdList2 = this.bb!.createScalarList<string>(this.advancedRuneIdList2.bind(this), this.advancedRuneIdList2Length());
+  _o.useSpecialSizeMapPreview = this.useSpecialSizeMapPreview();
 }
 }
 
@@ -913,7 +924,8 @@ constructor(
   public sixStarBaseDesc: string|Uint8Array|null = null,
   public sixStarDisplayRewardList: (clz_Torappu_ItemBundleT)[] = [],
   public advancedRuneIdList1: (string)[] = [],
-  public advancedRuneIdList2: (string)[] = []
+  public advancedRuneIdList2: (string)[] = [],
+  public useSpecialSizeMapPreview: boolean = false
 ){}
 
 
@@ -1003,6 +1015,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_StageData.addSixStarDisplayRewardList(builder, sixStarDisplayRewardList);
   clz_Torappu_StageData.addAdvancedRuneIdList1(builder, advancedRuneIdList1);
   clz_Torappu_StageData.addAdvancedRuneIdList2(builder, advancedRuneIdList2);
+  clz_Torappu_StageData.addUseSpecialSizeMapPreview(builder, this.useSpecialSizeMapPreview);
 
   return clz_Torappu_StageData.endclz_Torappu_StageData(builder);
 }

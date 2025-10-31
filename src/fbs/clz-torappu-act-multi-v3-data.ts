@@ -8,12 +8,12 @@ import { clz_Torappu_ActMultiV3ConstData, clz_Torappu_ActMultiV3ConstDataT } fro
 import { clz_Torappu_ActMultiV3ConstToastData, clz_Torappu_ActMultiV3ConstToastDataT } from './clz-torappu-act-multi-v3-const-toast-data.js';
 import { clz_Torappu_ActMultiV3IdentityData, clz_Torappu_ActMultiV3IdentityDataT } from './clz-torappu-act-multi-v3-identity-data.js';
 import { clz_Torappu_ActMultiV3MilestoneData, clz_Torappu_ActMultiV3MilestoneDataT } from './clz-torappu-act-multi-v3-milestone-data.js';
-import { clz_Torappu_ActMultiV3ReportData, clz_Torappu_ActMultiV3ReportDataT } from './clz-torappu-act-multi-v3-report-data.js';
 import { clz_Torappu_ActMultiV3SelectStepData, clz_Torappu_ActMultiV3SelectStepDataT } from './clz-torappu-act-multi-v3-select-step-data.js';
 import { clz_Torappu_ActMultiV3SquadEffectData, clz_Torappu_ActMultiV3SquadEffectDataT } from './clz-torappu-act-multi-v3-squad-effect-data.js';
 import { clz_Torappu_ActMultiV3SquadInfoData, clz_Torappu_ActMultiV3SquadInfoDataT } from './clz-torappu-act-multi-v3-squad-info-data.js';
 import { clz_Torappu_ActMultiV3TempCharData, clz_Torappu_ActMultiV3TempCharDataT } from './clz-torappu-act-multi-v3-temp-char-data.js';
 import { clz_Torappu_ActMultiV3TipsData, clz_Torappu_ActMultiV3TipsDataT } from './clz-torappu-act-multi-v3-tips-data.js';
+import { clz_Torappu_CommonReportPlayerData, clz_Torappu_CommonReportPlayerDataT } from './clz-torappu-common-report-player-data.js';
 import { dict__string__clz_Torappu_ActMultiV3DiffStarRewardData, dict__string__clz_Torappu_ActMultiV3DiffStarRewardDataT } from './dict--string--clz-torappu-act-multi-v3-diff-star-reward-data.js';
 import { dict__string__clz_Torappu_ActMultiV3MapData, dict__string__clz_Torappu_ActMultiV3MapDataT } from './dict--string--clz-torappu-act-multi-v3-map-data.js';
 import { dict__string__clz_Torappu_ActMultiV3MapDiffData, dict__string__clz_Torappu_ActMultiV3MapDiffDataT } from './dict--string--clz-torappu-act-multi-v3-map-diff-data.js';
@@ -230,9 +230,9 @@ tipsDataListLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-reportDataList(index: number, obj?:clz_Torappu_ActMultiV3ReportData):clz_Torappu_ActMultiV3ReportData|null {
+reportDataList(index: number, obj?:clz_Torappu_CommonReportPlayerData):clz_Torappu_CommonReportPlayerData|null {
   const offset = this.bb!.__offset(this.bb_pos, 40);
-  return offset ? (obj || new clz_Torappu_ActMultiV3ReportData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new clz_Torappu_CommonReportPlayerData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 reportDataListLength():number {
@@ -696,7 +696,7 @@ unpack(): clz_Torappu_ActMultiV3DataT {
     this.bb!.createObjList<dict__string__clz_Torappu_ActMultiV3DiffStarRewardData, dict__string__clz_Torappu_ActMultiV3DiffStarRewardDataT>(this.diffStarRewardDict.bind(this), this.diffStarRewardDictLength()),
     this.bb!.createObjList<clz_Torappu_ActMultiV3MilestoneData, clz_Torappu_ActMultiV3MilestoneDataT>(this.milestoneList.bind(this), this.milestoneListLength()),
     this.bb!.createObjList<clz_Torappu_ActMultiV3TipsData, clz_Torappu_ActMultiV3TipsDataT>(this.tipsDataList.bind(this), this.tipsDataListLength()),
-    this.bb!.createObjList<clz_Torappu_ActMultiV3ReportData, clz_Torappu_ActMultiV3ReportDataT>(this.reportDataList.bind(this), this.reportDataListLength()),
+    this.bb!.createObjList<clz_Torappu_CommonReportPlayerData, clz_Torappu_CommonReportPlayerDataT>(this.reportDataList.bind(this), this.reportDataListLength()),
     this.bb!.createObjList<clz_Torappu_ActMultiV3TempCharData, clz_Torappu_ActMultiV3TempCharDataT>(this.tempCharDataList.bind(this), this.tempCharDataListLength()),
     (this.constToastData() !== null ? this.constToastData()!.unpack() : null),
     (this.constData() !== null ? this.constData()!.unpack() : null),
@@ -726,7 +726,7 @@ unpackTo(_o: clz_Torappu_ActMultiV3DataT): void {
   _o.diffStarRewardDict = this.bb!.createObjList<dict__string__clz_Torappu_ActMultiV3DiffStarRewardData, dict__string__clz_Torappu_ActMultiV3DiffStarRewardDataT>(this.diffStarRewardDict.bind(this), this.diffStarRewardDictLength());
   _o.milestoneList = this.bb!.createObjList<clz_Torappu_ActMultiV3MilestoneData, clz_Torappu_ActMultiV3MilestoneDataT>(this.milestoneList.bind(this), this.milestoneListLength());
   _o.tipsDataList = this.bb!.createObjList<clz_Torappu_ActMultiV3TipsData, clz_Torappu_ActMultiV3TipsDataT>(this.tipsDataList.bind(this), this.tipsDataListLength());
-  _o.reportDataList = this.bb!.createObjList<clz_Torappu_ActMultiV3ReportData, clz_Torappu_ActMultiV3ReportDataT>(this.reportDataList.bind(this), this.reportDataListLength());
+  _o.reportDataList = this.bb!.createObjList<clz_Torappu_CommonReportPlayerData, clz_Torappu_CommonReportPlayerDataT>(this.reportDataList.bind(this), this.reportDataListLength());
   _o.tempCharDataList = this.bb!.createObjList<clz_Torappu_ActMultiV3TempCharData, clz_Torappu_ActMultiV3TempCharDataT>(this.tempCharDataList.bind(this), this.tempCharDataListLength());
   _o.constToastData = (this.constToastData() !== null ? this.constToastData()!.unpack() : null);
   _o.constData = (this.constData() !== null ? this.constData()!.unpack() : null);
@@ -756,7 +756,7 @@ constructor(
   public diffStarRewardDict: (dict__string__clz_Torappu_ActMultiV3DiffStarRewardDataT)[] = [],
   public milestoneList: (clz_Torappu_ActMultiV3MilestoneDataT)[] = [],
   public tipsDataList: (clz_Torappu_ActMultiV3TipsDataT)[] = [],
-  public reportDataList: (clz_Torappu_ActMultiV3ReportDataT)[] = [],
+  public reportDataList: (clz_Torappu_CommonReportPlayerDataT)[] = [],
   public tempCharDataList: (clz_Torappu_ActMultiV3TempCharDataT)[] = [],
   public constToastData: clz_Torappu_ActMultiV3ConstToastDataT|null = null,
   public constData: clz_Torappu_ActMultiV3ConstDataT|null = null,

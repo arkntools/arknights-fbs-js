@@ -279,280 +279,273 @@ reportMaxNum():number {
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-reportText():string|null
-reportText(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-reportText(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 86);
-  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
-}
-
 reward1Id():string|null
 reward1Id(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 reward1Id(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 88);
+  const offset = this.bb!.__offset(this.bb_pos, 86);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 reward1Text():string|null
 reward1Text(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 reward1Text(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 90);
+  const offset = this.bb!.__offset(this.bb_pos, 88);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 reward2Id():string|null
 reward2Id(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 reward2Id(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 92);
+  const offset = this.bb!.__offset(this.bb_pos, 90);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 reward2Text():string|null
 reward2Text(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 reward2Text(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 94);
+  const offset = this.bb!.__offset(this.bb_pos, 92);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 maxRetryTimeInTeamRoom():number {
-  const offset = this.bb!.__offset(this.bb_pos, 96);
+  const offset = this.bb!.__offset(this.bb_pos, 94);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 maxRetryTimeInMatchRoom():number {
-  const offset = this.bb!.__offset(this.bb_pos, 98);
+  const offset = this.bb!.__offset(this.bb_pos, 96);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 maxRetryTimeInBattle():number {
-  const offset = this.bb!.__offset(this.bb_pos, 100);
+  const offset = this.bb!.__offset(this.bb_pos, 98);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 maxOperatorDelay():number {
-  const offset = this.bb!.__offset(this.bb_pos, 102);
+  const offset = this.bb!.__offset(this.bb_pos, 100);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
 maxPlaySpeed():number {
-  const offset = this.bb!.__offset(this.bb_pos, 104);
+  const offset = this.bb!.__offset(this.bb_pos, 102);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 delayTimeNeedTip():number {
-  const offset = this.bb!.__offset(this.bb_pos, 106);
+  const offset = this.bb!.__offset(this.bb_pos, 104);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 settleRetryTime():number {
-  const offset = this.bb!.__offset(this.bb_pos, 108);
+  const offset = this.bb!.__offset(this.bb_pos, 106);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 playerDisplayTimeMax():number {
-  const offset = this.bb!.__offset(this.bb_pos, 110);
+  const offset = this.bb!.__offset(this.bb_pos, 108);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 isMatchDefaultInverse():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 112);
+  const offset = this.bb!.__offset(this.bb_pos, 110);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 inverseUnlockCond(obj?:clz_Torappu_ActMultiV3InverseUnlockCond):clz_Torappu_ActMultiV3InverseUnlockCond|null {
-  const offset = this.bb!.__offset(this.bb_pos, 114);
+  const offset = this.bb!.__offset(this.bb_pos, 112);
   return offset ? (obj || new clz_Torappu_ActMultiV3InverseUnlockCond()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 inverseModeHint():string|null
 inverseModeHint(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 inverseModeHint(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 116);
+  const offset = this.bb!.__offset(this.bb_pos, 114);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 teamUnlockStageId():string|null
 teamUnlockStageId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 teamUnlockStageId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 118);
+  const offset = this.bb!.__offset(this.bb_pos, 116);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 teamUnlockParam():number {
-  const offset = this.bb!.__offset(this.bb_pos, 120);
+  const offset = this.bb!.__offset(this.bb_pos, 118);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 trainPartnerCharId():string|null
 trainPartnerCharId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 trainPartnerCharId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 122);
+  const offset = this.bb!.__offset(this.bb_pos, 120);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 trainPartnerCharSkinId():string|null
 trainPartnerCharSkinId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 trainPartnerCharSkinId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 124);
+  const offset = this.bb!.__offset(this.bb_pos, 122);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 trainPartnerPlayerName():string|null
 trainPartnerPlayerName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 trainPartnerPlayerName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 126);
+  const offset = this.bb!.__offset(this.bb_pos, 124);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 trainPartnerPlayerLevel():number {
-  const offset = this.bb!.__offset(this.bb_pos, 128);
+  const offset = this.bb!.__offset(this.bb_pos, 126);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 trainPartnerBuffId():string|null
 trainPartnerBuffId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 trainPartnerBuffId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 130);
+  const offset = this.bb!.__offset(this.bb_pos, 128);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 trainPartnerAvatarGroupType():enum__Torappu_PlayerAvatarGroupType {
-  const offset = this.bb!.__offset(this.bb_pos, 132);
+  const offset = this.bb!.__offset(this.bb_pos, 130);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_PlayerAvatarGroupType.NONE;
 }
 
 trainPartnerAvatarId():string|null
 trainPartnerAvatarId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 trainPartnerAvatarId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 134);
+  const offset = this.bb!.__offset(this.bb_pos, 132);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 trainPartnerTitleList(index: number):string
 trainPartnerTitleList(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 trainPartnerTitleList(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 136);
+  const offset = this.bb!.__offset(this.bb_pos, 134);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 trainPartnerTitleListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 136);
+  const offset = this.bb!.__offset(this.bb_pos, 134);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 trainPartnerNameCardSkinId():string|null
 trainPartnerNameCardSkinId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 trainPartnerNameCardSkinId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 138);
+  const offset = this.bb!.__offset(this.bb_pos, 136);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 trainPartnerNameCardSkinTmpl():number {
-  const offset = this.bb!.__offset(this.bb_pos, 140);
+  const offset = this.bb!.__offset(this.bb_pos, 138);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 maxPhotoPerType():number {
-  const offset = this.bb!.__offset(this.bb_pos, 142);
+  const offset = this.bb!.__offset(this.bb_pos, 140);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 checkFriendStateTime():number {
-  const offset = this.bb!.__offset(this.bb_pos, 144);
+  const offset = this.bb!.__offset(this.bb_pos, 142);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 photoCharacterDefaultAct():string|null
 photoCharacterDefaultAct(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 photoCharacterDefaultAct(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 146);
+  const offset = this.bb!.__offset(this.bb_pos, 144);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 trainingStageConfirmDesc():string|null
 trainingStageConfirmDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 trainingStageConfirmDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 148);
+  const offset = this.bb!.__offset(this.bb_pos, 146);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 joinRoomLongTimeThreshold():number {
-  const offset = this.bb!.__offset(this.bb_pos, 150);
+  const offset = this.bb!.__offset(this.bb_pos, 148);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
 invitationSendCd():number {
-  const offset = this.bb!.__offset(this.bb_pos, 152);
+  const offset = this.bb!.__offset(this.bb_pos, 150);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 boatMapReachableSize():number {
-  const offset = this.bb!.__offset(this.bb_pos, 154);
+  const offset = this.bb!.__offset(this.bb_pos, 152);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 boatMapSizeMax():number {
-  const offset = this.bb!.__offset(this.bb_pos, 156);
+  const offset = this.bb!.__offset(this.bb_pos, 154);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 boatExitMapOffset():number {
-  const offset = this.bb!.__offset(this.bb_pos, 158);
+  const offset = this.bb!.__offset(this.bb_pos, 156);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 boatEnterTranOffset():number {
-  const offset = this.bb!.__offset(this.bb_pos, 160);
+  const offset = this.bb!.__offset(this.bb_pos, 158);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 boatCollisionLossSpeedFactor():number {
-  const offset = this.bb!.__offset(this.bb_pos, 162);
+  const offset = this.bb!.__offset(this.bb_pos, 160);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 boatAirFactor():number {
-  const offset = this.bb!.__offset(this.bb_pos, 164);
+  const offset = this.bb!.__offset(this.bb_pos, 162);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 boatFrictionFactor():number {
-  const offset = this.bb!.__offset(this.bb_pos, 166);
+  const offset = this.bb!.__offset(this.bb_pos, 164);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 boatForceInterval():number {
-  const offset = this.bb!.__offset(this.bb_pos, 168);
+  const offset = this.bb!.__offset(this.bb_pos, 166);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 boatExchangeDamageMax():number {
-  const offset = this.bb!.__offset(this.bb_pos, 170);
+  const offset = this.bb!.__offset(this.bb_pos, 168);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 boatExchangeDamageMin():number {
-  const offset = this.bb!.__offset(this.bb_pos, 172);
+  const offset = this.bb!.__offset(this.bb_pos, 170);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 boatExchangeForceMax():number {
-  const offset = this.bb!.__offset(this.bb_pos, 174);
+  const offset = this.bb!.__offset(this.bb_pos, 172);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 boatExchangeForceMin():number {
-  const offset = this.bb!.__offset(this.bb_pos, 176);
+  const offset = this.bb!.__offset(this.bb_pos, 174);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 waterSpeedFactor():number {
-  const offset = this.bb!.__offset(this.bb_pos, 178);
+  const offset = this.bb!.__offset(this.bb_pos, 176);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 static startclz_Torappu_ActMultiV3ConstData(builder:flatbuffers.Builder) {
-  builder.startObject(88);
+  builder.startObject(87);
 }
 
 static addMilestoneId(builder:flatbuffers.Builder, milestoneIdOffset:flatbuffers.Offset) {
@@ -743,108 +736,104 @@ static addReportMaxNum(builder:flatbuffers.Builder, reportMaxNum:number) {
   builder.addFieldInt32(40, reportMaxNum, 0);
 }
 
-static addReportText(builder:flatbuffers.Builder, reportTextOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(41, reportTextOffset, 0);
-}
-
 static addReward1Id(builder:flatbuffers.Builder, reward1IdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(42, reward1IdOffset, 0);
+  builder.addFieldOffset(41, reward1IdOffset, 0);
 }
 
 static addReward1Text(builder:flatbuffers.Builder, reward1TextOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(43, reward1TextOffset, 0);
+  builder.addFieldOffset(42, reward1TextOffset, 0);
 }
 
 static addReward2Id(builder:flatbuffers.Builder, reward2IdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(44, reward2IdOffset, 0);
+  builder.addFieldOffset(43, reward2IdOffset, 0);
 }
 
 static addReward2Text(builder:flatbuffers.Builder, reward2TextOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(45, reward2TextOffset, 0);
+  builder.addFieldOffset(44, reward2TextOffset, 0);
 }
 
 static addMaxRetryTimeInTeamRoom(builder:flatbuffers.Builder, maxRetryTimeInTeamRoom:number) {
-  builder.addFieldInt32(46, maxRetryTimeInTeamRoom, 0);
+  builder.addFieldInt32(45, maxRetryTimeInTeamRoom, 0);
 }
 
 static addMaxRetryTimeInMatchRoom(builder:flatbuffers.Builder, maxRetryTimeInMatchRoom:number) {
-  builder.addFieldInt32(47, maxRetryTimeInMatchRoom, 0);
+  builder.addFieldInt32(46, maxRetryTimeInMatchRoom, 0);
 }
 
 static addMaxRetryTimeInBattle(builder:flatbuffers.Builder, maxRetryTimeInBattle:number) {
-  builder.addFieldInt32(48, maxRetryTimeInBattle, 0);
+  builder.addFieldInt32(47, maxRetryTimeInBattle, 0);
 }
 
 static addMaxOperatorDelay(builder:flatbuffers.Builder, maxOperatorDelay:number) {
-  builder.addFieldFloat64(49, maxOperatorDelay, 0.0);
+  builder.addFieldFloat64(48, maxOperatorDelay, 0.0);
 }
 
 static addMaxPlaySpeed(builder:flatbuffers.Builder, maxPlaySpeed:number) {
-  builder.addFieldInt32(50, maxPlaySpeed, 0);
+  builder.addFieldInt32(49, maxPlaySpeed, 0);
 }
 
 static addDelayTimeNeedTip(builder:flatbuffers.Builder, delayTimeNeedTip:number) {
-  builder.addFieldInt32(51, delayTimeNeedTip, 0);
+  builder.addFieldInt32(50, delayTimeNeedTip, 0);
 }
 
 static addSettleRetryTime(builder:flatbuffers.Builder, settleRetryTime:number) {
-  builder.addFieldInt32(52, settleRetryTime, 0);
+  builder.addFieldInt32(51, settleRetryTime, 0);
 }
 
 static addPlayerDisplayTimeMax(builder:flatbuffers.Builder, playerDisplayTimeMax:number) {
-  builder.addFieldFloat32(53, playerDisplayTimeMax, 0.0);
+  builder.addFieldFloat32(52, playerDisplayTimeMax, 0.0);
 }
 
 static addIsMatchDefaultInverse(builder:flatbuffers.Builder, isMatchDefaultInverse:boolean) {
-  builder.addFieldInt8(54, +isMatchDefaultInverse, +false);
+  builder.addFieldInt8(53, +isMatchDefaultInverse, +false);
 }
 
 static addInverseUnlockCond(builder:flatbuffers.Builder, inverseUnlockCondOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(55, inverseUnlockCondOffset, 0);
+  builder.addFieldOffset(54, inverseUnlockCondOffset, 0);
 }
 
 static addInverseModeHint(builder:flatbuffers.Builder, inverseModeHintOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(56, inverseModeHintOffset, 0);
+  builder.addFieldOffset(55, inverseModeHintOffset, 0);
 }
 
 static addTeamUnlockStageId(builder:flatbuffers.Builder, teamUnlockStageIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(57, teamUnlockStageIdOffset, 0);
+  builder.addFieldOffset(56, teamUnlockStageIdOffset, 0);
 }
 
 static addTeamUnlockParam(builder:flatbuffers.Builder, teamUnlockParam:number) {
-  builder.addFieldInt32(58, teamUnlockParam, 0);
+  builder.addFieldInt32(57, teamUnlockParam, 0);
 }
 
 static addTrainPartnerCharId(builder:flatbuffers.Builder, trainPartnerCharIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(59, trainPartnerCharIdOffset, 0);
+  builder.addFieldOffset(58, trainPartnerCharIdOffset, 0);
 }
 
 static addTrainPartnerCharSkinId(builder:flatbuffers.Builder, trainPartnerCharSkinIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(60, trainPartnerCharSkinIdOffset, 0);
+  builder.addFieldOffset(59, trainPartnerCharSkinIdOffset, 0);
 }
 
 static addTrainPartnerPlayerName(builder:flatbuffers.Builder, trainPartnerPlayerNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(61, trainPartnerPlayerNameOffset, 0);
+  builder.addFieldOffset(60, trainPartnerPlayerNameOffset, 0);
 }
 
 static addTrainPartnerPlayerLevel(builder:flatbuffers.Builder, trainPartnerPlayerLevel:number) {
-  builder.addFieldInt32(62, trainPartnerPlayerLevel, 0);
+  builder.addFieldInt32(61, trainPartnerPlayerLevel, 0);
 }
 
 static addTrainPartnerBuffId(builder:flatbuffers.Builder, trainPartnerBuffIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(63, trainPartnerBuffIdOffset, 0);
+  builder.addFieldOffset(62, trainPartnerBuffIdOffset, 0);
 }
 
 static addTrainPartnerAvatarGroupType(builder:flatbuffers.Builder, trainPartnerAvatarGroupType:enum__Torappu_PlayerAvatarGroupType) {
-  builder.addFieldInt32(64, trainPartnerAvatarGroupType, enum__Torappu_PlayerAvatarGroupType.NONE);
+  builder.addFieldInt32(63, trainPartnerAvatarGroupType, enum__Torappu_PlayerAvatarGroupType.NONE);
 }
 
 static addTrainPartnerAvatarId(builder:flatbuffers.Builder, trainPartnerAvatarIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(65, trainPartnerAvatarIdOffset, 0);
+  builder.addFieldOffset(64, trainPartnerAvatarIdOffset, 0);
 }
 
 static addTrainPartnerTitleList(builder:flatbuffers.Builder, trainPartnerTitleListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(66, trainPartnerTitleListOffset, 0);
+  builder.addFieldOffset(65, trainPartnerTitleListOffset, 0);
 }
 
 static createTrainPartnerTitleListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -860,87 +849,87 @@ static startTrainPartnerTitleListVector(builder:flatbuffers.Builder, numElems:nu
 }
 
 static addTrainPartnerNameCardSkinId(builder:flatbuffers.Builder, trainPartnerNameCardSkinIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(67, trainPartnerNameCardSkinIdOffset, 0);
+  builder.addFieldOffset(66, trainPartnerNameCardSkinIdOffset, 0);
 }
 
 static addTrainPartnerNameCardSkinTmpl(builder:flatbuffers.Builder, trainPartnerNameCardSkinTmpl:number) {
-  builder.addFieldInt32(68, trainPartnerNameCardSkinTmpl, 0);
+  builder.addFieldInt32(67, trainPartnerNameCardSkinTmpl, 0);
 }
 
 static addMaxPhotoPerType(builder:flatbuffers.Builder, maxPhotoPerType:number) {
-  builder.addFieldInt32(69, maxPhotoPerType, 0);
+  builder.addFieldInt32(68, maxPhotoPerType, 0);
 }
 
 static addCheckFriendStateTime(builder:flatbuffers.Builder, checkFriendStateTime:number) {
-  builder.addFieldInt32(70, checkFriendStateTime, 0);
+  builder.addFieldInt32(69, checkFriendStateTime, 0);
 }
 
 static addPhotoCharacterDefaultAct(builder:flatbuffers.Builder, photoCharacterDefaultActOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(71, photoCharacterDefaultActOffset, 0);
+  builder.addFieldOffset(70, photoCharacterDefaultActOffset, 0);
 }
 
 static addTrainingStageConfirmDesc(builder:flatbuffers.Builder, trainingStageConfirmDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(72, trainingStageConfirmDescOffset, 0);
+  builder.addFieldOffset(71, trainingStageConfirmDescOffset, 0);
 }
 
 static addJoinRoomLongTimeThreshold(builder:flatbuffers.Builder, joinRoomLongTimeThreshold:number) {
-  builder.addFieldFloat64(73, joinRoomLongTimeThreshold, 0.0);
+  builder.addFieldFloat64(72, joinRoomLongTimeThreshold, 0.0);
 }
 
 static addInvitationSendCd(builder:flatbuffers.Builder, invitationSendCd:number) {
-  builder.addFieldInt32(74, invitationSendCd, 0);
+  builder.addFieldInt32(73, invitationSendCd, 0);
 }
 
 static addBoatMapReachableSize(builder:flatbuffers.Builder, boatMapReachableSize:number) {
-  builder.addFieldInt32(75, boatMapReachableSize, 0);
+  builder.addFieldInt32(74, boatMapReachableSize, 0);
 }
 
 static addBoatMapSizeMax(builder:flatbuffers.Builder, boatMapSizeMax:number) {
-  builder.addFieldInt32(76, boatMapSizeMax, 0);
+  builder.addFieldInt32(75, boatMapSizeMax, 0);
 }
 
 static addBoatExitMapOffset(builder:flatbuffers.Builder, boatExitMapOffset:number) {
-  builder.addFieldInt32(77, boatExitMapOffset, 0);
+  builder.addFieldInt32(76, boatExitMapOffset, 0);
 }
 
 static addBoatEnterTranOffset(builder:flatbuffers.Builder, boatEnterTranOffset:number) {
-  builder.addFieldInt32(78, boatEnterTranOffset, 0);
+  builder.addFieldInt32(77, boatEnterTranOffset, 0);
 }
 
 static addBoatCollisionLossSpeedFactor(builder:flatbuffers.Builder, boatCollisionLossSpeedFactor:number) {
-  builder.addFieldFloat32(79, boatCollisionLossSpeedFactor, 0.0);
+  builder.addFieldFloat32(78, boatCollisionLossSpeedFactor, 0.0);
 }
 
 static addBoatAirFactor(builder:flatbuffers.Builder, boatAirFactor:number) {
-  builder.addFieldFloat32(80, boatAirFactor, 0.0);
+  builder.addFieldFloat32(79, boatAirFactor, 0.0);
 }
 
 static addBoatFrictionFactor(builder:flatbuffers.Builder, boatFrictionFactor:number) {
-  builder.addFieldFloat32(81, boatFrictionFactor, 0.0);
+  builder.addFieldFloat32(80, boatFrictionFactor, 0.0);
 }
 
 static addBoatForceInterval(builder:flatbuffers.Builder, boatForceInterval:number) {
-  builder.addFieldFloat32(82, boatForceInterval, 0.0);
+  builder.addFieldFloat32(81, boatForceInterval, 0.0);
 }
 
 static addBoatExchangeDamageMax(builder:flatbuffers.Builder, boatExchangeDamageMax:number) {
-  builder.addFieldInt32(83, boatExchangeDamageMax, 0);
+  builder.addFieldInt32(82, boatExchangeDamageMax, 0);
 }
 
 static addBoatExchangeDamageMin(builder:flatbuffers.Builder, boatExchangeDamageMin:number) {
-  builder.addFieldInt32(84, boatExchangeDamageMin, 0);
+  builder.addFieldInt32(83, boatExchangeDamageMin, 0);
 }
 
 static addBoatExchangeForceMax(builder:flatbuffers.Builder, boatExchangeForceMax:number) {
-  builder.addFieldInt32(85, boatExchangeForceMax, 0);
+  builder.addFieldInt32(84, boatExchangeForceMax, 0);
 }
 
 static addBoatExchangeForceMin(builder:flatbuffers.Builder, boatExchangeForceMin:number) {
-  builder.addFieldInt32(86, boatExchangeForceMin, 0);
+  builder.addFieldInt32(85, boatExchangeForceMin, 0);
 }
 
 static addWaterSpeedFactor(builder:flatbuffers.Builder, waterSpeedFactor:number) {
-  builder.addFieldFloat32(87, waterSpeedFactor, 0.0);
+  builder.addFieldFloat32(86, waterSpeedFactor, 0.0);
 }
 
 static endclz_Torappu_ActMultiV3ConstData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -992,7 +981,6 @@ unpack(): clz_Torappu_ActMultiV3ConstDataT {
     this.footballGreatVoiceNum(),
     this.defenceGreatVoiceWave(),
     this.reportMaxNum(),
-    this.reportText(),
     this.reward1Id(),
     this.reward1Text(),
     this.reward2Id(),
@@ -1085,7 +1073,6 @@ unpackTo(_o: clz_Torappu_ActMultiV3ConstDataT): void {
   _o.footballGreatVoiceNum = this.footballGreatVoiceNum();
   _o.defenceGreatVoiceWave = this.defenceGreatVoiceWave();
   _o.reportMaxNum = this.reportMaxNum();
-  _o.reportText = this.reportText();
   _o.reward1Id = this.reward1Id();
   _o.reward1Text = this.reward1Text();
   _o.reward2Id = this.reward2Id();
@@ -1178,7 +1165,6 @@ constructor(
   public footballGreatVoiceNum: number = 0,
   public defenceGreatVoiceWave: number = 0,
   public reportMaxNum: number = 0,
-  public reportText: string|Uint8Array|null = null,
   public reward1Id: string|Uint8Array|null = null,
   public reward1Text: string|Uint8Array|null = null,
   public reward2Id: string|Uint8Array|null = null,
@@ -1249,7 +1235,6 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const dailyMissionRule = (this.dailyMissionRule !== null ? builder.createString(this.dailyMissionRule!) : 0);
   const missionDesc = (this.missionDesc !== null ? builder.createString(this.missionDesc!) : 0);
   const dailyMissionRewardItem = (this.dailyMissionRewardItem !== null ? this.dailyMissionRewardItem!.pack(builder) : 0);
-  const reportText = (this.reportText !== null ? builder.createString(this.reportText!) : 0);
   const reward1Id = (this.reward1Id !== null ? builder.createString(this.reward1Id!) : 0);
   const reward1Text = (this.reward1Text !== null ? builder.createString(this.reward1Text!) : 0);
   const reward2Id = (this.reward2Id !== null ? builder.createString(this.reward2Id!) : 0);
@@ -1309,7 +1294,6 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_ActMultiV3ConstData.addFootballGreatVoiceNum(builder, this.footballGreatVoiceNum);
   clz_Torappu_ActMultiV3ConstData.addDefenceGreatVoiceWave(builder, this.defenceGreatVoiceWave);
   clz_Torappu_ActMultiV3ConstData.addReportMaxNum(builder, this.reportMaxNum);
-  clz_Torappu_ActMultiV3ConstData.addReportText(builder, reportText);
   clz_Torappu_ActMultiV3ConstData.addReward1Id(builder, reward1Id);
   clz_Torappu_ActMultiV3ConstData.addReward1Text(builder, reward1Text);
   clz_Torappu_ActMultiV3ConstData.addReward2Id(builder, reward2Id);

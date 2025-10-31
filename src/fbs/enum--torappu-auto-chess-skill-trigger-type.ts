@@ -7,5 +7,12 @@ export enum enum__Torappu_AutoChessSkillTriggerType {
   ALWAYS = 1,
   SEARCH = 2,
   MLYSS_WTRMAN = 3,
-  MARCILS2 = 4
+  MARCILS2 = 4,
+  TRY_SEARCH_ENEMY_SKILL = 5,
+  TRY_SEARCH_ALLY_SKILL = 6,
+  CUSTOM_RANGE_SEARCH_ENEMY = 7,
+  CUSTOM_RANGE_SEARCH_ALLY = 8,
+  GDGLOW_SKILL_2 = 9,
+  ACT_DEFAULT = 10,
+  AUTO_STOP = 11
 }

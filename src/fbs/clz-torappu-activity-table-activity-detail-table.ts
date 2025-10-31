@@ -22,16 +22,17 @@ import { dict__string__clz_Torappu_Act42D0Data, dict__string__clz_Torappu_Act42D
 import { dict__string__clz_Torappu_Act42SideData, dict__string__clz_Torappu_Act42SideDataT } from './dict--string--clz-torappu-act42-side-data.js';
 import { dict__string__clz_Torappu_Act44SideData, dict__string__clz_Torappu_Act44SideDataT } from './dict--string--clz-torappu-act44-side-data.js';
 import { dict__string__clz_Torappu_Act45SideData, dict__string__clz_Torappu_Act45SideDataT } from './dict--string--clz-torappu-act45-side-data.js';
+import { dict__string__clz_Torappu_Act46SideData, dict__string__clz_Torappu_Act46SideDataT } from './dict--string--clz-torappu-act46-side-data.js';
 import { dict__string__clz_Torappu_Act4D0Data, dict__string__clz_Torappu_Act4D0DataT } from './dict--string--clz-torappu-act4-d0-data.js';
 import { dict__string__clz_Torappu_Act5D0Data, dict__string__clz_Torappu_Act5D0DataT } from './dict--string--clz-torappu-act5-d0-data.js';
 import { dict__string__clz_Torappu_Act5D1Data, dict__string__clz_Torappu_Act5D1DataT } from './dict--string--clz-torappu-act5-d1-data.js';
 import { dict__string__clz_Torappu_Act9D0Data, dict__string__clz_Torappu_Act9D0DataT } from './dict--string--clz-torappu-act9-d0-data.js';
 import { dict__string__clz_Torappu_ActArcadeData, dict__string__clz_Torappu_ActArcadeDataT } from './dict--string--clz-torappu-act-arcade-data.js';
+import { dict__string__clz_Torappu_ActAutoChessData, dict__string__clz_Torappu_ActAutoChessDataT } from './dict--string--clz-torappu-act-auto-chess-data.js';
 import { dict__string__clz_Torappu_ActMainSSData, dict__string__clz_Torappu_ActMainSSDataT } from './dict--string--clz-torappu-act-main-ssdata.js';
 import { dict__string__clz_Torappu_ActMultiV3Data, dict__string__clz_Torappu_ActMultiV3DataT } from './dict--string--clz-torappu-act-multi-v3-data.js';
 import { dict__string__clz_Torappu_ActRecruitOnlyData, dict__string__clz_Torappu_ActRecruitOnlyDataT } from './dict--string--clz-torappu-act-recruit-only-data.js';
 import { dict__string__clz_Torappu_ActVecBreakV2Data, dict__string__clz_Torappu_ActVecBreakV2DataT } from './dict--string--clz-torappu-act-vec-break-v2-data.js';
-import { dict__string__clz_Torappu_ActivityAutoChessVerify1Data, dict__string__clz_Torappu_ActivityAutoChessVerify1DataT } from './dict--string--clz-torappu-activity-auto-chess-verify1-data.js';
 import { dict__string__clz_Torappu_ActivityBossRushData, dict__string__clz_Torappu_ActivityBossRushDataT } from './dict--string--clz-torappu-activity-boss-rush-data.js';
 import { dict__string__clz_Torappu_ActivityCollectionData, dict__string__clz_Torappu_ActivityCollectionDataT } from './dict--string--clz-torappu-activity-collection-data.js';
 import { dict__string__clz_Torappu_ActivityEnemyDuelData, dict__string__clz_Torappu_ActivityEnemyDuelDataT } from './dict--string--clz-torappu-activity-enemy-duel-data.js';
@@ -397,108 +398,118 @@ typeAct38SideLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-autochessVerify1(index: number, obj?:dict__string__clz_Torappu_ActivityAutoChessVerify1Data):dict__string__clz_Torappu_ActivityAutoChessVerify1Data|null {
-  const offset = this.bb!.__offset(this.bb_pos, 70);
-  return offset ? (obj || new dict__string__clz_Torappu_ActivityAutoChessVerify1Data()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
-}
-
-autochessVerify1Length():number {
-  const offset = this.bb!.__offset(this.bb_pos, 70);
-  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
-}
-
 arcade(index: number, obj?:dict__string__clz_Torappu_ActArcadeData):dict__string__clz_Torappu_ActArcadeData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 72);
+  const offset = this.bb!.__offset(this.bb_pos, 70);
   return offset ? (obj || new dict__string__clz_Torappu_ActArcadeData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 arcadeLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 72);
+  const offset = this.bb!.__offset(this.bb_pos, 70);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 multiplayV3(index: number, obj?:dict__string__clz_Torappu_ActMultiV3Data):dict__string__clz_Torappu_ActMultiV3Data|null {
-  const offset = this.bb!.__offset(this.bb_pos, 74);
+  const offset = this.bb!.__offset(this.bb_pos, 72);
   return offset ? (obj || new dict__string__clz_Torappu_ActMultiV3Data()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 multiplayV3Length():number {
-  const offset = this.bb!.__offset(this.bb_pos, 74);
+  const offset = this.bb!.__offset(this.bb_pos, 72);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 typeMainss(index: number, obj?:dict__string__clz_Torappu_ActMainSSData):dict__string__clz_Torappu_ActMainSSData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 76);
+  const offset = this.bb!.__offset(this.bb_pos, 74);
   return offset ? (obj || new dict__string__clz_Torappu_ActMainSSData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 typeMainssLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 76);
+  const offset = this.bb!.__offset(this.bb_pos, 74);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 enemyDuel(index: number, obj?:dict__string__clz_Torappu_ActivityEnemyDuelData):dict__string__clz_Torappu_ActivityEnemyDuelData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 78);
+  const offset = this.bb!.__offset(this.bb_pos, 76);
   return offset ? (obj || new dict__string__clz_Torappu_ActivityEnemyDuelData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 enemyDuelLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 78);
+  const offset = this.bb!.__offset(this.bb_pos, 76);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 typeAct42Side(index: number, obj?:dict__string__clz_Torappu_Act42SideData):dict__string__clz_Torappu_Act42SideData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 80);
+  const offset = this.bb!.__offset(this.bb_pos, 78);
   return offset ? (obj || new dict__string__clz_Torappu_Act42SideData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 typeAct42SideLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 80);
+  const offset = this.bb!.__offset(this.bb_pos, 78);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 typeAct44Side(index: number, obj?:dict__string__clz_Torappu_Act44SideData):dict__string__clz_Torappu_Act44SideData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 82);
+  const offset = this.bb!.__offset(this.bb_pos, 80);
   return offset ? (obj || new dict__string__clz_Torappu_Act44SideData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 typeAct44SideLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 82);
+  const offset = this.bb!.__offset(this.bb_pos, 80);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 halfidleVerify1(index: number, obj?:dict__string__clz_Torappu_Act1VHalfIdleData):dict__string__clz_Torappu_Act1VHalfIdleData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 84);
+  const offset = this.bb!.__offset(this.bb_pos, 82);
   return offset ? (obj || new dict__string__clz_Torappu_Act1VHalfIdleData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 halfidleVerify1Length():number {
-  const offset = this.bb!.__offset(this.bb_pos, 84);
+  const offset = this.bb!.__offset(this.bb_pos, 82);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 typeAct45Side(index: number, obj?:dict__string__clz_Torappu_Act45SideData):dict__string__clz_Torappu_Act45SideData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 86);
+  const offset = this.bb!.__offset(this.bb_pos, 84);
   return offset ? (obj || new dict__string__clz_Torappu_Act45SideData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 typeAct45SideLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 86);
+  const offset = this.bb!.__offset(this.bb_pos, 84);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 recruitOnly(index: number, obj?:dict__string__clz_Torappu_ActRecruitOnlyData):dict__string__clz_Torappu_ActRecruitOnlyData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 88);
+  const offset = this.bb!.__offset(this.bb_pos, 86);
   return offset ? (obj || new dict__string__clz_Torappu_ActRecruitOnlyData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 recruitOnlyLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 86);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+typeAct46Side(index: number, obj?:dict__string__clz_Torappu_Act46SideData):dict__string__clz_Torappu_Act46SideData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 88);
+  return offset ? (obj || new dict__string__clz_Torappu_Act46SideData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+typeAct46SideLength():number {
   const offset = this.bb!.__offset(this.bb_pos, 88);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+autochessSeason(index: number, obj?:dict__string__clz_Torappu_ActAutoChessData):dict__string__clz_Torappu_ActAutoChessData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 90);
+  return offset ? (obj || new dict__string__clz_Torappu_ActAutoChessData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+autochessSeasonLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 90);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_ActivityTable_ActivityDetailTable(builder:flatbuffers.Builder) {
-  builder.startObject(43);
+  builder.startObject(44);
 }
 
 static addDefault(builder:flatbuffers.Builder, default_Offset:flatbuffers.Offset) {
@@ -1029,24 +1040,8 @@ static startTypeAct38SideVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
-static addAutochessVerify1(builder:flatbuffers.Builder, autochessVerify1Offset:flatbuffers.Offset) {
-  builder.addFieldOffset(33, autochessVerify1Offset, 0);
-}
-
-static createAutochessVerify1Vector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
-  builder.startVector(4, data.length, 4);
-  for (let i = data.length - 1; i >= 0; i--) {
-    builder.addOffset(data[i]!);
-  }
-  return builder.endVector();
-}
-
-static startAutochessVerify1Vector(builder:flatbuffers.Builder, numElems:number) {
-  builder.startVector(4, numElems, 4);
-}
-
 static addArcade(builder:flatbuffers.Builder, arcadeOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(34, arcadeOffset, 0);
+  builder.addFieldOffset(33, arcadeOffset, 0);
 }
 
 static createArcadeVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1062,7 +1057,7 @@ static startArcadeVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addMultiplayV3(builder:flatbuffers.Builder, multiplayV3Offset:flatbuffers.Offset) {
-  builder.addFieldOffset(35, multiplayV3Offset, 0);
+  builder.addFieldOffset(34, multiplayV3Offset, 0);
 }
 
 static createMultiplayV3Vector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1078,7 +1073,7 @@ static startMultiplayV3Vector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addTypeMainss(builder:flatbuffers.Builder, typeMainssOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(36, typeMainssOffset, 0);
+  builder.addFieldOffset(35, typeMainssOffset, 0);
 }
 
 static createTypeMainssVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1094,7 +1089,7 @@ static startTypeMainssVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addEnemyDuel(builder:flatbuffers.Builder, enemyDuelOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(37, enemyDuelOffset, 0);
+  builder.addFieldOffset(36, enemyDuelOffset, 0);
 }
 
 static createEnemyDuelVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1110,7 +1105,7 @@ static startEnemyDuelVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addTypeAct42Side(builder:flatbuffers.Builder, typeAct42SideOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(38, typeAct42SideOffset, 0);
+  builder.addFieldOffset(37, typeAct42SideOffset, 0);
 }
 
 static createTypeAct42SideVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1126,7 +1121,7 @@ static startTypeAct42SideVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addTypeAct44Side(builder:flatbuffers.Builder, typeAct44SideOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(39, typeAct44SideOffset, 0);
+  builder.addFieldOffset(38, typeAct44SideOffset, 0);
 }
 
 static createTypeAct44SideVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1142,7 +1137,7 @@ static startTypeAct44SideVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addHalfidleVerify1(builder:flatbuffers.Builder, halfidleVerify1Offset:flatbuffers.Offset) {
-  builder.addFieldOffset(40, halfidleVerify1Offset, 0);
+  builder.addFieldOffset(39, halfidleVerify1Offset, 0);
 }
 
 static createHalfidleVerify1Vector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1158,7 +1153,7 @@ static startHalfidleVerify1Vector(builder:flatbuffers.Builder, numElems:number) 
 }
 
 static addTypeAct45Side(builder:flatbuffers.Builder, typeAct45SideOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(41, typeAct45SideOffset, 0);
+  builder.addFieldOffset(40, typeAct45SideOffset, 0);
 }
 
 static createTypeAct45SideVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1174,7 +1169,7 @@ static startTypeAct45SideVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addRecruitOnly(builder:flatbuffers.Builder, recruitOnlyOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(42, recruitOnlyOffset, 0);
+  builder.addFieldOffset(41, recruitOnlyOffset, 0);
 }
 
 static createRecruitOnlyVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1189,12 +1184,44 @@ static startRecruitOnlyVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
+static addTypeAct46Side(builder:flatbuffers.Builder, typeAct46SideOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(42, typeAct46SideOffset, 0);
+}
+
+static createTypeAct46SideVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startTypeAct46SideVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addAutochessSeason(builder:flatbuffers.Builder, autochessSeasonOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(43, autochessSeasonOffset, 0);
+}
+
+static createAutochessSeasonVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startAutochessSeasonVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static endclz_Torappu_ActivityTable_ActivityDetailTable(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_ActivityTable_ActivityDetailTable(builder:flatbuffers.Builder, default_Offset:flatbuffers.Offset, checkinOnlyOffset:flatbuffers.Offset, checkinAllPlayerOffset:flatbuffers.Offset, checkinVsOffset:flatbuffers.Offset, typeAct3D0Offset:flatbuffers.Offset, typeAct4D0Offset:flatbuffers.Offset, typeAct5D0Offset:flatbuffers.Offset, typeAct5D1Offset:flatbuffers.Offset, collectionOffset:flatbuffers.Offset, typeAct9D0Offset:flatbuffers.Offset, typeAct12SideOffset:flatbuffers.Offset, typeAct13SideOffset:flatbuffers.Offset, typeAct17SideOffset:flatbuffers.Offset, typeAct20SideOffset:flatbuffers.Offset, typeAct21SideOffset:flatbuffers.Offset, loginOnlyOffset:flatbuffers.Offset, switchOnlyOffset:flatbuffers.Offset, ministoryOffset:flatbuffers.Offset, roguelikeOffset:flatbuffers.Offset, interlockOffset:flatbuffers.Offset, bossRushOffset:flatbuffers.Offset, floatParadeOffset:flatbuffers.Offset, mainBuffOffset:flatbuffers.Offset, typeAct24SideOffset:flatbuffers.Offset, typeAct25SideOffset:flatbuffers.Offset, typeAct27SideOffset:flatbuffers.Offset, typeAct42D0Offset:flatbuffers.Offset, typeAct29SideOffset:flatbuffers.Offset, year5GeneralOffset:flatbuffers.Offset, typeAct35SideOffset:flatbuffers.Offset, vecBreakV2Offset:flatbuffers.Offset, typeAct36SideOffset:flatbuffers.Offset, typeAct38SideOffset:flatbuffers.Offset, autochessVerify1Offset:flatbuffers.Offset, arcadeOffset:flatbuffers.Offset, multiplayV3Offset:flatbuffers.Offset, typeMainssOffset:flatbuffers.Offset, enemyDuelOffset:flatbuffers.Offset, typeAct42SideOffset:flatbuffers.Offset, typeAct44SideOffset:flatbuffers.Offset, halfidleVerify1Offset:flatbuffers.Offset, typeAct45SideOffset:flatbuffers.Offset, recruitOnlyOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_ActivityTable_ActivityDetailTable(builder:flatbuffers.Builder, default_Offset:flatbuffers.Offset, checkinOnlyOffset:flatbuffers.Offset, checkinAllPlayerOffset:flatbuffers.Offset, checkinVsOffset:flatbuffers.Offset, typeAct3D0Offset:flatbuffers.Offset, typeAct4D0Offset:flatbuffers.Offset, typeAct5D0Offset:flatbuffers.Offset, typeAct5D1Offset:flatbuffers.Offset, collectionOffset:flatbuffers.Offset, typeAct9D0Offset:flatbuffers.Offset, typeAct12SideOffset:flatbuffers.Offset, typeAct13SideOffset:flatbuffers.Offset, typeAct17SideOffset:flatbuffers.Offset, typeAct20SideOffset:flatbuffers.Offset, typeAct21SideOffset:flatbuffers.Offset, loginOnlyOffset:flatbuffers.Offset, switchOnlyOffset:flatbuffers.Offset, ministoryOffset:flatbuffers.Offset, roguelikeOffset:flatbuffers.Offset, interlockOffset:flatbuffers.Offset, bossRushOffset:flatbuffers.Offset, floatParadeOffset:flatbuffers.Offset, mainBuffOffset:flatbuffers.Offset, typeAct24SideOffset:flatbuffers.Offset, typeAct25SideOffset:flatbuffers.Offset, typeAct27SideOffset:flatbuffers.Offset, typeAct42D0Offset:flatbuffers.Offset, typeAct29SideOffset:flatbuffers.Offset, year5GeneralOffset:flatbuffers.Offset, typeAct35SideOffset:flatbuffers.Offset, vecBreakV2Offset:flatbuffers.Offset, typeAct36SideOffset:flatbuffers.Offset, typeAct38SideOffset:flatbuffers.Offset, arcadeOffset:flatbuffers.Offset, multiplayV3Offset:flatbuffers.Offset, typeMainssOffset:flatbuffers.Offset, enemyDuelOffset:flatbuffers.Offset, typeAct42SideOffset:flatbuffers.Offset, typeAct44SideOffset:flatbuffers.Offset, halfidleVerify1Offset:flatbuffers.Offset, typeAct45SideOffset:flatbuffers.Offset, recruitOnlyOffset:flatbuffers.Offset, typeAct46SideOffset:flatbuffers.Offset, autochessSeasonOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_ActivityTable_ActivityDetailTable.startclz_Torappu_ActivityTable_ActivityDetailTable(builder);
   clz_Torappu_ActivityTable_ActivityDetailTable.addDefault(builder, default_Offset);
   clz_Torappu_ActivityTable_ActivityDetailTable.addCheckinOnly(builder, checkinOnlyOffset);
@@ -1229,7 +1256,6 @@ static createclz_Torappu_ActivityTable_ActivityDetailTable(builder:flatbuffers.B
   clz_Torappu_ActivityTable_ActivityDetailTable.addVecBreakV2(builder, vecBreakV2Offset);
   clz_Torappu_ActivityTable_ActivityDetailTable.addTypeAct36Side(builder, typeAct36SideOffset);
   clz_Torappu_ActivityTable_ActivityDetailTable.addTypeAct38Side(builder, typeAct38SideOffset);
-  clz_Torappu_ActivityTable_ActivityDetailTable.addAutochessVerify1(builder, autochessVerify1Offset);
   clz_Torappu_ActivityTable_ActivityDetailTable.addArcade(builder, arcadeOffset);
   clz_Torappu_ActivityTable_ActivityDetailTable.addMultiplayV3(builder, multiplayV3Offset);
   clz_Torappu_ActivityTable_ActivityDetailTable.addTypeMainss(builder, typeMainssOffset);
@@ -1239,6 +1265,8 @@ static createclz_Torappu_ActivityTable_ActivityDetailTable(builder:flatbuffers.B
   clz_Torappu_ActivityTable_ActivityDetailTable.addHalfidleVerify1(builder, halfidleVerify1Offset);
   clz_Torappu_ActivityTable_ActivityDetailTable.addTypeAct45Side(builder, typeAct45SideOffset);
   clz_Torappu_ActivityTable_ActivityDetailTable.addRecruitOnly(builder, recruitOnlyOffset);
+  clz_Torappu_ActivityTable_ActivityDetailTable.addTypeAct46Side(builder, typeAct46SideOffset);
+  clz_Torappu_ActivityTable_ActivityDetailTable.addAutochessSeason(builder, autochessSeasonOffset);
   return clz_Torappu_ActivityTable_ActivityDetailTable.endclz_Torappu_ActivityTable_ActivityDetailTable(builder);
 }
 
@@ -1277,7 +1305,6 @@ unpack(): clz_Torappu_ActivityTable_ActivityDetailTableT {
     this.bb!.createObjList<dict__string__clz_Torappu_ActVecBreakV2Data, dict__string__clz_Torappu_ActVecBreakV2DataT>(this.vecBreakV2.bind(this), this.vecBreakV2Length()),
     this.bb!.createObjList<dict__string__clz_Torappu_Act36SideData, dict__string__clz_Torappu_Act36SideDataT>(this.typeAct36Side.bind(this), this.typeAct36SideLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_Act38SideData, dict__string__clz_Torappu_Act38SideDataT>(this.typeAct38Side.bind(this), this.typeAct38SideLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_ActivityAutoChessVerify1Data, dict__string__clz_Torappu_ActivityAutoChessVerify1DataT>(this.autochessVerify1.bind(this), this.autochessVerify1Length()),
     this.bb!.createObjList<dict__string__clz_Torappu_ActArcadeData, dict__string__clz_Torappu_ActArcadeDataT>(this.arcade.bind(this), this.arcadeLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_ActMultiV3Data, dict__string__clz_Torappu_ActMultiV3DataT>(this.multiplayV3.bind(this), this.multiplayV3Length()),
     this.bb!.createObjList<dict__string__clz_Torappu_ActMainSSData, dict__string__clz_Torappu_ActMainSSDataT>(this.typeMainss.bind(this), this.typeMainssLength()),
@@ -1286,7 +1313,9 @@ unpack(): clz_Torappu_ActivityTable_ActivityDetailTableT {
     this.bb!.createObjList<dict__string__clz_Torappu_Act44SideData, dict__string__clz_Torappu_Act44SideDataT>(this.typeAct44Side.bind(this), this.typeAct44SideLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_Act1VHalfIdleData, dict__string__clz_Torappu_Act1VHalfIdleDataT>(this.halfidleVerify1.bind(this), this.halfidleVerify1Length()),
     this.bb!.createObjList<dict__string__clz_Torappu_Act45SideData, dict__string__clz_Torappu_Act45SideDataT>(this.typeAct45Side.bind(this), this.typeAct45SideLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_ActRecruitOnlyData, dict__string__clz_Torappu_ActRecruitOnlyDataT>(this.recruitOnly.bind(this), this.recruitOnlyLength())
+    this.bb!.createObjList<dict__string__clz_Torappu_ActRecruitOnlyData, dict__string__clz_Torappu_ActRecruitOnlyDataT>(this.recruitOnly.bind(this), this.recruitOnlyLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_Act46SideData, dict__string__clz_Torappu_Act46SideDataT>(this.typeAct46Side.bind(this), this.typeAct46SideLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_ActAutoChessData, dict__string__clz_Torappu_ActAutoChessDataT>(this.autochessSeason.bind(this), this.autochessSeasonLength())
   );
 }
 
@@ -1325,7 +1354,6 @@ unpackTo(_o: clz_Torappu_ActivityTable_ActivityDetailTableT): void {
   _o.vecBreakV2 = this.bb!.createObjList<dict__string__clz_Torappu_ActVecBreakV2Data, dict__string__clz_Torappu_ActVecBreakV2DataT>(this.vecBreakV2.bind(this), this.vecBreakV2Length());
   _o.typeAct36Side = this.bb!.createObjList<dict__string__clz_Torappu_Act36SideData, dict__string__clz_Torappu_Act36SideDataT>(this.typeAct36Side.bind(this), this.typeAct36SideLength());
   _o.typeAct38Side = this.bb!.createObjList<dict__string__clz_Torappu_Act38SideData, dict__string__clz_Torappu_Act38SideDataT>(this.typeAct38Side.bind(this), this.typeAct38SideLength());
-  _o.autochessVerify1 = this.bb!.createObjList<dict__string__clz_Torappu_ActivityAutoChessVerify1Data, dict__string__clz_Torappu_ActivityAutoChessVerify1DataT>(this.autochessVerify1.bind(this), this.autochessVerify1Length());
   _o.arcade = this.bb!.createObjList<dict__string__clz_Torappu_ActArcadeData, dict__string__clz_Torappu_ActArcadeDataT>(this.arcade.bind(this), this.arcadeLength());
   _o.multiplayV3 = this.bb!.createObjList<dict__string__clz_Torappu_ActMultiV3Data, dict__string__clz_Torappu_ActMultiV3DataT>(this.multiplayV3.bind(this), this.multiplayV3Length());
   _o.typeMainss = this.bb!.createObjList<dict__string__clz_Torappu_ActMainSSData, dict__string__clz_Torappu_ActMainSSDataT>(this.typeMainss.bind(this), this.typeMainssLength());
@@ -1335,6 +1363,8 @@ unpackTo(_o: clz_Torappu_ActivityTable_ActivityDetailTableT): void {
   _o.halfidleVerify1 = this.bb!.createObjList<dict__string__clz_Torappu_Act1VHalfIdleData, dict__string__clz_Torappu_Act1VHalfIdleDataT>(this.halfidleVerify1.bind(this), this.halfidleVerify1Length());
   _o.typeAct45Side = this.bb!.createObjList<dict__string__clz_Torappu_Act45SideData, dict__string__clz_Torappu_Act45SideDataT>(this.typeAct45Side.bind(this), this.typeAct45SideLength());
   _o.recruitOnly = this.bb!.createObjList<dict__string__clz_Torappu_ActRecruitOnlyData, dict__string__clz_Torappu_ActRecruitOnlyDataT>(this.recruitOnly.bind(this), this.recruitOnlyLength());
+  _o.typeAct46Side = this.bb!.createObjList<dict__string__clz_Torappu_Act46SideData, dict__string__clz_Torappu_Act46SideDataT>(this.typeAct46Side.bind(this), this.typeAct46SideLength());
+  _o.autochessSeason = this.bb!.createObjList<dict__string__clz_Torappu_ActAutoChessData, dict__string__clz_Torappu_ActAutoChessDataT>(this.autochessSeason.bind(this), this.autochessSeasonLength());
 }
 }
 
@@ -1373,7 +1403,6 @@ constructor(
   public vecBreakV2: (dict__string__clz_Torappu_ActVecBreakV2DataT)[] = [],
   public typeAct36Side: (dict__string__clz_Torappu_Act36SideDataT)[] = [],
   public typeAct38Side: (dict__string__clz_Torappu_Act38SideDataT)[] = [],
-  public autochessVerify1: (dict__string__clz_Torappu_ActivityAutoChessVerify1DataT)[] = [],
   public arcade: (dict__string__clz_Torappu_ActArcadeDataT)[] = [],
   public multiplayV3: (dict__string__clz_Torappu_ActMultiV3DataT)[] = [],
   public typeMainss: (dict__string__clz_Torappu_ActMainSSDataT)[] = [],
@@ -1382,7 +1411,9 @@ constructor(
   public typeAct44Side: (dict__string__clz_Torappu_Act44SideDataT)[] = [],
   public halfidleVerify1: (dict__string__clz_Torappu_Act1VHalfIdleDataT)[] = [],
   public typeAct45Side: (dict__string__clz_Torappu_Act45SideDataT)[] = [],
-  public recruitOnly: (dict__string__clz_Torappu_ActRecruitOnlyDataT)[] = []
+  public recruitOnly: (dict__string__clz_Torappu_ActRecruitOnlyDataT)[] = [],
+  public typeAct46Side: (dict__string__clz_Torappu_Act46SideDataT)[] = [],
+  public autochessSeason: (dict__string__clz_Torappu_ActAutoChessDataT)[] = []
 ){}
 
 
@@ -1420,7 +1451,6 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const vecBreakV2 = clz_Torappu_ActivityTable_ActivityDetailTable.createVecBreakV2Vector(builder, builder.createObjectOffsetList(this.vecBreakV2));
   const typeAct36Side = clz_Torappu_ActivityTable_ActivityDetailTable.createTypeAct36SideVector(builder, builder.createObjectOffsetList(this.typeAct36Side));
   const typeAct38Side = clz_Torappu_ActivityTable_ActivityDetailTable.createTypeAct38SideVector(builder, builder.createObjectOffsetList(this.typeAct38Side));
-  const autochessVerify1 = clz_Torappu_ActivityTable_ActivityDetailTable.createAutochessVerify1Vector(builder, builder.createObjectOffsetList(this.autochessVerify1));
   const arcade = clz_Torappu_ActivityTable_ActivityDetailTable.createArcadeVector(builder, builder.createObjectOffsetList(this.arcade));
   const multiplayV3 = clz_Torappu_ActivityTable_ActivityDetailTable.createMultiplayV3Vector(builder, builder.createObjectOffsetList(this.multiplayV3));
   const typeMainss = clz_Torappu_ActivityTable_ActivityDetailTable.createTypeMainssVector(builder, builder.createObjectOffsetList(this.typeMainss));
@@ -1430,6 +1460,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const halfidleVerify1 = clz_Torappu_ActivityTable_ActivityDetailTable.createHalfidleVerify1Vector(builder, builder.createObjectOffsetList(this.halfidleVerify1));
   const typeAct45Side = clz_Torappu_ActivityTable_ActivityDetailTable.createTypeAct45SideVector(builder, builder.createObjectOffsetList(this.typeAct45Side));
   const recruitOnly = clz_Torappu_ActivityTable_ActivityDetailTable.createRecruitOnlyVector(builder, builder.createObjectOffsetList(this.recruitOnly));
+  const typeAct46Side = clz_Torappu_ActivityTable_ActivityDetailTable.createTypeAct46SideVector(builder, builder.createObjectOffsetList(this.typeAct46Side));
+  const autochessSeason = clz_Torappu_ActivityTable_ActivityDetailTable.createAutochessSeasonVector(builder, builder.createObjectOffsetList(this.autochessSeason));
 
   return clz_Torappu_ActivityTable_ActivityDetailTable.createclz_Torappu_ActivityTable_ActivityDetailTable(builder,
     default_,
@@ -1465,7 +1497,6 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     vecBreakV2,
     typeAct36Side,
     typeAct38Side,
-    autochessVerify1,
     arcade,
     multiplayV3,
     typeMainss,
@@ -1474,7 +1505,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     typeAct44Side,
     halfidleVerify1,
     typeAct45Side,
-    recruitOnly
+    recruitOnly,
+    typeAct46Side,
+    autochessSeason
   );
 }
 }

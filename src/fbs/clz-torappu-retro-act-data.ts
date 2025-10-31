@@ -89,8 +89,15 @@ customActType():enum__Torappu_ActivityType {
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_ActivityType.DEFAULT;
 }
 
+trapDomainId():string|null
+trapDomainId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+trapDomainId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 24);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 static startclz_Torappu_RetroActData(builder:flatbuffers.Builder) {
-  builder.startObject(10);
+  builder.startObject(11);
 }
 
 static addRetroId(builder:flatbuffers.Builder, retroIdOffset:flatbuffers.Offset) {
@@ -145,12 +152,16 @@ static addCustomActType(builder:flatbuffers.Builder, customActType:enum__Torappu
   builder.addFieldInt32(9, customActType, enum__Torappu_ActivityType.DEFAULT);
 }
 
+static addTrapDomainId(builder:flatbuffers.Builder, trapDomainIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(10, trapDomainIdOffset, 0);
+}
+
 static endclz_Torappu_RetroActData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_RetroActData(builder:flatbuffers.Builder, retroIdOffset:flatbuffers.Offset, type:enum__Torappu_RetroType, linkedActIdOffset:flatbuffers.Offset, startTime:bigint, trailStartTime:bigint, index:number, nameOffset:flatbuffers.Offset, haveTrail:boolean, customActIdOffset:flatbuffers.Offset, customActType:enum__Torappu_ActivityType):flatbuffers.Offset {
+static createclz_Torappu_RetroActData(builder:flatbuffers.Builder, retroIdOffset:flatbuffers.Offset, type:enum__Torappu_RetroType, linkedActIdOffset:flatbuffers.Offset, startTime:bigint, trailStartTime:bigint, index:number, nameOffset:flatbuffers.Offset, haveTrail:boolean, customActIdOffset:flatbuffers.Offset, customActType:enum__Torappu_ActivityType, trapDomainIdOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_RetroActData.startclz_Torappu_RetroActData(builder);
   clz_Torappu_RetroActData.addRetroId(builder, retroIdOffset);
   clz_Torappu_RetroActData.addType(builder, type);
@@ -162,6 +173,7 @@ static createclz_Torappu_RetroActData(builder:flatbuffers.Builder, retroIdOffset
   clz_Torappu_RetroActData.addHaveTrail(builder, haveTrail);
   clz_Torappu_RetroActData.addCustomActId(builder, customActIdOffset);
   clz_Torappu_RetroActData.addCustomActType(builder, customActType);
+  clz_Torappu_RetroActData.addTrapDomainId(builder, trapDomainIdOffset);
   return clz_Torappu_RetroActData.endclz_Torappu_RetroActData(builder);
 }
 
@@ -176,7 +188,8 @@ unpack(): clz_Torappu_RetroActDataT {
     this.name(),
     this.haveTrail(),
     this.customActId(),
-    this.customActType()
+    this.customActType(),
+    this.trapDomainId()
   );
 }
 
@@ -192,6 +205,7 @@ unpackTo(_o: clz_Torappu_RetroActDataT): void {
   _o.haveTrail = this.haveTrail();
   _o.customActId = this.customActId();
   _o.customActType = this.customActType();
+  _o.trapDomainId = this.trapDomainId();
 }
 }
 
@@ -206,7 +220,8 @@ constructor(
   public name: string|Uint8Array|null = null,
   public haveTrail: boolean = false,
   public customActId: string|Uint8Array|null = null,
-  public customActType: enum__Torappu_ActivityType = enum__Torappu_ActivityType.DEFAULT
+  public customActType: enum__Torappu_ActivityType = enum__Torappu_ActivityType.DEFAULT,
+  public trapDomainId: string|Uint8Array|null = null
 ){}
 
 
@@ -215,6 +230,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const linkedActId = clz_Torappu_RetroActData.createLinkedActIdVector(builder, builder.createObjectOffsetList(this.linkedActId));
   const name = (this.name !== null ? builder.createString(this.name!) : 0);
   const customActId = (this.customActId !== null ? builder.createString(this.customActId!) : 0);
+  const trapDomainId = (this.trapDomainId !== null ? builder.createString(this.trapDomainId!) : 0);
 
   return clz_Torappu_RetroActData.createclz_Torappu_RetroActData(builder,
     retroId,
@@ -226,7 +242,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     name,
     this.haveTrail,
     customActId,
-    this.customActType
+    this.customActType,
+    trapDomainId
   );
 }
 }
