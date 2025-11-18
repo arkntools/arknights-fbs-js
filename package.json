@@ -18,16 +18,16 @@
     "format": "prettier --write ./scripts"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^6.0.0",
-    "@tsuk1ko/eslint-config": "^1.1.1",
-    "@types/bun": "latest",
-    "es-toolkit": "^1.40.0",
-    "eslint": "^9.38.0",
+    "@antfu/eslint-config": "^6.2.0",
+    "@tsuk1ko/eslint-config": "^1.1.2",
+    "@types/bun": "^1.3.2",
+    "es-toolkit": "^1.42.0",
+    "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "flatbuffers": "^25.9.23",
     "jszip": "^3.10.1",
     "prettier": "^3.6.2",
-    "tsdown": "^0.15.8",
+    "tsdown": "^0.16.5",
     "typescript": "^5.9.3"
   },
   "author": "神代綺凛 <i@loli.best>",
