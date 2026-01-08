@@ -38,77 +38,82 @@ modeId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-round():number {
+guessTime():number {
   const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-enemyPredefined():boolean {
+round():number {
   const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+enemyPredefined():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 roundScore():number {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
+  const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 enemyScore():number {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
-  return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
-}
-
-enemyScoreRandom():number {
   const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
-enemySideMinLeft():number {
+enemyScoreRandom():number {
   const offset = this.bb!.__offset(this.bb_pos, 18);
-  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+  return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
-enemySideMaxLeft():number {
+enemySideMinLeft():number {
   const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-enemySideMinRight():number {
+enemySideMaxLeft():number {
   const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-enemySideMaxRight():number {
+enemySideMinRight():number {
   const offset = this.bb!.__offset(this.bb_pos, 24);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+enemySideMaxRight():number {
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 enemyPoolLeft():string|null
 enemyPoolLeft(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 enemyPoolLeft(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 enemyPoolRight():string|null
 enemyPoolRight(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 enemyPoolRight(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 28);
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 canSkip():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
-  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
-}
-
-canAllIn():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
+canAllIn():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 34);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
 static startclz_Torappu_ActivityEnemyDuelRoundData(builder:flatbuffers.Builder) {
-  builder.startObject(15);
+  builder.startObject(16);
 }
 
 static addRoundId(builder:flatbuffers.Builder, roundIdOffset:flatbuffers.Offset) {
@@ -119,56 +124,60 @@ static addModeId(builder:flatbuffers.Builder, modeIdOffset:flatbuffers.Offset) {
   builder.addFieldOffset(1, modeIdOffset, 0);
 }
 
+static addGuessTime(builder:flatbuffers.Builder, guessTime:number) {
+  builder.addFieldInt32(2, guessTime, 0);
+}
+
 static addRound(builder:flatbuffers.Builder, round:number) {
-  builder.addFieldInt32(2, round, 0);
+  builder.addFieldInt32(3, round, 0);
 }
 
 static addEnemyPredefined(builder:flatbuffers.Builder, enemyPredefined:boolean) {
-  builder.addFieldInt8(3, +enemyPredefined, +false);
+  builder.addFieldInt8(4, +enemyPredefined, +false);
 }
 
 static addRoundScore(builder:flatbuffers.Builder, roundScore:number) {
-  builder.addFieldInt32(4, roundScore, 0);
+  builder.addFieldInt32(5, roundScore, 0);
 }
 
 static addEnemyScore(builder:flatbuffers.Builder, enemyScore:number) {
-  builder.addFieldFloat32(5, enemyScore, 0.0);
+  builder.addFieldFloat32(6, enemyScore, 0.0);
 }
 
 static addEnemyScoreRandom(builder:flatbuffers.Builder, enemyScoreRandom:number) {
-  builder.addFieldFloat32(6, enemyScoreRandom, 0.0);
+  builder.addFieldFloat32(7, enemyScoreRandom, 0.0);
 }
 
 static addEnemySideMinLeft(builder:flatbuffers.Builder, enemySideMinLeft:number) {
-  builder.addFieldInt32(7, enemySideMinLeft, 0);
+  builder.addFieldInt32(8, enemySideMinLeft, 0);
 }
 
 static addEnemySideMaxLeft(builder:flatbuffers.Builder, enemySideMaxLeft:number) {
-  builder.addFieldInt32(8, enemySideMaxLeft, 0);
+  builder.addFieldInt32(9, enemySideMaxLeft, 0);
 }
 
 static addEnemySideMinRight(builder:flatbuffers.Builder, enemySideMinRight:number) {
-  builder.addFieldInt32(9, enemySideMinRight, 0);
+  builder.addFieldInt32(10, enemySideMinRight, 0);
 }
 
 static addEnemySideMaxRight(builder:flatbuffers.Builder, enemySideMaxRight:number) {
-  builder.addFieldInt32(10, enemySideMaxRight, 0);
+  builder.addFieldInt32(11, enemySideMaxRight, 0);
 }
 
 static addEnemyPoolLeft(builder:flatbuffers.Builder, enemyPoolLeftOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(11, enemyPoolLeftOffset, 0);
+  builder.addFieldOffset(12, enemyPoolLeftOffset, 0);
 }
 
 static addEnemyPoolRight(builder:flatbuffers.Builder, enemyPoolRightOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(12, enemyPoolRightOffset, 0);
+  builder.addFieldOffset(13, enemyPoolRightOffset, 0);
 }
 
 static addCanSkip(builder:flatbuffers.Builder, canSkip:boolean) {
-  builder.addFieldInt8(13, +canSkip, +false);
+  builder.addFieldInt8(14, +canSkip, +false);
 }
 
 static addCanAllIn(builder:flatbuffers.Builder, canAllIn:boolean) {
-  builder.addFieldInt8(14, +canAllIn, +false);
+  builder.addFieldInt8(15, +canAllIn, +false);
 }
 
 static endclz_Torappu_ActivityEnemyDuelRoundData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -176,10 +185,11 @@ static endclz_Torappu_ActivityEnemyDuelRoundData(builder:flatbuffers.Builder):fl
   return offset;
 }
 
-static createclz_Torappu_ActivityEnemyDuelRoundData(builder:flatbuffers.Builder, roundIdOffset:flatbuffers.Offset, modeIdOffset:flatbuffers.Offset, round:number, enemyPredefined:boolean, roundScore:number, enemyScore:number, enemyScoreRandom:number, enemySideMinLeft:number, enemySideMaxLeft:number, enemySideMinRight:number, enemySideMaxRight:number, enemyPoolLeftOffset:flatbuffers.Offset, enemyPoolRightOffset:flatbuffers.Offset, canSkip:boolean, canAllIn:boolean):flatbuffers.Offset {
+static createclz_Torappu_ActivityEnemyDuelRoundData(builder:flatbuffers.Builder, roundIdOffset:flatbuffers.Offset, modeIdOffset:flatbuffers.Offset, guessTime:number, round:number, enemyPredefined:boolean, roundScore:number, enemyScore:number, enemyScoreRandom:number, enemySideMinLeft:number, enemySideMaxLeft:number, enemySideMinRight:number, enemySideMaxRight:number, enemyPoolLeftOffset:flatbuffers.Offset, enemyPoolRightOffset:flatbuffers.Offset, canSkip:boolean, canAllIn:boolean):flatbuffers.Offset {
   clz_Torappu_ActivityEnemyDuelRoundData.startclz_Torappu_ActivityEnemyDuelRoundData(builder);
   clz_Torappu_ActivityEnemyDuelRoundData.addRoundId(builder, roundIdOffset);
   clz_Torappu_ActivityEnemyDuelRoundData.addModeId(builder, modeIdOffset);
+  clz_Torappu_ActivityEnemyDuelRoundData.addGuessTime(builder, guessTime);
   clz_Torappu_ActivityEnemyDuelRoundData.addRound(builder, round);
   clz_Torappu_ActivityEnemyDuelRoundData.addEnemyPredefined(builder, enemyPredefined);
   clz_Torappu_ActivityEnemyDuelRoundData.addRoundScore(builder, roundScore);
@@ -200,6 +210,7 @@ unpack(): clz_Torappu_ActivityEnemyDuelRoundDataT {
   return new clz_Torappu_ActivityEnemyDuelRoundDataT(
     this.roundId(),
     this.modeId(),
+    this.guessTime(),
     this.round(),
     this.enemyPredefined(),
     this.roundScore(),
@@ -220,6 +231,7 @@ unpack(): clz_Torappu_ActivityEnemyDuelRoundDataT {
 unpackTo(_o: clz_Torappu_ActivityEnemyDuelRoundDataT): void {
   _o.roundId = this.roundId();
   _o.modeId = this.modeId();
+  _o.guessTime = this.guessTime();
   _o.round = this.round();
   _o.enemyPredefined = this.enemyPredefined();
   _o.roundScore = this.roundScore();
@@ -240,6 +252,7 @@ export class clz_Torappu_ActivityEnemyDuelRoundDataT implements flatbuffers.IGen
 constructor(
   public roundId: string|Uint8Array|null = null,
   public modeId: string|Uint8Array|null = null,
+  public guessTime: number = 0,
   public round: number = 0,
   public enemyPredefined: boolean = false,
   public roundScore: number = 0,
@@ -265,6 +278,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   return clz_Torappu_ActivityEnemyDuelRoundData.createclz_Torappu_ActivityEnemyDuelRoundData(builder,
     roundId,
     modeId,
+    this.guessTime,
     this.round,
     this.enemyPredefined,
     this.roundScore,

@@ -7,6 +7,7 @@ import * as flatbuffers from 'flatbuffers';
 import { clz_Torappu_RoguelikeCopperModuleConsts, clz_Torappu_RoguelikeCopperModuleConstsT } from './clz-torappu-roguelike-copper-module-consts.js';
 import { dict__string__clz_Torappu_RoguelikeCopperData, dict__string__clz_Torappu_RoguelikeCopperDataT } from './dict--string--clz-torappu-roguelike-copper-data.js';
 import { dict__string__clz_Torappu_RoguelikeCopperDivineData, dict__string__clz_Torappu_RoguelikeCopperDivineDataT } from './dict--string--clz-torappu-roguelike-copper-divine-data.js';
+import { dict__string__clz_Torappu_RoguelikeCopperGildTypeData, dict__string__clz_Torappu_RoguelikeCopperGildTypeDataT } from './dict--string--clz-torappu-roguelike-copper-gild-type-data.js';
 import { dict__string__string, dict__string__stringT } from './dict--string--string.js';
 
 
@@ -48,23 +49,33 @@ copperDivineDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-changeCopperMap(index: number, obj?:dict__string__string):dict__string__string|null {
+copperGildTypeData(index: number, obj?:dict__string__clz_Torappu_RoguelikeCopperGildTypeData):dict__string__clz_Torappu_RoguelikeCopperGildTypeData|null {
   const offset = this.bb!.__offset(this.bb_pos, 8);
-  return offset ? (obj || new dict__string__string()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_RoguelikeCopperGildTypeData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
-changeCopperMapLength():number {
+copperGildTypeDataLength():number {
   const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-moduleConsts(obj?:clz_Torappu_RoguelikeCopperModuleConsts):clz_Torappu_RoguelikeCopperModuleConsts|null {
+changeCopperMap(index: number, obj?:dict__string__string):dict__string__string|null {
   const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? (obj || new dict__string__string()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+changeCopperMapLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+moduleConsts(obj?:clz_Torappu_RoguelikeCopperModuleConsts):clz_Torappu_RoguelikeCopperModuleConsts|null {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? (obj || new clz_Torappu_RoguelikeCopperModuleConsts()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 static startclz_Torappu_RoguelikeCopperModuleData(builder:flatbuffers.Builder) {
-  builder.startObject(4);
+  builder.startObject(5);
 }
 
 static addCopperData(builder:flatbuffers.Builder, copperDataOffset:flatbuffers.Offset) {
@@ -99,8 +110,24 @@ static startCopperDivineDataVector(builder:flatbuffers.Builder, numElems:number)
   builder.startVector(4, numElems, 4);
 }
 
+static addCopperGildTypeData(builder:flatbuffers.Builder, copperGildTypeDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(2, copperGildTypeDataOffset, 0);
+}
+
+static createCopperGildTypeDataVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startCopperGildTypeDataVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static addChangeCopperMap(builder:flatbuffers.Builder, changeCopperMapOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(2, changeCopperMapOffset, 0);
+  builder.addFieldOffset(3, changeCopperMapOffset, 0);
 }
 
 static createChangeCopperMapVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -116,7 +143,7 @@ static startChangeCopperMapVector(builder:flatbuffers.Builder, numElems:number) 
 }
 
 static addModuleConsts(builder:flatbuffers.Builder, moduleConstsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, moduleConstsOffset, 0);
+  builder.addFieldOffset(4, moduleConstsOffset, 0);
 }
 
 static endclz_Torappu_RoguelikeCopperModuleData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -129,6 +156,7 @@ unpack(): clz_Torappu_RoguelikeCopperModuleDataT {
   return new clz_Torappu_RoguelikeCopperModuleDataT(
     this.bb!.createObjList<dict__string__clz_Torappu_RoguelikeCopperData, dict__string__clz_Torappu_RoguelikeCopperDataT>(this.copperData.bind(this), this.copperDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_RoguelikeCopperDivineData, dict__string__clz_Torappu_RoguelikeCopperDivineDataT>(this.copperDivineData.bind(this), this.copperDivineDataLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_RoguelikeCopperGildTypeData, dict__string__clz_Torappu_RoguelikeCopperGildTypeDataT>(this.copperGildTypeData.bind(this), this.copperGildTypeDataLength()),
     this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.changeCopperMap.bind(this), this.changeCopperMapLength()),
     (this.moduleConsts() !== null ? this.moduleConsts()!.unpack() : null)
   );
@@ -138,6 +166,7 @@ unpack(): clz_Torappu_RoguelikeCopperModuleDataT {
 unpackTo(_o: clz_Torappu_RoguelikeCopperModuleDataT): void {
   _o.copperData = this.bb!.createObjList<dict__string__clz_Torappu_RoguelikeCopperData, dict__string__clz_Torappu_RoguelikeCopperDataT>(this.copperData.bind(this), this.copperDataLength());
   _o.copperDivineData = this.bb!.createObjList<dict__string__clz_Torappu_RoguelikeCopperDivineData, dict__string__clz_Torappu_RoguelikeCopperDivineDataT>(this.copperDivineData.bind(this), this.copperDivineDataLength());
+  _o.copperGildTypeData = this.bb!.createObjList<dict__string__clz_Torappu_RoguelikeCopperGildTypeData, dict__string__clz_Torappu_RoguelikeCopperGildTypeDataT>(this.copperGildTypeData.bind(this), this.copperGildTypeDataLength());
   _o.changeCopperMap = this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.changeCopperMap.bind(this), this.changeCopperMapLength());
   _o.moduleConsts = (this.moduleConsts() !== null ? this.moduleConsts()!.unpack() : null);
 }
@@ -147,6 +176,7 @@ export class clz_Torappu_RoguelikeCopperModuleDataT implements flatbuffers.IGene
 constructor(
   public copperData: (dict__string__clz_Torappu_RoguelikeCopperDataT)[] = [],
   public copperDivineData: (dict__string__clz_Torappu_RoguelikeCopperDivineDataT)[] = [],
+  public copperGildTypeData: (dict__string__clz_Torappu_RoguelikeCopperGildTypeDataT)[] = [],
   public changeCopperMap: (dict__string__stringT)[] = [],
   public moduleConsts: clz_Torappu_RoguelikeCopperModuleConstsT|null = null
 ){}
@@ -155,12 +185,14 @@ constructor(
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const copperData = clz_Torappu_RoguelikeCopperModuleData.createCopperDataVector(builder, builder.createObjectOffsetList(this.copperData));
   const copperDivineData = clz_Torappu_RoguelikeCopperModuleData.createCopperDivineDataVector(builder, builder.createObjectOffsetList(this.copperDivineData));
+  const copperGildTypeData = clz_Torappu_RoguelikeCopperModuleData.createCopperGildTypeDataVector(builder, builder.createObjectOffsetList(this.copperGildTypeData));
   const changeCopperMap = clz_Torappu_RoguelikeCopperModuleData.createChangeCopperMapVector(builder, builder.createObjectOffsetList(this.changeCopperMap));
   const moduleConsts = (this.moduleConsts !== null ? this.moduleConsts!.pack(builder) : 0);
 
   clz_Torappu_RoguelikeCopperModuleData.startclz_Torappu_RoguelikeCopperModuleData(builder);
   clz_Torappu_RoguelikeCopperModuleData.addCopperData(builder, copperData);
   clz_Torappu_RoguelikeCopperModuleData.addCopperDivineData(builder, copperDivineData);
+  clz_Torappu_RoguelikeCopperModuleData.addCopperGildTypeData(builder, copperGildTypeData);
   clz_Torappu_RoguelikeCopperModuleData.addChangeCopperMap(builder, changeCopperMap);
   clz_Torappu_RoguelikeCopperModuleData.addModuleConsts(builder, moduleConsts);
 

@@ -61,145 +61,157 @@ charIdFilterLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-enemyIdFilter(index: number):string
-enemyIdFilter(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
-enemyIdFilter(index: number,optionalEncoding?:any):string|Uint8Array|null {
+charIdExcludeFilter(index: number):string
+charIdExcludeFilter(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
+charIdExcludeFilter(index: number,optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
-enemyIdFilterLength():number {
+charIdExcludeFilterLength():number {
   const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+enemyIdFilter(index: number):string
+enemyIdFilter(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
+enemyIdFilter(index: number,optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
+  return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
+}
+
+enemyIdFilterLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 enemyIdExcludeFilter(index: number):string
 enemyIdExcludeFilter(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 enemyIdExcludeFilter(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 enemyIdExcludeFilterLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 enemyLevelTypeFilter(index: number):string
 enemyLevelTypeFilter(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 enemyLevelTypeFilter(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 enemyLevelTypeFilterLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 enemyActionHiddenGroupFilter(index: number):string
 enemyActionHiddenGroupFilter(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 enemyActionHiddenGroupFilter(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 enemyActionHiddenGroupFilterLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 skillIdFilter(index: number):string
 skillIdFilter(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 skillIdFilter(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 skillIdFilterLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 tileKeyFilter(index: number):string
 tileKeyFilter(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 tileKeyFilter(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 tileKeyFilterLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 groupTagFilter(index: number):string
 groupTagFilter(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 groupTagFilter(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 groupTagFilterLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 filterTagFilter(index: number):string
 filterTagFilter(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 filterTagFilter(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 28);
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 filterTagFilterLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 28);
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 filterTagExcludeFilter(index: number):string
 filterTagExcludeFilter(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 filterTagExcludeFilter(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 filterTagExcludeFilterLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 subProfessionExcludeFilter(index: number):string
 subProfessionExcludeFilter(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 subProfessionExcludeFilter(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 32);
+  const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 subProfessionExcludeFilterLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 32);
+  const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 mapTagFilter(index: number):string
 mapTagFilter(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 mapTagFilter(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 34);
+  const offset = this.bb!.__offset(this.bb_pos, 36);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 mapTagFilterLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 34);
+  const offset = this.bb!.__offset(this.bb_pos, 36);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 heightTypeMask():enum__Torappu_TileData_HeightTypeMask {
-  const offset = this.bb!.__offset(this.bb_pos, 36);
+  const offset = this.bb!.__offset(this.bb_pos, 38);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_TileData_HeightTypeMask.NONE;
 }
 
 static startclz_Torappu_RuneData_Selector(builder:flatbuffers.Builder) {
-  builder.startObject(17);
+  builder.startObject(18);
 }
 
 static addProfessionMask(builder:flatbuffers.Builder, professionMask:enum__Torappu_ProfessionCategory) {
@@ -234,8 +246,24 @@ static startCharIdFilterVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
+static addCharIdExcludeFilter(builder:flatbuffers.Builder, charIdExcludeFilterOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(5, charIdExcludeFilterOffset, 0);
+}
+
+static createCharIdExcludeFilterVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startCharIdExcludeFilterVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static addEnemyIdFilter(builder:flatbuffers.Builder, enemyIdFilterOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, enemyIdFilterOffset, 0);
+  builder.addFieldOffset(6, enemyIdFilterOffset, 0);
 }
 
 static createEnemyIdFilterVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -251,7 +279,7 @@ static startEnemyIdFilterVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addEnemyIdExcludeFilter(builder:flatbuffers.Builder, enemyIdExcludeFilterOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(6, enemyIdExcludeFilterOffset, 0);
+  builder.addFieldOffset(7, enemyIdExcludeFilterOffset, 0);
 }
 
 static createEnemyIdExcludeFilterVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -267,7 +295,7 @@ static startEnemyIdExcludeFilterVector(builder:flatbuffers.Builder, numElems:num
 }
 
 static addEnemyLevelTypeFilter(builder:flatbuffers.Builder, enemyLevelTypeFilterOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(7, enemyLevelTypeFilterOffset, 0);
+  builder.addFieldOffset(8, enemyLevelTypeFilterOffset, 0);
 }
 
 static createEnemyLevelTypeFilterVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -283,7 +311,7 @@ static startEnemyLevelTypeFilterVector(builder:flatbuffers.Builder, numElems:num
 }
 
 static addEnemyActionHiddenGroupFilter(builder:flatbuffers.Builder, enemyActionHiddenGroupFilterOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(8, enemyActionHiddenGroupFilterOffset, 0);
+  builder.addFieldOffset(9, enemyActionHiddenGroupFilterOffset, 0);
 }
 
 static createEnemyActionHiddenGroupFilterVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -299,7 +327,7 @@ static startEnemyActionHiddenGroupFilterVector(builder:flatbuffers.Builder, numE
 }
 
 static addSkillIdFilter(builder:flatbuffers.Builder, skillIdFilterOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(9, skillIdFilterOffset, 0);
+  builder.addFieldOffset(10, skillIdFilterOffset, 0);
 }
 
 static createSkillIdFilterVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -315,7 +343,7 @@ static startSkillIdFilterVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addTileKeyFilter(builder:flatbuffers.Builder, tileKeyFilterOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(10, tileKeyFilterOffset, 0);
+  builder.addFieldOffset(11, tileKeyFilterOffset, 0);
 }
 
 static createTileKeyFilterVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -331,7 +359,7 @@ static startTileKeyFilterVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addGroupTagFilter(builder:flatbuffers.Builder, groupTagFilterOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(11, groupTagFilterOffset, 0);
+  builder.addFieldOffset(12, groupTagFilterOffset, 0);
 }
 
 static createGroupTagFilterVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -347,7 +375,7 @@ static startGroupTagFilterVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addFilterTagFilter(builder:flatbuffers.Builder, filterTagFilterOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(12, filterTagFilterOffset, 0);
+  builder.addFieldOffset(13, filterTagFilterOffset, 0);
 }
 
 static createFilterTagFilterVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -363,7 +391,7 @@ static startFilterTagFilterVector(builder:flatbuffers.Builder, numElems:number) 
 }
 
 static addFilterTagExcludeFilter(builder:flatbuffers.Builder, filterTagExcludeFilterOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(13, filterTagExcludeFilterOffset, 0);
+  builder.addFieldOffset(14, filterTagExcludeFilterOffset, 0);
 }
 
 static createFilterTagExcludeFilterVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -379,7 +407,7 @@ static startFilterTagExcludeFilterVector(builder:flatbuffers.Builder, numElems:n
 }
 
 static addSubProfessionExcludeFilter(builder:flatbuffers.Builder, subProfessionExcludeFilterOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(14, subProfessionExcludeFilterOffset, 0);
+  builder.addFieldOffset(15, subProfessionExcludeFilterOffset, 0);
 }
 
 static createSubProfessionExcludeFilterVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -395,7 +423,7 @@ static startSubProfessionExcludeFilterVector(builder:flatbuffers.Builder, numEle
 }
 
 static addMapTagFilter(builder:flatbuffers.Builder, mapTagFilterOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(15, mapTagFilterOffset, 0);
+  builder.addFieldOffset(16, mapTagFilterOffset, 0);
 }
 
 static createMapTagFilterVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -411,7 +439,7 @@ static startMapTagFilterVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addHeightTypeMask(builder:flatbuffers.Builder, heightTypeMask:enum__Torappu_TileData_HeightTypeMask) {
-  builder.addFieldInt32(16, heightTypeMask, enum__Torappu_TileData_HeightTypeMask.NONE);
+  builder.addFieldInt32(17, heightTypeMask, enum__Torappu_TileData_HeightTypeMask.NONE);
 }
 
 static endclz_Torappu_RuneData_Selector(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -419,13 +447,14 @@ static endclz_Torappu_RuneData_Selector(builder:flatbuffers.Builder):flatbuffers
   return offset;
 }
 
-static createclz_Torappu_RuneData_Selector(builder:flatbuffers.Builder, professionMask:enum__Torappu_ProfessionCategory, buildableMask:enum__Torappu_BuildableType, playerSideMask:enum__Torappu_PlayerSideMask, sideType:enum__Torappu_Battle_SideType, charIdFilterOffset:flatbuffers.Offset, enemyIdFilterOffset:flatbuffers.Offset, enemyIdExcludeFilterOffset:flatbuffers.Offset, enemyLevelTypeFilterOffset:flatbuffers.Offset, enemyActionHiddenGroupFilterOffset:flatbuffers.Offset, skillIdFilterOffset:flatbuffers.Offset, tileKeyFilterOffset:flatbuffers.Offset, groupTagFilterOffset:flatbuffers.Offset, filterTagFilterOffset:flatbuffers.Offset, filterTagExcludeFilterOffset:flatbuffers.Offset, subProfessionExcludeFilterOffset:flatbuffers.Offset, mapTagFilterOffset:flatbuffers.Offset, heightTypeMask:enum__Torappu_TileData_HeightTypeMask):flatbuffers.Offset {
+static createclz_Torappu_RuneData_Selector(builder:flatbuffers.Builder, professionMask:enum__Torappu_ProfessionCategory, buildableMask:enum__Torappu_BuildableType, playerSideMask:enum__Torappu_PlayerSideMask, sideType:enum__Torappu_Battle_SideType, charIdFilterOffset:flatbuffers.Offset, charIdExcludeFilterOffset:flatbuffers.Offset, enemyIdFilterOffset:flatbuffers.Offset, enemyIdExcludeFilterOffset:flatbuffers.Offset, enemyLevelTypeFilterOffset:flatbuffers.Offset, enemyActionHiddenGroupFilterOffset:flatbuffers.Offset, skillIdFilterOffset:flatbuffers.Offset, tileKeyFilterOffset:flatbuffers.Offset, groupTagFilterOffset:flatbuffers.Offset, filterTagFilterOffset:flatbuffers.Offset, filterTagExcludeFilterOffset:flatbuffers.Offset, subProfessionExcludeFilterOffset:flatbuffers.Offset, mapTagFilterOffset:flatbuffers.Offset, heightTypeMask:enum__Torappu_TileData_HeightTypeMask):flatbuffers.Offset {
   clz_Torappu_RuneData_Selector.startclz_Torappu_RuneData_Selector(builder);
   clz_Torappu_RuneData_Selector.addProfessionMask(builder, professionMask);
   clz_Torappu_RuneData_Selector.addBuildableMask(builder, buildableMask);
   clz_Torappu_RuneData_Selector.addPlayerSideMask(builder, playerSideMask);
   clz_Torappu_RuneData_Selector.addSideType(builder, sideType);
   clz_Torappu_RuneData_Selector.addCharIdFilter(builder, charIdFilterOffset);
+  clz_Torappu_RuneData_Selector.addCharIdExcludeFilter(builder, charIdExcludeFilterOffset);
   clz_Torappu_RuneData_Selector.addEnemyIdFilter(builder, enemyIdFilterOffset);
   clz_Torappu_RuneData_Selector.addEnemyIdExcludeFilter(builder, enemyIdExcludeFilterOffset);
   clz_Torappu_RuneData_Selector.addEnemyLevelTypeFilter(builder, enemyLevelTypeFilterOffset);
@@ -448,6 +477,7 @@ unpack(): clz_Torappu_RuneData_SelectorT {
     this.playerSideMask(),
     this.sideType(),
     this.bb!.createScalarList<string>(this.charIdFilter.bind(this), this.charIdFilterLength()),
+    this.bb!.createScalarList<string>(this.charIdExcludeFilter.bind(this), this.charIdExcludeFilterLength()),
     this.bb!.createScalarList<string>(this.enemyIdFilter.bind(this), this.enemyIdFilterLength()),
     this.bb!.createScalarList<string>(this.enemyIdExcludeFilter.bind(this), this.enemyIdExcludeFilterLength()),
     this.bb!.createScalarList<string>(this.enemyLevelTypeFilter.bind(this), this.enemyLevelTypeFilterLength()),
@@ -470,6 +500,7 @@ unpackTo(_o: clz_Torappu_RuneData_SelectorT): void {
   _o.playerSideMask = this.playerSideMask();
   _o.sideType = this.sideType();
   _o.charIdFilter = this.bb!.createScalarList<string>(this.charIdFilter.bind(this), this.charIdFilterLength());
+  _o.charIdExcludeFilter = this.bb!.createScalarList<string>(this.charIdExcludeFilter.bind(this), this.charIdExcludeFilterLength());
   _o.enemyIdFilter = this.bb!.createScalarList<string>(this.enemyIdFilter.bind(this), this.enemyIdFilterLength());
   _o.enemyIdExcludeFilter = this.bb!.createScalarList<string>(this.enemyIdExcludeFilter.bind(this), this.enemyIdExcludeFilterLength());
   _o.enemyLevelTypeFilter = this.bb!.createScalarList<string>(this.enemyLevelTypeFilter.bind(this), this.enemyLevelTypeFilterLength());
@@ -492,6 +523,7 @@ constructor(
   public playerSideMask: enum__Torappu_PlayerSideMask = enum__Torappu_PlayerSideMask.ALL,
   public sideType: enum__Torappu_Battle_SideType = enum__Torappu_Battle_SideType.NONE,
   public charIdFilter: (string)[] = [],
+  public charIdExcludeFilter: (string)[] = [],
   public enemyIdFilter: (string)[] = [],
   public enemyIdExcludeFilter: (string)[] = [],
   public enemyLevelTypeFilter: (string)[] = [],
@@ -509,6 +541,7 @@ constructor(
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const charIdFilter = clz_Torappu_RuneData_Selector.createCharIdFilterVector(builder, builder.createObjectOffsetList(this.charIdFilter));
+  const charIdExcludeFilter = clz_Torappu_RuneData_Selector.createCharIdExcludeFilterVector(builder, builder.createObjectOffsetList(this.charIdExcludeFilter));
   const enemyIdFilter = clz_Torappu_RuneData_Selector.createEnemyIdFilterVector(builder, builder.createObjectOffsetList(this.enemyIdFilter));
   const enemyIdExcludeFilter = clz_Torappu_RuneData_Selector.createEnemyIdExcludeFilterVector(builder, builder.createObjectOffsetList(this.enemyIdExcludeFilter));
   const enemyLevelTypeFilter = clz_Torappu_RuneData_Selector.createEnemyLevelTypeFilterVector(builder, builder.createObjectOffsetList(this.enemyLevelTypeFilter));
@@ -527,6 +560,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.playerSideMask,
     this.sideType,
     charIdFilter,
+    charIdExcludeFilter,
     enemyIdFilter,
     enemyIdExcludeFilter,
     enemyLevelTypeFilter,

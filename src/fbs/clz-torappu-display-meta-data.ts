@@ -9,7 +9,9 @@ import { clz_Torappu_HomeBackgroundData, clz_Torappu_HomeBackgroundDataT } from 
 import { clz_Torappu_MailArchiveData, clz_Torappu_MailArchiveDataT } from './clz-torappu-mail-archive-data.js';
 import { clz_Torappu_MailSenderData, clz_Torappu_MailSenderDataT } from './clz-torappu-mail-sender-data.js';
 import { clz_Torappu_NameCardV2Data, clz_Torappu_NameCardV2DataT } from './clz-torappu-name-card-v2-data.js';
+import { clz_Torappu_PCKeyData, clz_Torappu_PCKeyDataT } from './clz-torappu-pckey-data.js';
 import { clz_Torappu_PlayerAvatarData, clz_Torappu_PlayerAvatarDataT } from './clz-torappu-player-avatar-data.js';
+import { clz_Torappu_ResolutionSettingItemData, clz_Torappu_ResolutionSettingItemDataT } from './clz-torappu-resolution-setting-item-data.js';
 import { dict__string__clz_Torappu_GuidebookGroupData, dict__string__clz_Torappu_GuidebookGroupDataT } from './dict--string--clz-torappu-guidebook-group-data.js';
 import { dict__string__clz_Torappu_StoryVariantData, dict__string__clz_Torappu_StoryVariantDataT } from './dict--string--clz-torappu-story-variant-data.js';
 
@@ -82,8 +84,23 @@ guidebookGroupDatasLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+pcKeyData(obj?:clz_Torappu_PCKeyData):clz_Torappu_PCKeyData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 20);
+  return offset ? (obj || new clz_Torappu_PCKeyData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
+resolutionSettingList(index: number, obj?:clz_Torappu_ResolutionSettingItemData):clz_Torappu_ResolutionSettingItemData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 22);
+  return offset ? (obj || new clz_Torappu_ResolutionSettingItemData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+resolutionSettingListLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 22);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_DisplayMetaData(builder:flatbuffers.Builder) {
-  builder.startObject(8);
+  builder.startObject(10);
 }
 
 static addPlayerAvatarData(builder:flatbuffers.Builder, playerAvatarDataOffset:flatbuffers.Offset) {
@@ -142,6 +159,26 @@ static startGuidebookGroupDatasVector(builder:flatbuffers.Builder, numElems:numb
   builder.startVector(4, numElems, 4);
 }
 
+static addPcKeyData(builder:flatbuffers.Builder, pcKeyDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(8, pcKeyDataOffset, 0);
+}
+
+static addResolutionSettingList(builder:flatbuffers.Builder, resolutionSettingListOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(9, resolutionSettingListOffset, 0);
+}
+
+static createResolutionSettingListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startResolutionSettingListVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static endclz_Torappu_DisplayMetaData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -165,7 +202,9 @@ unpack(): clz_Torappu_DisplayMetaDataT {
     (this.mailSenderData() !== null ? this.mailSenderData()!.unpack() : null),
     (this.emoticonData() !== null ? this.emoticonData()!.unpack() : null),
     this.bb!.createObjList<dict__string__clz_Torappu_StoryVariantData, dict__string__clz_Torappu_StoryVariantDataT>(this.storyVariantData.bind(this), this.storyVariantDataLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_GuidebookGroupData, dict__string__clz_Torappu_GuidebookGroupDataT>(this.guidebookGroupDatas.bind(this), this.guidebookGroupDatasLength())
+    this.bb!.createObjList<dict__string__clz_Torappu_GuidebookGroupData, dict__string__clz_Torappu_GuidebookGroupDataT>(this.guidebookGroupDatas.bind(this), this.guidebookGroupDatasLength()),
+    (this.pcKeyData() !== null ? this.pcKeyData()!.unpack() : null),
+    this.bb!.createObjList<clz_Torappu_ResolutionSettingItemData, clz_Torappu_ResolutionSettingItemDataT>(this.resolutionSettingList.bind(this), this.resolutionSettingListLength())
   );
 }
 
@@ -179,6 +218,8 @@ unpackTo(_o: clz_Torappu_DisplayMetaDataT): void {
   _o.emoticonData = (this.emoticonData() !== null ? this.emoticonData()!.unpack() : null);
   _o.storyVariantData = this.bb!.createObjList<dict__string__clz_Torappu_StoryVariantData, dict__string__clz_Torappu_StoryVariantDataT>(this.storyVariantData.bind(this), this.storyVariantDataLength());
   _o.guidebookGroupDatas = this.bb!.createObjList<dict__string__clz_Torappu_GuidebookGroupData, dict__string__clz_Torappu_GuidebookGroupDataT>(this.guidebookGroupDatas.bind(this), this.guidebookGroupDatasLength());
+  _o.pcKeyData = (this.pcKeyData() !== null ? this.pcKeyData()!.unpack() : null);
+  _o.resolutionSettingList = this.bb!.createObjList<clz_Torappu_ResolutionSettingItemData, clz_Torappu_ResolutionSettingItemDataT>(this.resolutionSettingList.bind(this), this.resolutionSettingListLength());
 }
 }
 
@@ -191,7 +232,9 @@ constructor(
   public mailSenderData: clz_Torappu_MailSenderDataT|null = null,
   public emoticonData: clz_Torappu_EmoticonDataT|null = null,
   public storyVariantData: (dict__string__clz_Torappu_StoryVariantDataT)[] = [],
-  public guidebookGroupDatas: (dict__string__clz_Torappu_GuidebookGroupDataT)[] = []
+  public guidebookGroupDatas: (dict__string__clz_Torappu_GuidebookGroupDataT)[] = [],
+  public pcKeyData: clz_Torappu_PCKeyDataT|null = null,
+  public resolutionSettingList: (clz_Torappu_ResolutionSettingItemDataT)[] = []
 ){}
 
 
@@ -204,6 +247,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const emoticonData = (this.emoticonData !== null ? this.emoticonData!.pack(builder) : 0);
   const storyVariantData = clz_Torappu_DisplayMetaData.createStoryVariantDataVector(builder, builder.createObjectOffsetList(this.storyVariantData));
   const guidebookGroupDatas = clz_Torappu_DisplayMetaData.createGuidebookGroupDatasVector(builder, builder.createObjectOffsetList(this.guidebookGroupDatas));
+  const pcKeyData = (this.pcKeyData !== null ? this.pcKeyData!.pack(builder) : 0);
+  const resolutionSettingList = clz_Torappu_DisplayMetaData.createResolutionSettingListVector(builder, builder.createObjectOffsetList(this.resolutionSettingList));
 
   clz_Torappu_DisplayMetaData.startclz_Torappu_DisplayMetaData(builder);
   clz_Torappu_DisplayMetaData.addPlayerAvatarData(builder, playerAvatarData);
@@ -214,6 +259,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_DisplayMetaData.addEmoticonData(builder, emoticonData);
   clz_Torappu_DisplayMetaData.addStoryVariantData(builder, storyVariantData);
   clz_Torappu_DisplayMetaData.addGuidebookGroupDatas(builder, guidebookGroupDatas);
+  clz_Torappu_DisplayMetaData.addPcKeyData(builder, pcKeyData);
+  clz_Torappu_DisplayMetaData.addResolutionSettingList(builder, resolutionSettingList);
 
   return clz_Torappu_DisplayMetaData.endclz_Torappu_DisplayMetaData(builder);
 }

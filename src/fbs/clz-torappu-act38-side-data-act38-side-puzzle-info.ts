@@ -31,32 +31,41 @@ puzzleId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-startTime():bigint {
+sortId():number {
   const offset = this.bb!.__offset(this.bb_pos, 6);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+startTime():bigint {
+  const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
 }
 
 puzzleGroupId():string|null
 puzzleGroupId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 puzzleGroupId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 8);
+  const offset = this.bb!.__offset(this.bb_pos, 10);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 static startclz_Torappu_Act38SideData_Act38SidePuzzleInfo(builder:flatbuffers.Builder) {
-  builder.startObject(3);
+  builder.startObject(4);
 }
 
 static addPuzzleId(builder:flatbuffers.Builder, puzzleIdOffset:flatbuffers.Offset) {
   builder.addFieldOffset(0, puzzleIdOffset, 0);
 }
 
+static addSortId(builder:flatbuffers.Builder, sortId:number) {
+  builder.addFieldInt32(1, sortId, 0);
+}
+
 static addStartTime(builder:flatbuffers.Builder, startTime:bigint) {
-  builder.addFieldInt64(1, startTime, BigInt('0'));
+  builder.addFieldInt64(2, startTime, BigInt('0'));
 }
 
 static addPuzzleGroupId(builder:flatbuffers.Builder, puzzleGroupIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(2, puzzleGroupIdOffset, 0);
+  builder.addFieldOffset(3, puzzleGroupIdOffset, 0);
 }
 
 static endclz_Torappu_Act38SideData_Act38SidePuzzleInfo(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -64,9 +73,10 @@ static endclz_Torappu_Act38SideData_Act38SidePuzzleInfo(builder:flatbuffers.Buil
   return offset;
 }
 
-static createclz_Torappu_Act38SideData_Act38SidePuzzleInfo(builder:flatbuffers.Builder, puzzleIdOffset:flatbuffers.Offset, startTime:bigint, puzzleGroupIdOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_Act38SideData_Act38SidePuzzleInfo(builder:flatbuffers.Builder, puzzleIdOffset:flatbuffers.Offset, sortId:number, startTime:bigint, puzzleGroupIdOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_Act38SideData_Act38SidePuzzleInfo.startclz_Torappu_Act38SideData_Act38SidePuzzleInfo(builder);
   clz_Torappu_Act38SideData_Act38SidePuzzleInfo.addPuzzleId(builder, puzzleIdOffset);
+  clz_Torappu_Act38SideData_Act38SidePuzzleInfo.addSortId(builder, sortId);
   clz_Torappu_Act38SideData_Act38SidePuzzleInfo.addStartTime(builder, startTime);
   clz_Torappu_Act38SideData_Act38SidePuzzleInfo.addPuzzleGroupId(builder, puzzleGroupIdOffset);
   return clz_Torappu_Act38SideData_Act38SidePuzzleInfo.endclz_Torappu_Act38SideData_Act38SidePuzzleInfo(builder);
@@ -75,6 +85,7 @@ static createclz_Torappu_Act38SideData_Act38SidePuzzleInfo(builder:flatbuffers.B
 unpack(): clz_Torappu_Act38SideData_Act38SidePuzzleInfoT {
   return new clz_Torappu_Act38SideData_Act38SidePuzzleInfoT(
     this.puzzleId(),
+    this.sortId(),
     this.startTime(),
     this.puzzleGroupId()
   );
@@ -83,6 +94,7 @@ unpack(): clz_Torappu_Act38SideData_Act38SidePuzzleInfoT {
 
 unpackTo(_o: clz_Torappu_Act38SideData_Act38SidePuzzleInfoT): void {
   _o.puzzleId = this.puzzleId();
+  _o.sortId = this.sortId();
   _o.startTime = this.startTime();
   _o.puzzleGroupId = this.puzzleGroupId();
 }
@@ -91,6 +103,7 @@ unpackTo(_o: clz_Torappu_Act38SideData_Act38SidePuzzleInfoT): void {
 export class clz_Torappu_Act38SideData_Act38SidePuzzleInfoT implements flatbuffers.IGeneratedObject {
 constructor(
   public puzzleId: string|Uint8Array|null = null,
+  public sortId: number = 0,
   public startTime: bigint = BigInt('0'),
   public puzzleGroupId: string|Uint8Array|null = null
 ){}
@@ -102,6 +115,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
 
   return clz_Torappu_Act38SideData_Act38SidePuzzleInfo.createclz_Torappu_Act38SideData_Act38SidePuzzleInfo(builder,
     puzzleId,
+    this.sortId,
     this.startTime,
     puzzleGroupId
   );

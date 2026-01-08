@@ -71,8 +71,13 @@ desc(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+isPacified():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 18);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
 static startclz_Torappu_RoguelikeWrathData(builder:flatbuffers.Builder) {
-  builder.startObject(7);
+  builder.startObject(8);
 }
 
 static addId(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset) {
@@ -103,12 +108,16 @@ static addDesc(builder:flatbuffers.Builder, descOffset:flatbuffers.Offset) {
   builder.addFieldOffset(6, descOffset, 0);
 }
 
+static addIsPacified(builder:flatbuffers.Builder, isPacified:boolean) {
+  builder.addFieldInt8(7, +isPacified, +false);
+}
+
 static endclz_Torappu_RoguelikeWrathData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_RoguelikeWrathData(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, groupOffset:flatbuffers.Offset, level:number, nameOffset:flatbuffers.Offset, levelNameOffset:flatbuffers.Offset, functionDescOffset:flatbuffers.Offset, descOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_RoguelikeWrathData(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, groupOffset:flatbuffers.Offset, level:number, nameOffset:flatbuffers.Offset, levelNameOffset:flatbuffers.Offset, functionDescOffset:flatbuffers.Offset, descOffset:flatbuffers.Offset, isPacified:boolean):flatbuffers.Offset {
   clz_Torappu_RoguelikeWrathData.startclz_Torappu_RoguelikeWrathData(builder);
   clz_Torappu_RoguelikeWrathData.addId(builder, idOffset);
   clz_Torappu_RoguelikeWrathData.addGroup(builder, groupOffset);
@@ -117,6 +126,7 @@ static createclz_Torappu_RoguelikeWrathData(builder:flatbuffers.Builder, idOffse
   clz_Torappu_RoguelikeWrathData.addLevelName(builder, levelNameOffset);
   clz_Torappu_RoguelikeWrathData.addFunctionDesc(builder, functionDescOffset);
   clz_Torappu_RoguelikeWrathData.addDesc(builder, descOffset);
+  clz_Torappu_RoguelikeWrathData.addIsPacified(builder, isPacified);
   return clz_Torappu_RoguelikeWrathData.endclz_Torappu_RoguelikeWrathData(builder);
 }
 
@@ -128,7 +138,8 @@ unpack(): clz_Torappu_RoguelikeWrathDataT {
     this.name(),
     this.levelName(),
     this.functionDesc(),
-    this.desc()
+    this.desc(),
+    this.isPacified()
   );
 }
 
@@ -141,6 +152,7 @@ unpackTo(_o: clz_Torappu_RoguelikeWrathDataT): void {
   _o.levelName = this.levelName();
   _o.functionDesc = this.functionDesc();
   _o.desc = this.desc();
+  _o.isPacified = this.isPacified();
 }
 }
 
@@ -152,7 +164,8 @@ constructor(
   public name: string|Uint8Array|null = null,
   public levelName: string|Uint8Array|null = null,
   public functionDesc: string|Uint8Array|null = null,
-  public desc: string|Uint8Array|null = null
+  public desc: string|Uint8Array|null = null,
+  public isPacified: boolean = false
 ){}
 
 
@@ -171,7 +184,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     name,
     levelName,
     functionDesc,
-    desc
+    desc,
+    this.isPacified
   );
 }
 }

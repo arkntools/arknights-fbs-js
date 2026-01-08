@@ -34,8 +34,37 @@ copperDrawMinNum():number {
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
+copperAllLuckyLevelGildId():string|null
+copperAllLuckyLevelGildId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+copperAllLuckyLevelGildId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 8);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+copperDrawFreezeCostItemId():string|null
+copperDrawFreezeCostItemId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+copperDrawFreezeCostItemId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+copperDrawFreezeCostCount(index: number):number|null {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
+  return offset ? this.bb!.readInt32(this.bb!.__vector(this.bb_pos + offset) + index * 4) : 0;
+}
+
+copperDrawFreezeCostCountLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+copperDrawFreezeCostCountArray():Int32Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
+  return offset ? new Int32Array(this.bb!.bytes().buffer, this.bb!.bytes().byteOffset + this.bb!.__vector(this.bb_pos + offset), this.bb!.__vector_len(this.bb_pos + offset)) : null;
+}
+
 static startclz_Torappu_RoguelikeCopperModuleConsts(builder:flatbuffers.Builder) {
-  builder.startObject(2);
+  builder.startObject(5);
 }
 
 static addCopperDrawMaxNum(builder:flatbuffers.Builder, copperDrawMaxNum:number) {
@@ -46,22 +75,57 @@ static addCopperDrawMinNum(builder:flatbuffers.Builder, copperDrawMinNum:number)
   builder.addFieldInt32(1, copperDrawMinNum, 0);
 }
 
+static addCopperAllLuckyLevelGildId(builder:flatbuffers.Builder, copperAllLuckyLevelGildIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(2, copperAllLuckyLevelGildIdOffset, 0);
+}
+
+static addCopperDrawFreezeCostItemId(builder:flatbuffers.Builder, copperDrawFreezeCostItemIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(3, copperDrawFreezeCostItemIdOffset, 0);
+}
+
+static addCopperDrawFreezeCostCount(builder:flatbuffers.Builder, copperDrawFreezeCostCountOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(4, copperDrawFreezeCostCountOffset, 0);
+}
+
+static createCopperDrawFreezeCostCountVector(builder:flatbuffers.Builder, data:number[]|Int32Array):flatbuffers.Offset;
+/**
+ * @deprecated This Uint8Array overload will be removed in the future.
+ */
+static createCopperDrawFreezeCostCountVector(builder:flatbuffers.Builder, data:number[]|Uint8Array):flatbuffers.Offset;
+static createCopperDrawFreezeCostCountVector(builder:flatbuffers.Builder, data:number[]|Int32Array|Uint8Array):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addInt32(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startCopperDrawFreezeCostCountVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static endclz_Torappu_RoguelikeCopperModuleConsts(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_RoguelikeCopperModuleConsts(builder:flatbuffers.Builder, copperDrawMaxNum:number, copperDrawMinNum:number):flatbuffers.Offset {
+static createclz_Torappu_RoguelikeCopperModuleConsts(builder:flatbuffers.Builder, copperDrawMaxNum:number, copperDrawMinNum:number, copperAllLuckyLevelGildIdOffset:flatbuffers.Offset, copperDrawFreezeCostItemIdOffset:flatbuffers.Offset, copperDrawFreezeCostCountOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_RoguelikeCopperModuleConsts.startclz_Torappu_RoguelikeCopperModuleConsts(builder);
   clz_Torappu_RoguelikeCopperModuleConsts.addCopperDrawMaxNum(builder, copperDrawMaxNum);
   clz_Torappu_RoguelikeCopperModuleConsts.addCopperDrawMinNum(builder, copperDrawMinNum);
+  clz_Torappu_RoguelikeCopperModuleConsts.addCopperAllLuckyLevelGildId(builder, copperAllLuckyLevelGildIdOffset);
+  clz_Torappu_RoguelikeCopperModuleConsts.addCopperDrawFreezeCostItemId(builder, copperDrawFreezeCostItemIdOffset);
+  clz_Torappu_RoguelikeCopperModuleConsts.addCopperDrawFreezeCostCount(builder, copperDrawFreezeCostCountOffset);
   return clz_Torappu_RoguelikeCopperModuleConsts.endclz_Torappu_RoguelikeCopperModuleConsts(builder);
 }
 
 unpack(): clz_Torappu_RoguelikeCopperModuleConstsT {
   return new clz_Torappu_RoguelikeCopperModuleConstsT(
     this.copperDrawMaxNum(),
-    this.copperDrawMinNum()
+    this.copperDrawMinNum(),
+    this.copperAllLuckyLevelGildId(),
+    this.copperDrawFreezeCostItemId(),
+    this.bb!.createScalarList<number>(this.copperDrawFreezeCostCount.bind(this), this.copperDrawFreezeCostCountLength())
   );
 }
 
@@ -69,20 +133,33 @@ unpack(): clz_Torappu_RoguelikeCopperModuleConstsT {
 unpackTo(_o: clz_Torappu_RoguelikeCopperModuleConstsT): void {
   _o.copperDrawMaxNum = this.copperDrawMaxNum();
   _o.copperDrawMinNum = this.copperDrawMinNum();
+  _o.copperAllLuckyLevelGildId = this.copperAllLuckyLevelGildId();
+  _o.copperDrawFreezeCostItemId = this.copperDrawFreezeCostItemId();
+  _o.copperDrawFreezeCostCount = this.bb!.createScalarList<number>(this.copperDrawFreezeCostCount.bind(this), this.copperDrawFreezeCostCountLength());
 }
 }
 
 export class clz_Torappu_RoguelikeCopperModuleConstsT implements flatbuffers.IGeneratedObject {
 constructor(
   public copperDrawMaxNum: number = 0,
-  public copperDrawMinNum: number = 0
+  public copperDrawMinNum: number = 0,
+  public copperAllLuckyLevelGildId: string|Uint8Array|null = null,
+  public copperDrawFreezeCostItemId: string|Uint8Array|null = null,
+  public copperDrawFreezeCostCount: (number)[] = []
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
+  const copperAllLuckyLevelGildId = (this.copperAllLuckyLevelGildId !== null ? builder.createString(this.copperAllLuckyLevelGildId!) : 0);
+  const copperDrawFreezeCostItemId = (this.copperDrawFreezeCostItemId !== null ? builder.createString(this.copperDrawFreezeCostItemId!) : 0);
+  const copperDrawFreezeCostCount = clz_Torappu_RoguelikeCopperModuleConsts.createCopperDrawFreezeCostCountVector(builder, this.copperDrawFreezeCostCount);
+
   return clz_Torappu_RoguelikeCopperModuleConsts.createclz_Torappu_RoguelikeCopperModuleConsts(builder,
     this.copperDrawMaxNum,
-    this.copperDrawMinNum
+    this.copperDrawMinNum,
+    copperAllLuckyLevelGildId,
+    copperDrawFreezeCostItemId,
+    copperDrawFreezeCostCount
   );
 }
 }

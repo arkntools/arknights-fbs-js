@@ -150,330 +150,337 @@ summaryHoldCandleUpgrade(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+summaryExpeditionEndingFourToFive():string|null
+summaryExpeditionEndingFourToFive(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+summaryExpeditionEndingFourToFive(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 40);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 summaryExchangeSpZoneGet():string|null
 summaryExchangeSpZoneGet(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryExchangeSpZoneGet(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 40);
+  const offset = this.bb!.__offset(this.bb_pos, 42);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryMeetShopSpZone():string|null
 summaryMeetShopSpZone(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryMeetShopSpZone(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 42);
+  const offset = this.bb!.__offset(this.bb_pos, 44);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryBattleFailSpZone():string|null
 summaryBattleFailSpZone(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryBattleFailSpZone(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 44);
+  const offset = this.bb!.__offset(this.bb_pos, 46);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryMeetEventLock():string|null
 summaryMeetEventLock(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryMeetEventLock(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 46);
+  const offset = this.bb!.__offset(this.bb_pos, 48);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryTreasureSpZone():string|null
 summaryTreasureSpZone(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryTreasureSpZone(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 48);
+  const offset = this.bb!.__offset(this.bb_pos, 50);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryMeetExchangeSpZone():string|null
 summaryMeetExchangeSpZone(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryMeetExchangeSpZone(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 50);
+  const offset = this.bb!.__offset(this.bb_pos, 52);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryMeetTradeSpZone():string|null
 summaryMeetTradeSpZone(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryMeetTradeSpZone(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 52);
+  const offset = this.bb!.__offset(this.bb_pos, 54);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryActor():string|null
 summaryActor(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryActor(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 54);
+  const offset = this.bb!.__offset(this.bb_pos, 56);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryTop():string|null
 summaryTop(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryTop(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 56);
+  const offset = this.bb!.__offset(this.bb_pos, 58);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryZone():string|null
 summaryZone(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryZone(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 58);
+  const offset = this.bb!.__offset(this.bb_pos, 60);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryEnding():string|null
 summaryEnding(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryEnding(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 60);
+  const offset = this.bb!.__offset(this.bb_pos, 62);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryDifficultyZone():string|null
 summaryDifficultyZone(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryDifficultyZone(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 62);
+  const offset = this.bb!.__offset(this.bb_pos, 64);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryDifficultyEnding():string|null
 summaryDifficultyEnding(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryDifficultyEnding(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 64);
+  const offset = this.bb!.__offset(this.bb_pos, 66);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryMode():string|null
 summaryMode(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryMode(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 66);
+  const offset = this.bb!.__offset(this.bb_pos, 68);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summarySupport():string|null
 summarySupport(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summarySupport(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 68);
+  const offset = this.bb!.__offset(this.bb_pos, 70);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryGroup():string|null
 summaryGroup(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryGroup(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 70);
+  const offset = this.bb!.__offset(this.bb_pos, 72);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryNormalRecruit():string|null
 summaryNormalRecruit(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryNormalRecruit(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 72);
+  const offset = this.bb!.__offset(this.bb_pos, 74);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryDirectRecruit():string|null
 summaryDirectRecruit(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryDirectRecruit(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 74);
+  const offset = this.bb!.__offset(this.bb_pos, 76);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryFriendRecruit():string|null
 summaryFriendRecruit(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryFriendRecruit(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 76);
+  const offset = this.bb!.__offset(this.bb_pos, 78);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryFreeRecruit():string|null
 summaryFreeRecruit(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryFreeRecruit(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 78);
+  const offset = this.bb!.__offset(this.bb_pos, 80);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryMonthRecruit():string|null
 summaryMonthRecruit(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryMonthRecruit(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 80);
+  const offset = this.bb!.__offset(this.bb_pos, 82);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryUpgrade():string|null
 summaryUpgrade(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryUpgrade(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 82);
+  const offset = this.bb!.__offset(this.bb_pos, 84);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryCompleteEnding():string|null
 summaryCompleteEnding(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryCompleteEnding(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 84);
+  const offset = this.bb!.__offset(this.bb_pos, 86);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryEachZone():string|null
 summaryEachZone(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryEachZone(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 86);
+  const offset = this.bb!.__offset(this.bb_pos, 88);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryMeetSpZone():string|null
 summaryMeetSpZone(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryMeetSpZone(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 88);
+  const offset = this.bb!.__offset(this.bb_pos, 90);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryPerfectBattle():string|null
 summaryPerfectBattle(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryPerfectBattle(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 90);
+  const offset = this.bb!.__offset(this.bb_pos, 92);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryMeetBattle():string|null
 summaryMeetBattle(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryMeetBattle(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 92);
+  const offset = this.bb!.__offset(this.bb_pos, 94);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryMeetEvent():string|null
 summaryMeetEvent(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryMeetEvent(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 94);
+  const offset = this.bb!.__offset(this.bb_pos, 96);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryMeetShop():string|null
 summaryMeetShop(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryMeetShop(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 96);
+  const offset = this.bb!.__offset(this.bb_pos, 98);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryMeetTreasure():string|null
 summaryMeetTreasure(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryMeetTreasure(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 98);
+  const offset = this.bb!.__offset(this.bb_pos, 100);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryMeetSecretpath():string|null
 summaryMeetSecretpath(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryMeetSecretpath(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 100);
+  const offset = this.bb!.__offset(this.bb_pos, 102);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryExchangeRelic():string|null
 summaryExchangeRelic(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryExchangeRelic(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 102);
+  const offset = this.bb!.__offset(this.bb_pos, 104);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryMeetTrade():string|null
 summaryMeetTrade(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryMeetTrade(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 104);
+  const offset = this.bb!.__offset(this.bb_pos, 106);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryBuy():string|null
 summaryBuy(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryBuy(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 106);
+  const offset = this.bb!.__offset(this.bb_pos, 108);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryBuyWithPriceId():string|null
 summaryBuyWithPriceId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryBuyWithPriceId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 108);
+  const offset = this.bb!.__offset(this.bb_pos, 110);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryInvest():string|null
 summaryInvest(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryInvest(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 110);
+  const offset = this.bb!.__offset(this.bb_pos, 112);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryGet():string|null
 summaryGet(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryGet(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 112);
+  const offset = this.bb!.__offset(this.bb_pos, 114);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryRelic():string|null
 summaryRelic(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryRelic(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 114);
+  const offset = this.bb!.__offset(this.bb_pos, 116);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summarySafeHouse():string|null
 summarySafeHouse(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summarySafeHouse(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 116);
+  const offset = this.bb!.__offset(this.bb_pos, 118);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryFailEnd():string|null
 summaryFailEnd(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryFailEnd(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 118);
+  const offset = this.bb!.__offset(this.bb_pos, 120);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryStockRecruitTicket():string|null
 summaryStockRecruitTicket(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryStockRecruitTicket(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 120);
+  const offset = this.bb!.__offset(this.bb_pos, 122);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryDuelWin():string|null
 summaryDuelWin(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryDuelWin(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 122);
+  const offset = this.bb!.__offset(this.bb_pos, 124);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryDuelTie():string|null
 summaryDuelTie(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryDuelTie(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 124);
+  const offset = this.bb!.__offset(this.bb_pos, 126);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryDuelLose():string|null
 summaryDuelLose(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryDuelLose(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 126);
+  const offset = this.bb!.__offset(this.bb_pos, 128);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryExpeditionGo():string|null
 summaryExpeditionGo(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryExpeditionGo(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 128);
+  const offset = this.bb!.__offset(this.bb_pos, 130);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 summaryExpeditionBack():string|null
 summaryExpeditionBack(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 summaryExpeditionBack(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 130);
+  const offset = this.bb!.__offset(this.bb_pos, 132);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 static startclz_Torappu_RL05EndingText(builder:flatbuffers.Builder) {
-  builder.startObject(64);
+  builder.startObject(65);
 }
 
 static addSummaryGetCopper(builder:flatbuffers.Builder, summaryGetCopperOffset:flatbuffers.Offset) {
@@ -548,188 +555,192 @@ static addSummaryHoldCandleUpgrade(builder:flatbuffers.Builder, summaryHoldCandl
   builder.addFieldOffset(17, summaryHoldCandleUpgradeOffset, 0);
 }
 
+static addSummaryExpeditionEndingFourToFive(builder:flatbuffers.Builder, summaryExpeditionEndingFourToFiveOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(18, summaryExpeditionEndingFourToFiveOffset, 0);
+}
+
 static addSummaryExchangeSpZoneGet(builder:flatbuffers.Builder, summaryExchangeSpZoneGetOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(18, summaryExchangeSpZoneGetOffset, 0);
+  builder.addFieldOffset(19, summaryExchangeSpZoneGetOffset, 0);
 }
 
 static addSummaryMeetShopSpZone(builder:flatbuffers.Builder, summaryMeetShopSpZoneOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(19, summaryMeetShopSpZoneOffset, 0);
+  builder.addFieldOffset(20, summaryMeetShopSpZoneOffset, 0);
 }
 
 static addSummaryBattleFailSpZone(builder:flatbuffers.Builder, summaryBattleFailSpZoneOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(20, summaryBattleFailSpZoneOffset, 0);
+  builder.addFieldOffset(21, summaryBattleFailSpZoneOffset, 0);
 }
 
 static addSummaryMeetEventLock(builder:flatbuffers.Builder, summaryMeetEventLockOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(21, summaryMeetEventLockOffset, 0);
+  builder.addFieldOffset(22, summaryMeetEventLockOffset, 0);
 }
 
 static addSummaryTreasureSpZone(builder:flatbuffers.Builder, summaryTreasureSpZoneOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(22, summaryTreasureSpZoneOffset, 0);
+  builder.addFieldOffset(23, summaryTreasureSpZoneOffset, 0);
 }
 
 static addSummaryMeetExchangeSpZone(builder:flatbuffers.Builder, summaryMeetExchangeSpZoneOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(23, summaryMeetExchangeSpZoneOffset, 0);
+  builder.addFieldOffset(24, summaryMeetExchangeSpZoneOffset, 0);
 }
 
 static addSummaryMeetTradeSpZone(builder:flatbuffers.Builder, summaryMeetTradeSpZoneOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(24, summaryMeetTradeSpZoneOffset, 0);
+  builder.addFieldOffset(25, summaryMeetTradeSpZoneOffset, 0);
 }
 
 static addSummaryActor(builder:flatbuffers.Builder, summaryActorOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(25, summaryActorOffset, 0);
+  builder.addFieldOffset(26, summaryActorOffset, 0);
 }
 
 static addSummaryTop(builder:flatbuffers.Builder, summaryTopOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(26, summaryTopOffset, 0);
+  builder.addFieldOffset(27, summaryTopOffset, 0);
 }
 
 static addSummaryZone(builder:flatbuffers.Builder, summaryZoneOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(27, summaryZoneOffset, 0);
+  builder.addFieldOffset(28, summaryZoneOffset, 0);
 }
 
 static addSummaryEnding(builder:flatbuffers.Builder, summaryEndingOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(28, summaryEndingOffset, 0);
+  builder.addFieldOffset(29, summaryEndingOffset, 0);
 }
 
 static addSummaryDifficultyZone(builder:flatbuffers.Builder, summaryDifficultyZoneOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(29, summaryDifficultyZoneOffset, 0);
+  builder.addFieldOffset(30, summaryDifficultyZoneOffset, 0);
 }
 
 static addSummaryDifficultyEnding(builder:flatbuffers.Builder, summaryDifficultyEndingOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(30, summaryDifficultyEndingOffset, 0);
+  builder.addFieldOffset(31, summaryDifficultyEndingOffset, 0);
 }
 
 static addSummaryMode(builder:flatbuffers.Builder, summaryModeOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(31, summaryModeOffset, 0);
+  builder.addFieldOffset(32, summaryModeOffset, 0);
 }
 
 static addSummarySupport(builder:flatbuffers.Builder, summarySupportOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(32, summarySupportOffset, 0);
+  builder.addFieldOffset(33, summarySupportOffset, 0);
 }
 
 static addSummaryGroup(builder:flatbuffers.Builder, summaryGroupOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(33, summaryGroupOffset, 0);
+  builder.addFieldOffset(34, summaryGroupOffset, 0);
 }
 
 static addSummaryNormalRecruit(builder:flatbuffers.Builder, summaryNormalRecruitOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(34, summaryNormalRecruitOffset, 0);
+  builder.addFieldOffset(35, summaryNormalRecruitOffset, 0);
 }
 
 static addSummaryDirectRecruit(builder:flatbuffers.Builder, summaryDirectRecruitOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(35, summaryDirectRecruitOffset, 0);
+  builder.addFieldOffset(36, summaryDirectRecruitOffset, 0);
 }
 
 static addSummaryFriendRecruit(builder:flatbuffers.Builder, summaryFriendRecruitOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(36, summaryFriendRecruitOffset, 0);
+  builder.addFieldOffset(37, summaryFriendRecruitOffset, 0);
 }
 
 static addSummaryFreeRecruit(builder:flatbuffers.Builder, summaryFreeRecruitOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(37, summaryFreeRecruitOffset, 0);
+  builder.addFieldOffset(38, summaryFreeRecruitOffset, 0);
 }
 
 static addSummaryMonthRecruit(builder:flatbuffers.Builder, summaryMonthRecruitOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(38, summaryMonthRecruitOffset, 0);
+  builder.addFieldOffset(39, summaryMonthRecruitOffset, 0);
 }
 
 static addSummaryUpgrade(builder:flatbuffers.Builder, summaryUpgradeOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(39, summaryUpgradeOffset, 0);
+  builder.addFieldOffset(40, summaryUpgradeOffset, 0);
 }
 
 static addSummaryCompleteEnding(builder:flatbuffers.Builder, summaryCompleteEndingOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(40, summaryCompleteEndingOffset, 0);
+  builder.addFieldOffset(41, summaryCompleteEndingOffset, 0);
 }
 
 static addSummaryEachZone(builder:flatbuffers.Builder, summaryEachZoneOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(41, summaryEachZoneOffset, 0);
+  builder.addFieldOffset(42, summaryEachZoneOffset, 0);
 }
 
 static addSummaryMeetSpZone(builder:flatbuffers.Builder, summaryMeetSpZoneOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(42, summaryMeetSpZoneOffset, 0);
+  builder.addFieldOffset(43, summaryMeetSpZoneOffset, 0);
 }
 
 static addSummaryPerfectBattle(builder:flatbuffers.Builder, summaryPerfectBattleOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(43, summaryPerfectBattleOffset, 0);
+  builder.addFieldOffset(44, summaryPerfectBattleOffset, 0);
 }
 
 static addSummaryMeetBattle(builder:flatbuffers.Builder, summaryMeetBattleOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(44, summaryMeetBattleOffset, 0);
+  builder.addFieldOffset(45, summaryMeetBattleOffset, 0);
 }
 
 static addSummaryMeetEvent(builder:flatbuffers.Builder, summaryMeetEventOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(45, summaryMeetEventOffset, 0);
+  builder.addFieldOffset(46, summaryMeetEventOffset, 0);
 }
 
 static addSummaryMeetShop(builder:flatbuffers.Builder, summaryMeetShopOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(46, summaryMeetShopOffset, 0);
+  builder.addFieldOffset(47, summaryMeetShopOffset, 0);
 }
 
 static addSummaryMeetTreasure(builder:flatbuffers.Builder, summaryMeetTreasureOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(47, summaryMeetTreasureOffset, 0);
+  builder.addFieldOffset(48, summaryMeetTreasureOffset, 0);
 }
 
 static addSummaryMeetSecretpath(builder:flatbuffers.Builder, summaryMeetSecretpathOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(48, summaryMeetSecretpathOffset, 0);
+  builder.addFieldOffset(49, summaryMeetSecretpathOffset, 0);
 }
 
 static addSummaryExchangeRelic(builder:flatbuffers.Builder, summaryExchangeRelicOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(49, summaryExchangeRelicOffset, 0);
+  builder.addFieldOffset(50, summaryExchangeRelicOffset, 0);
 }
 
 static addSummaryMeetTrade(builder:flatbuffers.Builder, summaryMeetTradeOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(50, summaryMeetTradeOffset, 0);
+  builder.addFieldOffset(51, summaryMeetTradeOffset, 0);
 }
 
 static addSummaryBuy(builder:flatbuffers.Builder, summaryBuyOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(51, summaryBuyOffset, 0);
+  builder.addFieldOffset(52, summaryBuyOffset, 0);
 }
 
 static addSummaryBuyWithPriceId(builder:flatbuffers.Builder, summaryBuyWithPriceIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(52, summaryBuyWithPriceIdOffset, 0);
+  builder.addFieldOffset(53, summaryBuyWithPriceIdOffset, 0);
 }
 
 static addSummaryInvest(builder:flatbuffers.Builder, summaryInvestOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(53, summaryInvestOffset, 0);
+  builder.addFieldOffset(54, summaryInvestOffset, 0);
 }
 
 static addSummaryGet(builder:flatbuffers.Builder, summaryGetOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(54, summaryGetOffset, 0);
+  builder.addFieldOffset(55, summaryGetOffset, 0);
 }
 
 static addSummaryRelic(builder:flatbuffers.Builder, summaryRelicOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(55, summaryRelicOffset, 0);
+  builder.addFieldOffset(56, summaryRelicOffset, 0);
 }
 
 static addSummarySafeHouse(builder:flatbuffers.Builder, summarySafeHouseOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(56, summarySafeHouseOffset, 0);
+  builder.addFieldOffset(57, summarySafeHouseOffset, 0);
 }
 
 static addSummaryFailEnd(builder:flatbuffers.Builder, summaryFailEndOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(57, summaryFailEndOffset, 0);
+  builder.addFieldOffset(58, summaryFailEndOffset, 0);
 }
 
 static addSummaryStockRecruitTicket(builder:flatbuffers.Builder, summaryStockRecruitTicketOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(58, summaryStockRecruitTicketOffset, 0);
+  builder.addFieldOffset(59, summaryStockRecruitTicketOffset, 0);
 }
 
 static addSummaryDuelWin(builder:flatbuffers.Builder, summaryDuelWinOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(59, summaryDuelWinOffset, 0);
+  builder.addFieldOffset(60, summaryDuelWinOffset, 0);
 }
 
 static addSummaryDuelTie(builder:flatbuffers.Builder, summaryDuelTieOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(60, summaryDuelTieOffset, 0);
+  builder.addFieldOffset(61, summaryDuelTieOffset, 0);
 }
 
 static addSummaryDuelLose(builder:flatbuffers.Builder, summaryDuelLoseOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(61, summaryDuelLoseOffset, 0);
+  builder.addFieldOffset(62, summaryDuelLoseOffset, 0);
 }
 
 static addSummaryExpeditionGo(builder:flatbuffers.Builder, summaryExpeditionGoOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(62, summaryExpeditionGoOffset, 0);
+  builder.addFieldOffset(63, summaryExpeditionGoOffset, 0);
 }
 
 static addSummaryExpeditionBack(builder:flatbuffers.Builder, summaryExpeditionBackOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(63, summaryExpeditionBackOffset, 0);
+  builder.addFieldOffset(64, summaryExpeditionBackOffset, 0);
 }
 
 static endclz_Torappu_RL05EndingText(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -737,7 +748,7 @@ static endclz_Torappu_RL05EndingText(builder:flatbuffers.Builder):flatbuffers.Of
   return offset;
 }
 
-static createclz_Torappu_RL05EndingText(builder:flatbuffers.Builder, summaryGetCopperOffset:flatbuffers.Offset, summaryLostCopperOffset:flatbuffers.Offset, summaryDrawCopperOffset:flatbuffers.Offset, summaryCopperResultGoodOffset:flatbuffers.Offset, summaryCopperResultBadOffset:flatbuffers.Offset, summaryCopperResultNormalOffset:flatbuffers.Offset, summaryCopperCheckSuccessOffset:flatbuffers.Offset, summaryCopperCheckFailOffset:flatbuffers.Offset, summaryCopperCheckNormalOffset:flatbuffers.Offset, summaryMeetWrathOffset:flatbuffers.Offset, summaryExpeditionGoEndingFourOffset:flatbuffers.Offset, summaryExpeditionBackEndingFourOffset:flatbuffers.Offset, summaryExpeditionBackCandleOffset:flatbuffers.Offset, summaryExpeditionGoEndingOffset:flatbuffers.Offset, summaryExpeditionBackEndingOffset:flatbuffers.Offset, summaryHoldCandleOffset:flatbuffers.Offset, summaryHoldCandleRecruitOffset:flatbuffers.Offset, summaryHoldCandleUpgradeOffset:flatbuffers.Offset, summaryExchangeSpZoneGetOffset:flatbuffers.Offset, summaryMeetShopSpZoneOffset:flatbuffers.Offset, summaryBattleFailSpZoneOffset:flatbuffers.Offset, summaryMeetEventLockOffset:flatbuffers.Offset, summaryTreasureSpZoneOffset:flatbuffers.Offset, summaryMeetExchangeSpZoneOffset:flatbuffers.Offset, summaryMeetTradeSpZoneOffset:flatbuffers.Offset, summaryActorOffset:flatbuffers.Offset, summaryTopOffset:flatbuffers.Offset, summaryZoneOffset:flatbuffers.Offset, summaryEndingOffset:flatbuffers.Offset, summaryDifficultyZoneOffset:flatbuffers.Offset, summaryDifficultyEndingOffset:flatbuffers.Offset, summaryModeOffset:flatbuffers.Offset, summarySupportOffset:flatbuffers.Offset, summaryGroupOffset:flatbuffers.Offset, summaryNormalRecruitOffset:flatbuffers.Offset, summaryDirectRecruitOffset:flatbuffers.Offset, summaryFriendRecruitOffset:flatbuffers.Offset, summaryFreeRecruitOffset:flatbuffers.Offset, summaryMonthRecruitOffset:flatbuffers.Offset, summaryUpgradeOffset:flatbuffers.Offset, summaryCompleteEndingOffset:flatbuffers.Offset, summaryEachZoneOffset:flatbuffers.Offset, summaryMeetSpZoneOffset:flatbuffers.Offset, summaryPerfectBattleOffset:flatbuffers.Offset, summaryMeetBattleOffset:flatbuffers.Offset, summaryMeetEventOffset:flatbuffers.Offset, summaryMeetShopOffset:flatbuffers.Offset, summaryMeetTreasureOffset:flatbuffers.Offset, summaryMeetSecretpathOffset:flatbuffers.Offset, summaryExchangeRelicOffset:flatbuffers.Offset, summaryMeetTradeOffset:flatbuffers.Offset, summaryBuyOffset:flatbuffers.Offset, summaryBuyWithPriceIdOffset:flatbuffers.Offset, summaryInvestOffset:flatbuffers.Offset, summaryGetOffset:flatbuffers.Offset, summaryRelicOffset:flatbuffers.Offset, summarySafeHouseOffset:flatbuffers.Offset, summaryFailEndOffset:flatbuffers.Offset, summaryStockRecruitTicketOffset:flatbuffers.Offset, summaryDuelWinOffset:flatbuffers.Offset, summaryDuelTieOffset:flatbuffers.Offset, summaryDuelLoseOffset:flatbuffers.Offset, summaryExpeditionGoOffset:flatbuffers.Offset, summaryExpeditionBackOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_RL05EndingText(builder:flatbuffers.Builder, summaryGetCopperOffset:flatbuffers.Offset, summaryLostCopperOffset:flatbuffers.Offset, summaryDrawCopperOffset:flatbuffers.Offset, summaryCopperResultGoodOffset:flatbuffers.Offset, summaryCopperResultBadOffset:flatbuffers.Offset, summaryCopperResultNormalOffset:flatbuffers.Offset, summaryCopperCheckSuccessOffset:flatbuffers.Offset, summaryCopperCheckFailOffset:flatbuffers.Offset, summaryCopperCheckNormalOffset:flatbuffers.Offset, summaryMeetWrathOffset:flatbuffers.Offset, summaryExpeditionGoEndingFourOffset:flatbuffers.Offset, summaryExpeditionBackEndingFourOffset:flatbuffers.Offset, summaryExpeditionBackCandleOffset:flatbuffers.Offset, summaryExpeditionGoEndingOffset:flatbuffers.Offset, summaryExpeditionBackEndingOffset:flatbuffers.Offset, summaryHoldCandleOffset:flatbuffers.Offset, summaryHoldCandleRecruitOffset:flatbuffers.Offset, summaryHoldCandleUpgradeOffset:flatbuffers.Offset, summaryExpeditionEndingFourToFiveOffset:flatbuffers.Offset, summaryExchangeSpZoneGetOffset:flatbuffers.Offset, summaryMeetShopSpZoneOffset:flatbuffers.Offset, summaryBattleFailSpZoneOffset:flatbuffers.Offset, summaryMeetEventLockOffset:flatbuffers.Offset, summaryTreasureSpZoneOffset:flatbuffers.Offset, summaryMeetExchangeSpZoneOffset:flatbuffers.Offset, summaryMeetTradeSpZoneOffset:flatbuffers.Offset, summaryActorOffset:flatbuffers.Offset, summaryTopOffset:flatbuffers.Offset, summaryZoneOffset:flatbuffers.Offset, summaryEndingOffset:flatbuffers.Offset, summaryDifficultyZoneOffset:flatbuffers.Offset, summaryDifficultyEndingOffset:flatbuffers.Offset, summaryModeOffset:flatbuffers.Offset, summarySupportOffset:flatbuffers.Offset, summaryGroupOffset:flatbuffers.Offset, summaryNormalRecruitOffset:flatbuffers.Offset, summaryDirectRecruitOffset:flatbuffers.Offset, summaryFriendRecruitOffset:flatbuffers.Offset, summaryFreeRecruitOffset:flatbuffers.Offset, summaryMonthRecruitOffset:flatbuffers.Offset, summaryUpgradeOffset:flatbuffers.Offset, summaryCompleteEndingOffset:flatbuffers.Offset, summaryEachZoneOffset:flatbuffers.Offset, summaryMeetSpZoneOffset:flatbuffers.Offset, summaryPerfectBattleOffset:flatbuffers.Offset, summaryMeetBattleOffset:flatbuffers.Offset, summaryMeetEventOffset:flatbuffers.Offset, summaryMeetShopOffset:flatbuffers.Offset, summaryMeetTreasureOffset:flatbuffers.Offset, summaryMeetSecretpathOffset:flatbuffers.Offset, summaryExchangeRelicOffset:flatbuffers.Offset, summaryMeetTradeOffset:flatbuffers.Offset, summaryBuyOffset:flatbuffers.Offset, summaryBuyWithPriceIdOffset:flatbuffers.Offset, summaryInvestOffset:flatbuffers.Offset, summaryGetOffset:flatbuffers.Offset, summaryRelicOffset:flatbuffers.Offset, summarySafeHouseOffset:flatbuffers.Offset, summaryFailEndOffset:flatbuffers.Offset, summaryStockRecruitTicketOffset:flatbuffers.Offset, summaryDuelWinOffset:flatbuffers.Offset, summaryDuelTieOffset:flatbuffers.Offset, summaryDuelLoseOffset:flatbuffers.Offset, summaryExpeditionGoOffset:flatbuffers.Offset, summaryExpeditionBackOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_RL05EndingText.startclz_Torappu_RL05EndingText(builder);
   clz_Torappu_RL05EndingText.addSummaryGetCopper(builder, summaryGetCopperOffset);
   clz_Torappu_RL05EndingText.addSummaryLostCopper(builder, summaryLostCopperOffset);
@@ -757,6 +768,7 @@ static createclz_Torappu_RL05EndingText(builder:flatbuffers.Builder, summaryGetC
   clz_Torappu_RL05EndingText.addSummaryHoldCandle(builder, summaryHoldCandleOffset);
   clz_Torappu_RL05EndingText.addSummaryHoldCandleRecruit(builder, summaryHoldCandleRecruitOffset);
   clz_Torappu_RL05EndingText.addSummaryHoldCandleUpgrade(builder, summaryHoldCandleUpgradeOffset);
+  clz_Torappu_RL05EndingText.addSummaryExpeditionEndingFourToFive(builder, summaryExpeditionEndingFourToFiveOffset);
   clz_Torappu_RL05EndingText.addSummaryExchangeSpZoneGet(builder, summaryExchangeSpZoneGetOffset);
   clz_Torappu_RL05EndingText.addSummaryMeetShopSpZone(builder, summaryMeetShopSpZoneOffset);
   clz_Torappu_RL05EndingText.addSummaryBattleFailSpZone(builder, summaryBattleFailSpZoneOffset);
@@ -826,6 +838,7 @@ unpack(): clz_Torappu_RL05EndingTextT {
     this.summaryHoldCandle(),
     this.summaryHoldCandleRecruit(),
     this.summaryHoldCandleUpgrade(),
+    this.summaryExpeditionEndingFourToFive(),
     this.summaryExchangeSpZoneGet(),
     this.summaryMeetShopSpZone(),
     this.summaryBattleFailSpZone(),
@@ -895,6 +908,7 @@ unpackTo(_o: clz_Torappu_RL05EndingTextT): void {
   _o.summaryHoldCandle = this.summaryHoldCandle();
   _o.summaryHoldCandleRecruit = this.summaryHoldCandleRecruit();
   _o.summaryHoldCandleUpgrade = this.summaryHoldCandleUpgrade();
+  _o.summaryExpeditionEndingFourToFive = this.summaryExpeditionEndingFourToFive();
   _o.summaryExchangeSpZoneGet = this.summaryExchangeSpZoneGet();
   _o.summaryMeetShopSpZone = this.summaryMeetShopSpZone();
   _o.summaryBattleFailSpZone = this.summaryBattleFailSpZone();
@@ -964,6 +978,7 @@ constructor(
   public summaryHoldCandle: string|Uint8Array|null = null,
   public summaryHoldCandleRecruit: string|Uint8Array|null = null,
   public summaryHoldCandleUpgrade: string|Uint8Array|null = null,
+  public summaryExpeditionEndingFourToFive: string|Uint8Array|null = null,
   public summaryExchangeSpZoneGet: string|Uint8Array|null = null,
   public summaryMeetShopSpZone: string|Uint8Array|null = null,
   public summaryBattleFailSpZone: string|Uint8Array|null = null,
@@ -1032,6 +1047,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const summaryHoldCandle = (this.summaryHoldCandle !== null ? builder.createString(this.summaryHoldCandle!) : 0);
   const summaryHoldCandleRecruit = (this.summaryHoldCandleRecruit !== null ? builder.createString(this.summaryHoldCandleRecruit!) : 0);
   const summaryHoldCandleUpgrade = (this.summaryHoldCandleUpgrade !== null ? builder.createString(this.summaryHoldCandleUpgrade!) : 0);
+  const summaryExpeditionEndingFourToFive = (this.summaryExpeditionEndingFourToFive !== null ? builder.createString(this.summaryExpeditionEndingFourToFive!) : 0);
   const summaryExchangeSpZoneGet = (this.summaryExchangeSpZoneGet !== null ? builder.createString(this.summaryExchangeSpZoneGet!) : 0);
   const summaryMeetShopSpZone = (this.summaryMeetShopSpZone !== null ? builder.createString(this.summaryMeetShopSpZone!) : 0);
   const summaryBattleFailSpZone = (this.summaryBattleFailSpZone !== null ? builder.createString(this.summaryBattleFailSpZone!) : 0);
@@ -1098,6 +1114,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     summaryHoldCandle,
     summaryHoldCandleRecruit,
     summaryHoldCandleUpgrade,
+    summaryExpeditionEndingFourToFive,
     summaryExchangeSpZoneGet,
     summaryMeetShopSpZone,
     summaryBattleFailSpZone,

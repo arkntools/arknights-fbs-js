@@ -93,8 +93,13 @@ buffItemIdListLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+isAllLuckyLevel():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 22);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
 static startclz_Torappu_RoguelikeCopperData(builder:flatbuffers.Builder) {
-  builder.startObject(9);
+  builder.startObject(10);
 }
 
 static addId(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset) {
@@ -157,12 +162,16 @@ static startBuffItemIdListVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
+static addIsAllLuckyLevel(builder:flatbuffers.Builder, isAllLuckyLevel:boolean) {
+  builder.addFieldInt8(9, +isAllLuckyLevel, +false);
+}
+
 static endclz_Torappu_RoguelikeCopperData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_RoguelikeCopperData(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, groupIdOffset:flatbuffers.Offset, gildTypeIdOffset:flatbuffers.Offset, luckyLevel:enum__Torappu_RoguelikeCopperLuckyLevel, buffType:enum__Torappu_RoguelikeCopperBuffType, layerCntDescOffset:flatbuffers.Offset, poemListOffset:flatbuffers.Offset, alwaysShowCountDown:boolean, buffItemIdListOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_RoguelikeCopperData(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, groupIdOffset:flatbuffers.Offset, gildTypeIdOffset:flatbuffers.Offset, luckyLevel:enum__Torappu_RoguelikeCopperLuckyLevel, buffType:enum__Torappu_RoguelikeCopperBuffType, layerCntDescOffset:flatbuffers.Offset, poemListOffset:flatbuffers.Offset, alwaysShowCountDown:boolean, buffItemIdListOffset:flatbuffers.Offset, isAllLuckyLevel:boolean):flatbuffers.Offset {
   clz_Torappu_RoguelikeCopperData.startclz_Torappu_RoguelikeCopperData(builder);
   clz_Torappu_RoguelikeCopperData.addId(builder, idOffset);
   clz_Torappu_RoguelikeCopperData.addGroupId(builder, groupIdOffset);
@@ -173,6 +182,7 @@ static createclz_Torappu_RoguelikeCopperData(builder:flatbuffers.Builder, idOffs
   clz_Torappu_RoguelikeCopperData.addPoemList(builder, poemListOffset);
   clz_Torappu_RoguelikeCopperData.addAlwaysShowCountDown(builder, alwaysShowCountDown);
   clz_Torappu_RoguelikeCopperData.addBuffItemIdList(builder, buffItemIdListOffset);
+  clz_Torappu_RoguelikeCopperData.addIsAllLuckyLevel(builder, isAllLuckyLevel);
   return clz_Torappu_RoguelikeCopperData.endclz_Torappu_RoguelikeCopperData(builder);
 }
 
@@ -186,7 +196,8 @@ unpack(): clz_Torappu_RoguelikeCopperDataT {
     this.layerCntDesc(),
     this.bb!.createScalarList<string>(this.poemList.bind(this), this.poemListLength()),
     this.alwaysShowCountDown(),
-    this.bb!.createScalarList<string>(this.buffItemIdList.bind(this), this.buffItemIdListLength())
+    this.bb!.createScalarList<string>(this.buffItemIdList.bind(this), this.buffItemIdListLength()),
+    this.isAllLuckyLevel()
   );
 }
 
@@ -201,6 +212,7 @@ unpackTo(_o: clz_Torappu_RoguelikeCopperDataT): void {
   _o.poemList = this.bb!.createScalarList<string>(this.poemList.bind(this), this.poemListLength());
   _o.alwaysShowCountDown = this.alwaysShowCountDown();
   _o.buffItemIdList = this.bb!.createScalarList<string>(this.buffItemIdList.bind(this), this.buffItemIdListLength());
+  _o.isAllLuckyLevel = this.isAllLuckyLevel();
 }
 }
 
@@ -214,7 +226,8 @@ constructor(
   public layerCntDesc: string|Uint8Array|null = null,
   public poemList: (string)[] = [],
   public alwaysShowCountDown: boolean = false,
-  public buffItemIdList: (string)[] = []
+  public buffItemIdList: (string)[] = [],
+  public isAllLuckyLevel: boolean = false
 ){}
 
 
@@ -235,7 +248,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     layerCntDesc,
     poemList,
     this.alwaysShowCountDown,
-    buffItemIdList
+    buffItemIdList,
+    this.isAllLuckyLevel
   );
 }
 }

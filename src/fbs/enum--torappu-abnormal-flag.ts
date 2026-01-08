@@ -45,5 +45,7 @@ export enum enum__Torappu_AbnormalFlag {
   PALSY = 39,
   PALSYING = 40,
   ATTRACTED = 41,
-  E_NUM = 42
+  FEARED_PRIVATE = 42,
+  DOZE = 43,
+  E_NUM = 44
 }

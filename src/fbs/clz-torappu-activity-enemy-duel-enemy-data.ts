@@ -38,8 +38,15 @@ originalEnemyId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+tagType():string|null
+tagType(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+tagType(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 8);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 static startclz_Torappu_ActivityEnemyDuelEnemyData(builder:flatbuffers.Builder) {
-  builder.startObject(2);
+  builder.startObject(3);
 }
 
 static addEnemyId(builder:flatbuffers.Builder, enemyIdOffset:flatbuffers.Offset) {
@@ -50,22 +57,28 @@ static addOriginalEnemyId(builder:flatbuffers.Builder, originalEnemyIdOffset:fla
   builder.addFieldOffset(1, originalEnemyIdOffset, 0);
 }
 
+static addTagType(builder:flatbuffers.Builder, tagTypeOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(2, tagTypeOffset, 0);
+}
+
 static endclz_Torappu_ActivityEnemyDuelEnemyData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_ActivityEnemyDuelEnemyData(builder:flatbuffers.Builder, enemyIdOffset:flatbuffers.Offset, originalEnemyIdOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_ActivityEnemyDuelEnemyData(builder:flatbuffers.Builder, enemyIdOffset:flatbuffers.Offset, originalEnemyIdOffset:flatbuffers.Offset, tagTypeOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_ActivityEnemyDuelEnemyData.startclz_Torappu_ActivityEnemyDuelEnemyData(builder);
   clz_Torappu_ActivityEnemyDuelEnemyData.addEnemyId(builder, enemyIdOffset);
   clz_Torappu_ActivityEnemyDuelEnemyData.addOriginalEnemyId(builder, originalEnemyIdOffset);
+  clz_Torappu_ActivityEnemyDuelEnemyData.addTagType(builder, tagTypeOffset);
   return clz_Torappu_ActivityEnemyDuelEnemyData.endclz_Torappu_ActivityEnemyDuelEnemyData(builder);
 }
 
 unpack(): clz_Torappu_ActivityEnemyDuelEnemyDataT {
   return new clz_Torappu_ActivityEnemyDuelEnemyDataT(
     this.enemyId(),
-    this.originalEnemyId()
+    this.originalEnemyId(),
+    this.tagType()
   );
 }
 
@@ -73,23 +86,27 @@ unpack(): clz_Torappu_ActivityEnemyDuelEnemyDataT {
 unpackTo(_o: clz_Torappu_ActivityEnemyDuelEnemyDataT): void {
   _o.enemyId = this.enemyId();
   _o.originalEnemyId = this.originalEnemyId();
+  _o.tagType = this.tagType();
 }
 }
 
 export class clz_Torappu_ActivityEnemyDuelEnemyDataT implements flatbuffers.IGeneratedObject {
 constructor(
   public enemyId: string|Uint8Array|null = null,
-  public originalEnemyId: string|Uint8Array|null = null
+  public originalEnemyId: string|Uint8Array|null = null,
+  public tagType: string|Uint8Array|null = null
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const enemyId = (this.enemyId !== null ? builder.createString(this.enemyId!) : 0);
   const originalEnemyId = (this.originalEnemyId !== null ? builder.createString(this.originalEnemyId!) : 0);
+  const tagType = (this.tagType !== null ? builder.createString(this.tagType!) : 0);
 
   return clz_Torappu_ActivityEnemyDuelEnemyData.createclz_Torappu_ActivityEnemyDuelEnemyData(builder,
     enemyId,
-    originalEnemyId
+    originalEnemyId,
+    tagType
   );
 }
 }

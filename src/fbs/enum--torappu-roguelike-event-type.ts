@@ -25,8 +25,8 @@ export enum enum__Torappu_RoguelikeEventType {
   ALCHEMY = 131072,
   DUEL = 262144,
   STASHED_RECRUIT = 524288,
-  CHOICES = 913136,
   SPECIAL_ZONE = 1048576,
+  CHOICES = 1961712,
   EVENTS = 1965816,
   ALL = 1965823
 }

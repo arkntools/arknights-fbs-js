@@ -85,6 +85,7 @@ export { clz_Torappu_RoguelikeCommonDevelopment, clz_Torappu_RoguelikeCommonDeve
 export { clz_Torappu_RoguelikeCommonDevelopmentData, clz_Torappu_RoguelikeCommonDevelopmentDataT } from './clz-torappu-roguelike-common-development-data.js';
 export { clz_Torappu_RoguelikeCopperData, clz_Torappu_RoguelikeCopperDataT } from './clz-torappu-roguelike-copper-data.js';
 export { clz_Torappu_RoguelikeCopperDivineData, clz_Torappu_RoguelikeCopperDivineDataT } from './clz-torappu-roguelike-copper-divine-data.js';
+export { clz_Torappu_RoguelikeCopperGildTypeData, clz_Torappu_RoguelikeCopperGildTypeDataT } from './clz-torappu-roguelike-copper-gild-type-data.js';
 export { clz_Torappu_RoguelikeCopperModuleConsts, clz_Torappu_RoguelikeCopperModuleConstsT } from './clz-torappu-roguelike-copper-module-consts.js';
 export { clz_Torappu_RoguelikeCopperModuleData, clz_Torappu_RoguelikeCopperModuleDataT } from './clz-torappu-roguelike-copper-module-data.js';
 export { clz_Torappu_RoguelikeDiceData, clz_Torappu_RoguelikeDiceDataT } from './clz-torappu-roguelike-dice-data.js';
@@ -236,6 +237,7 @@ export { dict__string__clz_Torappu_RoguelikeCommonDevDifficultyNodeInfo, dict__s
 export { dict__string__clz_Torappu_RoguelikeCommonDevelopment, dict__string__clz_Torappu_RoguelikeCommonDevelopmentT } from './dict--string--clz-torappu-roguelike-common-development.js';
 export { dict__string__clz_Torappu_RoguelikeCopperData, dict__string__clz_Torappu_RoguelikeCopperDataT } from './dict--string--clz-torappu-roguelike-copper-data.js';
 export { dict__string__clz_Torappu_RoguelikeCopperDivineData, dict__string__clz_Torappu_RoguelikeCopperDivineDataT } from './dict--string--clz-torappu-roguelike-copper-divine-data.js';
+export { dict__string__clz_Torappu_RoguelikeCopperGildTypeData, dict__string__clz_Torappu_RoguelikeCopperGildTypeDataT } from './dict--string--clz-torappu-roguelike-copper-gild-type-data.js';
 export { dict__string__clz_Torappu_RoguelikeDiceData, dict__string__clz_Torappu_RoguelikeDiceDataT } from './dict--string--clz-torappu-roguelike-dice-data.js';
 export { dict__string__clz_Torappu_RoguelikeDiceRuleData, dict__string__clz_Torappu_RoguelikeDiceRuleDataT } from './dict--string--clz-torappu-roguelike-dice-rule-data.js';
 export { dict__string__clz_Torappu_RoguelikeDiceRuleGroupData, dict__string__clz_Torappu_RoguelikeDiceRuleGroupDataT } from './dict--string--clz-torappu-roguelike-dice-rule-group-data.js';

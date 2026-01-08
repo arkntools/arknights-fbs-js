@@ -56,8 +56,18 @@ poolNoSurpriseEnemy():number {
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
+poolGiantBoss():number {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
+  return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
+}
+
+poolAntiGiantBoss():number {
+  const offset = this.bb!.__offset(this.bb_pos, 18);
+  return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
+}
+
 static startclz_Torappu_ActivityEnemyDuelPoolData(builder:flatbuffers.Builder) {
-  builder.startObject(6);
+  builder.startObject(8);
 }
 
 static addEnemyId(builder:flatbuffers.Builder, enemyIdOffset:flatbuffers.Offset) {
@@ -84,12 +94,20 @@ static addPoolNoSurpriseEnemy(builder:flatbuffers.Builder, poolNoSurpriseEnemy:n
   builder.addFieldFloat32(5, poolNoSurpriseEnemy, 0.0);
 }
 
+static addPoolGiantBoss(builder:flatbuffers.Builder, poolGiantBoss:number) {
+  builder.addFieldFloat32(6, poolGiantBoss, 0.0);
+}
+
+static addPoolAntiGiantBoss(builder:flatbuffers.Builder, poolAntiGiantBoss:number) {
+  builder.addFieldFloat32(7, poolAntiGiantBoss, 0.0);
+}
+
 static endclz_Torappu_ActivityEnemyDuelPoolData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_ActivityEnemyDuelPoolData(builder:flatbuffers.Builder, enemyIdOffset:flatbuffers.Offset, poolNormal:number, poolSmallEnemy:number, poolBoss:number, poolMusic:number, poolNoSurpriseEnemy:number):flatbuffers.Offset {
+static createclz_Torappu_ActivityEnemyDuelPoolData(builder:flatbuffers.Builder, enemyIdOffset:flatbuffers.Offset, poolNormal:number, poolSmallEnemy:number, poolBoss:number, poolMusic:number, poolNoSurpriseEnemy:number, poolGiantBoss:number, poolAntiGiantBoss:number):flatbuffers.Offset {
   clz_Torappu_ActivityEnemyDuelPoolData.startclz_Torappu_ActivityEnemyDuelPoolData(builder);
   clz_Torappu_ActivityEnemyDuelPoolData.addEnemyId(builder, enemyIdOffset);
   clz_Torappu_ActivityEnemyDuelPoolData.addPoolNormal(builder, poolNormal);
@@ -97,6 +115,8 @@ static createclz_Torappu_ActivityEnemyDuelPoolData(builder:flatbuffers.Builder, 
   clz_Torappu_ActivityEnemyDuelPoolData.addPoolBoss(builder, poolBoss);
   clz_Torappu_ActivityEnemyDuelPoolData.addPoolMusic(builder, poolMusic);
   clz_Torappu_ActivityEnemyDuelPoolData.addPoolNoSurpriseEnemy(builder, poolNoSurpriseEnemy);
+  clz_Torappu_ActivityEnemyDuelPoolData.addPoolGiantBoss(builder, poolGiantBoss);
+  clz_Torappu_ActivityEnemyDuelPoolData.addPoolAntiGiantBoss(builder, poolAntiGiantBoss);
   return clz_Torappu_ActivityEnemyDuelPoolData.endclz_Torappu_ActivityEnemyDuelPoolData(builder);
 }
 
@@ -107,7 +127,9 @@ unpack(): clz_Torappu_ActivityEnemyDuelPoolDataT {
     this.poolSmallEnemy(),
     this.poolBoss(),
     this.poolMusic(),
-    this.poolNoSurpriseEnemy()
+    this.poolNoSurpriseEnemy(),
+    this.poolGiantBoss(),
+    this.poolAntiGiantBoss()
   );
 }
 
@@ -119,6 +141,8 @@ unpackTo(_o: clz_Torappu_ActivityEnemyDuelPoolDataT): void {
   _o.poolBoss = this.poolBoss();
   _o.poolMusic = this.poolMusic();
   _o.poolNoSurpriseEnemy = this.poolNoSurpriseEnemy();
+  _o.poolGiantBoss = this.poolGiantBoss();
+  _o.poolAntiGiantBoss = this.poolAntiGiantBoss();
 }
 }
 
@@ -129,7 +153,9 @@ constructor(
   public poolSmallEnemy: number = 0.0,
   public poolBoss: number = 0.0,
   public poolMusic: number = 0.0,
-  public poolNoSurpriseEnemy: number = 0.0
+  public poolNoSurpriseEnemy: number = 0.0,
+  public poolGiantBoss: number = 0.0,
+  public poolAntiGiantBoss: number = 0.0
 ){}
 
 
@@ -142,7 +168,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.poolSmallEnemy,
     this.poolBoss,
     this.poolMusic,
-    this.poolNoSurpriseEnemy
+    this.poolNoSurpriseEnemy,
+    this.poolGiantBoss,
+    this.poolAntiGiantBoss
   );
 }
 }

@@ -3,6 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any, @typescript-eslint/no-non-null-assertion */
 
 export enum enum__Torappu_BuffData_OnEventPriority {
+  TITI_DOZE_PRIORITY = -4000,
   LOWEST_PRIORITY = -3000,
   LOWER_PRIORITY = -2000,
   LOW_PRIORITY = -1000,

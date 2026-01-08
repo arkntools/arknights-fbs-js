@@ -45,8 +45,13 @@ hiddenWrathType(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+pacifiedWrathLevel():number {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_RoguelikeWrathModuleConsts(builder:flatbuffers.Builder) {
-  builder.startObject(3);
+  builder.startObject(4);
 }
 
 static addGetWrathTransition(builder:flatbuffers.Builder, getWrathTransitionOffset:flatbuffers.Offset) {
@@ -61,16 +66,21 @@ static addHiddenWrathType(builder:flatbuffers.Builder, hiddenWrathTypeOffset:fla
   builder.addFieldOffset(2, hiddenWrathTypeOffset, 0);
 }
 
+static addPacifiedWrathLevel(builder:flatbuffers.Builder, pacifiedWrathLevel:number) {
+  builder.addFieldInt32(3, pacifiedWrathLevel, 0);
+}
+
 static endclz_Torappu_RoguelikeWrathModuleConsts(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_RoguelikeWrathModuleConsts(builder:flatbuffers.Builder, getWrathTransitionOffset:flatbuffers.Offset, getWrathToastOffset:flatbuffers.Offset, hiddenWrathTypeOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_RoguelikeWrathModuleConsts(builder:flatbuffers.Builder, getWrathTransitionOffset:flatbuffers.Offset, getWrathToastOffset:flatbuffers.Offset, hiddenWrathTypeOffset:flatbuffers.Offset, pacifiedWrathLevel:number):flatbuffers.Offset {
   clz_Torappu_RoguelikeWrathModuleConsts.startclz_Torappu_RoguelikeWrathModuleConsts(builder);
   clz_Torappu_RoguelikeWrathModuleConsts.addGetWrathTransition(builder, getWrathTransitionOffset);
   clz_Torappu_RoguelikeWrathModuleConsts.addGetWrathToast(builder, getWrathToastOffset);
   clz_Torappu_RoguelikeWrathModuleConsts.addHiddenWrathType(builder, hiddenWrathTypeOffset);
+  clz_Torappu_RoguelikeWrathModuleConsts.addPacifiedWrathLevel(builder, pacifiedWrathLevel);
   return clz_Torappu_RoguelikeWrathModuleConsts.endclz_Torappu_RoguelikeWrathModuleConsts(builder);
 }
 
@@ -78,7 +88,8 @@ unpack(): clz_Torappu_RoguelikeWrathModuleConstsT {
   return new clz_Torappu_RoguelikeWrathModuleConstsT(
     this.getWrathTransition(),
     this.getWrathToast(),
-    this.hiddenWrathType()
+    this.hiddenWrathType(),
+    this.pacifiedWrathLevel()
   );
 }
 
@@ -87,6 +98,7 @@ unpackTo(_o: clz_Torappu_RoguelikeWrathModuleConstsT): void {
   _o.getWrathTransition = this.getWrathTransition();
   _o.getWrathToast = this.getWrathToast();
   _o.hiddenWrathType = this.hiddenWrathType();
+  _o.pacifiedWrathLevel = this.pacifiedWrathLevel();
 }
 }
 
@@ -94,7 +106,8 @@ export class clz_Torappu_RoguelikeWrathModuleConstsT implements flatbuffers.IGen
 constructor(
   public getWrathTransition: string|Uint8Array|null = null,
   public getWrathToast: string|Uint8Array|null = null,
-  public hiddenWrathType: string|Uint8Array|null = null
+  public hiddenWrathType: string|Uint8Array|null = null,
+  public pacifiedWrathLevel: number = 0
 ){}
 
 
@@ -106,7 +119,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   return clz_Torappu_RoguelikeWrathModuleConsts.createclz_Torappu_RoguelikeWrathModuleConsts(builder,
     getWrathTransition,
     getWrathToast,
-    hiddenWrathType
+    hiddenWrathType,
+    this.pacifiedWrathLevel
   );
 }
 }
