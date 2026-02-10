@@ -2,8 +2,8 @@
 
 /* eslint-disable @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any, @typescript-eslint/no-non-null-assertion */
 
-export enum enum__Torappu_NameCardV2SkinType {
-  NONE = 0,
-  BASE = 1,
-  SPECIAL = 2
+export enum enum__Torappu_CollectType {
+  ALL = 0,
+  ROGUE = 1,
+  SANDBOX = 2
 }

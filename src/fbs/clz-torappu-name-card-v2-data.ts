@@ -4,6 +4,7 @@
 
 import * as flatbuffers from 'flatbuffers';
 
+import { clz_Torappu_ArtGalleryGroupData, clz_Torappu_ArtGalleryGroupDataT } from './clz-torappu-art-gallery-group-data.js';
 import { clz_Torappu_NameCardV2Consts, clz_Torappu_NameCardV2ConstsT } from './clz-torappu-name-card-v2-consts.js';
 import { dict__string__clz_Torappu_NameCardV2ModuleData, dict__string__clz_Torappu_NameCardV2ModuleDataT } from './dict--string--clz-torappu-name-card-v2-module-data.js';
 import { dict__string__clz_Torappu_NameCardV2RemovableModuleData, dict__string__clz_Torappu_NameCardV2RemovableModuleDataT } from './dict--string--clz-torappu-name-card-v2-removable-module-data.js';
@@ -58,13 +59,23 @@ skinDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-consts(obj?:clz_Torappu_NameCardV2Consts):clz_Torappu_NameCardV2Consts|null {
+skinGroupDatas(index: number, obj?:clz_Torappu_ArtGalleryGroupData):clz_Torappu_ArtGalleryGroupData|null {
   const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? (obj || new clz_Torappu_ArtGalleryGroupData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+skinGroupDatasLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+consts(obj?:clz_Torappu_NameCardV2Consts):clz_Torappu_NameCardV2Consts|null {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? (obj || new clz_Torappu_NameCardV2Consts()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 static startclz_Torappu_NameCardV2Data(builder:flatbuffers.Builder) {
-  builder.startObject(4);
+  builder.startObject(5);
 }
 
 static addFixedModuleData(builder:flatbuffers.Builder, fixedModuleDataOffset:flatbuffers.Offset) {
@@ -115,8 +126,24 @@ static startSkinDataVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
+static addSkinGroupDatas(builder:flatbuffers.Builder, skinGroupDatasOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(3, skinGroupDatasOffset, 0);
+}
+
+static createSkinGroupDatasVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startSkinGroupDatasVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static addConsts(builder:flatbuffers.Builder, constsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, constsOffset, 0);
+  builder.addFieldOffset(4, constsOffset, 0);
 }
 
 static endclz_Torappu_NameCardV2Data(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -130,6 +157,7 @@ unpack(): clz_Torappu_NameCardV2DataT {
     this.bb!.createObjList<dict__string__clz_Torappu_NameCardV2ModuleData, dict__string__clz_Torappu_NameCardV2ModuleDataT>(this.fixedModuleData.bind(this), this.fixedModuleDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_NameCardV2RemovableModuleData, dict__string__clz_Torappu_NameCardV2RemovableModuleDataT>(this.removableModuleData.bind(this), this.removableModuleDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_NameCardV2SkinData, dict__string__clz_Torappu_NameCardV2SkinDataT>(this.skinData.bind(this), this.skinDataLength()),
+    this.bb!.createObjList<clz_Torappu_ArtGalleryGroupData, clz_Torappu_ArtGalleryGroupDataT>(this.skinGroupDatas.bind(this), this.skinGroupDatasLength()),
     (this.consts() !== null ? this.consts()!.unpack() : null)
   );
 }
@@ -139,6 +167,7 @@ unpackTo(_o: clz_Torappu_NameCardV2DataT): void {
   _o.fixedModuleData = this.bb!.createObjList<dict__string__clz_Torappu_NameCardV2ModuleData, dict__string__clz_Torappu_NameCardV2ModuleDataT>(this.fixedModuleData.bind(this), this.fixedModuleDataLength());
   _o.removableModuleData = this.bb!.createObjList<dict__string__clz_Torappu_NameCardV2RemovableModuleData, dict__string__clz_Torappu_NameCardV2RemovableModuleDataT>(this.removableModuleData.bind(this), this.removableModuleDataLength());
   _o.skinData = this.bb!.createObjList<dict__string__clz_Torappu_NameCardV2SkinData, dict__string__clz_Torappu_NameCardV2SkinDataT>(this.skinData.bind(this), this.skinDataLength());
+  _o.skinGroupDatas = this.bb!.createObjList<clz_Torappu_ArtGalleryGroupData, clz_Torappu_ArtGalleryGroupDataT>(this.skinGroupDatas.bind(this), this.skinGroupDatasLength());
   _o.consts = (this.consts() !== null ? this.consts()!.unpack() : null);
 }
 }
@@ -148,6 +177,7 @@ constructor(
   public fixedModuleData: (dict__string__clz_Torappu_NameCardV2ModuleDataT)[] = [],
   public removableModuleData: (dict__string__clz_Torappu_NameCardV2RemovableModuleDataT)[] = [],
   public skinData: (dict__string__clz_Torappu_NameCardV2SkinDataT)[] = [],
+  public skinGroupDatas: (clz_Torappu_ArtGalleryGroupDataT)[] = [],
   public consts: clz_Torappu_NameCardV2ConstsT|null = null
 ){}
 
@@ -156,12 +186,14 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const fixedModuleData = clz_Torappu_NameCardV2Data.createFixedModuleDataVector(builder, builder.createObjectOffsetList(this.fixedModuleData));
   const removableModuleData = clz_Torappu_NameCardV2Data.createRemovableModuleDataVector(builder, builder.createObjectOffsetList(this.removableModuleData));
   const skinData = clz_Torappu_NameCardV2Data.createSkinDataVector(builder, builder.createObjectOffsetList(this.skinData));
+  const skinGroupDatas = clz_Torappu_NameCardV2Data.createSkinGroupDatasVector(builder, builder.createObjectOffsetList(this.skinGroupDatas));
   const consts = (this.consts !== null ? this.consts!.pack(builder) : 0);
 
   clz_Torappu_NameCardV2Data.startclz_Torappu_NameCardV2Data(builder);
   clz_Torappu_NameCardV2Data.addFixedModuleData(builder, fixedModuleData);
   clz_Torappu_NameCardV2Data.addRemovableModuleData(builder, removableModuleData);
   clz_Torappu_NameCardV2Data.addSkinData(builder, skinData);
+  clz_Torappu_NameCardV2Data.addSkinGroupDatas(builder, skinGroupDatas);
   clz_Torappu_NameCardV2Data.addConsts(builder, consts);
 
   return clz_Torappu_NameCardV2Data.endclz_Torappu_NameCardV2Data(builder);

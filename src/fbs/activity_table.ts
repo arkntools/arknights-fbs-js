@@ -547,6 +547,7 @@ export { clz_Torappu_StageData_DisplayDetailRewards, clz_Torappu_StageData_Displ
 export { clz_Torappu_StageData_DisplayRewards, clz_Torappu_StageData_DisplayRewardsT } from './clz-torappu-stage-data-display-rewards.js';
 export { clz_Torappu_StageData_StageDropInfo, clz_Torappu_StageData_StageDropInfoT } from './clz-torappu-stage-data-stage-drop-info.js';
 export { clz_Torappu_StageUnlockParam, clz_Torappu_StageUnlockParamT } from './clz-torappu-stage-unlock-param.js';
+export { clz_Torappu_StoryReadTipsData, clz_Torappu_StoryReadTipsDataT } from './clz-torappu-story-read-tips-data.js';
 export { clz_Torappu_TemplateMissionStyleData, clz_Torappu_TemplateMissionStyleDataT } from './clz-torappu-template-mission-style-data.js';
 export { clz_Torappu_VersusCheckInData, clz_Torappu_VersusCheckInDataT } from './clz-torappu-versus-check-in-data.js';
 export { clz_Torappu_VersusCheckInData_DailyInfo, clz_Torappu_VersusCheckInData_DailyInfoT } from './clz-torappu-versus-check-in-data-daily-info.js';
@@ -886,6 +887,7 @@ export { dict__string__clz_Torappu_SiracusaData_StoryBriefInfoData, dict__string
 export { dict__string__clz_Torappu_SiracusaData_TaskBasicInfoData, dict__string__clz_Torappu_SiracusaData_TaskBasicInfoDataT } from './dict--string--clz-torappu-siracusa-data-task-basic-info-data.js';
 export { dict__string__clz_Torappu_SiracusaData_TaskRingData, dict__string__clz_Torappu_SiracusaData_TaskRingDataT } from './dict--string--clz-torappu-siracusa-data-task-ring-data.js';
 export { dict__string__clz_Torappu_StageData_StageDropInfo, dict__string__clz_Torappu_StageData_StageDropInfoT } from './dict--string--clz-torappu-stage-data-stage-drop-info.js';
+export { dict__string__clz_Torappu_StoryReadTipsData, dict__string__clz_Torappu_StoryReadTipsDataT } from './dict--string--clz-torappu-story-read-tips-data.js';
 export { dict__string__clz_Torappu_TemplateMissionStyleData, dict__string__clz_Torappu_TemplateMissionStyleDataT } from './dict--string--clz-torappu-template-mission-style-data.js';
 export { dict__string__clz_Torappu_VersusCheckInData, dict__string__clz_Torappu_VersusCheckInDataT } from './dict--string--clz-torappu-versus-check-in-data.js';
 export { dict__string__enum__Torappu_RarityRank, dict__string__enum__Torappu_RarityRankT } from './dict--string--enum--torappu-rarity-rank.js';

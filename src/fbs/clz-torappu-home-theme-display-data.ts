@@ -51,83 +51,95 @@ startTime():bigint {
   return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
 }
 
+isSecret():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
 tmName():string|null
 tmName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 tmName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
+  const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 tmDes():string|null
 tmDes(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 tmDes(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 tmUsage():string|null
 tmUsage(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 tmUsage(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 isMultiForm():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 changeRule():enum__Torappu_HomeMultiFormChangeRule {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_HomeMultiFormChangeRule.NONE;
 }
 
 multiFormList(index: number, obj?:clz_Torappu_HomeThemeMultiFormData):clz_Torappu_HomeThemeMultiFormData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? (obj || new clz_Torappu_HomeThemeMultiFormData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 multiFormListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 obtainApproach():string|null
 obtainApproach(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 obtainApproach(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 unlockDesList(index: number):string
 unlockDesList(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 unlockDesList(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 unlockDesListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 isLimitObtain():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 28);
-  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
-}
-
-hideWhenLimit():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-rarity():enum__Torappu_ItemRarity {
+hideWhenLimit():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 32);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+rarity():enum__Torappu_ItemRarity {
+  const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_ItemRarity.TIER_1;
 }
 
+multiPicId():string|null
+multiPicId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+multiPicId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 36);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 static startclz_Torappu_HomeThemeDisplayData(builder:flatbuffers.Builder) {
-  builder.startObject(15);
+  builder.startObject(17);
 }
 
 static addId(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset) {
@@ -146,28 +158,32 @@ static addStartTime(builder:flatbuffers.Builder, startTime:bigint) {
   builder.addFieldInt64(3, startTime, BigInt('0'));
 }
 
+static addIsSecret(builder:flatbuffers.Builder, isSecret:boolean) {
+  builder.addFieldInt8(4, +isSecret, +false);
+}
+
 static addTmName(builder:flatbuffers.Builder, tmNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(4, tmNameOffset, 0);
+  builder.addFieldOffset(5, tmNameOffset, 0);
 }
 
 static addTmDes(builder:flatbuffers.Builder, tmDesOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, tmDesOffset, 0);
+  builder.addFieldOffset(6, tmDesOffset, 0);
 }
 
 static addTmUsage(builder:flatbuffers.Builder, tmUsageOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(6, tmUsageOffset, 0);
+  builder.addFieldOffset(7, tmUsageOffset, 0);
 }
 
 static addIsMultiForm(builder:flatbuffers.Builder, isMultiForm:boolean) {
-  builder.addFieldInt8(7, +isMultiForm, +false);
+  builder.addFieldInt8(8, +isMultiForm, +false);
 }
 
 static addChangeRule(builder:flatbuffers.Builder, changeRule:enum__Torappu_HomeMultiFormChangeRule) {
-  builder.addFieldInt32(8, changeRule, enum__Torappu_HomeMultiFormChangeRule.NONE);
+  builder.addFieldInt32(9, changeRule, enum__Torappu_HomeMultiFormChangeRule.NONE);
 }
 
 static addMultiFormList(builder:flatbuffers.Builder, multiFormListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(9, multiFormListOffset, 0);
+  builder.addFieldOffset(10, multiFormListOffset, 0);
 }
 
 static createMultiFormListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -183,11 +199,11 @@ static startMultiFormListVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addObtainApproach(builder:flatbuffers.Builder, obtainApproachOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(10, obtainApproachOffset, 0);
+  builder.addFieldOffset(11, obtainApproachOffset, 0);
 }
 
 static addUnlockDesList(builder:flatbuffers.Builder, unlockDesListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(11, unlockDesListOffset, 0);
+  builder.addFieldOffset(12, unlockDesListOffset, 0);
 }
 
 static createUnlockDesListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -203,15 +219,19 @@ static startUnlockDesListVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addIsLimitObtain(builder:flatbuffers.Builder, isLimitObtain:boolean) {
-  builder.addFieldInt8(12, +isLimitObtain, +false);
+  builder.addFieldInt8(13, +isLimitObtain, +false);
 }
 
 static addHideWhenLimit(builder:flatbuffers.Builder, hideWhenLimit:boolean) {
-  builder.addFieldInt8(13, +hideWhenLimit, +false);
+  builder.addFieldInt8(14, +hideWhenLimit, +false);
 }
 
 static addRarity(builder:flatbuffers.Builder, rarity:enum__Torappu_ItemRarity) {
-  builder.addFieldInt32(14, rarity, enum__Torappu_ItemRarity.TIER_1);
+  builder.addFieldInt32(15, rarity, enum__Torappu_ItemRarity.TIER_1);
+}
+
+static addMultiPicId(builder:flatbuffers.Builder, multiPicIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(16, multiPicIdOffset, 0);
 }
 
 static endclz_Torappu_HomeThemeDisplayData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -219,12 +239,13 @@ static endclz_Torappu_HomeThemeDisplayData(builder:flatbuffers.Builder):flatbuff
   return offset;
 }
 
-static createclz_Torappu_HomeThemeDisplayData(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, typeOffset:flatbuffers.Offset, sortId:number, startTime:bigint, tmNameOffset:flatbuffers.Offset, tmDesOffset:flatbuffers.Offset, tmUsageOffset:flatbuffers.Offset, isMultiForm:boolean, changeRule:enum__Torappu_HomeMultiFormChangeRule, multiFormListOffset:flatbuffers.Offset, obtainApproachOffset:flatbuffers.Offset, unlockDesListOffset:flatbuffers.Offset, isLimitObtain:boolean, hideWhenLimit:boolean, rarity:enum__Torappu_ItemRarity):flatbuffers.Offset {
+static createclz_Torappu_HomeThemeDisplayData(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, typeOffset:flatbuffers.Offset, sortId:number, startTime:bigint, isSecret:boolean, tmNameOffset:flatbuffers.Offset, tmDesOffset:flatbuffers.Offset, tmUsageOffset:flatbuffers.Offset, isMultiForm:boolean, changeRule:enum__Torappu_HomeMultiFormChangeRule, multiFormListOffset:flatbuffers.Offset, obtainApproachOffset:flatbuffers.Offset, unlockDesListOffset:flatbuffers.Offset, isLimitObtain:boolean, hideWhenLimit:boolean, rarity:enum__Torappu_ItemRarity, multiPicIdOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_HomeThemeDisplayData.startclz_Torappu_HomeThemeDisplayData(builder);
   clz_Torappu_HomeThemeDisplayData.addId(builder, idOffset);
   clz_Torappu_HomeThemeDisplayData.addType(builder, typeOffset);
   clz_Torappu_HomeThemeDisplayData.addSortId(builder, sortId);
   clz_Torappu_HomeThemeDisplayData.addStartTime(builder, startTime);
+  clz_Torappu_HomeThemeDisplayData.addIsSecret(builder, isSecret);
   clz_Torappu_HomeThemeDisplayData.addTmName(builder, tmNameOffset);
   clz_Torappu_HomeThemeDisplayData.addTmDes(builder, tmDesOffset);
   clz_Torappu_HomeThemeDisplayData.addTmUsage(builder, tmUsageOffset);
@@ -236,6 +257,7 @@ static createclz_Torappu_HomeThemeDisplayData(builder:flatbuffers.Builder, idOff
   clz_Torappu_HomeThemeDisplayData.addIsLimitObtain(builder, isLimitObtain);
   clz_Torappu_HomeThemeDisplayData.addHideWhenLimit(builder, hideWhenLimit);
   clz_Torappu_HomeThemeDisplayData.addRarity(builder, rarity);
+  clz_Torappu_HomeThemeDisplayData.addMultiPicId(builder, multiPicIdOffset);
   return clz_Torappu_HomeThemeDisplayData.endclz_Torappu_HomeThemeDisplayData(builder);
 }
 
@@ -245,6 +267,7 @@ unpack(): clz_Torappu_HomeThemeDisplayDataT {
     this.type(),
     this.sortId(),
     this.startTime(),
+    this.isSecret(),
     this.tmName(),
     this.tmDes(),
     this.tmUsage(),
@@ -255,7 +278,8 @@ unpack(): clz_Torappu_HomeThemeDisplayDataT {
     this.bb!.createScalarList<string>(this.unlockDesList.bind(this), this.unlockDesListLength()),
     this.isLimitObtain(),
     this.hideWhenLimit(),
-    this.rarity()
+    this.rarity(),
+    this.multiPicId()
   );
 }
 
@@ -265,6 +289,7 @@ unpackTo(_o: clz_Torappu_HomeThemeDisplayDataT): void {
   _o.type = this.type();
   _o.sortId = this.sortId();
   _o.startTime = this.startTime();
+  _o.isSecret = this.isSecret();
   _o.tmName = this.tmName();
   _o.tmDes = this.tmDes();
   _o.tmUsage = this.tmUsage();
@@ -276,6 +301,7 @@ unpackTo(_o: clz_Torappu_HomeThemeDisplayDataT): void {
   _o.isLimitObtain = this.isLimitObtain();
   _o.hideWhenLimit = this.hideWhenLimit();
   _o.rarity = this.rarity();
+  _o.multiPicId = this.multiPicId();
 }
 }
 
@@ -285,6 +311,7 @@ constructor(
   public type: string|Uint8Array|null = null,
   public sortId: number = 0,
   public startTime: bigint = BigInt('0'),
+  public isSecret: boolean = false,
   public tmName: string|Uint8Array|null = null,
   public tmDes: string|Uint8Array|null = null,
   public tmUsage: string|Uint8Array|null = null,
@@ -295,7 +322,8 @@ constructor(
   public unlockDesList: (string)[] = [],
   public isLimitObtain: boolean = false,
   public hideWhenLimit: boolean = false,
-  public rarity: enum__Torappu_ItemRarity = enum__Torappu_ItemRarity.TIER_1
+  public rarity: enum__Torappu_ItemRarity = enum__Torappu_ItemRarity.TIER_1,
+  public multiPicId: string|Uint8Array|null = null
 ){}
 
 
@@ -308,12 +336,14 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const multiFormList = clz_Torappu_HomeThemeDisplayData.createMultiFormListVector(builder, builder.createObjectOffsetList(this.multiFormList));
   const obtainApproach = (this.obtainApproach !== null ? builder.createString(this.obtainApproach!) : 0);
   const unlockDesList = clz_Torappu_HomeThemeDisplayData.createUnlockDesListVector(builder, builder.createObjectOffsetList(this.unlockDesList));
+  const multiPicId = (this.multiPicId !== null ? builder.createString(this.multiPicId!) : 0);
 
   return clz_Torappu_HomeThemeDisplayData.createclz_Torappu_HomeThemeDisplayData(builder,
     id,
     type,
     this.sortId,
     this.startTime,
+    this.isSecret,
     tmName,
     tmDes,
     tmUsage,
@@ -324,7 +354,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     unlockDesList,
     this.isLimitObtain,
     this.hideWhenLimit,
-    this.rarity
+    this.rarity,
+    multiPicId
   );
 }
 }

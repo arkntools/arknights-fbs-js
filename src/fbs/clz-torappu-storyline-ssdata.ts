@@ -24,95 +24,84 @@ static getSizePrefixedRootAsclz_Torappu_StorylineSSData(bb:flatbuffers.ByteBuffe
   return (obj || new clz_Torappu_StorylineSSData()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-name():string|null
-name(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-name(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 4);
-  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
-}
-
 desc():string|null
 desc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 desc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 6);
+  const offset = this.bb!.__offset(this.bb_pos, 4);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 backgroundId():string|null
 backgroundId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 backgroundId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 8);
+  const offset = this.bb!.__offset(this.bb_pos, 6);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 tags(index: number):string
 tags(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 tags(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 10);
+  const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 tagsLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 10);
+  const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 reopenActivityId():string|null
 reopenActivityId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 reopenActivityId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
+  const offset = this.bb!.__offset(this.bb_pos, 10);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 retroActivityId():string|null
 retroActivityId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 retroActivityId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 isRecommended():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 recommendHideStageId():string|null
 recommendHideStageId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 recommendHideStageId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 overrideStageList(index: number):string
 overrideStageList(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 overrideStageList(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 overrideStageListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_StorylineSSData(builder:flatbuffers.Builder) {
-  builder.startObject(9);
-}
-
-static addName(builder:flatbuffers.Builder, nameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(0, nameOffset, 0);
+  builder.startObject(8);
 }
 
 static addDesc(builder:flatbuffers.Builder, descOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(1, descOffset, 0);
+  builder.addFieldOffset(0, descOffset, 0);
 }
 
 static addBackgroundId(builder:flatbuffers.Builder, backgroundIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(2, backgroundIdOffset, 0);
+  builder.addFieldOffset(1, backgroundIdOffset, 0);
 }
 
 static addTags(builder:flatbuffers.Builder, tagsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, tagsOffset, 0);
+  builder.addFieldOffset(2, tagsOffset, 0);
 }
 
 static createTagsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -128,23 +117,23 @@ static startTagsVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addReopenActivityId(builder:flatbuffers.Builder, reopenActivityIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(4, reopenActivityIdOffset, 0);
+  builder.addFieldOffset(3, reopenActivityIdOffset, 0);
 }
 
 static addRetroActivityId(builder:flatbuffers.Builder, retroActivityIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, retroActivityIdOffset, 0);
+  builder.addFieldOffset(4, retroActivityIdOffset, 0);
 }
 
 static addIsRecommended(builder:flatbuffers.Builder, isRecommended:boolean) {
-  builder.addFieldInt8(6, +isRecommended, +false);
+  builder.addFieldInt8(5, +isRecommended, +false);
 }
 
 static addRecommendHideStageId(builder:flatbuffers.Builder, recommendHideStageIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(7, recommendHideStageIdOffset, 0);
+  builder.addFieldOffset(6, recommendHideStageIdOffset, 0);
 }
 
 static addOverrideStageList(builder:flatbuffers.Builder, overrideStageListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(8, overrideStageListOffset, 0);
+  builder.addFieldOffset(7, overrideStageListOffset, 0);
 }
 
 static createOverrideStageListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -164,9 +153,8 @@ static endclz_Torappu_StorylineSSData(builder:flatbuffers.Builder):flatbuffers.O
   return offset;
 }
 
-static createclz_Torappu_StorylineSSData(builder:flatbuffers.Builder, nameOffset:flatbuffers.Offset, descOffset:flatbuffers.Offset, backgroundIdOffset:flatbuffers.Offset, tagsOffset:flatbuffers.Offset, reopenActivityIdOffset:flatbuffers.Offset, retroActivityIdOffset:flatbuffers.Offset, isRecommended:boolean, recommendHideStageIdOffset:flatbuffers.Offset, overrideStageListOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_StorylineSSData(builder:flatbuffers.Builder, descOffset:flatbuffers.Offset, backgroundIdOffset:flatbuffers.Offset, tagsOffset:flatbuffers.Offset, reopenActivityIdOffset:flatbuffers.Offset, retroActivityIdOffset:flatbuffers.Offset, isRecommended:boolean, recommendHideStageIdOffset:flatbuffers.Offset, overrideStageListOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_StorylineSSData.startclz_Torappu_StorylineSSData(builder);
-  clz_Torappu_StorylineSSData.addName(builder, nameOffset);
   clz_Torappu_StorylineSSData.addDesc(builder, descOffset);
   clz_Torappu_StorylineSSData.addBackgroundId(builder, backgroundIdOffset);
   clz_Torappu_StorylineSSData.addTags(builder, tagsOffset);
@@ -180,7 +168,6 @@ static createclz_Torappu_StorylineSSData(builder:flatbuffers.Builder, nameOffset
 
 unpack(): clz_Torappu_StorylineSSDataT {
   return new clz_Torappu_StorylineSSDataT(
-    this.name(),
     this.desc(),
     this.backgroundId(),
     this.bb!.createScalarList<string>(this.tags.bind(this), this.tagsLength()),
@@ -194,7 +181,6 @@ unpack(): clz_Torappu_StorylineSSDataT {
 
 
 unpackTo(_o: clz_Torappu_StorylineSSDataT): void {
-  _o.name = this.name();
   _o.desc = this.desc();
   _o.backgroundId = this.backgroundId();
   _o.tags = this.bb!.createScalarList<string>(this.tags.bind(this), this.tagsLength());
@@ -208,7 +194,6 @@ unpackTo(_o: clz_Torappu_StorylineSSDataT): void {
 
 export class clz_Torappu_StorylineSSDataT implements flatbuffers.IGeneratedObject {
 constructor(
-  public name: string|Uint8Array|null = null,
   public desc: string|Uint8Array|null = null,
   public backgroundId: string|Uint8Array|null = null,
   public tags: (string)[] = [],
@@ -221,7 +206,6 @@ constructor(
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
-  const name = (this.name !== null ? builder.createString(this.name!) : 0);
   const desc = (this.desc !== null ? builder.createString(this.desc!) : 0);
   const backgroundId = (this.backgroundId !== null ? builder.createString(this.backgroundId!) : 0);
   const tags = clz_Torappu_StorylineSSData.createTagsVector(builder, builder.createObjectOffsetList(this.tags));
@@ -231,7 +215,6 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const overrideStageList = clz_Torappu_StorylineSSData.createOverrideStageListVector(builder, builder.createObjectOffsetList(this.overrideStageList));
 
   return clz_Torappu_StorylineSSData.createclz_Torappu_StorylineSSData(builder,
-    name,
     desc,
     backgroundId,
     tags,

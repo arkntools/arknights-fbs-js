@@ -33,114 +33,141 @@ bgId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-bgSortId():number {
+bgType():string|null
+bgType(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+bgType(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 6);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+bgSortId():number {
+  const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 bgStartTime():bigint {
-  const offset = this.bb!.__offset(this.bb_pos, 8);
+  const offset = this.bb!.__offset(this.bb_pos, 10);
   return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
+}
+
+isSecret():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 bgName():string|null
 bgName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 bgName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 10);
+  const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 bgDes():string|null
 bgDes(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 bgDes(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 bgUsage():string|null
 bgUsage(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 bgUsage(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 isMultiForm():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 changeRule():enum__Torappu_HomeMultiFormChangeRule {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_HomeMultiFormChangeRule.NONE;
 }
 
 multiFormList(index: number, obj?:clz_Torappu_HomeBackgroundMultiFormData):clz_Torappu_HomeBackgroundMultiFormData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? (obj || new clz_Torappu_HomeBackgroundMultiFormData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 multiFormListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 obtainApproach():string|null
 obtainApproach(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 obtainApproach(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 unlockDesList(index: number):string
 unlockDesList(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 unlockDesList(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 unlockDesListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+multiPicId():string|null
+multiPicId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+multiPicId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 30);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 static startclz_Torappu_HomeBackgroundSingleData(builder:flatbuffers.Builder) {
-  builder.startObject(11);
+  builder.startObject(14);
 }
 
 static addBgId(builder:flatbuffers.Builder, bgIdOffset:flatbuffers.Offset) {
   builder.addFieldOffset(0, bgIdOffset, 0);
 }
 
+static addBgType(builder:flatbuffers.Builder, bgTypeOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(1, bgTypeOffset, 0);
+}
+
 static addBgSortId(builder:flatbuffers.Builder, bgSortId:number) {
-  builder.addFieldInt32(1, bgSortId, 0);
+  builder.addFieldInt32(2, bgSortId, 0);
 }
 
 static addBgStartTime(builder:flatbuffers.Builder, bgStartTime:bigint) {
-  builder.addFieldInt64(2, bgStartTime, BigInt('0'));
+  builder.addFieldInt64(3, bgStartTime, BigInt('0'));
+}
+
+static addIsSecret(builder:flatbuffers.Builder, isSecret:boolean) {
+  builder.addFieldInt8(4, +isSecret, +false);
 }
 
 static addBgName(builder:flatbuffers.Builder, bgNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, bgNameOffset, 0);
+  builder.addFieldOffset(5, bgNameOffset, 0);
 }
 
 static addBgDes(builder:flatbuffers.Builder, bgDesOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(4, bgDesOffset, 0);
+  builder.addFieldOffset(6, bgDesOffset, 0);
 }
 
 static addBgUsage(builder:flatbuffers.Builder, bgUsageOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, bgUsageOffset, 0);
+  builder.addFieldOffset(7, bgUsageOffset, 0);
 }
 
 static addIsMultiForm(builder:flatbuffers.Builder, isMultiForm:boolean) {
-  builder.addFieldInt8(6, +isMultiForm, +false);
+  builder.addFieldInt8(8, +isMultiForm, +false);
 }
 
 static addChangeRule(builder:flatbuffers.Builder, changeRule:enum__Torappu_HomeMultiFormChangeRule) {
-  builder.addFieldInt32(7, changeRule, enum__Torappu_HomeMultiFormChangeRule.NONE);
+  builder.addFieldInt32(9, changeRule, enum__Torappu_HomeMultiFormChangeRule.NONE);
 }
 
 static addMultiFormList(builder:flatbuffers.Builder, multiFormListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(8, multiFormListOffset, 0);
+  builder.addFieldOffset(10, multiFormListOffset, 0);
 }
 
 static createMultiFormListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -156,11 +183,11 @@ static startMultiFormListVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addObtainApproach(builder:flatbuffers.Builder, obtainApproachOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(9, obtainApproachOffset, 0);
+  builder.addFieldOffset(11, obtainApproachOffset, 0);
 }
 
 static addUnlockDesList(builder:flatbuffers.Builder, unlockDesListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(10, unlockDesListOffset, 0);
+  builder.addFieldOffset(12, unlockDesListOffset, 0);
 }
 
 static createUnlockDesListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -175,16 +202,22 @@ static startUnlockDesListVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
+static addMultiPicId(builder:flatbuffers.Builder, multiPicIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(13, multiPicIdOffset, 0);
+}
+
 static endclz_Torappu_HomeBackgroundSingleData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_HomeBackgroundSingleData(builder:flatbuffers.Builder, bgIdOffset:flatbuffers.Offset, bgSortId:number, bgStartTime:bigint, bgNameOffset:flatbuffers.Offset, bgDesOffset:flatbuffers.Offset, bgUsageOffset:flatbuffers.Offset, isMultiForm:boolean, changeRule:enum__Torappu_HomeMultiFormChangeRule, multiFormListOffset:flatbuffers.Offset, obtainApproachOffset:flatbuffers.Offset, unlockDesListOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_HomeBackgroundSingleData(builder:flatbuffers.Builder, bgIdOffset:flatbuffers.Offset, bgTypeOffset:flatbuffers.Offset, bgSortId:number, bgStartTime:bigint, isSecret:boolean, bgNameOffset:flatbuffers.Offset, bgDesOffset:flatbuffers.Offset, bgUsageOffset:flatbuffers.Offset, isMultiForm:boolean, changeRule:enum__Torappu_HomeMultiFormChangeRule, multiFormListOffset:flatbuffers.Offset, obtainApproachOffset:flatbuffers.Offset, unlockDesListOffset:flatbuffers.Offset, multiPicIdOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_HomeBackgroundSingleData.startclz_Torappu_HomeBackgroundSingleData(builder);
   clz_Torappu_HomeBackgroundSingleData.addBgId(builder, bgIdOffset);
+  clz_Torappu_HomeBackgroundSingleData.addBgType(builder, bgTypeOffset);
   clz_Torappu_HomeBackgroundSingleData.addBgSortId(builder, bgSortId);
   clz_Torappu_HomeBackgroundSingleData.addBgStartTime(builder, bgStartTime);
+  clz_Torappu_HomeBackgroundSingleData.addIsSecret(builder, isSecret);
   clz_Torappu_HomeBackgroundSingleData.addBgName(builder, bgNameOffset);
   clz_Torappu_HomeBackgroundSingleData.addBgDes(builder, bgDesOffset);
   clz_Torappu_HomeBackgroundSingleData.addBgUsage(builder, bgUsageOffset);
@@ -193,14 +226,17 @@ static createclz_Torappu_HomeBackgroundSingleData(builder:flatbuffers.Builder, b
   clz_Torappu_HomeBackgroundSingleData.addMultiFormList(builder, multiFormListOffset);
   clz_Torappu_HomeBackgroundSingleData.addObtainApproach(builder, obtainApproachOffset);
   clz_Torappu_HomeBackgroundSingleData.addUnlockDesList(builder, unlockDesListOffset);
+  clz_Torappu_HomeBackgroundSingleData.addMultiPicId(builder, multiPicIdOffset);
   return clz_Torappu_HomeBackgroundSingleData.endclz_Torappu_HomeBackgroundSingleData(builder);
 }
 
 unpack(): clz_Torappu_HomeBackgroundSingleDataT {
   return new clz_Torappu_HomeBackgroundSingleDataT(
     this.bgId(),
+    this.bgType(),
     this.bgSortId(),
     this.bgStartTime(),
+    this.isSecret(),
     this.bgName(),
     this.bgDes(),
     this.bgUsage(),
@@ -208,15 +244,18 @@ unpack(): clz_Torappu_HomeBackgroundSingleDataT {
     this.changeRule(),
     this.bb!.createObjList<clz_Torappu_HomeBackgroundMultiFormData, clz_Torappu_HomeBackgroundMultiFormDataT>(this.multiFormList.bind(this), this.multiFormListLength()),
     this.obtainApproach(),
-    this.bb!.createScalarList<string>(this.unlockDesList.bind(this), this.unlockDesListLength())
+    this.bb!.createScalarList<string>(this.unlockDesList.bind(this), this.unlockDesListLength()),
+    this.multiPicId()
   );
 }
 
 
 unpackTo(_o: clz_Torappu_HomeBackgroundSingleDataT): void {
   _o.bgId = this.bgId();
+  _o.bgType = this.bgType();
   _o.bgSortId = this.bgSortId();
   _o.bgStartTime = this.bgStartTime();
+  _o.isSecret = this.isSecret();
   _o.bgName = this.bgName();
   _o.bgDes = this.bgDes();
   _o.bgUsage = this.bgUsage();
@@ -225,14 +264,17 @@ unpackTo(_o: clz_Torappu_HomeBackgroundSingleDataT): void {
   _o.multiFormList = this.bb!.createObjList<clz_Torappu_HomeBackgroundMultiFormData, clz_Torappu_HomeBackgroundMultiFormDataT>(this.multiFormList.bind(this), this.multiFormListLength());
   _o.obtainApproach = this.obtainApproach();
   _o.unlockDesList = this.bb!.createScalarList<string>(this.unlockDesList.bind(this), this.unlockDesListLength());
+  _o.multiPicId = this.multiPicId();
 }
 }
 
 export class clz_Torappu_HomeBackgroundSingleDataT implements flatbuffers.IGeneratedObject {
 constructor(
   public bgId: string|Uint8Array|null = null,
+  public bgType: string|Uint8Array|null = null,
   public bgSortId: number = 0,
   public bgStartTime: bigint = BigInt('0'),
+  public isSecret: boolean = false,
   public bgName: string|Uint8Array|null = null,
   public bgDes: string|Uint8Array|null = null,
   public bgUsage: string|Uint8Array|null = null,
@@ -240,23 +282,28 @@ constructor(
   public changeRule: enum__Torappu_HomeMultiFormChangeRule = enum__Torappu_HomeMultiFormChangeRule.NONE,
   public multiFormList: (clz_Torappu_HomeBackgroundMultiFormDataT)[] = [],
   public obtainApproach: string|Uint8Array|null = null,
-  public unlockDesList: (string)[] = []
+  public unlockDesList: (string)[] = [],
+  public multiPicId: string|Uint8Array|null = null
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const bgId = (this.bgId !== null ? builder.createString(this.bgId!) : 0);
+  const bgType = (this.bgType !== null ? builder.createString(this.bgType!) : 0);
   const bgName = (this.bgName !== null ? builder.createString(this.bgName!) : 0);
   const bgDes = (this.bgDes !== null ? builder.createString(this.bgDes!) : 0);
   const bgUsage = (this.bgUsage !== null ? builder.createString(this.bgUsage!) : 0);
   const multiFormList = clz_Torappu_HomeBackgroundSingleData.createMultiFormListVector(builder, builder.createObjectOffsetList(this.multiFormList));
   const obtainApproach = (this.obtainApproach !== null ? builder.createString(this.obtainApproach!) : 0);
   const unlockDesList = clz_Torappu_HomeBackgroundSingleData.createUnlockDesListVector(builder, builder.createObjectOffsetList(this.unlockDesList));
+  const multiPicId = (this.multiPicId !== null ? builder.createString(this.multiPicId!) : 0);
 
   return clz_Torappu_HomeBackgroundSingleData.createclz_Torappu_HomeBackgroundSingleData(builder,
     bgId,
+    bgType,
     this.bgSortId,
     this.bgStartTime,
+    this.isSecret,
     bgName,
     bgDes,
     bgUsage,
@@ -264,7 +311,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.changeRule,
     multiFormList,
     obtainApproach,
-    unlockDesList
+    unlockDesList,
+    multiPicId
   );
 }
 }

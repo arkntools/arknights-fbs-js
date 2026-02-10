@@ -41,8 +41,15 @@ removableModuleMaxCount():number {
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
+approachHideText():string|null
+approachHideText(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+approachHideText(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 static startclz_Torappu_NameCardV2Consts(builder:flatbuffers.Builder) {
-  builder.startObject(3);
+  builder.startObject(4);
 }
 
 static addDefaultNameCardSkinId(builder:flatbuffers.Builder, defaultNameCardSkinIdOffset:flatbuffers.Offset) {
@@ -57,16 +64,21 @@ static addRemovableModuleMaxCount(builder:flatbuffers.Builder, removableModuleMa
   builder.addFieldInt32(2, removableModuleMaxCount, 0);
 }
 
+static addApproachHideText(builder:flatbuffers.Builder, approachHideTextOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(3, approachHideTextOffset, 0);
+}
+
 static endclz_Torappu_NameCardV2Consts(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_NameCardV2Consts(builder:flatbuffers.Builder, defaultNameCardSkinIdOffset:flatbuffers.Offset, canUidHide:boolean, removableModuleMaxCount:number):flatbuffers.Offset {
+static createclz_Torappu_NameCardV2Consts(builder:flatbuffers.Builder, defaultNameCardSkinIdOffset:flatbuffers.Offset, canUidHide:boolean, removableModuleMaxCount:number, approachHideTextOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_NameCardV2Consts.startclz_Torappu_NameCardV2Consts(builder);
   clz_Torappu_NameCardV2Consts.addDefaultNameCardSkinId(builder, defaultNameCardSkinIdOffset);
   clz_Torappu_NameCardV2Consts.addCanUidHide(builder, canUidHide);
   clz_Torappu_NameCardV2Consts.addRemovableModuleMaxCount(builder, removableModuleMaxCount);
+  clz_Torappu_NameCardV2Consts.addApproachHideText(builder, approachHideTextOffset);
   return clz_Torappu_NameCardV2Consts.endclz_Torappu_NameCardV2Consts(builder);
 }
 
@@ -74,7 +86,8 @@ unpack(): clz_Torappu_NameCardV2ConstsT {
   return new clz_Torappu_NameCardV2ConstsT(
     this.defaultNameCardSkinId(),
     this.canUidHide(),
-    this.removableModuleMaxCount()
+    this.removableModuleMaxCount(),
+    this.approachHideText()
   );
 }
 
@@ -83,6 +96,7 @@ unpackTo(_o: clz_Torappu_NameCardV2ConstsT): void {
   _o.defaultNameCardSkinId = this.defaultNameCardSkinId();
   _o.canUidHide = this.canUidHide();
   _o.removableModuleMaxCount = this.removableModuleMaxCount();
+  _o.approachHideText = this.approachHideText();
 }
 }
 
@@ -90,17 +104,20 @@ export class clz_Torappu_NameCardV2ConstsT implements flatbuffers.IGeneratedObje
 constructor(
   public defaultNameCardSkinId: string|Uint8Array|null = null,
   public canUidHide: boolean = false,
-  public removableModuleMaxCount: number = 0
+  public removableModuleMaxCount: number = 0,
+  public approachHideText: string|Uint8Array|null = null
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const defaultNameCardSkinId = (this.defaultNameCardSkinId !== null ? builder.createString(this.defaultNameCardSkinId!) : 0);
+  const approachHideText = (this.approachHideText !== null ? builder.createString(this.approachHideText!) : 0);
 
   return clz_Torappu_NameCardV2Consts.createclz_Torappu_NameCardV2Consts(builder,
     defaultNameCardSkinId,
     this.canUidHide,
-    this.removableModuleMaxCount
+    this.removableModuleMaxCount,
+    approachHideText
   );
 }
 }

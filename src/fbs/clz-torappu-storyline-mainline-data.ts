@@ -45,8 +45,34 @@ decoImageId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+desc():string|null
+desc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+desc(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+backgroundId():string|null
+backgroundId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+backgroundId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+tags(index: number):string
+tags(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
+tags(index: number,optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
+}
+
+tagsLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_StorylineMainlineData(builder:flatbuffers.Builder) {
-  builder.startObject(3);
+  builder.startObject(6);
 }
 
 static addZoneId(builder:flatbuffers.Builder, zoneIdOffset:flatbuffers.Offset) {
@@ -61,16 +87,43 @@ static addDecoImageId(builder:flatbuffers.Builder, decoImageIdOffset:flatbuffers
   builder.addFieldOffset(2, decoImageIdOffset, 0);
 }
 
+static addDesc(builder:flatbuffers.Builder, descOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(3, descOffset, 0);
+}
+
+static addBackgroundId(builder:flatbuffers.Builder, backgroundIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(4, backgroundIdOffset, 0);
+}
+
+static addTags(builder:flatbuffers.Builder, tagsOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(5, tagsOffset, 0);
+}
+
+static createTagsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startTagsVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static endclz_Torappu_StorylineMainlineData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_StorylineMainlineData(builder:flatbuffers.Builder, zoneIdOffset:flatbuffers.Offset, retroIdOffset:flatbuffers.Offset, decoImageIdOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_StorylineMainlineData(builder:flatbuffers.Builder, zoneIdOffset:flatbuffers.Offset, retroIdOffset:flatbuffers.Offset, decoImageIdOffset:flatbuffers.Offset, descOffset:flatbuffers.Offset, backgroundIdOffset:flatbuffers.Offset, tagsOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_StorylineMainlineData.startclz_Torappu_StorylineMainlineData(builder);
   clz_Torappu_StorylineMainlineData.addZoneId(builder, zoneIdOffset);
   clz_Torappu_StorylineMainlineData.addRetroId(builder, retroIdOffset);
   clz_Torappu_StorylineMainlineData.addDecoImageId(builder, decoImageIdOffset);
+  clz_Torappu_StorylineMainlineData.addDesc(builder, descOffset);
+  clz_Torappu_StorylineMainlineData.addBackgroundId(builder, backgroundIdOffset);
+  clz_Torappu_StorylineMainlineData.addTags(builder, tagsOffset);
   return clz_Torappu_StorylineMainlineData.endclz_Torappu_StorylineMainlineData(builder);
 }
 
@@ -78,7 +131,10 @@ unpack(): clz_Torappu_StorylineMainlineDataT {
   return new clz_Torappu_StorylineMainlineDataT(
     this.zoneId(),
     this.retroId(),
-    this.decoImageId()
+    this.decoImageId(),
+    this.desc(),
+    this.backgroundId(),
+    this.bb!.createScalarList<string>(this.tags.bind(this), this.tagsLength())
   );
 }
 
@@ -87,6 +143,9 @@ unpackTo(_o: clz_Torappu_StorylineMainlineDataT): void {
   _o.zoneId = this.zoneId();
   _o.retroId = this.retroId();
   _o.decoImageId = this.decoImageId();
+  _o.desc = this.desc();
+  _o.backgroundId = this.backgroundId();
+  _o.tags = this.bb!.createScalarList<string>(this.tags.bind(this), this.tagsLength());
 }
 }
 
@@ -94,7 +153,10 @@ export class clz_Torappu_StorylineMainlineDataT implements flatbuffers.IGenerate
 constructor(
   public zoneId: string|Uint8Array|null = null,
   public retroId: string|Uint8Array|null = null,
-  public decoImageId: string|Uint8Array|null = null
+  public decoImageId: string|Uint8Array|null = null,
+  public desc: string|Uint8Array|null = null,
+  public backgroundId: string|Uint8Array|null = null,
+  public tags: (string)[] = []
 ){}
 
 
@@ -102,11 +164,17 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const zoneId = (this.zoneId !== null ? builder.createString(this.zoneId!) : 0);
   const retroId = (this.retroId !== null ? builder.createString(this.retroId!) : 0);
   const decoImageId = (this.decoImageId !== null ? builder.createString(this.decoImageId!) : 0);
+  const desc = (this.desc !== null ? builder.createString(this.desc!) : 0);
+  const backgroundId = (this.backgroundId !== null ? builder.createString(this.backgroundId!) : 0);
+  const tags = clz_Torappu_StorylineMainlineData.createTagsVector(builder, builder.createObjectOffsetList(this.tags));
 
   return clz_Torappu_StorylineMainlineData.createclz_Torappu_StorylineMainlineData(builder,
     zoneId,
     retroId,
-    decoImageId
+    decoImageId,
+    desc,
+    backgroundId,
+    tags
   );
 }
 }

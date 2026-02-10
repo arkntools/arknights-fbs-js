@@ -93,5 +93,7 @@ export enum enum__Torappu_ItemType {
   VOUCHER_SKIN_V2 = 87,
   RANDOM_VOUCHER_SKIN = 88,
   ACT1VHALFIDLE_ITEM = 89,
-  PLOT_ITEM = 90
+  PLOT_ITEM = 90,
+  MAGAZINE_LEAF = 91,
+  STICKER = 92
 }

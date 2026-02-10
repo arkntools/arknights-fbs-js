@@ -51,5 +51,7 @@ export enum enum__Torappu_UIGuideTarget {
   INFORMANT = 47,
   ACT1VHALFIDLE = 48,
   MONOPOLY = 49,
-  AUTO_CHESS = 50
+  AUTO_CHESS = 50,
+  ART_GALLERY = 51,
+  ART_MAGAZINE = 52
 }

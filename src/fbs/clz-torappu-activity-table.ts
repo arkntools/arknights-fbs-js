@@ -27,6 +27,7 @@ import { dict__string__clz_Torappu_ActivityTable_HomeActivityConfig, dict__strin
 import { dict__string__clz_Torappu_CrossDayTrackTypeData, dict__string__clz_Torappu_CrossDayTrackTypeDataT } from './dict--string--clz-torappu-cross-day-track-type-data.js';
 import { dict__string__clz_Torappu_MissionArchiveData, dict__string__clz_Torappu_MissionArchiveDataT } from './dict--string--clz-torappu-mission-archive-data.js';
 import { dict__string__clz_Torappu_RuneTable_PackedRuneData, dict__string__clz_Torappu_RuneTable_PackedRuneDataT } from './dict--string--clz-torappu-rune-table-packed-rune-data.js';
+import { dict__string__clz_Torappu_StoryReadTipsData, dict__string__clz_Torappu_StoryReadTipsDataT } from './dict--string--clz-torappu-story-read-tips-data.js';
 import { dict__string__clz_Torappu_TemplateMissionStyleData, dict__string__clz_Torappu_TemplateMissionStyleDataT } from './dict--string--clz-torappu-template-mission-style-data.js';
 import { dict__string__hg__internal__JObject, dict__string__hg__internal__JObjectT } from './dict--string--hg--internal--jobject.js';
 import { dict__string__list_dict__string__string, dict__string__list_dict__string__stringT } from './dict--string--list-dict--string--string.js';
@@ -329,8 +330,18 @@ activityCrossDayTrackTypeMapLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+activityStoryReadTipsDatas(index: number, obj?:dict__string__clz_Torappu_StoryReadTipsData):dict__string__clz_Torappu_StoryReadTipsData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 68);
+  return offset ? (obj || new dict__string__clz_Torappu_StoryReadTipsData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+activityStoryReadTipsDatasLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 68);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_ActivityTable(builder:flatbuffers.Builder) {
-  builder.startObject(32);
+  builder.startObject(33);
 }
 
 static addBasicInfo(builder:flatbuffers.Builder, basicInfoOffset:flatbuffers.Offset) {
@@ -737,6 +748,22 @@ static startActivityCrossDayTrackTypeMapVector(builder:flatbuffers.Builder, numE
   builder.startVector(4, numElems, 4);
 }
 
+static addActivityStoryReadTipsDatas(builder:flatbuffers.Builder, activityStoryReadTipsDatasOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(32, activityStoryReadTipsDatasOffset, 0);
+}
+
+static createActivityStoryReadTipsDatasVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startActivityStoryReadTipsDatasVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static endclz_Torappu_ActivityTable(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -784,7 +811,8 @@ unpack(): clz_Torappu_ActivityTableT {
     this.bb!.createObjList<dict__string__clz_Torappu_RuneTable_PackedRuneData, dict__string__clz_Torappu_RuneTable_PackedRuneDataT>(this.trapRuneDataDict.bind(this), this.trapRuneDataDictLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_TemplateMissionStyleData, dict__string__clz_Torappu_TemplateMissionStyleDataT>(this.activityTemplateMissionStyles.bind(this), this.activityTemplateMissionStylesLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_CrossDayTrackTypeData, dict__string__clz_Torappu_CrossDayTrackTypeDataT>(this.activityCrossDayTrackTypeDataDict.bind(this), this.activityCrossDayTrackTypeDataDictLength()),
-    this.bb!.createObjList<dict__string__list_string, dict__string__list_stringT>(this.activityCrossDayTrackTypeMap.bind(this), this.activityCrossDayTrackTypeMapLength())
+    this.bb!.createObjList<dict__string__list_string, dict__string__list_stringT>(this.activityCrossDayTrackTypeMap.bind(this), this.activityCrossDayTrackTypeMapLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_StoryReadTipsData, dict__string__clz_Torappu_StoryReadTipsDataT>(this.activityStoryReadTipsDatas.bind(this), this.activityStoryReadTipsDatasLength())
   );
 }
 
@@ -822,6 +850,7 @@ unpackTo(_o: clz_Torappu_ActivityTableT): void {
   _o.activityTemplateMissionStyles = this.bb!.createObjList<dict__string__clz_Torappu_TemplateMissionStyleData, dict__string__clz_Torappu_TemplateMissionStyleDataT>(this.activityTemplateMissionStyles.bind(this), this.activityTemplateMissionStylesLength());
   _o.activityCrossDayTrackTypeDataDict = this.bb!.createObjList<dict__string__clz_Torappu_CrossDayTrackTypeData, dict__string__clz_Torappu_CrossDayTrackTypeDataT>(this.activityCrossDayTrackTypeDataDict.bind(this), this.activityCrossDayTrackTypeDataDictLength());
   _o.activityCrossDayTrackTypeMap = this.bb!.createObjList<dict__string__list_string, dict__string__list_stringT>(this.activityCrossDayTrackTypeMap.bind(this), this.activityCrossDayTrackTypeMapLength());
+  _o.activityStoryReadTipsDatas = this.bb!.createObjList<dict__string__clz_Torappu_StoryReadTipsData, dict__string__clz_Torappu_StoryReadTipsDataT>(this.activityStoryReadTipsDatas.bind(this), this.activityStoryReadTipsDatasLength());
 }
 }
 
@@ -858,7 +887,8 @@ constructor(
   public trapRuneDataDict: (dict__string__clz_Torappu_RuneTable_PackedRuneDataT)[] = [],
   public activityTemplateMissionStyles: (dict__string__clz_Torappu_TemplateMissionStyleDataT)[] = [],
   public activityCrossDayTrackTypeDataDict: (dict__string__clz_Torappu_CrossDayTrackTypeDataT)[] = [],
-  public activityCrossDayTrackTypeMap: (dict__string__list_stringT)[] = []
+  public activityCrossDayTrackTypeMap: (dict__string__list_stringT)[] = [],
+  public activityStoryReadTipsDatas: (dict__string__clz_Torappu_StoryReadTipsDataT)[] = []
 ){}
 
 
@@ -895,6 +925,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const activityTemplateMissionStyles = clz_Torappu_ActivityTable.createActivityTemplateMissionStylesVector(builder, builder.createObjectOffsetList(this.activityTemplateMissionStyles));
   const activityCrossDayTrackTypeDataDict = clz_Torappu_ActivityTable.createActivityCrossDayTrackTypeDataDictVector(builder, builder.createObjectOffsetList(this.activityCrossDayTrackTypeDataDict));
   const activityCrossDayTrackTypeMap = clz_Torappu_ActivityTable.createActivityCrossDayTrackTypeMapVector(builder, builder.createObjectOffsetList(this.activityCrossDayTrackTypeMap));
+  const activityStoryReadTipsDatas = clz_Torappu_ActivityTable.createActivityStoryReadTipsDatasVector(builder, builder.createObjectOffsetList(this.activityStoryReadTipsDatas));
 
   clz_Torappu_ActivityTable.startclz_Torappu_ActivityTable(builder);
   clz_Torappu_ActivityTable.addBasicInfo(builder, basicInfo);
@@ -929,6 +960,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_ActivityTable.addActivityTemplateMissionStyles(builder, activityTemplateMissionStyles);
   clz_Torappu_ActivityTable.addActivityCrossDayTrackTypeDataDict(builder, activityCrossDayTrackTypeDataDict);
   clz_Torappu_ActivityTable.addActivityCrossDayTrackTypeMap(builder, activityCrossDayTrackTypeMap);
+  clz_Torappu_ActivityTable.addActivityStoryReadTipsDatas(builder, activityStoryReadTipsDatas);
 
   return clz_Torappu_ActivityTable.endclz_Torappu_ActivityTable(builder);
 }

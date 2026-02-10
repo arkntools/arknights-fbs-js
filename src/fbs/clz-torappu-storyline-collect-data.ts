@@ -24,41 +24,30 @@ static getSizePrefixedRootAsclz_Torappu_StorylineCollectData(bb:flatbuffers.Byte
   return (obj || new clz_Torappu_StorylineCollectData()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-name():string|null
-name(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-name(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 4);
-  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
-}
-
 desc():string|null
 desc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 desc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 6);
+  const offset = this.bb!.__offset(this.bb_pos, 4);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 backgroundId():string|null
 backgroundId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 backgroundId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 8);
+  const offset = this.bb!.__offset(this.bb_pos, 6);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 static startclz_Torappu_StorylineCollectData(builder:flatbuffers.Builder) {
-  builder.startObject(3);
-}
-
-static addName(builder:flatbuffers.Builder, nameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(0, nameOffset, 0);
+  builder.startObject(2);
 }
 
 static addDesc(builder:flatbuffers.Builder, descOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(1, descOffset, 0);
+  builder.addFieldOffset(0, descOffset, 0);
 }
 
 static addBackgroundId(builder:flatbuffers.Builder, backgroundIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(2, backgroundIdOffset, 0);
+  builder.addFieldOffset(1, backgroundIdOffset, 0);
 }
 
 static endclz_Torappu_StorylineCollectData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -66,9 +55,8 @@ static endclz_Torappu_StorylineCollectData(builder:flatbuffers.Builder):flatbuff
   return offset;
 }
 
-static createclz_Torappu_StorylineCollectData(builder:flatbuffers.Builder, nameOffset:flatbuffers.Offset, descOffset:flatbuffers.Offset, backgroundIdOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_StorylineCollectData(builder:flatbuffers.Builder, descOffset:flatbuffers.Offset, backgroundIdOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_StorylineCollectData.startclz_Torappu_StorylineCollectData(builder);
-  clz_Torappu_StorylineCollectData.addName(builder, nameOffset);
   clz_Torappu_StorylineCollectData.addDesc(builder, descOffset);
   clz_Torappu_StorylineCollectData.addBackgroundId(builder, backgroundIdOffset);
   return clz_Torappu_StorylineCollectData.endclz_Torappu_StorylineCollectData(builder);
@@ -76,7 +64,6 @@ static createclz_Torappu_StorylineCollectData(builder:flatbuffers.Builder, nameO
 
 unpack(): clz_Torappu_StorylineCollectDataT {
   return new clz_Torappu_StorylineCollectDataT(
-    this.name(),
     this.desc(),
     this.backgroundId()
   );
@@ -84,7 +71,6 @@ unpack(): clz_Torappu_StorylineCollectDataT {
 
 
 unpackTo(_o: clz_Torappu_StorylineCollectDataT): void {
-  _o.name = this.name();
   _o.desc = this.desc();
   _o.backgroundId = this.backgroundId();
 }
@@ -92,19 +78,16 @@ unpackTo(_o: clz_Torappu_StorylineCollectDataT): void {
 
 export class clz_Torappu_StorylineCollectDataT implements flatbuffers.IGeneratedObject {
 constructor(
-  public name: string|Uint8Array|null = null,
   public desc: string|Uint8Array|null = null,
   public backgroundId: string|Uint8Array|null = null
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
-  const name = (this.name !== null ? builder.createString(this.name!) : 0);
   const desc = (this.desc !== null ? builder.createString(this.desc!) : 0);
   const backgroundId = (this.backgroundId !== null ? builder.createString(this.backgroundId!) : 0);
 
   return clz_Torappu_StorylineCollectData.createclz_Torappu_StorylineCollectData(builder,
-    name,
     desc,
     backgroundId
   );

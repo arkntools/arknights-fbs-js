@@ -46,122 +46,127 @@ type():enum__Torappu_NameCardV2SkinType {
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_NameCardV2SkinType.NONE;
 }
 
-sortId():number {
+isSecret():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+sortId():number {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 isSpTheme():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
+  const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 defaultShowDetail():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 themeName():string|null
 themeName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 themeName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 themeEnName():string|null
 themeEnName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 themeEnName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 skinStartTime():bigint {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
 }
 
 skinDesc():string|null
 skinDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 skinDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 usageDesc():string|null
 usageDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 usageDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 skinApproach():string|null
 skinApproach(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 skinApproach(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 unlockConditionCnt():number {
-  const offset = this.bb!.__offset(this.bb_pos, 28);
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 unlockDescList(index: number):string
 unlockDescList(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 unlockDescList(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 unlockDescListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 fixedModuleList(index: number):string
 fixedModuleList(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 fixedModuleList(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 32);
+  const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 fixedModuleListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 32);
+  const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 rarity():enum__Torappu_ItemRarity {
-  const offset = this.bb!.__offset(this.bb_pos, 34);
+  const offset = this.bb!.__offset(this.bb_pos, 36);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_ItemRarity.TIER_1;
 }
 
 skinTmplCnt():number {
-  const offset = this.bb!.__offset(this.bb_pos, 36);
+  const offset = this.bb!.__offset(this.bb_pos, 38);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 canChangeTmpl():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 38);
-  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
-}
-
-isTimeLimit():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 40);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-timeLimitInfoList(index: number, obj?:clz_Torappu_NameCardV2TimeLimitInfo):clz_Torappu_NameCardV2TimeLimitInfo|null {
+isTimeLimit():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 42);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+timeLimitInfoList(index: number, obj?:clz_Torappu_NameCardV2TimeLimitInfo):clz_Torappu_NameCardV2TimeLimitInfo|null {
+  const offset = this.bb!.__offset(this.bb_pos, 44);
   return offset ? (obj || new clz_Torappu_NameCardV2TimeLimitInfo()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 timeLimitInfoListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 42);
+  const offset = this.bb!.__offset(this.bb_pos, 44);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_NameCardV2SkinData(builder:flatbuffers.Builder) {
-  builder.startObject(20);
+  builder.startObject(21);
 }
 
 static addId(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset) {
@@ -176,48 +181,52 @@ static addType(builder:flatbuffers.Builder, type:enum__Torappu_NameCardV2SkinTyp
   builder.addFieldInt32(2, type, enum__Torappu_NameCardV2SkinType.NONE);
 }
 
+static addIsSecret(builder:flatbuffers.Builder, isSecret:boolean) {
+  builder.addFieldInt8(3, +isSecret, +false);
+}
+
 static addSortId(builder:flatbuffers.Builder, sortId:number) {
-  builder.addFieldInt32(3, sortId, 0);
+  builder.addFieldInt32(4, sortId, 0);
 }
 
 static addIsSpTheme(builder:flatbuffers.Builder, isSpTheme:boolean) {
-  builder.addFieldInt8(4, +isSpTheme, +false);
+  builder.addFieldInt8(5, +isSpTheme, +false);
 }
 
 static addDefaultShowDetail(builder:flatbuffers.Builder, defaultShowDetail:boolean) {
-  builder.addFieldInt8(5, +defaultShowDetail, +false);
+  builder.addFieldInt8(6, +defaultShowDetail, +false);
 }
 
 static addThemeName(builder:flatbuffers.Builder, themeNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(6, themeNameOffset, 0);
+  builder.addFieldOffset(7, themeNameOffset, 0);
 }
 
 static addThemeEnName(builder:flatbuffers.Builder, themeEnNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(7, themeEnNameOffset, 0);
+  builder.addFieldOffset(8, themeEnNameOffset, 0);
 }
 
 static addSkinStartTime(builder:flatbuffers.Builder, skinStartTime:bigint) {
-  builder.addFieldInt64(8, skinStartTime, BigInt('0'));
+  builder.addFieldInt64(9, skinStartTime, BigInt('0'));
 }
 
 static addSkinDesc(builder:flatbuffers.Builder, skinDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(9, skinDescOffset, 0);
+  builder.addFieldOffset(10, skinDescOffset, 0);
 }
 
 static addUsageDesc(builder:flatbuffers.Builder, usageDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(10, usageDescOffset, 0);
+  builder.addFieldOffset(11, usageDescOffset, 0);
 }
 
 static addSkinApproach(builder:flatbuffers.Builder, skinApproachOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(11, skinApproachOffset, 0);
+  builder.addFieldOffset(12, skinApproachOffset, 0);
 }
 
 static addUnlockConditionCnt(builder:flatbuffers.Builder, unlockConditionCnt:number) {
-  builder.addFieldInt32(12, unlockConditionCnt, 0);
+  builder.addFieldInt32(13, unlockConditionCnt, 0);
 }
 
 static addUnlockDescList(builder:flatbuffers.Builder, unlockDescListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(13, unlockDescListOffset, 0);
+  builder.addFieldOffset(14, unlockDescListOffset, 0);
 }
 
 static createUnlockDescListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -233,7 +242,7 @@ static startUnlockDescListVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addFixedModuleList(builder:flatbuffers.Builder, fixedModuleListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(14, fixedModuleListOffset, 0);
+  builder.addFieldOffset(15, fixedModuleListOffset, 0);
 }
 
 static createFixedModuleListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -249,23 +258,23 @@ static startFixedModuleListVector(builder:flatbuffers.Builder, numElems:number) 
 }
 
 static addRarity(builder:flatbuffers.Builder, rarity:enum__Torappu_ItemRarity) {
-  builder.addFieldInt32(15, rarity, enum__Torappu_ItemRarity.TIER_1);
+  builder.addFieldInt32(16, rarity, enum__Torappu_ItemRarity.TIER_1);
 }
 
 static addSkinTmplCnt(builder:flatbuffers.Builder, skinTmplCnt:number) {
-  builder.addFieldInt32(16, skinTmplCnt, 0);
+  builder.addFieldInt32(17, skinTmplCnt, 0);
 }
 
 static addCanChangeTmpl(builder:flatbuffers.Builder, canChangeTmpl:boolean) {
-  builder.addFieldInt8(17, +canChangeTmpl, +false);
+  builder.addFieldInt8(18, +canChangeTmpl, +false);
 }
 
 static addIsTimeLimit(builder:flatbuffers.Builder, isTimeLimit:boolean) {
-  builder.addFieldInt8(18, +isTimeLimit, +false);
+  builder.addFieldInt8(19, +isTimeLimit, +false);
 }
 
 static addTimeLimitInfoList(builder:flatbuffers.Builder, timeLimitInfoListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(19, timeLimitInfoListOffset, 0);
+  builder.addFieldOffset(20, timeLimitInfoListOffset, 0);
 }
 
 static createTimeLimitInfoListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -285,11 +294,12 @@ static endclz_Torappu_NameCardV2SkinData(builder:flatbuffers.Builder):flatbuffer
   return offset;
 }
 
-static createclz_Torappu_NameCardV2SkinData(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, nameOffset:flatbuffers.Offset, type:enum__Torappu_NameCardV2SkinType, sortId:number, isSpTheme:boolean, defaultShowDetail:boolean, themeNameOffset:flatbuffers.Offset, themeEnNameOffset:flatbuffers.Offset, skinStartTime:bigint, skinDescOffset:flatbuffers.Offset, usageDescOffset:flatbuffers.Offset, skinApproachOffset:flatbuffers.Offset, unlockConditionCnt:number, unlockDescListOffset:flatbuffers.Offset, fixedModuleListOffset:flatbuffers.Offset, rarity:enum__Torappu_ItemRarity, skinTmplCnt:number, canChangeTmpl:boolean, isTimeLimit:boolean, timeLimitInfoListOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_NameCardV2SkinData(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, nameOffset:flatbuffers.Offset, type:enum__Torappu_NameCardV2SkinType, isSecret:boolean, sortId:number, isSpTheme:boolean, defaultShowDetail:boolean, themeNameOffset:flatbuffers.Offset, themeEnNameOffset:flatbuffers.Offset, skinStartTime:bigint, skinDescOffset:flatbuffers.Offset, usageDescOffset:flatbuffers.Offset, skinApproachOffset:flatbuffers.Offset, unlockConditionCnt:number, unlockDescListOffset:flatbuffers.Offset, fixedModuleListOffset:flatbuffers.Offset, rarity:enum__Torappu_ItemRarity, skinTmplCnt:number, canChangeTmpl:boolean, isTimeLimit:boolean, timeLimitInfoListOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_NameCardV2SkinData.startclz_Torappu_NameCardV2SkinData(builder);
   clz_Torappu_NameCardV2SkinData.addId(builder, idOffset);
   clz_Torappu_NameCardV2SkinData.addName(builder, nameOffset);
   clz_Torappu_NameCardV2SkinData.addType(builder, type);
+  clz_Torappu_NameCardV2SkinData.addIsSecret(builder, isSecret);
   clz_Torappu_NameCardV2SkinData.addSortId(builder, sortId);
   clz_Torappu_NameCardV2SkinData.addIsSpTheme(builder, isSpTheme);
   clz_Torappu_NameCardV2SkinData.addDefaultShowDetail(builder, defaultShowDetail);
@@ -315,6 +325,7 @@ unpack(): clz_Torappu_NameCardV2SkinDataT {
     this.id(),
     this.name(),
     this.type(),
+    this.isSecret(),
     this.sortId(),
     this.isSpTheme(),
     this.defaultShowDetail(),
@@ -340,6 +351,7 @@ unpackTo(_o: clz_Torappu_NameCardV2SkinDataT): void {
   _o.id = this.id();
   _o.name = this.name();
   _o.type = this.type();
+  _o.isSecret = this.isSecret();
   _o.sortId = this.sortId();
   _o.isSpTheme = this.isSpTheme();
   _o.defaultShowDetail = this.defaultShowDetail();
@@ -365,6 +377,7 @@ constructor(
   public id: string|Uint8Array|null = null,
   public name: string|Uint8Array|null = null,
   public type: enum__Torappu_NameCardV2SkinType = enum__Torappu_NameCardV2SkinType.NONE,
+  public isSecret: boolean = false,
   public sortId: number = 0,
   public isSpTheme: boolean = false,
   public defaultShowDetail: boolean = false,
@@ -401,6 +414,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     id,
     name,
     this.type,
+    this.isSecret,
     this.sortId,
     this.isSpTheme,
     this.defaultShowDetail,

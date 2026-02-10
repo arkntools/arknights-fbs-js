@@ -4,14 +4,17 @@
 
 import * as flatbuffers from 'flatbuffers';
 
+import { clz_Torappu_ArtGalleryCollectData, clz_Torappu_ArtGalleryCollectDataT } from './clz-torappu-art-gallery-collect-data.js';
 import { clz_Torappu_EmoticonData, clz_Torappu_EmoticonDataT } from './clz-torappu-emoticon-data.js';
 import { clz_Torappu_HomeBackgroundData, clz_Torappu_HomeBackgroundDataT } from './clz-torappu-home-background-data.js';
+import { clz_Torappu_MagazineLeafData, clz_Torappu_MagazineLeafDataT } from './clz-torappu-magazine-leaf-data.js';
 import { clz_Torappu_MailArchiveData, clz_Torappu_MailArchiveDataT } from './clz-torappu-mail-archive-data.js';
 import { clz_Torappu_MailSenderData, clz_Torappu_MailSenderDataT } from './clz-torappu-mail-sender-data.js';
 import { clz_Torappu_NameCardV2Data, clz_Torappu_NameCardV2DataT } from './clz-torappu-name-card-v2-data.js';
 import { clz_Torappu_PCKeyData, clz_Torappu_PCKeyDataT } from './clz-torappu-pckey-data.js';
 import { clz_Torappu_PlayerAvatarData, clz_Torappu_PlayerAvatarDataT } from './clz-torappu-player-avatar-data.js';
 import { clz_Torappu_ResolutionSettingItemData, clz_Torappu_ResolutionSettingItemDataT } from './clz-torappu-resolution-setting-item-data.js';
+import { clz_Torappu_StickerData, clz_Torappu_StickerDataT } from './clz-torappu-sticker-data.js';
 import { dict__string__clz_Torappu_GuidebookGroupData, dict__string__clz_Torappu_GuidebookGroupDataT } from './dict--string--clz-torappu-guidebook-group-data.js';
 import { dict__string__clz_Torappu_StoryVariantData, dict__string__clz_Torappu_StoryVariantDataT } from './dict--string--clz-torappu-story-variant-data.js';
 
@@ -99,8 +102,23 @@ resolutionSettingListLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+artGalleryCollectData(obj?:clz_Torappu_ArtGalleryCollectData):clz_Torappu_ArtGalleryCollectData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 24);
+  return offset ? (obj || new clz_Torappu_ArtGalleryCollectData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
+magazineLeafData(obj?:clz_Torappu_MagazineLeafData):clz_Torappu_MagazineLeafData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 26);
+  return offset ? (obj || new clz_Torappu_MagazineLeafData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
+stickerData(obj?:clz_Torappu_StickerData):clz_Torappu_StickerData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 28);
+  return offset ? (obj || new clz_Torappu_StickerData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
 static startclz_Torappu_DisplayMetaData(builder:flatbuffers.Builder) {
-  builder.startObject(10);
+  builder.startObject(13);
 }
 
 static addPlayerAvatarData(builder:flatbuffers.Builder, playerAvatarDataOffset:flatbuffers.Offset) {
@@ -179,6 +197,18 @@ static startResolutionSettingListVector(builder:flatbuffers.Builder, numElems:nu
   builder.startVector(4, numElems, 4);
 }
 
+static addArtGalleryCollectData(builder:flatbuffers.Builder, artGalleryCollectDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(10, artGalleryCollectDataOffset, 0);
+}
+
+static addMagazineLeafData(builder:flatbuffers.Builder, magazineLeafDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(11, magazineLeafDataOffset, 0);
+}
+
+static addStickerData(builder:flatbuffers.Builder, stickerDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(12, stickerDataOffset, 0);
+}
+
 static endclz_Torappu_DisplayMetaData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -204,7 +234,10 @@ unpack(): clz_Torappu_DisplayMetaDataT {
     this.bb!.createObjList<dict__string__clz_Torappu_StoryVariantData, dict__string__clz_Torappu_StoryVariantDataT>(this.storyVariantData.bind(this), this.storyVariantDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_GuidebookGroupData, dict__string__clz_Torappu_GuidebookGroupDataT>(this.guidebookGroupDatas.bind(this), this.guidebookGroupDatasLength()),
     (this.pcKeyData() !== null ? this.pcKeyData()!.unpack() : null),
-    this.bb!.createObjList<clz_Torappu_ResolutionSettingItemData, clz_Torappu_ResolutionSettingItemDataT>(this.resolutionSettingList.bind(this), this.resolutionSettingListLength())
+    this.bb!.createObjList<clz_Torappu_ResolutionSettingItemData, clz_Torappu_ResolutionSettingItemDataT>(this.resolutionSettingList.bind(this), this.resolutionSettingListLength()),
+    (this.artGalleryCollectData() !== null ? this.artGalleryCollectData()!.unpack() : null),
+    (this.magazineLeafData() !== null ? this.magazineLeafData()!.unpack() : null),
+    (this.stickerData() !== null ? this.stickerData()!.unpack() : null)
   );
 }
 
@@ -220,6 +253,9 @@ unpackTo(_o: clz_Torappu_DisplayMetaDataT): void {
   _o.guidebookGroupDatas = this.bb!.createObjList<dict__string__clz_Torappu_GuidebookGroupData, dict__string__clz_Torappu_GuidebookGroupDataT>(this.guidebookGroupDatas.bind(this), this.guidebookGroupDatasLength());
   _o.pcKeyData = (this.pcKeyData() !== null ? this.pcKeyData()!.unpack() : null);
   _o.resolutionSettingList = this.bb!.createObjList<clz_Torappu_ResolutionSettingItemData, clz_Torappu_ResolutionSettingItemDataT>(this.resolutionSettingList.bind(this), this.resolutionSettingListLength());
+  _o.artGalleryCollectData = (this.artGalleryCollectData() !== null ? this.artGalleryCollectData()!.unpack() : null);
+  _o.magazineLeafData = (this.magazineLeafData() !== null ? this.magazineLeafData()!.unpack() : null);
+  _o.stickerData = (this.stickerData() !== null ? this.stickerData()!.unpack() : null);
 }
 }
 
@@ -234,7 +270,10 @@ constructor(
   public storyVariantData: (dict__string__clz_Torappu_StoryVariantDataT)[] = [],
   public guidebookGroupDatas: (dict__string__clz_Torappu_GuidebookGroupDataT)[] = [],
   public pcKeyData: clz_Torappu_PCKeyDataT|null = null,
-  public resolutionSettingList: (clz_Torappu_ResolutionSettingItemDataT)[] = []
+  public resolutionSettingList: (clz_Torappu_ResolutionSettingItemDataT)[] = [],
+  public artGalleryCollectData: clz_Torappu_ArtGalleryCollectDataT|null = null,
+  public magazineLeafData: clz_Torappu_MagazineLeafDataT|null = null,
+  public stickerData: clz_Torappu_StickerDataT|null = null
 ){}
 
 
@@ -249,6 +288,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const guidebookGroupDatas = clz_Torappu_DisplayMetaData.createGuidebookGroupDatasVector(builder, builder.createObjectOffsetList(this.guidebookGroupDatas));
   const pcKeyData = (this.pcKeyData !== null ? this.pcKeyData!.pack(builder) : 0);
   const resolutionSettingList = clz_Torappu_DisplayMetaData.createResolutionSettingListVector(builder, builder.createObjectOffsetList(this.resolutionSettingList));
+  const artGalleryCollectData = (this.artGalleryCollectData !== null ? this.artGalleryCollectData!.pack(builder) : 0);
+  const magazineLeafData = (this.magazineLeafData !== null ? this.magazineLeafData!.pack(builder) : 0);
+  const stickerData = (this.stickerData !== null ? this.stickerData!.pack(builder) : 0);
 
   clz_Torappu_DisplayMetaData.startclz_Torappu_DisplayMetaData(builder);
   clz_Torappu_DisplayMetaData.addPlayerAvatarData(builder, playerAvatarData);
@@ -261,6 +303,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_DisplayMetaData.addGuidebookGroupDatas(builder, guidebookGroupDatas);
   clz_Torappu_DisplayMetaData.addPcKeyData(builder, pcKeyData);
   clz_Torappu_DisplayMetaData.addResolutionSettingList(builder, resolutionSettingList);
+  clz_Torappu_DisplayMetaData.addArtGalleryCollectData(builder, artGalleryCollectData);
+  clz_Torappu_DisplayMetaData.addMagazineLeafData(builder, magazineLeafData);
+  clz_Torappu_DisplayMetaData.addStickerData(builder, stickerData);
 
   return clz_Torappu_DisplayMetaData.endclz_Torappu_DisplayMetaData(builder);
 }

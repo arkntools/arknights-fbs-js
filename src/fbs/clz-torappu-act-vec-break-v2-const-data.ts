@@ -211,8 +211,22 @@ milestoneTrackId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+themeColor():string|null
+themeColor(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+themeColor(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 58);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+subTitleName():string|null
+subTitleName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+subTitleName(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 60);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 static startclz_Torappu_ActVecBreakV2ConstData(builder:flatbuffers.Builder) {
-  builder.startObject(27);
+  builder.startObject(29);
 }
 
 static addDefenseDesc(builder:flatbuffers.Builder, defenseDescOffset:flatbuffers.Offset) {
@@ -323,12 +337,20 @@ static addMilestoneTrackId(builder:flatbuffers.Builder, milestoneTrackIdOffset:f
   builder.addFieldOffset(26, milestoneTrackIdOffset, 0);
 }
 
+static addThemeColor(builder:flatbuffers.Builder, themeColorOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(27, themeColorOffset, 0);
+}
+
+static addSubTitleName(builder:flatbuffers.Builder, subTitleNameOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(28, subTitleNameOffset, 0);
+}
+
 static endclz_Torappu_ActVecBreakV2ConstData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_ActVecBreakV2ConstData(builder:flatbuffers.Builder, defenseDescOffset:flatbuffers.Offset, defenseOverviewNameOffset:flatbuffers.Offset, milestoneNameOffset:flatbuffers.Offset, milestoneItemIdOffset:flatbuffers.Offset, bossDescTitleOffset:flatbuffers.Offset, defenseUnlockRequireStageIdOffset:flatbuffers.Offset, offenseNavLockToastStageIdOffset:flatbuffers.Offset, offenseNavLockToastStrOffset:flatbuffers.Offset, offenseHardUnlockToastOffset:flatbuffers.Offset, hardUnlockStageIdOffset:flatbuffers.Offset, defenseRetreatSingleTextOffset:flatbuffers.Offset, defenseRetreatMultipleTextOffset:flatbuffers.Offset, defenseReplaceTextOffset:flatbuffers.Offset, defenseEquipBuffLimit:number, displayMedalIdOffset:flatbuffers.Offset, defenseAddBuffToastOffset:flatbuffers.Offset, defenseRemoveBuffToastOffset:flatbuffers.Offset, defenseReplaceBuffToastOffset:flatbuffers.Offset, defenseBuffExceedToastOffset:flatbuffers.Offset, defendSameGroupHintOffset:flatbuffers.Offset, defendOtherHintOffset:flatbuffers.Offset, defenseBuffLockToastOffset:flatbuffers.Offset, offenseBuffSelectUnsaveHintOffset:flatbuffers.Offset, defenceBattleFinishEquipTextOffset:flatbuffers.Offset, defenceBattleFinishActivateTextOffset:flatbuffers.Offset, defenceBattleFinishSquadTextOffset:flatbuffers.Offset, milestoneTrackIdOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_ActVecBreakV2ConstData(builder:flatbuffers.Builder, defenseDescOffset:flatbuffers.Offset, defenseOverviewNameOffset:flatbuffers.Offset, milestoneNameOffset:flatbuffers.Offset, milestoneItemIdOffset:flatbuffers.Offset, bossDescTitleOffset:flatbuffers.Offset, defenseUnlockRequireStageIdOffset:flatbuffers.Offset, offenseNavLockToastStageIdOffset:flatbuffers.Offset, offenseNavLockToastStrOffset:flatbuffers.Offset, offenseHardUnlockToastOffset:flatbuffers.Offset, hardUnlockStageIdOffset:flatbuffers.Offset, defenseRetreatSingleTextOffset:flatbuffers.Offset, defenseRetreatMultipleTextOffset:flatbuffers.Offset, defenseReplaceTextOffset:flatbuffers.Offset, defenseEquipBuffLimit:number, displayMedalIdOffset:flatbuffers.Offset, defenseAddBuffToastOffset:flatbuffers.Offset, defenseRemoveBuffToastOffset:flatbuffers.Offset, defenseReplaceBuffToastOffset:flatbuffers.Offset, defenseBuffExceedToastOffset:flatbuffers.Offset, defendSameGroupHintOffset:flatbuffers.Offset, defendOtherHintOffset:flatbuffers.Offset, defenseBuffLockToastOffset:flatbuffers.Offset, offenseBuffSelectUnsaveHintOffset:flatbuffers.Offset, defenceBattleFinishEquipTextOffset:flatbuffers.Offset, defenceBattleFinishActivateTextOffset:flatbuffers.Offset, defenceBattleFinishSquadTextOffset:flatbuffers.Offset, milestoneTrackIdOffset:flatbuffers.Offset, themeColorOffset:flatbuffers.Offset, subTitleNameOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_ActVecBreakV2ConstData.startclz_Torappu_ActVecBreakV2ConstData(builder);
   clz_Torappu_ActVecBreakV2ConstData.addDefenseDesc(builder, defenseDescOffset);
   clz_Torappu_ActVecBreakV2ConstData.addDefenseOverviewName(builder, defenseOverviewNameOffset);
@@ -357,6 +379,8 @@ static createclz_Torappu_ActVecBreakV2ConstData(builder:flatbuffers.Builder, def
   clz_Torappu_ActVecBreakV2ConstData.addDefenceBattleFinishActivateText(builder, defenceBattleFinishActivateTextOffset);
   clz_Torappu_ActVecBreakV2ConstData.addDefenceBattleFinishSquadText(builder, defenceBattleFinishSquadTextOffset);
   clz_Torappu_ActVecBreakV2ConstData.addMilestoneTrackId(builder, milestoneTrackIdOffset);
+  clz_Torappu_ActVecBreakV2ConstData.addThemeColor(builder, themeColorOffset);
+  clz_Torappu_ActVecBreakV2ConstData.addSubTitleName(builder, subTitleNameOffset);
   return clz_Torappu_ActVecBreakV2ConstData.endclz_Torappu_ActVecBreakV2ConstData(builder);
 }
 
@@ -388,7 +412,9 @@ unpack(): clz_Torappu_ActVecBreakV2ConstDataT {
     this.defenceBattleFinishEquipText(),
     this.defenceBattleFinishActivateText(),
     this.defenceBattleFinishSquadText(),
-    this.milestoneTrackId()
+    this.milestoneTrackId(),
+    this.themeColor(),
+    this.subTitleName()
   );
 }
 
@@ -421,6 +447,8 @@ unpackTo(_o: clz_Torappu_ActVecBreakV2ConstDataT): void {
   _o.defenceBattleFinishActivateText = this.defenceBattleFinishActivateText();
   _o.defenceBattleFinishSquadText = this.defenceBattleFinishSquadText();
   _o.milestoneTrackId = this.milestoneTrackId();
+  _o.themeColor = this.themeColor();
+  _o.subTitleName = this.subTitleName();
 }
 }
 
@@ -452,7 +480,9 @@ constructor(
   public defenceBattleFinishEquipText: string|Uint8Array|null = null,
   public defenceBattleFinishActivateText: string|Uint8Array|null = null,
   public defenceBattleFinishSquadText: string|Uint8Array|null = null,
-  public milestoneTrackId: string|Uint8Array|null = null
+  public milestoneTrackId: string|Uint8Array|null = null,
+  public themeColor: string|Uint8Array|null = null,
+  public subTitleName: string|Uint8Array|null = null
 ){}
 
 
@@ -483,6 +513,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const defenceBattleFinishActivateText = (this.defenceBattleFinishActivateText !== null ? builder.createString(this.defenceBattleFinishActivateText!) : 0);
   const defenceBattleFinishSquadText = (this.defenceBattleFinishSquadText !== null ? builder.createString(this.defenceBattleFinishSquadText!) : 0);
   const milestoneTrackId = (this.milestoneTrackId !== null ? builder.createString(this.milestoneTrackId!) : 0);
+  const themeColor = (this.themeColor !== null ? builder.createString(this.themeColor!) : 0);
+  const subTitleName = (this.subTitleName !== null ? builder.createString(this.subTitleName!) : 0);
 
   return clz_Torappu_ActVecBreakV2ConstData.createclz_Torappu_ActVecBreakV2ConstData(builder,
     defenseDesc,
@@ -511,7 +543,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     defenceBattleFinishEquipText,
     defenceBattleFinishActivateText,
     defenceBattleFinishSquadText,
-    milestoneTrackId
+    milestoneTrackId,
+    themeColor,
+    subTitleName
   );
 }
 }

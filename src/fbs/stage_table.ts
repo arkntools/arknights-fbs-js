@@ -5,6 +5,10 @@
 export { clz_Torappu_ActCustomStageData, clz_Torappu_ActCustomStageDataT } from './clz-torappu-act-custom-stage-data.js';
 export { clz_Torappu_ApProtectZoneInfo, clz_Torappu_ApProtectZoneInfoT } from './clz-torappu-ap-protect-zone-info.js';
 export { clz_Torappu_ApProtectZoneInfo_TimeRange, clz_Torappu_ApProtectZoneInfo_TimeRangeT } from './clz-torappu-ap-protect-zone-info-time-range.js';
+export { clz_Torappu_CGGalleryCGCompositeData, clz_Torappu_CGGalleryCGCompositeDataT } from './clz-torappu-cggallery-cgcomposite-data.js';
+export { clz_Torappu_CGGalleryCGData, clz_Torappu_CGGalleryCGDataT } from './clz-torappu-cggallery-cgdata.js';
+export { clz_Torappu_CGGalleryDisplayData, clz_Torappu_CGGalleryDisplayDataT } from './clz-torappu-cggallery-display-data.js';
+export { clz_Torappu_CGGalleryGroupData, clz_Torappu_CGGalleryGroupDataT } from './clz-torappu-cggallery-group-data.js';
 export { clz_Torappu_ConditionalDropInfo, clz_Torappu_ConditionalDropInfoT } from './clz-torappu-conditional-drop-info.js';
 export { clz_Torappu_ItemBundle, clz_Torappu_ItemBundleT } from './clz-torappu-item-bundle.js';
 export { clz_Torappu_MapThemeData, clz_Torappu_MapThemeDataT } from './clz-torappu-map-theme-data.js';
@@ -51,6 +55,9 @@ export { dict__enum__Torappu_StageDiffGroup__clz_Torappu_StoryStageShowGroup, di
 export { dict__int__string, dict__int__stringT } from './dict--int--string.js';
 export { dict__string__clz_Torappu_ActCustomStageData, dict__string__clz_Torappu_ActCustomStageDataT } from './dict--string--clz-torappu-act-custom-stage-data.js';
 export { dict__string__clz_Torappu_ApProtectZoneInfo, dict__string__clz_Torappu_ApProtectZoneInfoT } from './dict--string--clz-torappu-ap-protect-zone-info.js';
+export { dict__string__clz_Torappu_CGGalleryCGData, dict__string__clz_Torappu_CGGalleryCGDataT } from './dict--string--clz-torappu-cggallery-cgdata.js';
+export { dict__string__clz_Torappu_CGGalleryDisplayData, dict__string__clz_Torappu_CGGalleryDisplayDataT } from './dict--string--clz-torappu-cggallery-display-data.js';
+export { dict__string__clz_Torappu_CGGalleryGroupData, dict__string__clz_Torappu_CGGalleryGroupDataT } from './dict--string--clz-torappu-cggallery-group-data.js';
 export { dict__string__clz_Torappu_ConditionalDropInfo, dict__string__clz_Torappu_ConditionalDropInfoT } from './dict--string--clz-torappu-conditional-drop-info.js';
 export { dict__string__clz_Torappu_MapThemeData, dict__string__clz_Torappu_MapThemeDataT } from './dict--string--clz-torappu-map-theme-data.js';
 export { dict__string__clz_Torappu_OverrideDropInfo, dict__string__clz_Torappu_OverrideDropInfoT } from './dict--string--clz-torappu-override-drop-info.js';
@@ -80,6 +87,8 @@ export { dict__string__list_dict__enum__Torappu_StageDiffGroup__clz_Torappu_Stor
 export { dict__string__list_string, dict__string__list_stringT } from './dict--string--list-string.js';
 export { dict__string__long, dict__string__longT } from './dict--string--long.js';
 export { enum__Torappu_AppearanceStyle } from './enum--torappu-appearance-style.js';
+export { enum__Torappu_CGGalleryCGCompositeType } from './enum--torappu-cggallery-cgcomposite-type.js';
+export { enum__Torappu_CGGalleryCGSource } from './enum--torappu-cggallery-cgsource.js';
 export { enum__Torappu_EvolvePhase } from './enum--torappu-evolve-phase.js';
 export { enum__Torappu_FogType } from './enum--torappu-fog-type.js';
 export { enum__Torappu_ItemType } from './enum--torappu-item-type.js';

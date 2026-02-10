@@ -4,6 +4,7 @@
 
 import * as flatbuffers from 'flatbuffers';
 
+import { clz_Torappu_ArtGalleryGroupData, clz_Torappu_ArtGalleryGroupDataT } from './clz-torappu-art-gallery-group-data.js';
 import { clz_Torappu_HomeBackgroundSingleData, clz_Torappu_HomeBackgroundSingleDataT } from './clz-torappu-home-background-single-data.js';
 import { clz_Torappu_HomeMultiFormInfoData, clz_Torappu_HomeMultiFormInfoDataT } from './clz-torappu-home-multi-form-info-data.js';
 import { clz_Torappu_HomeThemeDisplayData, clz_Torappu_HomeThemeDisplayDataT } from './clz-torappu-home-theme-display-data.js';
@@ -54,70 +55,90 @@ homeBgDataListLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-themeList(index: number, obj?:clz_Torappu_HomeThemeDisplayData):clz_Torappu_HomeThemeDisplayData|null {
+backgroundGroupDatas(index: number, obj?:clz_Torappu_ArtGalleryGroupData):clz_Torappu_ArtGalleryGroupData|null {
   const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? (obj || new clz_Torappu_ArtGalleryGroupData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+backgroundGroupDatasLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+themeList(index: number, obj?:clz_Torappu_HomeThemeDisplayData):clz_Torappu_HomeThemeDisplayData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? (obj || new clz_Torappu_HomeThemeDisplayData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 themeListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 10);
+  const offset = this.bb!.__offset(this.bb_pos, 12);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+themeGroupDatas(index: number, obj?:clz_Torappu_ArtGalleryGroupData):clz_Torappu_ArtGalleryGroupData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? (obj || new clz_Torappu_ArtGalleryGroupData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+themeGroupDatasLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 backgroundLimitData(index: number, obj?:dict__string__clz_Torappu_HomeBackgroundLimitData):dict__string__clz_Torappu_HomeBackgroundLimitData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? (obj || new dict__string__clz_Torappu_HomeBackgroundLimitData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 backgroundLimitDataLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 themeLimitData(index: number, obj?:dict__string__clz_Torappu_HomeThemeLimitData):dict__string__clz_Torappu_HomeThemeLimitData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? (obj || new dict__string__clz_Torappu_HomeThemeLimitData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 themeLimitDataLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 multiFormInfoData(index: number, obj?:clz_Torappu_HomeMultiFormInfoData):clz_Torappu_HomeMultiFormInfoData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? (obj || new clz_Torappu_HomeMultiFormInfoData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 multiFormInfoDataLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 timeRuleData(index: number, obj?:dict__string__list_clz_Torappu_HomeMultiFormTimeRuleData):dict__string__list_clz_Torappu_HomeMultiFormTimeRuleData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? (obj || new dict__string__list_clz_Torappu_HomeMultiFormTimeRuleData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 timeRuleDataLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 defaultBgMusicId():string|null
 defaultBgMusicId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 defaultBgMusicId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 themeStartTime():bigint {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
 }
 
 static startclz_Torappu_HomeBackgroundData(builder:flatbuffers.Builder) {
-  builder.startObject(10);
+  builder.startObject(12);
 }
 
 static addDefaultBackgroundId(builder:flatbuffers.Builder, defaultBackgroundIdOffset:flatbuffers.Offset) {
@@ -144,8 +165,24 @@ static startHomeBgDataListVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
+static addBackgroundGroupDatas(builder:flatbuffers.Builder, backgroundGroupDatasOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(3, backgroundGroupDatasOffset, 0);
+}
+
+static createBackgroundGroupDatasVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startBackgroundGroupDatasVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static addThemeList(builder:flatbuffers.Builder, themeListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, themeListOffset, 0);
+  builder.addFieldOffset(4, themeListOffset, 0);
 }
 
 static createThemeListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -160,8 +197,24 @@ static startThemeListVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
+static addThemeGroupDatas(builder:flatbuffers.Builder, themeGroupDatasOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(5, themeGroupDatasOffset, 0);
+}
+
+static createThemeGroupDatasVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startThemeGroupDatasVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static addBackgroundLimitData(builder:flatbuffers.Builder, backgroundLimitDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(4, backgroundLimitDataOffset, 0);
+  builder.addFieldOffset(6, backgroundLimitDataOffset, 0);
 }
 
 static createBackgroundLimitDataVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -177,7 +230,7 @@ static startBackgroundLimitDataVector(builder:flatbuffers.Builder, numElems:numb
 }
 
 static addThemeLimitData(builder:flatbuffers.Builder, themeLimitDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, themeLimitDataOffset, 0);
+  builder.addFieldOffset(7, themeLimitDataOffset, 0);
 }
 
 static createThemeLimitDataVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -193,7 +246,7 @@ static startThemeLimitDataVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addMultiFormInfoData(builder:flatbuffers.Builder, multiFormInfoDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(6, multiFormInfoDataOffset, 0);
+  builder.addFieldOffset(8, multiFormInfoDataOffset, 0);
 }
 
 static createMultiFormInfoDataVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -209,7 +262,7 @@ static startMultiFormInfoDataVector(builder:flatbuffers.Builder, numElems:number
 }
 
 static addTimeRuleData(builder:flatbuffers.Builder, timeRuleDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(7, timeRuleDataOffset, 0);
+  builder.addFieldOffset(9, timeRuleDataOffset, 0);
 }
 
 static createTimeRuleDataVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -225,11 +278,11 @@ static startTimeRuleDataVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addDefaultBgMusicId(builder:flatbuffers.Builder, defaultBgMusicIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(8, defaultBgMusicIdOffset, 0);
+  builder.addFieldOffset(10, defaultBgMusicIdOffset, 0);
 }
 
 static addThemeStartTime(builder:flatbuffers.Builder, themeStartTime:bigint) {
-  builder.addFieldInt64(9, themeStartTime, BigInt('0'));
+  builder.addFieldInt64(11, themeStartTime, BigInt('0'));
 }
 
 static endclz_Torappu_HomeBackgroundData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -237,12 +290,14 @@ static endclz_Torappu_HomeBackgroundData(builder:flatbuffers.Builder):flatbuffer
   return offset;
 }
 
-static createclz_Torappu_HomeBackgroundData(builder:flatbuffers.Builder, defaultBackgroundIdOffset:flatbuffers.Offset, defaultThemeIdOffset:flatbuffers.Offset, homeBgDataListOffset:flatbuffers.Offset, themeListOffset:flatbuffers.Offset, backgroundLimitDataOffset:flatbuffers.Offset, themeLimitDataOffset:flatbuffers.Offset, multiFormInfoDataOffset:flatbuffers.Offset, timeRuleDataOffset:flatbuffers.Offset, defaultBgMusicIdOffset:flatbuffers.Offset, themeStartTime:bigint):flatbuffers.Offset {
+static createclz_Torappu_HomeBackgroundData(builder:flatbuffers.Builder, defaultBackgroundIdOffset:flatbuffers.Offset, defaultThemeIdOffset:flatbuffers.Offset, homeBgDataListOffset:flatbuffers.Offset, backgroundGroupDatasOffset:flatbuffers.Offset, themeListOffset:flatbuffers.Offset, themeGroupDatasOffset:flatbuffers.Offset, backgroundLimitDataOffset:flatbuffers.Offset, themeLimitDataOffset:flatbuffers.Offset, multiFormInfoDataOffset:flatbuffers.Offset, timeRuleDataOffset:flatbuffers.Offset, defaultBgMusicIdOffset:flatbuffers.Offset, themeStartTime:bigint):flatbuffers.Offset {
   clz_Torappu_HomeBackgroundData.startclz_Torappu_HomeBackgroundData(builder);
   clz_Torappu_HomeBackgroundData.addDefaultBackgroundId(builder, defaultBackgroundIdOffset);
   clz_Torappu_HomeBackgroundData.addDefaultThemeId(builder, defaultThemeIdOffset);
   clz_Torappu_HomeBackgroundData.addHomeBgDataList(builder, homeBgDataListOffset);
+  clz_Torappu_HomeBackgroundData.addBackgroundGroupDatas(builder, backgroundGroupDatasOffset);
   clz_Torappu_HomeBackgroundData.addThemeList(builder, themeListOffset);
+  clz_Torappu_HomeBackgroundData.addThemeGroupDatas(builder, themeGroupDatasOffset);
   clz_Torappu_HomeBackgroundData.addBackgroundLimitData(builder, backgroundLimitDataOffset);
   clz_Torappu_HomeBackgroundData.addThemeLimitData(builder, themeLimitDataOffset);
   clz_Torappu_HomeBackgroundData.addMultiFormInfoData(builder, multiFormInfoDataOffset);
@@ -257,7 +312,9 @@ unpack(): clz_Torappu_HomeBackgroundDataT {
     this.defaultBackgroundId(),
     this.defaultThemeId(),
     this.bb!.createObjList<clz_Torappu_HomeBackgroundSingleData, clz_Torappu_HomeBackgroundSingleDataT>(this.homeBgDataList.bind(this), this.homeBgDataListLength()),
+    this.bb!.createObjList<clz_Torappu_ArtGalleryGroupData, clz_Torappu_ArtGalleryGroupDataT>(this.backgroundGroupDatas.bind(this), this.backgroundGroupDatasLength()),
     this.bb!.createObjList<clz_Torappu_HomeThemeDisplayData, clz_Torappu_HomeThemeDisplayDataT>(this.themeList.bind(this), this.themeListLength()),
+    this.bb!.createObjList<clz_Torappu_ArtGalleryGroupData, clz_Torappu_ArtGalleryGroupDataT>(this.themeGroupDatas.bind(this), this.themeGroupDatasLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_HomeBackgroundLimitData, dict__string__clz_Torappu_HomeBackgroundLimitDataT>(this.backgroundLimitData.bind(this), this.backgroundLimitDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_HomeThemeLimitData, dict__string__clz_Torappu_HomeThemeLimitDataT>(this.themeLimitData.bind(this), this.themeLimitDataLength()),
     this.bb!.createObjList<clz_Torappu_HomeMultiFormInfoData, clz_Torappu_HomeMultiFormInfoDataT>(this.multiFormInfoData.bind(this), this.multiFormInfoDataLength()),
@@ -272,7 +329,9 @@ unpackTo(_o: clz_Torappu_HomeBackgroundDataT): void {
   _o.defaultBackgroundId = this.defaultBackgroundId();
   _o.defaultThemeId = this.defaultThemeId();
   _o.homeBgDataList = this.bb!.createObjList<clz_Torappu_HomeBackgroundSingleData, clz_Torappu_HomeBackgroundSingleDataT>(this.homeBgDataList.bind(this), this.homeBgDataListLength());
+  _o.backgroundGroupDatas = this.bb!.createObjList<clz_Torappu_ArtGalleryGroupData, clz_Torappu_ArtGalleryGroupDataT>(this.backgroundGroupDatas.bind(this), this.backgroundGroupDatasLength());
   _o.themeList = this.bb!.createObjList<clz_Torappu_HomeThemeDisplayData, clz_Torappu_HomeThemeDisplayDataT>(this.themeList.bind(this), this.themeListLength());
+  _o.themeGroupDatas = this.bb!.createObjList<clz_Torappu_ArtGalleryGroupData, clz_Torappu_ArtGalleryGroupDataT>(this.themeGroupDatas.bind(this), this.themeGroupDatasLength());
   _o.backgroundLimitData = this.bb!.createObjList<dict__string__clz_Torappu_HomeBackgroundLimitData, dict__string__clz_Torappu_HomeBackgroundLimitDataT>(this.backgroundLimitData.bind(this), this.backgroundLimitDataLength());
   _o.themeLimitData = this.bb!.createObjList<dict__string__clz_Torappu_HomeThemeLimitData, dict__string__clz_Torappu_HomeThemeLimitDataT>(this.themeLimitData.bind(this), this.themeLimitDataLength());
   _o.multiFormInfoData = this.bb!.createObjList<clz_Torappu_HomeMultiFormInfoData, clz_Torappu_HomeMultiFormInfoDataT>(this.multiFormInfoData.bind(this), this.multiFormInfoDataLength());
@@ -287,7 +346,9 @@ constructor(
   public defaultBackgroundId: string|Uint8Array|null = null,
   public defaultThemeId: string|Uint8Array|null = null,
   public homeBgDataList: (clz_Torappu_HomeBackgroundSingleDataT)[] = [],
+  public backgroundGroupDatas: (clz_Torappu_ArtGalleryGroupDataT)[] = [],
   public themeList: (clz_Torappu_HomeThemeDisplayDataT)[] = [],
+  public themeGroupDatas: (clz_Torappu_ArtGalleryGroupDataT)[] = [],
   public backgroundLimitData: (dict__string__clz_Torappu_HomeBackgroundLimitDataT)[] = [],
   public themeLimitData: (dict__string__clz_Torappu_HomeThemeLimitDataT)[] = [],
   public multiFormInfoData: (clz_Torappu_HomeMultiFormInfoDataT)[] = [],
@@ -301,7 +362,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const defaultBackgroundId = (this.defaultBackgroundId !== null ? builder.createString(this.defaultBackgroundId!) : 0);
   const defaultThemeId = (this.defaultThemeId !== null ? builder.createString(this.defaultThemeId!) : 0);
   const homeBgDataList = clz_Torappu_HomeBackgroundData.createHomeBgDataListVector(builder, builder.createObjectOffsetList(this.homeBgDataList));
+  const backgroundGroupDatas = clz_Torappu_HomeBackgroundData.createBackgroundGroupDatasVector(builder, builder.createObjectOffsetList(this.backgroundGroupDatas));
   const themeList = clz_Torappu_HomeBackgroundData.createThemeListVector(builder, builder.createObjectOffsetList(this.themeList));
+  const themeGroupDatas = clz_Torappu_HomeBackgroundData.createThemeGroupDatasVector(builder, builder.createObjectOffsetList(this.themeGroupDatas));
   const backgroundLimitData = clz_Torappu_HomeBackgroundData.createBackgroundLimitDataVector(builder, builder.createObjectOffsetList(this.backgroundLimitData));
   const themeLimitData = clz_Torappu_HomeBackgroundData.createThemeLimitDataVector(builder, builder.createObjectOffsetList(this.themeLimitData));
   const multiFormInfoData = clz_Torappu_HomeBackgroundData.createMultiFormInfoDataVector(builder, builder.createObjectOffsetList(this.multiFormInfoData));
@@ -312,7 +375,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     defaultBackgroundId,
     defaultThemeId,
     homeBgDataList,
+    backgroundGroupDatas,
     themeList,
+    themeGroupDatas,
     backgroundLimitData,
     themeLimitData,
     multiFormInfoData,

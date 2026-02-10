@@ -43,68 +43,83 @@ talentIndex():number {
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-unlockCondition(obj?:clz_Torappu_CharacterData_UnlockCondition):clz_Torappu_CharacterData_UnlockCondition|null {
+validModeIndices(index: number):number|null {
   const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.readInt32(this.bb!.__vector(this.bb_pos + offset) + index * 4) : 0;
+}
+
+validModeIndicesLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+validModeIndicesArray():Int32Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? new Int32Array(this.bb!.bytes().buffer, this.bb!.bytes().byteOffset + this.bb!.__vector(this.bb_pos + offset), this.bb!.__vector_len(this.bb_pos + offset)) : null;
+}
+
+unlockCondition(obj?:clz_Torappu_CharacterData_UnlockCondition):clz_Torappu_CharacterData_UnlockCondition|null {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? (obj || new clz_Torappu_CharacterData_UnlockCondition()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 requiredPotentialRank():number {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
+  const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 prefabKey():string|null
 prefabKey(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 prefabKey(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 name():string|null
 name(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 name(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 description():string|null
 description(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 description(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 rangeId():string|null
 rangeId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 rangeId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 blackboard(index: number, obj?:clz_Torappu_Blackboard_DataPair):clz_Torappu_Blackboard_DataPair|null {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? (obj || new clz_Torappu_Blackboard_DataPair()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 blackboardLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 tokenKey():string|null
 tokenKey(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 tokenKey(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 isHideTalent():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 static startclz_Torappu_EquipTalentData(builder:flatbuffers.Builder) {
-  builder.startObject(12);
+  builder.startObject(13);
 }
 
 static addDisplayRangeId(builder:flatbuffers.Builder, displayRangeId:boolean) {
@@ -119,32 +134,53 @@ static addTalentIndex(builder:flatbuffers.Builder, talentIndex:number) {
   builder.addFieldInt32(2, talentIndex, 0);
 }
 
+static addValidModeIndices(builder:flatbuffers.Builder, validModeIndicesOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(3, validModeIndicesOffset, 0);
+}
+
+static createValidModeIndicesVector(builder:flatbuffers.Builder, data:number[]|Int32Array):flatbuffers.Offset;
+/**
+ * @deprecated This Uint8Array overload will be removed in the future.
+ */
+static createValidModeIndicesVector(builder:flatbuffers.Builder, data:number[]|Uint8Array):flatbuffers.Offset;
+static createValidModeIndicesVector(builder:flatbuffers.Builder, data:number[]|Int32Array|Uint8Array):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addInt32(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startValidModeIndicesVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static addUnlockCondition(builder:flatbuffers.Builder, unlockConditionOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, unlockConditionOffset, 0);
+  builder.addFieldOffset(4, unlockConditionOffset, 0);
 }
 
 static addRequiredPotentialRank(builder:flatbuffers.Builder, requiredPotentialRank:number) {
-  builder.addFieldInt32(4, requiredPotentialRank, 0);
+  builder.addFieldInt32(5, requiredPotentialRank, 0);
 }
 
 static addPrefabKey(builder:flatbuffers.Builder, prefabKeyOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, prefabKeyOffset, 0);
+  builder.addFieldOffset(6, prefabKeyOffset, 0);
 }
 
 static addName(builder:flatbuffers.Builder, nameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(6, nameOffset, 0);
+  builder.addFieldOffset(7, nameOffset, 0);
 }
 
 static addDescription(builder:flatbuffers.Builder, descriptionOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(7, descriptionOffset, 0);
+  builder.addFieldOffset(8, descriptionOffset, 0);
 }
 
 static addRangeId(builder:flatbuffers.Builder, rangeIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(8, rangeIdOffset, 0);
+  builder.addFieldOffset(9, rangeIdOffset, 0);
 }
 
 static addBlackboard(builder:flatbuffers.Builder, blackboardOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(9, blackboardOffset, 0);
+  builder.addFieldOffset(10, blackboardOffset, 0);
 }
 
 static createBlackboardVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -160,11 +196,11 @@ static startBlackboardVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addTokenKey(builder:flatbuffers.Builder, tokenKeyOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(10, tokenKeyOffset, 0);
+  builder.addFieldOffset(11, tokenKeyOffset, 0);
 }
 
 static addIsHideTalent(builder:flatbuffers.Builder, isHideTalent:boolean) {
-  builder.addFieldInt8(11, +isHideTalent, +false);
+  builder.addFieldInt8(12, +isHideTalent, +false);
 }
 
 static endclz_Torappu_EquipTalentData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -178,6 +214,7 @@ unpack(): clz_Torappu_EquipTalentDataT {
     this.displayRangeId(),
     this.upgradeDescription(),
     this.talentIndex(),
+    this.bb!.createScalarList<number>(this.validModeIndices.bind(this), this.validModeIndicesLength()),
     (this.unlockCondition() !== null ? this.unlockCondition()!.unpack() : null),
     this.requiredPotentialRank(),
     this.prefabKey(),
@@ -195,6 +232,7 @@ unpackTo(_o: clz_Torappu_EquipTalentDataT): void {
   _o.displayRangeId = this.displayRangeId();
   _o.upgradeDescription = this.upgradeDescription();
   _o.talentIndex = this.talentIndex();
+  _o.validModeIndices = this.bb!.createScalarList<number>(this.validModeIndices.bind(this), this.validModeIndicesLength());
   _o.unlockCondition = (this.unlockCondition() !== null ? this.unlockCondition()!.unpack() : null);
   _o.requiredPotentialRank = this.requiredPotentialRank();
   _o.prefabKey = this.prefabKey();
@@ -212,6 +250,7 @@ constructor(
   public displayRangeId: boolean = false,
   public upgradeDescription: string|Uint8Array|null = null,
   public talentIndex: number = 0,
+  public validModeIndices: (number)[] = [],
   public unlockCondition: clz_Torappu_CharacterData_UnlockConditionT|null = null,
   public requiredPotentialRank: number = 0,
   public prefabKey: string|Uint8Array|null = null,
@@ -226,6 +265,7 @@ constructor(
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const upgradeDescription = (this.upgradeDescription !== null ? builder.createString(this.upgradeDescription!) : 0);
+  const validModeIndices = clz_Torappu_EquipTalentData.createValidModeIndicesVector(builder, this.validModeIndices);
   const unlockCondition = (this.unlockCondition !== null ? this.unlockCondition!.pack(builder) : 0);
   const prefabKey = (this.prefabKey !== null ? builder.createString(this.prefabKey!) : 0);
   const name = (this.name !== null ? builder.createString(this.name!) : 0);
@@ -238,6 +278,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_EquipTalentData.addDisplayRangeId(builder, this.displayRangeId);
   clz_Torappu_EquipTalentData.addUpgradeDescription(builder, upgradeDescription);
   clz_Torappu_EquipTalentData.addTalentIndex(builder, this.talentIndex);
+  clz_Torappu_EquipTalentData.addValidModeIndices(builder, validModeIndices);
   clz_Torappu_EquipTalentData.addUnlockCondition(builder, unlockCondition);
   clz_Torappu_EquipTalentData.addRequiredPotentialRank(builder, this.requiredPotentialRank);
   clz_Torappu_EquipTalentData.addPrefabKey(builder, prefabKey);

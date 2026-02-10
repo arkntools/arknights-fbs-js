@@ -4,6 +4,7 @@
 
 import * as flatbuffers from 'flatbuffers';
 
+import { clz_Torappu_PlayerAvatarLimitData, clz_Torappu_PlayerAvatarLimitDataT } from './clz-torappu-player-avatar-limit-data.js';
 import { enum__Torappu_PlayerAvatarGroupType } from './enum--torappu-player-avatar-group-type.js';
 
 
@@ -37,55 +38,87 @@ avatarType():enum__Torappu_PlayerAvatarGroupType {
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_PlayerAvatarGroupType.NONE;
 }
 
-avatarIdSort():number {
+avatarDesc():string|null
+avatarDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+avatarDesc(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 8);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+isSecret():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+avatarStartTs():bigint {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
+  return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
+}
+
+avatarLimit():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+avatarIdSort():number {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 avatarIdDesc():string|null
 avatarIdDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 avatarIdDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 10);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 avatarItemName():string|null
 avatarItemName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 avatarItemName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 avatarItemDesc():string|null
 avatarItemDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 avatarItemDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 avatarItemUsage():string|null
 avatarItemUsage(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 avatarItemUsage(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 obtainApproach():string|null
 obtainApproach(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 obtainApproach(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 dynAvatarId():string|null
 dynAvatarId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 dynAvatarId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+limitDatas(index: number, obj?:clz_Torappu_PlayerAvatarLimitData):clz_Torappu_PlayerAvatarLimitData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 30);
+  return offset ? (obj || new clz_Torappu_PlayerAvatarLimitData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+limitDatasLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 30);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_PlayerAvatarPerData(builder:flatbuffers.Builder) {
-  builder.startObject(9);
+  builder.startObject(14);
 }
 
 static addAvatarId(builder:flatbuffers.Builder, avatarIdOffset:flatbuffers.Offset) {
@@ -96,32 +129,64 @@ static addAvatarType(builder:flatbuffers.Builder, avatarType:enum__Torappu_Playe
   builder.addFieldInt32(1, avatarType, enum__Torappu_PlayerAvatarGroupType.NONE);
 }
 
+static addAvatarDesc(builder:flatbuffers.Builder, avatarDescOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(2, avatarDescOffset, 0);
+}
+
+static addIsSecret(builder:flatbuffers.Builder, isSecret:boolean) {
+  builder.addFieldInt8(3, +isSecret, +false);
+}
+
+static addAvatarStartTs(builder:flatbuffers.Builder, avatarStartTs:bigint) {
+  builder.addFieldInt64(4, avatarStartTs, BigInt('0'));
+}
+
+static addAvatarLimit(builder:flatbuffers.Builder, avatarLimit:boolean) {
+  builder.addFieldInt8(5, +avatarLimit, +false);
+}
+
 static addAvatarIdSort(builder:flatbuffers.Builder, avatarIdSort:number) {
-  builder.addFieldInt32(2, avatarIdSort, 0);
+  builder.addFieldInt32(6, avatarIdSort, 0);
 }
 
 static addAvatarIdDesc(builder:flatbuffers.Builder, avatarIdDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, avatarIdDescOffset, 0);
+  builder.addFieldOffset(7, avatarIdDescOffset, 0);
 }
 
 static addAvatarItemName(builder:flatbuffers.Builder, avatarItemNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(4, avatarItemNameOffset, 0);
+  builder.addFieldOffset(8, avatarItemNameOffset, 0);
 }
 
 static addAvatarItemDesc(builder:flatbuffers.Builder, avatarItemDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, avatarItemDescOffset, 0);
+  builder.addFieldOffset(9, avatarItemDescOffset, 0);
 }
 
 static addAvatarItemUsage(builder:flatbuffers.Builder, avatarItemUsageOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(6, avatarItemUsageOffset, 0);
+  builder.addFieldOffset(10, avatarItemUsageOffset, 0);
 }
 
 static addObtainApproach(builder:flatbuffers.Builder, obtainApproachOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(7, obtainApproachOffset, 0);
+  builder.addFieldOffset(11, obtainApproachOffset, 0);
 }
 
 static addDynAvatarId(builder:flatbuffers.Builder, dynAvatarIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(8, dynAvatarIdOffset, 0);
+  builder.addFieldOffset(12, dynAvatarIdOffset, 0);
+}
+
+static addLimitDatas(builder:flatbuffers.Builder, limitDatasOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(13, limitDatasOffset, 0);
+}
+
+static createLimitDatasVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startLimitDatasVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
 }
 
 static endclz_Torappu_PlayerAvatarPerData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -129,10 +194,14 @@ static endclz_Torappu_PlayerAvatarPerData(builder:flatbuffers.Builder):flatbuffe
   return offset;
 }
 
-static createclz_Torappu_PlayerAvatarPerData(builder:flatbuffers.Builder, avatarIdOffset:flatbuffers.Offset, avatarType:enum__Torappu_PlayerAvatarGroupType, avatarIdSort:number, avatarIdDescOffset:flatbuffers.Offset, avatarItemNameOffset:flatbuffers.Offset, avatarItemDescOffset:flatbuffers.Offset, avatarItemUsageOffset:flatbuffers.Offset, obtainApproachOffset:flatbuffers.Offset, dynAvatarIdOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_PlayerAvatarPerData(builder:flatbuffers.Builder, avatarIdOffset:flatbuffers.Offset, avatarType:enum__Torappu_PlayerAvatarGroupType, avatarDescOffset:flatbuffers.Offset, isSecret:boolean, avatarStartTs:bigint, avatarLimit:boolean, avatarIdSort:number, avatarIdDescOffset:flatbuffers.Offset, avatarItemNameOffset:flatbuffers.Offset, avatarItemDescOffset:flatbuffers.Offset, avatarItemUsageOffset:flatbuffers.Offset, obtainApproachOffset:flatbuffers.Offset, dynAvatarIdOffset:flatbuffers.Offset, limitDatasOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_PlayerAvatarPerData.startclz_Torappu_PlayerAvatarPerData(builder);
   clz_Torappu_PlayerAvatarPerData.addAvatarId(builder, avatarIdOffset);
   clz_Torappu_PlayerAvatarPerData.addAvatarType(builder, avatarType);
+  clz_Torappu_PlayerAvatarPerData.addAvatarDesc(builder, avatarDescOffset);
+  clz_Torappu_PlayerAvatarPerData.addIsSecret(builder, isSecret);
+  clz_Torappu_PlayerAvatarPerData.addAvatarStartTs(builder, avatarStartTs);
+  clz_Torappu_PlayerAvatarPerData.addAvatarLimit(builder, avatarLimit);
   clz_Torappu_PlayerAvatarPerData.addAvatarIdSort(builder, avatarIdSort);
   clz_Torappu_PlayerAvatarPerData.addAvatarIdDesc(builder, avatarIdDescOffset);
   clz_Torappu_PlayerAvatarPerData.addAvatarItemName(builder, avatarItemNameOffset);
@@ -140,6 +209,7 @@ static createclz_Torappu_PlayerAvatarPerData(builder:flatbuffers.Builder, avatar
   clz_Torappu_PlayerAvatarPerData.addAvatarItemUsage(builder, avatarItemUsageOffset);
   clz_Torappu_PlayerAvatarPerData.addObtainApproach(builder, obtainApproachOffset);
   clz_Torappu_PlayerAvatarPerData.addDynAvatarId(builder, dynAvatarIdOffset);
+  clz_Torappu_PlayerAvatarPerData.addLimitDatas(builder, limitDatasOffset);
   return clz_Torappu_PlayerAvatarPerData.endclz_Torappu_PlayerAvatarPerData(builder);
 }
 
@@ -147,13 +217,18 @@ unpack(): clz_Torappu_PlayerAvatarPerDataT {
   return new clz_Torappu_PlayerAvatarPerDataT(
     this.avatarId(),
     this.avatarType(),
+    this.avatarDesc(),
+    this.isSecret(),
+    this.avatarStartTs(),
+    this.avatarLimit(),
     this.avatarIdSort(),
     this.avatarIdDesc(),
     this.avatarItemName(),
     this.avatarItemDesc(),
     this.avatarItemUsage(),
     this.obtainApproach(),
-    this.dynAvatarId()
+    this.dynAvatarId(),
+    this.bb!.createObjList<clz_Torappu_PlayerAvatarLimitData, clz_Torappu_PlayerAvatarLimitDataT>(this.limitDatas.bind(this), this.limitDatasLength())
   );
 }
 
@@ -161,6 +236,10 @@ unpack(): clz_Torappu_PlayerAvatarPerDataT {
 unpackTo(_o: clz_Torappu_PlayerAvatarPerDataT): void {
   _o.avatarId = this.avatarId();
   _o.avatarType = this.avatarType();
+  _o.avatarDesc = this.avatarDesc();
+  _o.isSecret = this.isSecret();
+  _o.avatarStartTs = this.avatarStartTs();
+  _o.avatarLimit = this.avatarLimit();
   _o.avatarIdSort = this.avatarIdSort();
   _o.avatarIdDesc = this.avatarIdDesc();
   _o.avatarItemName = this.avatarItemName();
@@ -168,6 +247,7 @@ unpackTo(_o: clz_Torappu_PlayerAvatarPerDataT): void {
   _o.avatarItemUsage = this.avatarItemUsage();
   _o.obtainApproach = this.obtainApproach();
   _o.dynAvatarId = this.dynAvatarId();
+  _o.limitDatas = this.bb!.createObjList<clz_Torappu_PlayerAvatarLimitData, clz_Torappu_PlayerAvatarLimitDataT>(this.limitDatas.bind(this), this.limitDatasLength());
 }
 }
 
@@ -175,35 +255,47 @@ export class clz_Torappu_PlayerAvatarPerDataT implements flatbuffers.IGeneratedO
 constructor(
   public avatarId: string|Uint8Array|null = null,
   public avatarType: enum__Torappu_PlayerAvatarGroupType = enum__Torappu_PlayerAvatarGroupType.NONE,
+  public avatarDesc: string|Uint8Array|null = null,
+  public isSecret: boolean = false,
+  public avatarStartTs: bigint = BigInt('0'),
+  public avatarLimit: boolean = false,
   public avatarIdSort: number = 0,
   public avatarIdDesc: string|Uint8Array|null = null,
   public avatarItemName: string|Uint8Array|null = null,
   public avatarItemDesc: string|Uint8Array|null = null,
   public avatarItemUsage: string|Uint8Array|null = null,
   public obtainApproach: string|Uint8Array|null = null,
-  public dynAvatarId: string|Uint8Array|null = null
+  public dynAvatarId: string|Uint8Array|null = null,
+  public limitDatas: (clz_Torappu_PlayerAvatarLimitDataT)[] = []
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const avatarId = (this.avatarId !== null ? builder.createString(this.avatarId!) : 0);
+  const avatarDesc = (this.avatarDesc !== null ? builder.createString(this.avatarDesc!) : 0);
   const avatarIdDesc = (this.avatarIdDesc !== null ? builder.createString(this.avatarIdDesc!) : 0);
   const avatarItemName = (this.avatarItemName !== null ? builder.createString(this.avatarItemName!) : 0);
   const avatarItemDesc = (this.avatarItemDesc !== null ? builder.createString(this.avatarItemDesc!) : 0);
   const avatarItemUsage = (this.avatarItemUsage !== null ? builder.createString(this.avatarItemUsage!) : 0);
   const obtainApproach = (this.obtainApproach !== null ? builder.createString(this.obtainApproach!) : 0);
   const dynAvatarId = (this.dynAvatarId !== null ? builder.createString(this.dynAvatarId!) : 0);
+  const limitDatas = clz_Torappu_PlayerAvatarPerData.createLimitDatasVector(builder, builder.createObjectOffsetList(this.limitDatas));
 
   return clz_Torappu_PlayerAvatarPerData.createclz_Torappu_PlayerAvatarPerData(builder,
     avatarId,
     this.avatarType,
+    avatarDesc,
+    this.isSecret,
+    this.avatarStartTs,
+    this.avatarLimit,
     this.avatarIdSort,
     avatarIdDesc,
     avatarItemName,
     avatarItemDesc,
     avatarItemUsage,
     obtainApproach,
-    dynAvatarId
+    dynAvatarId,
+    limitDatas
   );
 }
 }

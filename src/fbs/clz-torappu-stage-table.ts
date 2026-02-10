@@ -7,6 +7,9 @@ import * as flatbuffers from 'flatbuffers';
 import { clz_Torappu_StorylineConstData, clz_Torappu_StorylineConstDataT } from './clz-torappu-storyline-const-data.js';
 import { dict__string__clz_Torappu_ActCustomStageData, dict__string__clz_Torappu_ActCustomStageDataT } from './dict--string--clz-torappu-act-custom-stage-data.js';
 import { dict__string__clz_Torappu_ApProtectZoneInfo, dict__string__clz_Torappu_ApProtectZoneInfoT } from './dict--string--clz-torappu-ap-protect-zone-info.js';
+import { dict__string__clz_Torappu_CGGalleryCGData, dict__string__clz_Torappu_CGGalleryCGDataT } from './dict--string--clz-torappu-cggallery-cgdata.js';
+import { dict__string__clz_Torappu_CGGalleryDisplayData, dict__string__clz_Torappu_CGGalleryDisplayDataT } from './dict--string--clz-torappu-cggallery-display-data.js';
+import { dict__string__clz_Torappu_CGGalleryGroupData, dict__string__clz_Torappu_CGGalleryGroupDataT } from './dict--string--clz-torappu-cggallery-group-data.js';
 import { dict__string__clz_Torappu_ConditionalDropInfo, dict__string__clz_Torappu_ConditionalDropInfoT } from './dict--string--clz-torappu-conditional-drop-info.js';
 import { dict__string__clz_Torappu_MapThemeData, dict__string__clz_Torappu_MapThemeDataT } from './dict--string--clz-torappu-map-theme-data.js';
 import { dict__string__clz_Torappu_OverrideDropInfo, dict__string__clz_Torappu_OverrideDropInfoT } from './dict--string--clz-torappu-override-drop-info.js';
@@ -288,48 +291,78 @@ storylineConst(obj?:clz_Torappu_StorylineConstData):clz_Torappu_StorylineConstDa
   return offset ? (obj || new clz_Torappu_StorylineConstData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-sixStarRuneData(index: number, obj?:dict__string__clz_Torappu_SixStarRuneData):dict__string__clz_Torappu_SixStarRuneData|null {
+cgGalleryDisplays(index: number, obj?:dict__string__clz_Torappu_CGGalleryDisplayData):dict__string__clz_Torappu_CGGalleryDisplayData|null {
   const offset = this.bb!.__offset(this.bb_pos, 52);
+  return offset ? (obj || new dict__string__clz_Torappu_CGGalleryDisplayData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+cgGalleryDisplaysLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 52);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+cgGalleryGroups(index: number, obj?:dict__string__clz_Torappu_CGGalleryGroupData):dict__string__clz_Torappu_CGGalleryGroupData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 54);
+  return offset ? (obj || new dict__string__clz_Torappu_CGGalleryGroupData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+cgGalleryGroupsLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 54);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+cgGalleryCgs(index: number, obj?:dict__string__clz_Torappu_CGGalleryCGData):dict__string__clz_Torappu_CGGalleryCGData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 56);
+  return offset ? (obj || new dict__string__clz_Torappu_CGGalleryCGData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+cgGalleryCgsLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 56);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+sixStarRuneData(index: number, obj?:dict__string__clz_Torappu_SixStarRuneData):dict__string__clz_Torappu_SixStarRuneData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 58);
   return offset ? (obj || new dict__string__clz_Torappu_SixStarRuneData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 sixStarRuneDataLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 52);
+  const offset = this.bb!.__offset(this.bb_pos, 58);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 sixStarMilestoneInfo(index: number, obj?:dict__string__clz_Torappu_SixStarMilestoneGroupData):dict__string__clz_Torappu_SixStarMilestoneGroupData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 54);
+  const offset = this.bb!.__offset(this.bb_pos, 60);
   return offset ? (obj || new dict__string__clz_Torappu_SixStarMilestoneGroupData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 sixStarMilestoneInfoLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 54);
+  const offset = this.bb!.__offset(this.bb_pos, 60);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 sixStarCompatibleInfo(index: number, obj?:dict__string__clz_Torappu_SixStarLinkedStageCompatibleInfo):dict__string__clz_Torappu_SixStarLinkedStageCompatibleInfo|null {
-  const offset = this.bb!.__offset(this.bb_pos, 56);
+  const offset = this.bb!.__offset(this.bb_pos, 62);
   return offset ? (obj || new dict__string__clz_Torappu_SixStarLinkedStageCompatibleInfo()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 sixStarCompatibleInfoLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 56);
+  const offset = this.bb!.__offset(this.bb_pos, 62);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 conditionalDropInfo(index: number, obj?:dict__string__clz_Torappu_ConditionalDropInfo):dict__string__clz_Torappu_ConditionalDropInfo|null {
-  const offset = this.bb!.__offset(this.bb_pos, 58);
+  const offset = this.bb!.__offset(this.bb_pos, 64);
   return offset ? (obj || new dict__string__clz_Torappu_ConditionalDropInfo()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 conditionalDropInfoLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 58);
+  const offset = this.bb!.__offset(this.bb_pos, 64);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_StageTable(builder:flatbuffers.Builder) {
-  builder.startObject(28);
+  builder.startObject(31);
 }
 
 static addStages(builder:flatbuffers.Builder, stagesOffset:flatbuffers.Offset) {
@@ -704,8 +737,56 @@ static addStorylineConst(builder:flatbuffers.Builder, storylineConstOffset:flatb
   builder.addFieldOffset(23, storylineConstOffset, 0);
 }
 
+static addCgGalleryDisplays(builder:flatbuffers.Builder, cgGalleryDisplaysOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(24, cgGalleryDisplaysOffset, 0);
+}
+
+static createCgGalleryDisplaysVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startCgGalleryDisplaysVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addCgGalleryGroups(builder:flatbuffers.Builder, cgGalleryGroupsOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(25, cgGalleryGroupsOffset, 0);
+}
+
+static createCgGalleryGroupsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startCgGalleryGroupsVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addCgGalleryCgs(builder:flatbuffers.Builder, cgGalleryCgsOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(26, cgGalleryCgsOffset, 0);
+}
+
+static createCgGalleryCgsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startCgGalleryCgsVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static addSixStarRuneData(builder:flatbuffers.Builder, sixStarRuneDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(24, sixStarRuneDataOffset, 0);
+  builder.addFieldOffset(27, sixStarRuneDataOffset, 0);
 }
 
 static createSixStarRuneDataVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -721,7 +802,7 @@ static startSixStarRuneDataVector(builder:flatbuffers.Builder, numElems:number) 
 }
 
 static addSixStarMilestoneInfo(builder:flatbuffers.Builder, sixStarMilestoneInfoOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(25, sixStarMilestoneInfoOffset, 0);
+  builder.addFieldOffset(28, sixStarMilestoneInfoOffset, 0);
 }
 
 static createSixStarMilestoneInfoVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -737,7 +818,7 @@ static startSixStarMilestoneInfoVector(builder:flatbuffers.Builder, numElems:num
 }
 
 static addSixStarCompatibleInfo(builder:flatbuffers.Builder, sixStarCompatibleInfoOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(26, sixStarCompatibleInfoOffset, 0);
+  builder.addFieldOffset(29, sixStarCompatibleInfoOffset, 0);
 }
 
 static createSixStarCompatibleInfoVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -753,7 +834,7 @@ static startSixStarCompatibleInfoVector(builder:flatbuffers.Builder, numElems:nu
 }
 
 static addConditionalDropInfo(builder:flatbuffers.Builder, conditionalDropInfoOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(27, conditionalDropInfoOffset, 0);
+  builder.addFieldOffset(30, conditionalDropInfoOffset, 0);
 }
 
 static createConditionalDropInfoVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -808,6 +889,9 @@ unpack(): clz_Torappu_StageTableT {
     this.bb!.createObjList<dict__string__clz_Torappu_StorylineStorySetData, dict__string__clz_Torappu_StorylineStorySetDataT>(this.storylineStorySets.bind(this), this.storylineStorySetsLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_StorylineTagData, dict__string__clz_Torappu_StorylineTagDataT>(this.storylineTags.bind(this), this.storylineTagsLength()),
     (this.storylineConst() !== null ? this.storylineConst()!.unpack() : null),
+    this.bb!.createObjList<dict__string__clz_Torappu_CGGalleryDisplayData, dict__string__clz_Torappu_CGGalleryDisplayDataT>(this.cgGalleryDisplays.bind(this), this.cgGalleryDisplaysLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_CGGalleryGroupData, dict__string__clz_Torappu_CGGalleryGroupDataT>(this.cgGalleryGroups.bind(this), this.cgGalleryGroupsLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_CGGalleryCGData, dict__string__clz_Torappu_CGGalleryCGDataT>(this.cgGalleryCgs.bind(this), this.cgGalleryCgsLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SixStarRuneData, dict__string__clz_Torappu_SixStarRuneDataT>(this.sixStarRuneData.bind(this), this.sixStarRuneDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SixStarMilestoneGroupData, dict__string__clz_Torappu_SixStarMilestoneGroupDataT>(this.sixStarMilestoneInfo.bind(this), this.sixStarMilestoneInfoLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SixStarLinkedStageCompatibleInfo, dict__string__clz_Torappu_SixStarLinkedStageCompatibleInfoT>(this.sixStarCompatibleInfo.bind(this), this.sixStarCompatibleInfoLength()),
@@ -841,6 +925,9 @@ unpackTo(_o: clz_Torappu_StageTableT): void {
   _o.storylineStorySets = this.bb!.createObjList<dict__string__clz_Torappu_StorylineStorySetData, dict__string__clz_Torappu_StorylineStorySetDataT>(this.storylineStorySets.bind(this), this.storylineStorySetsLength());
   _o.storylineTags = this.bb!.createObjList<dict__string__clz_Torappu_StorylineTagData, dict__string__clz_Torappu_StorylineTagDataT>(this.storylineTags.bind(this), this.storylineTagsLength());
   _o.storylineConst = (this.storylineConst() !== null ? this.storylineConst()!.unpack() : null);
+  _o.cgGalleryDisplays = this.bb!.createObjList<dict__string__clz_Torappu_CGGalleryDisplayData, dict__string__clz_Torappu_CGGalleryDisplayDataT>(this.cgGalleryDisplays.bind(this), this.cgGalleryDisplaysLength());
+  _o.cgGalleryGroups = this.bb!.createObjList<dict__string__clz_Torappu_CGGalleryGroupData, dict__string__clz_Torappu_CGGalleryGroupDataT>(this.cgGalleryGroups.bind(this), this.cgGalleryGroupsLength());
+  _o.cgGalleryCgs = this.bb!.createObjList<dict__string__clz_Torappu_CGGalleryCGData, dict__string__clz_Torappu_CGGalleryCGDataT>(this.cgGalleryCgs.bind(this), this.cgGalleryCgsLength());
   _o.sixStarRuneData = this.bb!.createObjList<dict__string__clz_Torappu_SixStarRuneData, dict__string__clz_Torappu_SixStarRuneDataT>(this.sixStarRuneData.bind(this), this.sixStarRuneDataLength());
   _o.sixStarMilestoneInfo = this.bb!.createObjList<dict__string__clz_Torappu_SixStarMilestoneGroupData, dict__string__clz_Torappu_SixStarMilestoneGroupDataT>(this.sixStarMilestoneInfo.bind(this), this.sixStarMilestoneInfoLength());
   _o.sixStarCompatibleInfo = this.bb!.createObjList<dict__string__clz_Torappu_SixStarLinkedStageCompatibleInfo, dict__string__clz_Torappu_SixStarLinkedStageCompatibleInfoT>(this.sixStarCompatibleInfo.bind(this), this.sixStarCompatibleInfoLength());
@@ -874,6 +961,9 @@ constructor(
   public storylineStorySets: (dict__string__clz_Torappu_StorylineStorySetDataT)[] = [],
   public storylineTags: (dict__string__clz_Torappu_StorylineTagDataT)[] = [],
   public storylineConst: clz_Torappu_StorylineConstDataT|null = null,
+  public cgGalleryDisplays: (dict__string__clz_Torappu_CGGalleryDisplayDataT)[] = [],
+  public cgGalleryGroups: (dict__string__clz_Torappu_CGGalleryGroupDataT)[] = [],
+  public cgGalleryCgs: (dict__string__clz_Torappu_CGGalleryCGDataT)[] = [],
   public sixStarRuneData: (dict__string__clz_Torappu_SixStarRuneDataT)[] = [],
   public sixStarMilestoneInfo: (dict__string__clz_Torappu_SixStarMilestoneGroupDataT)[] = [],
   public sixStarCompatibleInfo: (dict__string__clz_Torappu_SixStarLinkedStageCompatibleInfoT)[] = [],
@@ -906,6 +996,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const storylineStorySets = clz_Torappu_StageTable.createStorylineStorySetsVector(builder, builder.createObjectOffsetList(this.storylineStorySets));
   const storylineTags = clz_Torappu_StageTable.createStorylineTagsVector(builder, builder.createObjectOffsetList(this.storylineTags));
   const storylineConst = (this.storylineConst !== null ? this.storylineConst!.pack(builder) : 0);
+  const cgGalleryDisplays = clz_Torappu_StageTable.createCgGalleryDisplaysVector(builder, builder.createObjectOffsetList(this.cgGalleryDisplays));
+  const cgGalleryGroups = clz_Torappu_StageTable.createCgGalleryGroupsVector(builder, builder.createObjectOffsetList(this.cgGalleryGroups));
+  const cgGalleryCgs = clz_Torappu_StageTable.createCgGalleryCgsVector(builder, builder.createObjectOffsetList(this.cgGalleryCgs));
   const sixStarRuneData = clz_Torappu_StageTable.createSixStarRuneDataVector(builder, builder.createObjectOffsetList(this.sixStarRuneData));
   const sixStarMilestoneInfo = clz_Torappu_StageTable.createSixStarMilestoneInfoVector(builder, builder.createObjectOffsetList(this.sixStarMilestoneInfo));
   const sixStarCompatibleInfo = clz_Torappu_StageTable.createSixStarCompatibleInfoVector(builder, builder.createObjectOffsetList(this.sixStarCompatibleInfo));
@@ -936,6 +1029,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_StageTable.addStorylineStorySets(builder, storylineStorySets);
   clz_Torappu_StageTable.addStorylineTags(builder, storylineTags);
   clz_Torappu_StageTable.addStorylineConst(builder, storylineConst);
+  clz_Torappu_StageTable.addCgGalleryDisplays(builder, cgGalleryDisplays);
+  clz_Torappu_StageTable.addCgGalleryGroups(builder, cgGalleryGroups);
+  clz_Torappu_StageTable.addCgGalleryCgs(builder, cgGalleryCgs);
   clz_Torappu_StageTable.addSixStarRuneData(builder, sixStarRuneData);
   clz_Torappu_StageTable.addSixStarMilestoneInfo(builder, sixStarMilestoneInfo);
   clz_Torappu_StageTable.addSixStarCompatibleInfo(builder, sixStarCompatibleInfo);

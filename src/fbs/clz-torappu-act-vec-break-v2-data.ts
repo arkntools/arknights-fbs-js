@@ -173,9 +173,9 @@ hardZoneId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-firstDefenseGroupId():string|null
-firstDefenseGroupId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-firstDefenseGroupId(optionalEncoding?:any):string|Uint8Array|null {
+firstDefenseStageId():string|null
+firstDefenseStageId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+firstDefenseStageId(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
@@ -376,8 +376,8 @@ static addHardZoneId(builder:flatbuffers.Builder, hardZoneIdOffset:flatbuffers.O
   builder.addFieldOffset(14, hardZoneIdOffset, 0);
 }
 
-static addFirstDefenseGroupId(builder:flatbuffers.Builder, firstDefenseGroupIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(15, firstDefenseGroupIdOffset, 0);
+static addFirstDefenseStageId(builder:flatbuffers.Builder, firstDefenseStageIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(15, firstDefenseStageIdOffset, 0);
 }
 
 static endclz_Torappu_ActVecBreakV2Data(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -403,7 +403,7 @@ unpack(): clz_Torappu_ActVecBreakV2DataT {
     this.defenseZoneId(),
     this.offenseZoneId(),
     this.hardZoneId(),
-    this.firstDefenseGroupId()
+    this.firstDefenseStageId()
   );
 }
 
@@ -424,7 +424,7 @@ unpackTo(_o: clz_Torappu_ActVecBreakV2DataT): void {
   _o.defenseZoneId = this.defenseZoneId();
   _o.offenseZoneId = this.offenseZoneId();
   _o.hardZoneId = this.hardZoneId();
-  _o.firstDefenseGroupId = this.firstDefenseGroupId();
+  _o.firstDefenseStageId = this.firstDefenseStageId();
 }
 }
 
@@ -445,7 +445,7 @@ constructor(
   public defenseZoneId: string|Uint8Array|null = null,
   public offenseZoneId: string|Uint8Array|null = null,
   public hardZoneId: string|Uint8Array|null = null,
-  public firstDefenseGroupId: string|Uint8Array|null = null
+  public firstDefenseStageId: string|Uint8Array|null = null
 ){}
 
 
@@ -465,7 +465,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const defenseZoneId = (this.defenseZoneId !== null ? builder.createString(this.defenseZoneId!) : 0);
   const offenseZoneId = (this.offenseZoneId !== null ? builder.createString(this.offenseZoneId!) : 0);
   const hardZoneId = (this.hardZoneId !== null ? builder.createString(this.hardZoneId!) : 0);
-  const firstDefenseGroupId = (this.firstDefenseGroupId !== null ? builder.createString(this.firstDefenseGroupId!) : 0);
+  const firstDefenseStageId = (this.firstDefenseStageId !== null ? builder.createString(this.firstDefenseStageId!) : 0);
 
   clz_Torappu_ActVecBreakV2Data.startclz_Torappu_ActVecBreakV2Data(builder);
   clz_Torappu_ActVecBreakV2Data.addOffenseStageDict(builder, offenseStageDict);
@@ -483,7 +483,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_ActVecBreakV2Data.addDefenseZoneId(builder, defenseZoneId);
   clz_Torappu_ActVecBreakV2Data.addOffenseZoneId(builder, offenseZoneId);
   clz_Torappu_ActVecBreakV2Data.addHardZoneId(builder, hardZoneId);
-  clz_Torappu_ActVecBreakV2Data.addFirstDefenseGroupId(builder, firstDefenseGroupId);
+  clz_Torappu_ActVecBreakV2Data.addFirstDefenseStageId(builder, firstDefenseStageId);
 
   return clz_Torappu_ActVecBreakV2Data.endclz_Torappu_ActVecBreakV2Data(builder);
 }

@@ -4,6 +4,7 @@
 
 import * as flatbuffers from 'flatbuffers';
 
+import { clz_Torappu_AvatarConstData, clz_Torappu_AvatarConstDataT } from './clz-torappu-avatar-const-data.js';
 import { clz_Torappu_PlayerAvatarPerData, clz_Torappu_PlayerAvatarPerDataT } from './clz-torappu-player-avatar-per-data.js';
 import { dict__enum__Torappu_PlayerAvatarGroupType__clz_Torappu_PlayerAvatarGroupData, dict__enum__Torappu_PlayerAvatarGroupType__clz_Torappu_PlayerAvatarGroupDataT } from './dict--enum--torappu-player-avatar-group-type--clz-torappu-player-avatar-group-data.js';
 
@@ -53,8 +54,13 @@ avatarTypeDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+constData(obj?:clz_Torappu_AvatarConstData):clz_Torappu_AvatarConstData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? (obj || new clz_Torappu_AvatarConstData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
 static startclz_Torappu_PlayerAvatarData(builder:flatbuffers.Builder) {
-  builder.startObject(3);
+  builder.startObject(4);
 }
 
 static addDefaultAvatarId(builder:flatbuffers.Builder, defaultAvatarIdOffset:flatbuffers.Offset) {
@@ -93,24 +99,22 @@ static startAvatarTypeDataVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
+static addConstData(builder:flatbuffers.Builder, constDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(3, constDataOffset, 0);
+}
+
 static endclz_Torappu_PlayerAvatarData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_PlayerAvatarData(builder:flatbuffers.Builder, defaultAvatarIdOffset:flatbuffers.Offset, avatarListOffset:flatbuffers.Offset, avatarTypeDataOffset:flatbuffers.Offset):flatbuffers.Offset {
-  clz_Torappu_PlayerAvatarData.startclz_Torappu_PlayerAvatarData(builder);
-  clz_Torappu_PlayerAvatarData.addDefaultAvatarId(builder, defaultAvatarIdOffset);
-  clz_Torappu_PlayerAvatarData.addAvatarList(builder, avatarListOffset);
-  clz_Torappu_PlayerAvatarData.addAvatarTypeData(builder, avatarTypeDataOffset);
-  return clz_Torappu_PlayerAvatarData.endclz_Torappu_PlayerAvatarData(builder);
-}
 
 unpack(): clz_Torappu_PlayerAvatarDataT {
   return new clz_Torappu_PlayerAvatarDataT(
     this.defaultAvatarId(),
     this.bb!.createObjList<clz_Torappu_PlayerAvatarPerData, clz_Torappu_PlayerAvatarPerDataT>(this.avatarList.bind(this), this.avatarListLength()),
-    this.bb!.createObjList<dict__enum__Torappu_PlayerAvatarGroupType__clz_Torappu_PlayerAvatarGroupData, dict__enum__Torappu_PlayerAvatarGroupType__clz_Torappu_PlayerAvatarGroupDataT>(this.avatarTypeData.bind(this), this.avatarTypeDataLength())
+    this.bb!.createObjList<dict__enum__Torappu_PlayerAvatarGroupType__clz_Torappu_PlayerAvatarGroupData, dict__enum__Torappu_PlayerAvatarGroupType__clz_Torappu_PlayerAvatarGroupDataT>(this.avatarTypeData.bind(this), this.avatarTypeDataLength()),
+    (this.constData() !== null ? this.constData()!.unpack() : null)
   );
 }
 
@@ -119,6 +123,7 @@ unpackTo(_o: clz_Torappu_PlayerAvatarDataT): void {
   _o.defaultAvatarId = this.defaultAvatarId();
   _o.avatarList = this.bb!.createObjList<clz_Torappu_PlayerAvatarPerData, clz_Torappu_PlayerAvatarPerDataT>(this.avatarList.bind(this), this.avatarListLength());
   _o.avatarTypeData = this.bb!.createObjList<dict__enum__Torappu_PlayerAvatarGroupType__clz_Torappu_PlayerAvatarGroupData, dict__enum__Torappu_PlayerAvatarGroupType__clz_Torappu_PlayerAvatarGroupDataT>(this.avatarTypeData.bind(this), this.avatarTypeDataLength());
+  _o.constData = (this.constData() !== null ? this.constData()!.unpack() : null);
 }
 }
 
@@ -126,7 +131,8 @@ export class clz_Torappu_PlayerAvatarDataT implements flatbuffers.IGeneratedObje
 constructor(
   public defaultAvatarId: string|Uint8Array|null = null,
   public avatarList: (clz_Torappu_PlayerAvatarPerDataT)[] = [],
-  public avatarTypeData: (dict__enum__Torappu_PlayerAvatarGroupType__clz_Torappu_PlayerAvatarGroupDataT)[] = []
+  public avatarTypeData: (dict__enum__Torappu_PlayerAvatarGroupType__clz_Torappu_PlayerAvatarGroupDataT)[] = [],
+  public constData: clz_Torappu_AvatarConstDataT|null = null
 ){}
 
 
@@ -134,11 +140,14 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const defaultAvatarId = (this.defaultAvatarId !== null ? builder.createString(this.defaultAvatarId!) : 0);
   const avatarList = clz_Torappu_PlayerAvatarData.createAvatarListVector(builder, builder.createObjectOffsetList(this.avatarList));
   const avatarTypeData = clz_Torappu_PlayerAvatarData.createAvatarTypeDataVector(builder, builder.createObjectOffsetList(this.avatarTypeData));
+  const constData = (this.constData !== null ? this.constData!.pack(builder) : 0);
 
-  return clz_Torappu_PlayerAvatarData.createclz_Torappu_PlayerAvatarData(builder,
-    defaultAvatarId,
-    avatarList,
-    avatarTypeData
-  );
+  clz_Torappu_PlayerAvatarData.startclz_Torappu_PlayerAvatarData(builder);
+  clz_Torappu_PlayerAvatarData.addDefaultAvatarId(builder, defaultAvatarId);
+  clz_Torappu_PlayerAvatarData.addAvatarList(builder, avatarList);
+  clz_Torappu_PlayerAvatarData.addAvatarTypeData(builder, avatarTypeData);
+  clz_Torappu_PlayerAvatarData.addConstData(builder, constData);
+
+  return clz_Torappu_PlayerAvatarData.endclz_Torappu_PlayerAvatarData(builder);
 }
 }
