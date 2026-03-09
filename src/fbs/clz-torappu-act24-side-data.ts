@@ -6,6 +6,7 @@ import * as flatbuffers from 'flatbuffers';
 
 import { clz_Torappu_Act24SideData_ConstData, clz_Torappu_Act24SideData_ConstDataT } from './clz-torappu-act24-side-data-const-data.js';
 import { clz_Torappu_QuestStageData, clz_Torappu_QuestStageDataT } from './clz-torappu-quest-stage-data.js';
+import { dict__string__clz_Torappu_Act24SideData_HuntDatabaseData, dict__string__clz_Torappu_Act24SideData_HuntDatabaseDataT } from './dict--string--clz-torappu-act24-side-data-hunt-database-data.js';
 import { dict__string__clz_Torappu_Act24SideData_MealData, dict__string__clz_Torappu_Act24SideData_MealDataT } from './dict--string--clz-torappu-act24-side-data-meal-data.js';
 import { dict__string__clz_Torappu_Act24SideData_MeldingGachaBoxData, dict__string__clz_Torappu_Act24SideData_MeldingGachaBoxDataT } from './dict--string--clz-torappu-act24-side-data-melding-gacha-box-data.js';
 import { dict__string__clz_Torappu_Act24SideData_MeldingItemData, dict__string__clz_Torappu_Act24SideData_MeldingItemDataT } from './dict--string--clz-torappu-act24-side-data-melding-item-data.js';
@@ -146,13 +147,33 @@ stageMapPreviewDictLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-constData(obj?:clz_Torappu_Act24SideData_ConstData):clz_Torappu_Act24SideData_ConstData|null {
+huntDatabaseDict(index: number, obj?:dict__string__clz_Torappu_Act24SideData_HuntDatabaseData):dict__string__clz_Torappu_Act24SideData_HuntDatabaseData|null {
   const offset = this.bb!.__offset(this.bb_pos, 26);
+  return offset ? (obj || new dict__string__clz_Torappu_Act24SideData_HuntDatabaseData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+huntDatabaseDictLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 26);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+stageIdToUnlockItemIdDict(index: number, obj?:dict__string__string):dict__string__string|null {
+  const offset = this.bb!.__offset(this.bb_pos, 28);
+  return offset ? (obj || new dict__string__string()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+stageIdToUnlockItemIdDictLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 28);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+constData(obj?:clz_Torappu_Act24SideData_ConstData):clz_Torappu_Act24SideData_ConstData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? (obj || new clz_Torappu_Act24SideData_ConstData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 static startclz_Torappu_Act24SideData(builder:flatbuffers.Builder) {
-  builder.startObject(12);
+  builder.startObject(14);
 }
 
 static addToolDataList(builder:flatbuffers.Builder, toolDataListOffset:flatbuffers.Offset) {
@@ -331,8 +352,40 @@ static startStageMapPreviewDictVector(builder:flatbuffers.Builder, numElems:numb
   builder.startVector(4, numElems, 4);
 }
 
+static addHuntDatabaseDict(builder:flatbuffers.Builder, huntDatabaseDictOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(11, huntDatabaseDictOffset, 0);
+}
+
+static createHuntDatabaseDictVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startHuntDatabaseDictVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addStageIdToUnlockItemIdDict(builder:flatbuffers.Builder, stageIdToUnlockItemIdDictOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(12, stageIdToUnlockItemIdDictOffset, 0);
+}
+
+static createStageIdToUnlockItemIdDictVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startStageIdToUnlockItemIdDictVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static addConstData(builder:flatbuffers.Builder, constDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(11, constDataOffset, 0);
+  builder.addFieldOffset(13, constDataOffset, 0);
 }
 
 static endclz_Torappu_Act24SideData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -354,6 +407,8 @@ unpack(): clz_Torappu_Act24SideDataT {
     this.bb!.createObjList<dict__string__clz_Torappu_Act24SideData_MissionExtraData, dict__string__clz_Torappu_Act24SideData_MissionExtraDataT>(this.missionDataList.bind(this), this.missionDataListLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_StageData_StageDropInfo, dict__string__clz_Torappu_StageData_StageDropInfoT>(this.meldingDropDict.bind(this), this.meldingDropDictLength()),
     this.bb!.createObjList<dict__string__list_string, dict__string__list_stringT>(this.stageMapPreviewDict.bind(this), this.stageMapPreviewDictLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_Act24SideData_HuntDatabaseData, dict__string__clz_Torappu_Act24SideData_HuntDatabaseDataT>(this.huntDatabaseDict.bind(this), this.huntDatabaseDictLength()),
+    this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.stageIdToUnlockItemIdDict.bind(this), this.stageIdToUnlockItemIdDictLength()),
     (this.constData() !== null ? this.constData()!.unpack() : null)
   );
 }
@@ -371,6 +426,8 @@ unpackTo(_o: clz_Torappu_Act24SideDataT): void {
   _o.missionDataList = this.bb!.createObjList<dict__string__clz_Torappu_Act24SideData_MissionExtraData, dict__string__clz_Torappu_Act24SideData_MissionExtraDataT>(this.missionDataList.bind(this), this.missionDataListLength());
   _o.meldingDropDict = this.bb!.createObjList<dict__string__clz_Torappu_StageData_StageDropInfo, dict__string__clz_Torappu_StageData_StageDropInfoT>(this.meldingDropDict.bind(this), this.meldingDropDictLength());
   _o.stageMapPreviewDict = this.bb!.createObjList<dict__string__list_string, dict__string__list_stringT>(this.stageMapPreviewDict.bind(this), this.stageMapPreviewDictLength());
+  _o.huntDatabaseDict = this.bb!.createObjList<dict__string__clz_Torappu_Act24SideData_HuntDatabaseData, dict__string__clz_Torappu_Act24SideData_HuntDatabaseDataT>(this.huntDatabaseDict.bind(this), this.huntDatabaseDictLength());
+  _o.stageIdToUnlockItemIdDict = this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.stageIdToUnlockItemIdDict.bind(this), this.stageIdToUnlockItemIdDictLength());
   _o.constData = (this.constData() !== null ? this.constData()!.unpack() : null);
 }
 }
@@ -388,6 +445,8 @@ constructor(
   public missionDataList: (dict__string__clz_Torappu_Act24SideData_MissionExtraDataT)[] = [],
   public meldingDropDict: (dict__string__clz_Torappu_StageData_StageDropInfoT)[] = [],
   public stageMapPreviewDict: (dict__string__list_stringT)[] = [],
+  public huntDatabaseDict: (dict__string__clz_Torappu_Act24SideData_HuntDatabaseDataT)[] = [],
+  public stageIdToUnlockItemIdDict: (dict__string__stringT)[] = [],
   public constData: clz_Torappu_Act24SideData_ConstDataT|null = null
 ){}
 
@@ -404,6 +463,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const missionDataList = clz_Torappu_Act24SideData.createMissionDataListVector(builder, builder.createObjectOffsetList(this.missionDataList));
   const meldingDropDict = clz_Torappu_Act24SideData.createMeldingDropDictVector(builder, builder.createObjectOffsetList(this.meldingDropDict));
   const stageMapPreviewDict = clz_Torappu_Act24SideData.createStageMapPreviewDictVector(builder, builder.createObjectOffsetList(this.stageMapPreviewDict));
+  const huntDatabaseDict = clz_Torappu_Act24SideData.createHuntDatabaseDictVector(builder, builder.createObjectOffsetList(this.huntDatabaseDict));
+  const stageIdToUnlockItemIdDict = clz_Torappu_Act24SideData.createStageIdToUnlockItemIdDictVector(builder, builder.createObjectOffsetList(this.stageIdToUnlockItemIdDict));
   const constData = (this.constData !== null ? this.constData!.pack(builder) : 0);
 
   clz_Torappu_Act24SideData.startclz_Torappu_Act24SideData(builder);
@@ -418,6 +479,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_Act24SideData.addMissionDataList(builder, missionDataList);
   clz_Torappu_Act24SideData.addMeldingDropDict(builder, meldingDropDict);
   clz_Torappu_Act24SideData.addStageMapPreviewDict(builder, stageMapPreviewDict);
+  clz_Torappu_Act24SideData.addHuntDatabaseDict(builder, huntDatabaseDict);
+  clz_Torappu_Act24SideData.addStageIdToUnlockItemIdDict(builder, stageIdToUnlockItemIdDict);
   clz_Torappu_Act24SideData.addConstData(builder, constData);
 
   return clz_Torappu_Act24SideData.endclz_Torappu_Act24SideData(builder);

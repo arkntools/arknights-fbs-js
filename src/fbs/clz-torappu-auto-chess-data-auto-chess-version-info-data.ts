@@ -38,23 +38,20 @@ activityId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-updateTime():bigint {
+seasonName():string|null
+seasonName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+seasonName(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 8);
-  return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-appearTimeOnMainScreen():bigint {
+startTime():bigint {
   const offset = this.bb!.__offset(this.bb_pos, 10);
   return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
 }
 
-disappearTimeOnMainScreen():bigint {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
-  return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
-}
-
 static startclz_Torappu_AutoChessData_AutoChessVersionInfoData(builder:flatbuffers.Builder) {
-  builder.startObject(5);
+  builder.startObject(4);
 }
 
 static addVersionId(builder:flatbuffers.Builder, versionIdOffset:flatbuffers.Offset) {
@@ -65,16 +62,12 @@ static addActivityId(builder:flatbuffers.Builder, activityIdOffset:flatbuffers.O
   builder.addFieldOffset(1, activityIdOffset, 0);
 }
 
-static addUpdateTime(builder:flatbuffers.Builder, updateTime:bigint) {
-  builder.addFieldInt64(2, updateTime, BigInt('0'));
+static addSeasonName(builder:flatbuffers.Builder, seasonNameOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(2, seasonNameOffset, 0);
 }
 
-static addAppearTimeOnMainScreen(builder:flatbuffers.Builder, appearTimeOnMainScreen:bigint) {
-  builder.addFieldInt64(3, appearTimeOnMainScreen, BigInt('0'));
-}
-
-static addDisappearTimeOnMainScreen(builder:flatbuffers.Builder, disappearTimeOnMainScreen:bigint) {
-  builder.addFieldInt64(4, disappearTimeOnMainScreen, BigInt('0'));
+static addStartTime(builder:flatbuffers.Builder, startTime:bigint) {
+  builder.addFieldInt64(3, startTime, BigInt('0'));
 }
 
 static endclz_Torappu_AutoChessData_AutoChessVersionInfoData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -82,13 +75,12 @@ static endclz_Torappu_AutoChessData_AutoChessVersionInfoData(builder:flatbuffers
   return offset;
 }
 
-static createclz_Torappu_AutoChessData_AutoChessVersionInfoData(builder:flatbuffers.Builder, versionIdOffset:flatbuffers.Offset, activityIdOffset:flatbuffers.Offset, updateTime:bigint, appearTimeOnMainScreen:bigint, disappearTimeOnMainScreen:bigint):flatbuffers.Offset {
+static createclz_Torappu_AutoChessData_AutoChessVersionInfoData(builder:flatbuffers.Builder, versionIdOffset:flatbuffers.Offset, activityIdOffset:flatbuffers.Offset, seasonNameOffset:flatbuffers.Offset, startTime:bigint):flatbuffers.Offset {
   clz_Torappu_AutoChessData_AutoChessVersionInfoData.startclz_Torappu_AutoChessData_AutoChessVersionInfoData(builder);
   clz_Torappu_AutoChessData_AutoChessVersionInfoData.addVersionId(builder, versionIdOffset);
   clz_Torappu_AutoChessData_AutoChessVersionInfoData.addActivityId(builder, activityIdOffset);
-  clz_Torappu_AutoChessData_AutoChessVersionInfoData.addUpdateTime(builder, updateTime);
-  clz_Torappu_AutoChessData_AutoChessVersionInfoData.addAppearTimeOnMainScreen(builder, appearTimeOnMainScreen);
-  clz_Torappu_AutoChessData_AutoChessVersionInfoData.addDisappearTimeOnMainScreen(builder, disappearTimeOnMainScreen);
+  clz_Torappu_AutoChessData_AutoChessVersionInfoData.addSeasonName(builder, seasonNameOffset);
+  clz_Torappu_AutoChessData_AutoChessVersionInfoData.addStartTime(builder, startTime);
   return clz_Torappu_AutoChessData_AutoChessVersionInfoData.endclz_Torappu_AutoChessData_AutoChessVersionInfoData(builder);
 }
 
@@ -96,9 +88,8 @@ unpack(): clz_Torappu_AutoChessData_AutoChessVersionInfoDataT {
   return new clz_Torappu_AutoChessData_AutoChessVersionInfoDataT(
     this.versionId(),
     this.activityId(),
-    this.updateTime(),
-    this.appearTimeOnMainScreen(),
-    this.disappearTimeOnMainScreen()
+    this.seasonName(),
+    this.startTime()
   );
 }
 
@@ -106,9 +97,8 @@ unpack(): clz_Torappu_AutoChessData_AutoChessVersionInfoDataT {
 unpackTo(_o: clz_Torappu_AutoChessData_AutoChessVersionInfoDataT): void {
   _o.versionId = this.versionId();
   _o.activityId = this.activityId();
-  _o.updateTime = this.updateTime();
-  _o.appearTimeOnMainScreen = this.appearTimeOnMainScreen();
-  _o.disappearTimeOnMainScreen = this.disappearTimeOnMainScreen();
+  _o.seasonName = this.seasonName();
+  _o.startTime = this.startTime();
 }
 }
 
@@ -116,22 +106,21 @@ export class clz_Torappu_AutoChessData_AutoChessVersionInfoDataT implements flat
 constructor(
   public versionId: string|Uint8Array|null = null,
   public activityId: string|Uint8Array|null = null,
-  public updateTime: bigint = BigInt('0'),
-  public appearTimeOnMainScreen: bigint = BigInt('0'),
-  public disappearTimeOnMainScreen: bigint = BigInt('0')
+  public seasonName: string|Uint8Array|null = null,
+  public startTime: bigint = BigInt('0')
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const versionId = (this.versionId !== null ? builder.createString(this.versionId!) : 0);
   const activityId = (this.activityId !== null ? builder.createString(this.activityId!) : 0);
+  const seasonName = (this.seasonName !== null ? builder.createString(this.seasonName!) : 0);
 
   return clz_Torappu_AutoChessData_AutoChessVersionInfoData.createclz_Torappu_AutoChessData_AutoChessVersionInfoData(builder,
     versionId,
     activityId,
-    this.updateTime,
-    this.appearTimeOnMainScreen,
-    this.disappearTimeOnMainScreen
+    seasonName,
+    this.startTime
   );
 }
 }

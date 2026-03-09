@@ -5,8 +5,8 @@
 import * as flatbuffers from 'flatbuffers';
 
 import { clz_Torappu_PCKeyConstData, clz_Torappu_PCKeyConstDataT } from './clz-torappu-pckey-const-data.js';
-import { dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemData, dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemDataT } from './dict--enum--torappu-ui-key-board-virtual-button-enum--clz-torappu-key-setting-item-data.js';
 import { dict__string__clz_Torappu_KeyItem, dict__string__clz_Torappu_KeyItemT } from './dict--string--clz-torappu-key-item.js';
+import { dict__string__clz_Torappu_KeySettingGroupData, dict__string__clz_Torappu_KeySettingGroupDataT } from './dict--string--clz-torappu-key-setting-group-data.js';
 
 
 export class clz_Torappu_PCKeyData implements flatbuffers.IUnpackableObject<clz_Torappu_PCKeyDataT> {
@@ -37,9 +37,9 @@ keyListLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-keySettingData(index: number, obj?:dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemData):dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemData|null {
+keySettingData(index: number, obj?:dict__string__clz_Torappu_KeySettingGroupData):dict__string__clz_Torappu_KeySettingGroupData|null {
   const offset = this.bb!.__offset(this.bb_pos, 6);
-  return offset ? (obj || new dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_KeySettingGroupData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 keySettingDataLength():number {
@@ -52,18 +52,8 @@ constData(obj?:clz_Torappu_PCKeyConstData):clz_Torappu_PCKeyConstData|null {
   return offset ? (obj || new clz_Torappu_PCKeyConstData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-keyHideSettingData(index: number, obj?:dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemData):dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 10);
-  return offset ? (obj || new dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
-}
-
-keyHideSettingDataLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 10);
-  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
-}
-
 static startclz_Torappu_PCKeyData(builder:flatbuffers.Builder) {
-  builder.startObject(4);
+  builder.startObject(3);
 }
 
 static addKeyList(builder:flatbuffers.Builder, keyListOffset:flatbuffers.Offset) {
@@ -102,22 +92,6 @@ static addConstData(builder:flatbuffers.Builder, constDataOffset:flatbuffers.Off
   builder.addFieldOffset(2, constDataOffset, 0);
 }
 
-static addKeyHideSettingData(builder:flatbuffers.Builder, keyHideSettingDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, keyHideSettingDataOffset, 0);
-}
-
-static createKeyHideSettingDataVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
-  builder.startVector(4, data.length, 4);
-  for (let i = data.length - 1; i >= 0; i--) {
-    builder.addOffset(data[i]!);
-  }
-  return builder.endVector();
-}
-
-static startKeyHideSettingDataVector(builder:flatbuffers.Builder, numElems:number) {
-  builder.startVector(4, numElems, 4);
-}
-
 static endclz_Torappu_PCKeyData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -127,27 +101,24 @@ static endclz_Torappu_PCKeyData(builder:flatbuffers.Builder):flatbuffers.Offset 
 unpack(): clz_Torappu_PCKeyDataT {
   return new clz_Torappu_PCKeyDataT(
     this.bb!.createObjList<dict__string__clz_Torappu_KeyItem, dict__string__clz_Torappu_KeyItemT>(this.keyList.bind(this), this.keyListLength()),
-    this.bb!.createObjList<dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemData, dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemDataT>(this.keySettingData.bind(this), this.keySettingDataLength()),
-    (this.constData() !== null ? this.constData()!.unpack() : null),
-    this.bb!.createObjList<dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemData, dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemDataT>(this.keyHideSettingData.bind(this), this.keyHideSettingDataLength())
+    this.bb!.createObjList<dict__string__clz_Torappu_KeySettingGroupData, dict__string__clz_Torappu_KeySettingGroupDataT>(this.keySettingData.bind(this), this.keySettingDataLength()),
+    (this.constData() !== null ? this.constData()!.unpack() : null)
   );
 }
 
 
 unpackTo(_o: clz_Torappu_PCKeyDataT): void {
   _o.keyList = this.bb!.createObjList<dict__string__clz_Torappu_KeyItem, dict__string__clz_Torappu_KeyItemT>(this.keyList.bind(this), this.keyListLength());
-  _o.keySettingData = this.bb!.createObjList<dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemData, dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemDataT>(this.keySettingData.bind(this), this.keySettingDataLength());
+  _o.keySettingData = this.bb!.createObjList<dict__string__clz_Torappu_KeySettingGroupData, dict__string__clz_Torappu_KeySettingGroupDataT>(this.keySettingData.bind(this), this.keySettingDataLength());
   _o.constData = (this.constData() !== null ? this.constData()!.unpack() : null);
-  _o.keyHideSettingData = this.bb!.createObjList<dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemData, dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemDataT>(this.keyHideSettingData.bind(this), this.keyHideSettingDataLength());
 }
 }
 
 export class clz_Torappu_PCKeyDataT implements flatbuffers.IGeneratedObject {
 constructor(
   public keyList: (dict__string__clz_Torappu_KeyItemT)[] = [],
-  public keySettingData: (dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemDataT)[] = [],
-  public constData: clz_Torappu_PCKeyConstDataT|null = null,
-  public keyHideSettingData: (dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemDataT)[] = []
+  public keySettingData: (dict__string__clz_Torappu_KeySettingGroupDataT)[] = [],
+  public constData: clz_Torappu_PCKeyConstDataT|null = null
 ){}
 
 
@@ -155,13 +126,11 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const keyList = clz_Torappu_PCKeyData.createKeyListVector(builder, builder.createObjectOffsetList(this.keyList));
   const keySettingData = clz_Torappu_PCKeyData.createKeySettingDataVector(builder, builder.createObjectOffsetList(this.keySettingData));
   const constData = (this.constData !== null ? this.constData!.pack(builder) : 0);
-  const keyHideSettingData = clz_Torappu_PCKeyData.createKeyHideSettingDataVector(builder, builder.createObjectOffsetList(this.keyHideSettingData));
 
   clz_Torappu_PCKeyData.startclz_Torappu_PCKeyData(builder);
   clz_Torappu_PCKeyData.addKeyList(builder, keyList);
   clz_Torappu_PCKeyData.addKeySettingData(builder, keySettingData);
   clz_Torappu_PCKeyData.addConstData(builder, constData);
-  clz_Torappu_PCKeyData.addKeyHideSettingData(builder, keyHideSettingData);
 
   return clz_Torappu_PCKeyData.endclz_Torappu_PCKeyData(builder);
 }

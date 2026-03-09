@@ -4,9 +4,6 @@
 
 import * as flatbuffers from 'flatbuffers';
 
-import { enum__Torappu_KeyEffectGroup } from './enum--torappu-key-effect-group.js';
-import { enum__Torappu_KeySettingGroup } from './enum--torappu-key-setting-group.js';
-import { enum__Torappu_UI_KeyBoardVirtualButtonEnum } from './enum--torappu-ui-key-board-virtual-button-enum.js';
 
 
 export class clz_Torappu_KeySettingItemData implements flatbuffers.IUnpackableObject<clz_Torappu_KeySettingItemDataT> {
@@ -27,9 +24,11 @@ static getSizePrefixedRootAsclz_Torappu_KeySettingItemData(bb:flatbuffers.ByteBu
   return (obj || new clz_Torappu_KeySettingItemData()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-funcId():enum__Torappu_UI_KeyBoardVirtualButtonEnum {
+funcId():string|null
+funcId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+funcId(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 4);
-  return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_UI_KeyBoardVirtualButtonEnum.ESC;
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 funcName():string|null
@@ -39,63 +38,45 @@ funcName(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-funcType():enum__Torappu_KeySettingGroup {
-  const offset = this.bb!.__offset(this.bb_pos, 8);
-  return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_KeySettingGroup.BATTLE;
-}
-
-keyEffectGroup():enum__Torappu_KeyEffectGroup {
-  const offset = this.bb!.__offset(this.bb_pos, 10);
-  return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_KeyEffectGroup.BATTLE;
-}
-
 canBeSet():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
+  const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 defaultKeyId():string|null
 defaultKeyId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 defaultKeyId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 10);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 sortId():number {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_KeySettingItemData(builder:flatbuffers.Builder) {
-  builder.startObject(7);
+  builder.startObject(5);
 }
 
-static addFuncId(builder:flatbuffers.Builder, funcId:enum__Torappu_UI_KeyBoardVirtualButtonEnum) {
-  builder.addFieldInt32(0, funcId, enum__Torappu_UI_KeyBoardVirtualButtonEnum.ESC);
+static addFuncId(builder:flatbuffers.Builder, funcIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(0, funcIdOffset, 0);
 }
 
 static addFuncName(builder:flatbuffers.Builder, funcNameOffset:flatbuffers.Offset) {
   builder.addFieldOffset(1, funcNameOffset, 0);
 }
 
-static addFuncType(builder:flatbuffers.Builder, funcType:enum__Torappu_KeySettingGroup) {
-  builder.addFieldInt32(2, funcType, enum__Torappu_KeySettingGroup.BATTLE);
-}
-
-static addKeyEffectGroup(builder:flatbuffers.Builder, keyEffectGroup:enum__Torappu_KeyEffectGroup) {
-  builder.addFieldInt32(3, keyEffectGroup, enum__Torappu_KeyEffectGroup.BATTLE);
-}
-
 static addCanBeSet(builder:flatbuffers.Builder, canBeSet:boolean) {
-  builder.addFieldInt8(4, +canBeSet, +false);
+  builder.addFieldInt8(2, +canBeSet, +false);
 }
 
 static addDefaultKeyId(builder:flatbuffers.Builder, defaultKeyIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, defaultKeyIdOffset, 0);
+  builder.addFieldOffset(3, defaultKeyIdOffset, 0);
 }
 
 static addSortId(builder:flatbuffers.Builder, sortId:number) {
-  builder.addFieldInt32(6, sortId, 0);
+  builder.addFieldInt32(4, sortId, 0);
 }
 
 static endclz_Torappu_KeySettingItemData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -103,12 +84,10 @@ static endclz_Torappu_KeySettingItemData(builder:flatbuffers.Builder):flatbuffer
   return offset;
 }
 
-static createclz_Torappu_KeySettingItemData(builder:flatbuffers.Builder, funcId:enum__Torappu_UI_KeyBoardVirtualButtonEnum, funcNameOffset:flatbuffers.Offset, funcType:enum__Torappu_KeySettingGroup, keyEffectGroup:enum__Torappu_KeyEffectGroup, canBeSet:boolean, defaultKeyIdOffset:flatbuffers.Offset, sortId:number):flatbuffers.Offset {
+static createclz_Torappu_KeySettingItemData(builder:flatbuffers.Builder, funcIdOffset:flatbuffers.Offset, funcNameOffset:flatbuffers.Offset, canBeSet:boolean, defaultKeyIdOffset:flatbuffers.Offset, sortId:number):flatbuffers.Offset {
   clz_Torappu_KeySettingItemData.startclz_Torappu_KeySettingItemData(builder);
-  clz_Torappu_KeySettingItemData.addFuncId(builder, funcId);
+  clz_Torappu_KeySettingItemData.addFuncId(builder, funcIdOffset);
   clz_Torappu_KeySettingItemData.addFuncName(builder, funcNameOffset);
-  clz_Torappu_KeySettingItemData.addFuncType(builder, funcType);
-  clz_Torappu_KeySettingItemData.addKeyEffectGroup(builder, keyEffectGroup);
   clz_Torappu_KeySettingItemData.addCanBeSet(builder, canBeSet);
   clz_Torappu_KeySettingItemData.addDefaultKeyId(builder, defaultKeyIdOffset);
   clz_Torappu_KeySettingItemData.addSortId(builder, sortId);
@@ -119,8 +98,6 @@ unpack(): clz_Torappu_KeySettingItemDataT {
   return new clz_Torappu_KeySettingItemDataT(
     this.funcId(),
     this.funcName(),
-    this.funcType(),
-    this.keyEffectGroup(),
     this.canBeSet(),
     this.defaultKeyId(),
     this.sortId()
@@ -131,8 +108,6 @@ unpack(): clz_Torappu_KeySettingItemDataT {
 unpackTo(_o: clz_Torappu_KeySettingItemDataT): void {
   _o.funcId = this.funcId();
   _o.funcName = this.funcName();
-  _o.funcType = this.funcType();
-  _o.keyEffectGroup = this.keyEffectGroup();
   _o.canBeSet = this.canBeSet();
   _o.defaultKeyId = this.defaultKeyId();
   _o.sortId = this.sortId();
@@ -141,10 +116,8 @@ unpackTo(_o: clz_Torappu_KeySettingItemDataT): void {
 
 export class clz_Torappu_KeySettingItemDataT implements flatbuffers.IGeneratedObject {
 constructor(
-  public funcId: enum__Torappu_UI_KeyBoardVirtualButtonEnum = enum__Torappu_UI_KeyBoardVirtualButtonEnum.ESC,
+  public funcId: string|Uint8Array|null = null,
   public funcName: string|Uint8Array|null = null,
-  public funcType: enum__Torappu_KeySettingGroup = enum__Torappu_KeySettingGroup.BATTLE,
-  public keyEffectGroup: enum__Torappu_KeyEffectGroup = enum__Torappu_KeyEffectGroup.BATTLE,
   public canBeSet: boolean = false,
   public defaultKeyId: string|Uint8Array|null = null,
   public sortId: number = 0
@@ -152,14 +125,13 @@ constructor(
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
+  const funcId = (this.funcId !== null ? builder.createString(this.funcId!) : 0);
   const funcName = (this.funcName !== null ? builder.createString(this.funcName!) : 0);
   const defaultKeyId = (this.defaultKeyId !== null ? builder.createString(this.defaultKeyId!) : 0);
 
   return clz_Torappu_KeySettingItemData.createclz_Torappu_KeySettingItemData(builder,
-    this.funcId,
+    funcId,
     funcName,
-    this.funcType,
-    this.keyEffectGroup,
     this.canBeSet,
     defaultKeyId,
     this.sortId

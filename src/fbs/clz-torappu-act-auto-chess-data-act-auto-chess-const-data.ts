@@ -158,34 +158,29 @@ milestoneTrackId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-bandNextUpdateTs():bigint {
-  const offset = this.bb!.__offset(this.bb_pos, 42);
-  return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
-}
-
 escapedBattleTemplateMapSinglePlayer():string|null
 escapedBattleTemplateMapSinglePlayer(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 escapedBattleTemplateMapSinglePlayer(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 44);
+  const offset = this.bb!.__offset(this.bb_pos, 42);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 escapedBattleTemplateMapMultiPlayer():string|null
 escapedBattleTemplateMapMultiPlayer(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 escapedBattleTemplateMapMultiPlayer(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 46);
+  const offset = this.bb!.__offset(this.bb_pos, 44);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 webBusType():string|null
 webBusType(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 webBusType(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 48);
+  const offset = this.bb!.__offset(this.bb_pos, 46);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 static startclz_Torappu_ActAutoChessData_ActAutoChessConstData(builder:flatbuffers.Builder) {
-  builder.startObject(23);
+  builder.startObject(22);
 }
 
 static addShopRefreshPrice(builder:flatbuffers.Builder, shopRefreshPrice:number) {
@@ -300,20 +295,16 @@ static addMilestoneTrackId(builder:flatbuffers.Builder, milestoneTrackIdOffset:f
   builder.addFieldOffset(18, milestoneTrackIdOffset, 0);
 }
 
-static addBandNextUpdateTs(builder:flatbuffers.Builder, bandNextUpdateTs:bigint) {
-  builder.addFieldInt64(19, bandNextUpdateTs, BigInt('0'));
-}
-
 static addEscapedBattleTemplateMapSinglePlayer(builder:flatbuffers.Builder, escapedBattleTemplateMapSinglePlayerOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(20, escapedBattleTemplateMapSinglePlayerOffset, 0);
+  builder.addFieldOffset(19, escapedBattleTemplateMapSinglePlayerOffset, 0);
 }
 
 static addEscapedBattleTemplateMapMultiPlayer(builder:flatbuffers.Builder, escapedBattleTemplateMapMultiPlayerOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(21, escapedBattleTemplateMapMultiPlayerOffset, 0);
+  builder.addFieldOffset(20, escapedBattleTemplateMapMultiPlayerOffset, 0);
 }
 
 static addWebBusType(builder:flatbuffers.Builder, webBusTypeOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(22, webBusTypeOffset, 0);
+  builder.addFieldOffset(21, webBusTypeOffset, 0);
 }
 
 static endclz_Torappu_ActAutoChessData_ActAutoChessConstData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -321,7 +312,7 @@ static endclz_Torappu_ActAutoChessData_ActAutoChessConstData(builder:flatbuffers
   return offset;
 }
 
-static createclz_Torappu_ActAutoChessData_ActAutoChessConstData(builder:flatbuffers.Builder, shopRefreshPrice:number, maxDeckChessCnt:number, maxBattleChessCnt:number, fallbackBondIdOffset:flatbuffers.Offset, storeCntMax:number, costPlayerHpLimit:number, milestoneIdOffset:flatbuffers.Offset, borrowCount:number, dailyMissionParam:number, dailyMissionNameOffset:flatbuffers.Offset, dailyMissionRuleOffset:flatbuffers.Offset, trstageBandIdOffset:flatbuffers.Offset, trstageBossIdOffset:flatbuffers.Offset, trStageIdOffset:flatbuffers.Offset, trainingModeIdOffset:flatbuffers.Offset, trSpecialEnemyTypesOffset:flatbuffers.Offset, trBondIdsOffset:flatbuffers.Offset, trBannedBondIdsOffset:flatbuffers.Offset, milestoneTrackIdOffset:flatbuffers.Offset, bandNextUpdateTs:bigint, escapedBattleTemplateMapSinglePlayerOffset:flatbuffers.Offset, escapedBattleTemplateMapMultiPlayerOffset:flatbuffers.Offset, webBusTypeOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_ActAutoChessData_ActAutoChessConstData(builder:flatbuffers.Builder, shopRefreshPrice:number, maxDeckChessCnt:number, maxBattleChessCnt:number, fallbackBondIdOffset:flatbuffers.Offset, storeCntMax:number, costPlayerHpLimit:number, milestoneIdOffset:flatbuffers.Offset, borrowCount:number, dailyMissionParam:number, dailyMissionNameOffset:flatbuffers.Offset, dailyMissionRuleOffset:flatbuffers.Offset, trstageBandIdOffset:flatbuffers.Offset, trstageBossIdOffset:flatbuffers.Offset, trStageIdOffset:flatbuffers.Offset, trainingModeIdOffset:flatbuffers.Offset, trSpecialEnemyTypesOffset:flatbuffers.Offset, trBondIdsOffset:flatbuffers.Offset, trBannedBondIdsOffset:flatbuffers.Offset, milestoneTrackIdOffset:flatbuffers.Offset, escapedBattleTemplateMapSinglePlayerOffset:flatbuffers.Offset, escapedBattleTemplateMapMultiPlayerOffset:flatbuffers.Offset, webBusTypeOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_ActAutoChessData_ActAutoChessConstData.startclz_Torappu_ActAutoChessData_ActAutoChessConstData(builder);
   clz_Torappu_ActAutoChessData_ActAutoChessConstData.addShopRefreshPrice(builder, shopRefreshPrice);
   clz_Torappu_ActAutoChessData_ActAutoChessConstData.addMaxDeckChessCnt(builder, maxDeckChessCnt);
@@ -342,7 +333,6 @@ static createclz_Torappu_ActAutoChessData_ActAutoChessConstData(builder:flatbuff
   clz_Torappu_ActAutoChessData_ActAutoChessConstData.addTrBondIds(builder, trBondIdsOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessConstData.addTrBannedBondIds(builder, trBannedBondIdsOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessConstData.addMilestoneTrackId(builder, milestoneTrackIdOffset);
-  clz_Torappu_ActAutoChessData_ActAutoChessConstData.addBandNextUpdateTs(builder, bandNextUpdateTs);
   clz_Torappu_ActAutoChessData_ActAutoChessConstData.addEscapedBattleTemplateMapSinglePlayer(builder, escapedBattleTemplateMapSinglePlayerOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessConstData.addEscapedBattleTemplateMapMultiPlayer(builder, escapedBattleTemplateMapMultiPlayerOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessConstData.addWebBusType(builder, webBusTypeOffset);
@@ -370,7 +360,6 @@ unpack(): clz_Torappu_ActAutoChessData_ActAutoChessConstDataT {
     this.bb!.createScalarList<string>(this.trBondIds.bind(this), this.trBondIdsLength()),
     this.bb!.createScalarList<string>(this.trBannedBondIds.bind(this), this.trBannedBondIdsLength()),
     this.milestoneTrackId(),
-    this.bandNextUpdateTs(),
     this.escapedBattleTemplateMapSinglePlayer(),
     this.escapedBattleTemplateMapMultiPlayer(),
     this.webBusType()
@@ -398,7 +387,6 @@ unpackTo(_o: clz_Torappu_ActAutoChessData_ActAutoChessConstDataT): void {
   _o.trBondIds = this.bb!.createScalarList<string>(this.trBondIds.bind(this), this.trBondIdsLength());
   _o.trBannedBondIds = this.bb!.createScalarList<string>(this.trBannedBondIds.bind(this), this.trBannedBondIdsLength());
   _o.milestoneTrackId = this.milestoneTrackId();
-  _o.bandNextUpdateTs = this.bandNextUpdateTs();
   _o.escapedBattleTemplateMapSinglePlayer = this.escapedBattleTemplateMapSinglePlayer();
   _o.escapedBattleTemplateMapMultiPlayer = this.escapedBattleTemplateMapMultiPlayer();
   _o.webBusType = this.webBusType();
@@ -426,7 +414,6 @@ constructor(
   public trBondIds: (string)[] = [],
   public trBannedBondIds: (string)[] = [],
   public milestoneTrackId: string|Uint8Array|null = null,
-  public bandNextUpdateTs: bigint = BigInt('0'),
   public escapedBattleTemplateMapSinglePlayer: string|Uint8Array|null = null,
   public escapedBattleTemplateMapMultiPlayer: string|Uint8Array|null = null,
   public webBusType: string|Uint8Array|null = null
@@ -470,7 +457,6 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     trBondIds,
     trBannedBondIds,
     milestoneTrackId,
-    this.bandNextUpdateTs,
     escapedBattleTemplateMapSinglePlayer,
     escapedBattleTemplateMapMultiPlayer,
     webBusType

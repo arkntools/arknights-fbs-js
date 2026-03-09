@@ -73,8 +73,13 @@ bondOrder():number {
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
+isHiddenCharList():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 18);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
 static startclz_Torappu_AutoChessData_AutoChessBondInfoData(builder:flatbuffers.Builder) {
-  builder.startObject(7);
+  builder.startObject(8);
 }
 
 static addBondId(builder:flatbuffers.Builder, bondIdOffset:flatbuffers.Offset) {
@@ -117,12 +122,16 @@ static addBondOrder(builder:flatbuffers.Builder, bondOrder:number) {
   builder.addFieldInt32(6, bondOrder, 0);
 }
 
+static addIsHiddenCharList(builder:flatbuffers.Builder, isHiddenCharList:boolean) {
+  builder.addFieldInt8(7, +isHiddenCharList, +false);
+}
+
 static endclz_Torappu_AutoChessData_AutoChessBondInfoData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_AutoChessData_AutoChessBondInfoData(builder:flatbuffers.Builder, bondIdOffset:flatbuffers.Offset, bondType:enum__Torappu_AutoChessBondType, powerIdListOffset:flatbuffers.Offset, nameOffset:flatbuffers.Offset, iconOffset:flatbuffers.Offset, isPower:boolean, bondOrder:number):flatbuffers.Offset {
+static createclz_Torappu_AutoChessData_AutoChessBondInfoData(builder:flatbuffers.Builder, bondIdOffset:flatbuffers.Offset, bondType:enum__Torappu_AutoChessBondType, powerIdListOffset:flatbuffers.Offset, nameOffset:flatbuffers.Offset, iconOffset:flatbuffers.Offset, isPower:boolean, bondOrder:number, isHiddenCharList:boolean):flatbuffers.Offset {
   clz_Torappu_AutoChessData_AutoChessBondInfoData.startclz_Torappu_AutoChessData_AutoChessBondInfoData(builder);
   clz_Torappu_AutoChessData_AutoChessBondInfoData.addBondId(builder, bondIdOffset);
   clz_Torappu_AutoChessData_AutoChessBondInfoData.addBondType(builder, bondType);
@@ -131,6 +140,7 @@ static createclz_Torappu_AutoChessData_AutoChessBondInfoData(builder:flatbuffers
   clz_Torappu_AutoChessData_AutoChessBondInfoData.addIcon(builder, iconOffset);
   clz_Torappu_AutoChessData_AutoChessBondInfoData.addIsPower(builder, isPower);
   clz_Torappu_AutoChessData_AutoChessBondInfoData.addBondOrder(builder, bondOrder);
+  clz_Torappu_AutoChessData_AutoChessBondInfoData.addIsHiddenCharList(builder, isHiddenCharList);
   return clz_Torappu_AutoChessData_AutoChessBondInfoData.endclz_Torappu_AutoChessData_AutoChessBondInfoData(builder);
 }
 
@@ -142,7 +152,8 @@ unpack(): clz_Torappu_AutoChessData_AutoChessBondInfoDataT {
     this.name(),
     this.icon(),
     this.isPower(),
-    this.bondOrder()
+    this.bondOrder(),
+    this.isHiddenCharList()
   );
 }
 
@@ -155,6 +166,7 @@ unpackTo(_o: clz_Torappu_AutoChessData_AutoChessBondInfoDataT): void {
   _o.icon = this.icon();
   _o.isPower = this.isPower();
   _o.bondOrder = this.bondOrder();
+  _o.isHiddenCharList = this.isHiddenCharList();
 }
 }
 
@@ -166,7 +178,8 @@ constructor(
   public name: string|Uint8Array|null = null,
   public icon: string|Uint8Array|null = null,
   public isPower: boolean = false,
-  public bondOrder: number = 0
+  public bondOrder: number = 0,
+  public isHiddenCharList: boolean = false
 ){}
 
 
@@ -183,7 +196,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     name,
     icon,
     this.isPower,
-    this.bondOrder
+    this.bondOrder,
+    this.isHiddenCharList
   );
 }
 }

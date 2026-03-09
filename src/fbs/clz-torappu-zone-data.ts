@@ -129,8 +129,13 @@ bindMainlineRetroZoneId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+diamondRewardCount():number {
+  const offset = this.bb!.__offset(this.bb_pos, 36);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_ZoneData(builder:flatbuffers.Builder) {
-  builder.startObject(16);
+  builder.startObject(17);
 }
 
 static addZoneId(builder:flatbuffers.Builder, zoneIdOffset:flatbuffers.Offset) {
@@ -197,12 +202,16 @@ static addBindMainlineRetroZoneId(builder:flatbuffers.Builder, bindMainlineRetro
   builder.addFieldOffset(15, bindMainlineRetroZoneIdOffset, 0);
 }
 
+static addDiamondRewardCount(builder:flatbuffers.Builder, diamondRewardCount:number) {
+  builder.addFieldInt32(16, diamondRewardCount, 0);
+}
+
 static endclz_Torappu_ZoneData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_ZoneData(builder:flatbuffers.Builder, zoneIdOffset:flatbuffers.Offset, zoneIndex:number, type:enum__Torappu_ZoneType, zoneNameFirstOffset:flatbuffers.Offset, zoneNameSecondOffset:flatbuffers.Offset, zoneNameTitleCurrentOffset:flatbuffers.Offset, zoneNameTitleUnCurrentOffset:flatbuffers.Offset, zoneNameTitleExOffset:flatbuffers.Offset, zoneNameThirdOffset:flatbuffers.Offset, lockedTextOffset:flatbuffers.Offset, antiSpoilerIdOffset:flatbuffers.Offset, canPreview:boolean, hasAdditionalPanel:boolean, sixStarMilestoneGroupIdOffset:flatbuffers.Offset, bindMainlineZoneIdOffset:flatbuffers.Offset, bindMainlineRetroZoneIdOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_ZoneData(builder:flatbuffers.Builder, zoneIdOffset:flatbuffers.Offset, zoneIndex:number, type:enum__Torappu_ZoneType, zoneNameFirstOffset:flatbuffers.Offset, zoneNameSecondOffset:flatbuffers.Offset, zoneNameTitleCurrentOffset:flatbuffers.Offset, zoneNameTitleUnCurrentOffset:flatbuffers.Offset, zoneNameTitleExOffset:flatbuffers.Offset, zoneNameThirdOffset:flatbuffers.Offset, lockedTextOffset:flatbuffers.Offset, antiSpoilerIdOffset:flatbuffers.Offset, canPreview:boolean, hasAdditionalPanel:boolean, sixStarMilestoneGroupIdOffset:flatbuffers.Offset, bindMainlineZoneIdOffset:flatbuffers.Offset, bindMainlineRetroZoneIdOffset:flatbuffers.Offset, diamondRewardCount:number):flatbuffers.Offset {
   clz_Torappu_ZoneData.startclz_Torappu_ZoneData(builder);
   clz_Torappu_ZoneData.addZoneId(builder, zoneIdOffset);
   clz_Torappu_ZoneData.addZoneIndex(builder, zoneIndex);
@@ -220,6 +229,7 @@ static createclz_Torappu_ZoneData(builder:flatbuffers.Builder, zoneIdOffset:flat
   clz_Torappu_ZoneData.addSixStarMilestoneGroupId(builder, sixStarMilestoneGroupIdOffset);
   clz_Torappu_ZoneData.addBindMainlineZoneId(builder, bindMainlineZoneIdOffset);
   clz_Torappu_ZoneData.addBindMainlineRetroZoneId(builder, bindMainlineRetroZoneIdOffset);
+  clz_Torappu_ZoneData.addDiamondRewardCount(builder, diamondRewardCount);
   return clz_Torappu_ZoneData.endclz_Torappu_ZoneData(builder);
 }
 
@@ -240,7 +250,8 @@ unpack(): clz_Torappu_ZoneDataT {
     this.hasAdditionalPanel(),
     this.sixStarMilestoneGroupId(),
     this.bindMainlineZoneId(),
-    this.bindMainlineRetroZoneId()
+    this.bindMainlineRetroZoneId(),
+    this.diamondRewardCount()
   );
 }
 
@@ -262,6 +273,7 @@ unpackTo(_o: clz_Torappu_ZoneDataT): void {
   _o.sixStarMilestoneGroupId = this.sixStarMilestoneGroupId();
   _o.bindMainlineZoneId = this.bindMainlineZoneId();
   _o.bindMainlineRetroZoneId = this.bindMainlineRetroZoneId();
+  _o.diamondRewardCount = this.diamondRewardCount();
 }
 }
 
@@ -282,7 +294,8 @@ constructor(
   public hasAdditionalPanel: boolean = false,
   public sixStarMilestoneGroupId: string|Uint8Array|null = null,
   public bindMainlineZoneId: string|Uint8Array|null = null,
-  public bindMainlineRetroZoneId: string|Uint8Array|null = null
+  public bindMainlineRetroZoneId: string|Uint8Array|null = null,
+  public diamondRewardCount: number = 0
 ){}
 
 
@@ -316,7 +329,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.hasAdditionalPanel,
     sixStarMilestoneGroupId,
     bindMainlineZoneId,
-    bindMainlineRetroZoneId
+    bindMainlineRetroZoneId,
+    this.diamondRewardCount
   );
 }
 }

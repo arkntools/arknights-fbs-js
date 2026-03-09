@@ -13,6 +13,7 @@ export { clz_Torappu_CampaignGroupData, clz_Torappu_CampaignGroupDataT } from '.
 export { clz_Torappu_CampaignMissionData, clz_Torappu_CampaignMissionDataT } from './clz-torappu-campaign-mission-data.js';
 export { clz_Torappu_CampaignRegionData, clz_Torappu_CampaignRegionDataT } from './clz-torappu-campaign-region-data.js';
 export { clz_Torappu_CampaignRotateOpenTimeData, clz_Torappu_CampaignRotateOpenTimeDataT } from './clz-torappu-campaign-rotate-open-time-data.js';
+export { clz_Torappu_CampaignStageMapData, clz_Torappu_CampaignStageMapDataT } from './clz-torappu-campaign-stage-map-data.js';
 export { clz_Torappu_CampaignTable, clz_Torappu_CampaignTableT } from './clz-torappu-campaign-table.js';
 export { clz_Torappu_CampaignTrainingAllOpenTimeData, clz_Torappu_CampaignTrainingAllOpenTimeDataT } from './clz-torappu-campaign-training-all-open-time-data.js';
 export { clz_Torappu_CampaignTrainingOpenTimeData, clz_Torappu_CampaignTrainingOpenTimeDataT } from './clz-torappu-campaign-training-open-time-data.js';
@@ -21,13 +22,16 @@ export { clz_Torappu_ItemBundle, clz_Torappu_ItemBundleT } from './clz-torappu-i
 export { clz_Torappu_StageData_DisplayDetailRewards, clz_Torappu_StageData_DisplayDetailRewardsT } from './clz-torappu-stage-data-display-detail-rewards.js';
 export { clz_Torappu_StageData_DisplayRewards, clz_Torappu_StageData_DisplayRewardsT } from './clz-torappu-stage-data-display-rewards.js';
 export { clz_Torappu_WeightItemBundle, clz_Torappu_WeightItemBundleT } from './clz-torappu-weight-item-bundle.js';
+export { clz_UnityEngine_Vector2, clz_UnityEngine_Vector2T } from './clz-unity-engine-vector2.js';
 export { dict__enum__Torappu_CampaignStageType__clz_Torappu_CampaignData_DropGainInfo, dict__enum__Torappu_CampaignStageType__clz_Torappu_CampaignData_DropGainInfoT } from './dict--enum--torappu-campaign-stage-type--clz-torappu-campaign-data-drop-gain-info.js';
 export { dict__string__clz_Torappu_CampaignData, dict__string__clz_Torappu_CampaignDataT } from './dict--string--clz-torappu-campaign-data.js';
 export { dict__string__clz_Torappu_CampaignGroupData, dict__string__clz_Torappu_CampaignGroupDataT } from './dict--string--clz-torappu-campaign-group-data.js';
 export { dict__string__clz_Torappu_CampaignMissionData, dict__string__clz_Torappu_CampaignMissionDataT } from './dict--string--clz-torappu-campaign-mission-data.js';
 export { dict__string__clz_Torappu_CampaignRegionData, dict__string__clz_Torappu_CampaignRegionDataT } from './dict--string--clz-torappu-campaign-region-data.js';
+export { dict__string__clz_Torappu_CampaignStageMapData, dict__string__clz_Torappu_CampaignStageMapDataT } from './dict--string--clz-torappu-campaign-stage-map-data.js';
 export { dict__string__clz_Torappu_CampaignZoneData, dict__string__clz_Torappu_CampaignZoneDataT } from './dict--string--clz-torappu-campaign-zone-data.js';
 export { dict__string__int, dict__string__intT } from './dict--string--int.js';
+export { dict__string__list_dict__string__clz_Torappu_CampaignStageMapData, dict__string__list_dict__string__clz_Torappu_CampaignStageMapDataT } from './dict--string--list-dict--string--clz-torappu-campaign-stage-map-data.js';
 export { enum__Torappu_CampaignStageType } from './enum--torappu-campaign-stage-type.js';
 export { enum__Torappu_ItemType } from './enum--torappu-item-type.js';
 export { enum__Torappu_OccPer } from './enum--torappu-occ-per.js';

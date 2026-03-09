@@ -7,6 +7,7 @@ import * as flatbuffers from 'flatbuffers';
 import { clz_Torappu_Act4funData, clz_Torappu_Act4funDataT } from './clz-torappu-act4fun-data.js';
 import { clz_Torappu_Act5FunData, clz_Torappu_Act5FunDataT } from './clz-torappu-act5-fun-data.js';
 import { clz_Torappu_Act6FunData, clz_Torappu_Act6FunDataT } from './clz-torappu-act6-fun-data.js';
+import { clz_Torappu_Act7FunData, clz_Torappu_Act7FunDataT } from './clz-torappu-act7-fun-data.js';
 import { clz_Torappu_AprilFoolConst, clz_Torappu_AprilFoolConstT } from './clz-torappu-april-fool-const.js';
 import { dict__string__clz_Torappu_AprilFoolStageData, dict__string__clz_Torappu_AprilFoolStageDataT } from './dict--string--clz-torappu-april-fool-stage-data.js';
 import { dict__string__list_clz_Torappu_AprilFoolScoreData, dict__string__list_clz_Torappu_AprilFoolScoreDataT } from './dict--string--list-clz-torappu-april-fool-score-data.js';
@@ -70,8 +71,13 @@ act6FunData(obj?:clz_Torappu_Act6FunData):clz_Torappu_Act6FunData|null {
   return offset ? (obj || new clz_Torappu_Act6FunData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
+act7FunData(obj?:clz_Torappu_Act7FunData):clz_Torappu_Act7FunData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
+  return offset ? (obj || new clz_Torappu_Act7FunData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
 static startclz_Torappu_AprilFoolTable(builder:flatbuffers.Builder) {
-  builder.startObject(6);
+  builder.startObject(7);
 }
 
 static addStages(builder:flatbuffers.Builder, stagesOffset:flatbuffers.Offset) {
@@ -122,6 +128,10 @@ static addAct6FunData(builder:flatbuffers.Builder, act6FunDataOffset:flatbuffers
   builder.addFieldOffset(5, act6FunDataOffset, 0);
 }
 
+static addAct7FunData(builder:flatbuffers.Builder, act7FunDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(6, act7FunDataOffset, 0);
+}
+
 static endclz_Torappu_AprilFoolTable(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -135,7 +145,8 @@ unpack(): clz_Torappu_AprilFoolTableT {
     (this.constant() !== null ? this.constant()!.unpack() : null),
     (this.act4FunData() !== null ? this.act4FunData()!.unpack() : null),
     (this.act5FunData() !== null ? this.act5FunData()!.unpack() : null),
-    (this.act6FunData() !== null ? this.act6FunData()!.unpack() : null)
+    (this.act6FunData() !== null ? this.act6FunData()!.unpack() : null),
+    (this.act7FunData() !== null ? this.act7FunData()!.unpack() : null)
   );
 }
 
@@ -147,6 +158,7 @@ unpackTo(_o: clz_Torappu_AprilFoolTableT): void {
   _o.act4FunData = (this.act4FunData() !== null ? this.act4FunData()!.unpack() : null);
   _o.act5FunData = (this.act5FunData() !== null ? this.act5FunData()!.unpack() : null);
   _o.act6FunData = (this.act6FunData() !== null ? this.act6FunData()!.unpack() : null);
+  _o.act7FunData = (this.act7FunData() !== null ? this.act7FunData()!.unpack() : null);
 }
 }
 
@@ -157,7 +169,8 @@ constructor(
   public constant: clz_Torappu_AprilFoolConstT|null = null,
   public act4FunData: clz_Torappu_Act4funDataT|null = null,
   public act5FunData: clz_Torappu_Act5FunDataT|null = null,
-  public act6FunData: clz_Torappu_Act6FunDataT|null = null
+  public act6FunData: clz_Torappu_Act6FunDataT|null = null,
+  public act7FunData: clz_Torappu_Act7FunDataT|null = null
 ){}
 
 
@@ -168,6 +181,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const act4FunData = (this.act4FunData !== null ? this.act4FunData!.pack(builder) : 0);
   const act5FunData = (this.act5FunData !== null ? this.act5FunData!.pack(builder) : 0);
   const act6FunData = (this.act6FunData !== null ? this.act6FunData!.pack(builder) : 0);
+  const act7FunData = (this.act7FunData !== null ? this.act7FunData!.pack(builder) : 0);
 
   clz_Torappu_AprilFoolTable.startclz_Torappu_AprilFoolTable(builder);
   clz_Torappu_AprilFoolTable.addStages(builder, stages);
@@ -176,6 +190,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_AprilFoolTable.addAct4FunData(builder, act4FunData);
   clz_Torappu_AprilFoolTable.addAct5FunData(builder, act5FunData);
   clz_Torappu_AprilFoolTable.addAct6FunData(builder, act6FunData);
+  clz_Torappu_AprilFoolTable.addAct7FunData(builder, act7FunData);
 
   return clz_Torappu_AprilFoolTable.endclz_Torappu_AprilFoolTable(builder);
 }

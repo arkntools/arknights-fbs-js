@@ -77,8 +77,13 @@ bandRewardModulus():number {
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
+updateTime():bigint {
+  const offset = this.bb!.__offset(this.bb_pos, 20);
+  return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
+}
+
 static startclz_Torappu_ActAutoChessData_ActAutoChessBandData(builder:flatbuffers.Builder) {
-  builder.startObject(8);
+  builder.startObject(9);
 }
 
 static addBandId(builder:flatbuffers.Builder, bandIdOffset:flatbuffers.Offset) {
@@ -125,12 +130,16 @@ static addBandRewardModulus(builder:flatbuffers.Builder, bandRewardModulus:numbe
   builder.addFieldFloat32(7, bandRewardModulus, 0.0);
 }
 
+static addUpdateTime(builder:flatbuffers.Builder, updateTime:bigint) {
+  builder.addFieldInt64(8, updateTime, BigInt('0'));
+}
+
 static endclz_Torappu_ActAutoChessData_ActAutoChessBandData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_ActAutoChessData_ActAutoChessBandData(builder:flatbuffers.Builder, bandIdOffset:flatbuffers.Offset, sortId:number, modeTypeListOffset:flatbuffers.Offset, bandDescOffset:flatbuffers.Offset, totalHp:number, effectIdOffset:flatbuffers.Offset, victorCount:number, bandRewardModulus:number):flatbuffers.Offset {
+static createclz_Torappu_ActAutoChessData_ActAutoChessBandData(builder:flatbuffers.Builder, bandIdOffset:flatbuffers.Offset, sortId:number, modeTypeListOffset:flatbuffers.Offset, bandDescOffset:flatbuffers.Offset, totalHp:number, effectIdOffset:flatbuffers.Offset, victorCount:number, bandRewardModulus:number, updateTime:bigint):flatbuffers.Offset {
   clz_Torappu_ActAutoChessData_ActAutoChessBandData.startclz_Torappu_ActAutoChessData_ActAutoChessBandData(builder);
   clz_Torappu_ActAutoChessData_ActAutoChessBandData.addBandId(builder, bandIdOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessBandData.addSortId(builder, sortId);
@@ -140,6 +149,7 @@ static createclz_Torappu_ActAutoChessData_ActAutoChessBandData(builder:flatbuffe
   clz_Torappu_ActAutoChessData_ActAutoChessBandData.addEffectId(builder, effectIdOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessBandData.addVictorCount(builder, victorCount);
   clz_Torappu_ActAutoChessData_ActAutoChessBandData.addBandRewardModulus(builder, bandRewardModulus);
+  clz_Torappu_ActAutoChessData_ActAutoChessBandData.addUpdateTime(builder, updateTime);
   return clz_Torappu_ActAutoChessData_ActAutoChessBandData.endclz_Torappu_ActAutoChessData_ActAutoChessBandData(builder);
 }
 
@@ -152,7 +162,8 @@ unpack(): clz_Torappu_ActAutoChessData_ActAutoChessBandDataT {
     this.totalHp(),
     this.effectId(),
     this.victorCount(),
-    this.bandRewardModulus()
+    this.bandRewardModulus(),
+    this.updateTime()
   );
 }
 
@@ -166,6 +177,7 @@ unpackTo(_o: clz_Torappu_ActAutoChessData_ActAutoChessBandDataT): void {
   _o.effectId = this.effectId();
   _o.victorCount = this.victorCount();
   _o.bandRewardModulus = this.bandRewardModulus();
+  _o.updateTime = this.updateTime();
 }
 }
 
@@ -178,7 +190,8 @@ constructor(
   public totalHp: number = 0,
   public effectId: string|Uint8Array|null = null,
   public victorCount: number = 0,
-  public bandRewardModulus: number = 0.0
+  public bandRewardModulus: number = 0.0,
+  public updateTime: bigint = BigInt('0')
 ){}
 
 
@@ -196,7 +209,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.totalHp,
     effectId,
     this.victorCount,
-    this.bandRewardModulus
+    this.bandRewardModulus,
+    this.updateTime
   );
 }
 }

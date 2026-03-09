@@ -6,5 +6,7 @@ export enum enum__Torappu_Act24SideData_MissionType {
   NONE = 0,
   HUNTING_TASK = 1,
   COLLECTION_TASK = 2,
-  EXPLORATION_TASK = 3
+  EXPLORATION_TASK = 3,
+  MONSTER_TASK = 4,
+  INVATION_TASK = 5
 }

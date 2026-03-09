@@ -142,6 +142,7 @@ export { clz_Torappu_RoguelikePermNodeUpgradeItemData, clz_Torappu_RoguelikePerm
 export { clz_Torappu_RoguelikePredefinedConstStyleData, clz_Torappu_RoguelikePredefinedConstStyleDataT } from './clz-torappu-roguelike-predefined-const-style-data.js';
 export { clz_Torappu_RoguelikePredefinedExpStyleConfigData, clz_Torappu_RoguelikePredefinedExpStyleConfigDataT } from './clz-torappu-roguelike-predefined-exp-style-config-data.js';
 export { clz_Torappu_RoguelikePredefinedStyleData, clz_Torappu_RoguelikePredefinedStyleDataT } from './clz-torappu-roguelike-predefined-style-data.js';
+export { clz_Torappu_RoguelikeRelicTipsData, clz_Torappu_RoguelikeRelicTipsDataT } from './clz-torappu-roguelike-relic-tips-data.js';
 export { clz_Torappu_RoguelikeRollNodeData, clz_Torappu_RoguelikeRollNodeDataT } from './clz-torappu-roguelike-roll-node-data.js';
 export { clz_Torappu_RoguelikeRollNodeGroupData, clz_Torappu_RoguelikeRollNodeGroupDataT } from './clz-torappu-roguelike-roll-node-group-data.js';
 export { clz_Torappu_RoguelikeSanCheckConsts, clz_Torappu_RoguelikeSanCheckConstsT } from './clz-torappu-roguelike-san-check-consts.js';
@@ -271,6 +272,7 @@ export { dict__string__clz_Torappu_RoguelikeGameZoneData, dict__string__clz_Tora
 export { dict__string__clz_Torappu_RoguelikeModule, dict__string__clz_Torappu_RoguelikeModuleT } from './dict--string--clz-torappu-roguelike-module.js';
 export { dict__string__clz_Torappu_RoguelikeNodeUpgradeData, dict__string__clz_Torappu_RoguelikeNodeUpgradeDataT } from './dict--string--clz-torappu-roguelike-node-upgrade-data.js';
 export { dict__string__clz_Torappu_RoguelikePredefinedStyleData, dict__string__clz_Torappu_RoguelikePredefinedStyleDataT } from './dict--string--clz-torappu-roguelike-predefined-style-data.js';
+export { dict__string__clz_Torappu_RoguelikeRelicTipsData, dict__string__clz_Torappu_RoguelikeRelicTipsDataT } from './dict--string--clz-torappu-roguelike-relic-tips-data.js';
 export { dict__string__clz_Torappu_RoguelikeRollNodeData, dict__string__clz_Torappu_RoguelikeRollNodeDataT } from './dict--string--clz-torappu-roguelike-roll-node-data.js';
 export { dict__string__clz_Torappu_RoguelikeRollNodeGroupData, dict__string__clz_Torappu_RoguelikeRollNodeGroupDataT } from './dict--string--clz-torappu-roguelike-roll-node-group-data.js';
 export { dict__string__clz_Torappu_RoguelikeSkyNodeData, dict__string__clz_Torappu_RoguelikeSkyNodeDataT } from './dict--string--clz-torappu-roguelike-sky-node-data.js';

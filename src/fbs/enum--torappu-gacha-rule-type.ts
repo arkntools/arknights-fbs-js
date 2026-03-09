@@ -13,5 +13,6 @@ export enum enum__Torappu_GachaRuleType {
   CLASSIC_ATTAIN = 7,
   SPECIAL = 8,
   DOUBLE = 9,
-  CLASSIC_DOUBLE = 10
+  CLASSIC_DOUBLE = 10,
+  BACKFLOW = 11
 }

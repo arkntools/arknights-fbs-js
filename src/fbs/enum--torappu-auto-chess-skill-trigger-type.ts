@@ -14,5 +14,6 @@ export enum enum__Torappu_AutoChessSkillTriggerType {
   CUSTOM_RANGE_SEARCH_ALLY = 8,
   GDGLOW_SKILL_2 = 9,
   ACT_DEFAULT = 10,
-  AUTO_STOP = 11
+  AUTO_STOP = 11,
+  TAKE_DAMAGE = 12
 }

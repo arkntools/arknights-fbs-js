@@ -56,13 +56,18 @@ bloodPointHard():number {
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-isHidingBoss():boolean {
+bloodPointAbyss():number {
   const offset = this.bb!.__offset(this.bb_pos, 16);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+isHidingBoss():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 static startclz_Torappu_ActAutoChessData_ActAutochessBossEntry(builder:flatbuffers.Builder) {
-  builder.startObject(7);
+  builder.startObject(8);
 }
 
 static addBossId(builder:flatbuffers.Builder, bossIdOffset:flatbuffers.Offset) {
@@ -89,8 +94,12 @@ static addBloodPointHard(builder:flatbuffers.Builder, bloodPointHard:number) {
   builder.addFieldInt32(5, bloodPointHard, 0);
 }
 
+static addBloodPointAbyss(builder:flatbuffers.Builder, bloodPointAbyss:number) {
+  builder.addFieldInt32(6, bloodPointAbyss, 0);
+}
+
 static addIsHidingBoss(builder:flatbuffers.Builder, isHidingBoss:boolean) {
-  builder.addFieldInt8(6, +isHidingBoss, +false);
+  builder.addFieldInt8(7, +isHidingBoss, +false);
 }
 
 static endclz_Torappu_ActAutoChessData_ActAutochessBossEntry(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -98,7 +107,7 @@ static endclz_Torappu_ActAutoChessData_ActAutochessBossEntry(builder:flatbuffers
   return offset;
 }
 
-static createclz_Torappu_ActAutoChessData_ActAutochessBossEntry(builder:flatbuffers.Builder, bossIdOffset:flatbuffers.Offset, sortId:number, weight:number, bloodPoint:number, bloodPointNormal:number, bloodPointHard:number, isHidingBoss:boolean):flatbuffers.Offset {
+static createclz_Torappu_ActAutoChessData_ActAutochessBossEntry(builder:flatbuffers.Builder, bossIdOffset:flatbuffers.Offset, sortId:number, weight:number, bloodPoint:number, bloodPointNormal:number, bloodPointHard:number, bloodPointAbyss:number, isHidingBoss:boolean):flatbuffers.Offset {
   clz_Torappu_ActAutoChessData_ActAutochessBossEntry.startclz_Torappu_ActAutoChessData_ActAutochessBossEntry(builder);
   clz_Torappu_ActAutoChessData_ActAutochessBossEntry.addBossId(builder, bossIdOffset);
   clz_Torappu_ActAutoChessData_ActAutochessBossEntry.addSortId(builder, sortId);
@@ -106,6 +115,7 @@ static createclz_Torappu_ActAutoChessData_ActAutochessBossEntry(builder:flatbuff
   clz_Torappu_ActAutoChessData_ActAutochessBossEntry.addBloodPoint(builder, bloodPoint);
   clz_Torappu_ActAutoChessData_ActAutochessBossEntry.addBloodPointNormal(builder, bloodPointNormal);
   clz_Torappu_ActAutoChessData_ActAutochessBossEntry.addBloodPointHard(builder, bloodPointHard);
+  clz_Torappu_ActAutoChessData_ActAutochessBossEntry.addBloodPointAbyss(builder, bloodPointAbyss);
   clz_Torappu_ActAutoChessData_ActAutochessBossEntry.addIsHidingBoss(builder, isHidingBoss);
   return clz_Torappu_ActAutoChessData_ActAutochessBossEntry.endclz_Torappu_ActAutoChessData_ActAutochessBossEntry(builder);
 }
@@ -118,6 +128,7 @@ unpack(): clz_Torappu_ActAutoChessData_ActAutochessBossEntryT {
     this.bloodPoint(),
     this.bloodPointNormal(),
     this.bloodPointHard(),
+    this.bloodPointAbyss(),
     this.isHidingBoss()
   );
 }
@@ -130,6 +141,7 @@ unpackTo(_o: clz_Torappu_ActAutoChessData_ActAutochessBossEntryT): void {
   _o.bloodPoint = this.bloodPoint();
   _o.bloodPointNormal = this.bloodPointNormal();
   _o.bloodPointHard = this.bloodPointHard();
+  _o.bloodPointAbyss = this.bloodPointAbyss();
   _o.isHidingBoss = this.isHidingBoss();
 }
 }
@@ -142,6 +154,7 @@ constructor(
   public bloodPoint: number = 0,
   public bloodPointNormal: number = 0,
   public bloodPointHard: number = 0,
+  public bloodPointAbyss: number = 0,
   public isHidingBoss: boolean = false
 ){}
 
@@ -156,6 +169,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.bloodPoint,
     this.bloodPointNormal,
     this.bloodPointHard,
+    this.bloodPointAbyss,
     this.isHidingBoss
   );
 }

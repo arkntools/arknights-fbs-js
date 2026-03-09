@@ -51,8 +51,13 @@ isFullScreen():boolean {
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
+isBorderless():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
 static startclz_Torappu_ResolutionSettingItemData(builder:flatbuffers.Builder) {
-  builder.startObject(5);
+  builder.startObject(6);
 }
 
 static addSortId(builder:flatbuffers.Builder, sortId:number) {
@@ -75,18 +80,23 @@ static addIsFullScreen(builder:flatbuffers.Builder, isFullScreen:boolean) {
   builder.addFieldInt8(4, +isFullScreen, +false);
 }
 
+static addIsBorderless(builder:flatbuffers.Builder, isBorderless:boolean) {
+  builder.addFieldInt8(5, +isBorderless, +false);
+}
+
 static endclz_Torappu_ResolutionSettingItemData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_ResolutionSettingItemData(builder:flatbuffers.Builder, sortId:number, resolutionWidth:number, resolutionHeight:number, resolutionTextOffset:flatbuffers.Offset, isFullScreen:boolean):flatbuffers.Offset {
+static createclz_Torappu_ResolutionSettingItemData(builder:flatbuffers.Builder, sortId:number, resolutionWidth:number, resolutionHeight:number, resolutionTextOffset:flatbuffers.Offset, isFullScreen:boolean, isBorderless:boolean):flatbuffers.Offset {
   clz_Torappu_ResolutionSettingItemData.startclz_Torappu_ResolutionSettingItemData(builder);
   clz_Torappu_ResolutionSettingItemData.addSortId(builder, sortId);
   clz_Torappu_ResolutionSettingItemData.addResolutionWidth(builder, resolutionWidth);
   clz_Torappu_ResolutionSettingItemData.addResolutionHeight(builder, resolutionHeight);
   clz_Torappu_ResolutionSettingItemData.addResolutionText(builder, resolutionTextOffset);
   clz_Torappu_ResolutionSettingItemData.addIsFullScreen(builder, isFullScreen);
+  clz_Torappu_ResolutionSettingItemData.addIsBorderless(builder, isBorderless);
   return clz_Torappu_ResolutionSettingItemData.endclz_Torappu_ResolutionSettingItemData(builder);
 }
 
@@ -96,7 +106,8 @@ unpack(): clz_Torappu_ResolutionSettingItemDataT {
     this.resolutionWidth(),
     this.resolutionHeight(),
     this.resolutionText(),
-    this.isFullScreen()
+    this.isFullScreen(),
+    this.isBorderless()
   );
 }
 
@@ -107,6 +118,7 @@ unpackTo(_o: clz_Torappu_ResolutionSettingItemDataT): void {
   _o.resolutionHeight = this.resolutionHeight();
   _o.resolutionText = this.resolutionText();
   _o.isFullScreen = this.isFullScreen();
+  _o.isBorderless = this.isBorderless();
 }
 }
 
@@ -116,7 +128,8 @@ constructor(
   public resolutionWidth: number = 0,
   public resolutionHeight: number = 0,
   public resolutionText: string|Uint8Array|null = null,
-  public isFullScreen: boolean = false
+  public isFullScreen: boolean = false,
+  public isBorderless: boolean = false
 ){}
 
 
@@ -128,7 +141,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.resolutionWidth,
     this.resolutionHeight,
     resolutionText,
-    this.isFullScreen
+    this.isFullScreen,
+    this.isBorderless
   );
 }
 }

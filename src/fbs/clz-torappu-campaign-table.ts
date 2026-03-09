@@ -14,6 +14,7 @@ import { dict__string__clz_Torappu_CampaignMissionData, dict__string__clz_Torapp
 import { dict__string__clz_Torappu_CampaignRegionData, dict__string__clz_Torappu_CampaignRegionDataT } from './dict--string--clz-torappu-campaign-region-data.js';
 import { dict__string__clz_Torappu_CampaignZoneData, dict__string__clz_Torappu_CampaignZoneDataT } from './dict--string--clz-torappu-campaign-zone-data.js';
 import { dict__string__int, dict__string__intT } from './dict--string--int.js';
+import { dict__string__list_dict__string__clz_Torappu_CampaignStageMapData, dict__string__list_dict__string__clz_Torappu_CampaignStageMapDataT } from './dict--string--list-dict--string--clz-torappu-campaign-stage-map-data.js';
 
 
 export class clz_Torappu_CampaignTable implements flatbuffers.IUnpackableObject<clz_Torappu_CampaignTableT> {
@@ -129,8 +130,18 @@ campaignTrainingAllOpenTimesLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+campaignZoneMapData(index: number, obj?:dict__string__list_dict__string__clz_Torappu_CampaignStageMapData):dict__string__list_dict__string__clz_Torappu_CampaignStageMapData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 24);
+  return offset ? (obj || new dict__string__list_dict__string__clz_Torappu_CampaignStageMapData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+campaignZoneMapDataLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 24);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_CampaignTable(builder:flatbuffers.Builder) {
-  builder.startObject(10);
+  builder.startObject(11);
 }
 
 static addCampaigns(builder:flatbuffers.Builder, campaignsOffset:flatbuffers.Offset) {
@@ -281,6 +292,22 @@ static startCampaignTrainingAllOpenTimesVector(builder:flatbuffers.Builder, numE
   builder.startVector(4, numElems, 4);
 }
 
+static addCampaignZoneMapData(builder:flatbuffers.Builder, campaignZoneMapDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(10, campaignZoneMapDataOffset, 0);
+}
+
+static createCampaignZoneMapDataVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startCampaignZoneMapDataVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static endclz_Torappu_CampaignTable(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -306,7 +333,8 @@ unpack(): clz_Torappu_CampaignTableT {
     (this.campaignConstTable() !== null ? this.campaignConstTable()!.unpack() : null),
     this.bb!.createObjList<clz_Torappu_CampaignRotateOpenTimeData, clz_Torappu_CampaignRotateOpenTimeDataT>(this.campaignRotateStageOpenTimes.bind(this), this.campaignRotateStageOpenTimesLength()),
     this.bb!.createObjList<clz_Torappu_CampaignTrainingOpenTimeData, clz_Torappu_CampaignTrainingOpenTimeDataT>(this.campaignTrainingStageOpenTimes.bind(this), this.campaignTrainingStageOpenTimesLength()),
-    this.bb!.createObjList<clz_Torappu_CampaignTrainingAllOpenTimeData, clz_Torappu_CampaignTrainingAllOpenTimeDataT>(this.campaignTrainingAllOpenTimes.bind(this), this.campaignTrainingAllOpenTimesLength())
+    this.bb!.createObjList<clz_Torappu_CampaignTrainingAllOpenTimeData, clz_Torappu_CampaignTrainingAllOpenTimeDataT>(this.campaignTrainingAllOpenTimes.bind(this), this.campaignTrainingAllOpenTimesLength()),
+    this.bb!.createObjList<dict__string__list_dict__string__clz_Torappu_CampaignStageMapData, dict__string__list_dict__string__clz_Torappu_CampaignStageMapDataT>(this.campaignZoneMapData.bind(this), this.campaignZoneMapDataLength())
   );
 }
 
@@ -322,6 +350,7 @@ unpackTo(_o: clz_Torappu_CampaignTableT): void {
   _o.campaignRotateStageOpenTimes = this.bb!.createObjList<clz_Torappu_CampaignRotateOpenTimeData, clz_Torappu_CampaignRotateOpenTimeDataT>(this.campaignRotateStageOpenTimes.bind(this), this.campaignRotateStageOpenTimesLength());
   _o.campaignTrainingStageOpenTimes = this.bb!.createObjList<clz_Torappu_CampaignTrainingOpenTimeData, clz_Torappu_CampaignTrainingOpenTimeDataT>(this.campaignTrainingStageOpenTimes.bind(this), this.campaignTrainingStageOpenTimesLength());
   _o.campaignTrainingAllOpenTimes = this.bb!.createObjList<clz_Torappu_CampaignTrainingAllOpenTimeData, clz_Torappu_CampaignTrainingAllOpenTimeDataT>(this.campaignTrainingAllOpenTimes.bind(this), this.campaignTrainingAllOpenTimesLength());
+  _o.campaignZoneMapData = this.bb!.createObjList<dict__string__list_dict__string__clz_Torappu_CampaignStageMapData, dict__string__list_dict__string__clz_Torappu_CampaignStageMapDataT>(this.campaignZoneMapData.bind(this), this.campaignZoneMapDataLength());
 }
 }
 
@@ -336,7 +365,8 @@ constructor(
   public campaignConstTable: clz_Torappu_CampaignConstTableT|null = null,
   public campaignRotateStageOpenTimes: (clz_Torappu_CampaignRotateOpenTimeDataT)[] = [],
   public campaignTrainingStageOpenTimes: (clz_Torappu_CampaignTrainingOpenTimeDataT)[] = [],
-  public campaignTrainingAllOpenTimes: (clz_Torappu_CampaignTrainingAllOpenTimeDataT)[] = []
+  public campaignTrainingAllOpenTimes: (clz_Torappu_CampaignTrainingAllOpenTimeDataT)[] = [],
+  public campaignZoneMapData: (dict__string__list_dict__string__clz_Torappu_CampaignStageMapDataT)[] = []
 ){}
 
 
@@ -351,6 +381,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const campaignRotateStageOpenTimes = clz_Torappu_CampaignTable.createCampaignRotateStageOpenTimesVector(builder, builder.createObjectOffsetList(this.campaignRotateStageOpenTimes));
   const campaignTrainingStageOpenTimes = clz_Torappu_CampaignTable.createCampaignTrainingStageOpenTimesVector(builder, builder.createObjectOffsetList(this.campaignTrainingStageOpenTimes));
   const campaignTrainingAllOpenTimes = clz_Torappu_CampaignTable.createCampaignTrainingAllOpenTimesVector(builder, builder.createObjectOffsetList(this.campaignTrainingAllOpenTimes));
+  const campaignZoneMapData = clz_Torappu_CampaignTable.createCampaignZoneMapDataVector(builder, builder.createObjectOffsetList(this.campaignZoneMapData));
 
   clz_Torappu_CampaignTable.startclz_Torappu_CampaignTable(builder);
   clz_Torappu_CampaignTable.addCampaigns(builder, campaigns);
@@ -363,6 +394,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_CampaignTable.addCampaignRotateStageOpenTimes(builder, campaignRotateStageOpenTimes);
   clz_Torappu_CampaignTable.addCampaignTrainingStageOpenTimes(builder, campaignTrainingStageOpenTimes);
   clz_Torappu_CampaignTable.addCampaignTrainingAllOpenTimes(builder, campaignTrainingAllOpenTimes);
+  clz_Torappu_CampaignTable.addCampaignZoneMapData(builder, campaignZoneMapData);
 
   return clz_Torappu_CampaignTable.endclz_Torappu_CampaignTable(builder);
 }

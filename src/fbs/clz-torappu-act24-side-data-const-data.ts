@@ -60,18 +60,63 @@ stageCanNotUseToToolLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-gachaDefaultProb():number {
+hunterGuideRewardItemId():string|null
+hunterGuideRewardItemId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+hunterGuideRewardItemId(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+hunterGuideRewardItemType():string|null
+hunterGuideRewardItemType(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+hunterGuideRewardItemType(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+hunterGuideRewardItemCount():number {
+  const offset = this.bb!.__offset(this.bb_pos, 18);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+hunterGuideDetailTabPosition():number {
+  const offset = this.bb!.__offset(this.bb_pos, 20);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+taskRewardItemNoIconDisplayId():string|null
+taskRewardItemNoIconDisplayId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+taskRewardItemNoIconDisplayId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 22);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+specialLevelUnlockTaskId():string|null
+specialLevelUnlockTaskId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+specialLevelUnlockTaskId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 24);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+missionProgressFormat():string|null
+missionProgressFormat(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+missionProgressFormat(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 26);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+gachaDefaultProb():number {
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 gachaExtraProb():number {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 static startclz_Torappu_Act24SideData_ConstData(builder:flatbuffers.Builder) {
-  builder.startObject(7);
+  builder.startObject(14);
 }
 
 static addStageUnlockToolDesc(builder:flatbuffers.Builder, stageUnlockToolDescOffset:flatbuffers.Offset) {
@@ -106,12 +151,40 @@ static startStageCanNotUseToToolVector(builder:flatbuffers.Builder, numElems:num
   builder.startVector(4, numElems, 4);
 }
 
+static addHunterGuideRewardItemId(builder:flatbuffers.Builder, hunterGuideRewardItemIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(5, hunterGuideRewardItemIdOffset, 0);
+}
+
+static addHunterGuideRewardItemType(builder:flatbuffers.Builder, hunterGuideRewardItemTypeOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(6, hunterGuideRewardItemTypeOffset, 0);
+}
+
+static addHunterGuideRewardItemCount(builder:flatbuffers.Builder, hunterGuideRewardItemCount:number) {
+  builder.addFieldInt32(7, hunterGuideRewardItemCount, 0);
+}
+
+static addHunterGuideDetailTabPosition(builder:flatbuffers.Builder, hunterGuideDetailTabPosition:number) {
+  builder.addFieldInt32(8, hunterGuideDetailTabPosition, 0);
+}
+
+static addTaskRewardItemNoIconDisplayId(builder:flatbuffers.Builder, taskRewardItemNoIconDisplayIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(9, taskRewardItemNoIconDisplayIdOffset, 0);
+}
+
+static addSpecialLevelUnlockTaskId(builder:flatbuffers.Builder, specialLevelUnlockTaskIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(10, specialLevelUnlockTaskIdOffset, 0);
+}
+
+static addMissionProgressFormat(builder:flatbuffers.Builder, missionProgressFormatOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(11, missionProgressFormatOffset, 0);
+}
+
 static addGachaDefaultProb(builder:flatbuffers.Builder, gachaDefaultProb:number) {
-  builder.addFieldFloat32(5, gachaDefaultProb, 0.0);
+  builder.addFieldFloat32(12, gachaDefaultProb, 0.0);
 }
 
 static addGachaExtraProb(builder:flatbuffers.Builder, gachaExtraProb:number) {
-  builder.addFieldFloat32(6, gachaExtraProb, 0.0);
+  builder.addFieldFloat32(13, gachaExtraProb, 0.0);
 }
 
 static endclz_Torappu_Act24SideData_ConstData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -119,13 +192,20 @@ static endclz_Torappu_Act24SideData_ConstData(builder:flatbuffers.Builder):flatb
   return offset;
 }
 
-static createclz_Torappu_Act24SideData_ConstData(builder:flatbuffers.Builder, stageUnlockToolDescOffset:flatbuffers.Offset, mealLackMoneyOffset:flatbuffers.Offset, mealDayTimesLimit:number, toolMaximum:number, stageCanNotUseToToolOffset:flatbuffers.Offset, gachaDefaultProb:number, gachaExtraProb:number):flatbuffers.Offset {
+static createclz_Torappu_Act24SideData_ConstData(builder:flatbuffers.Builder, stageUnlockToolDescOffset:flatbuffers.Offset, mealLackMoneyOffset:flatbuffers.Offset, mealDayTimesLimit:number, toolMaximum:number, stageCanNotUseToToolOffset:flatbuffers.Offset, hunterGuideRewardItemIdOffset:flatbuffers.Offset, hunterGuideRewardItemTypeOffset:flatbuffers.Offset, hunterGuideRewardItemCount:number, hunterGuideDetailTabPosition:number, taskRewardItemNoIconDisplayIdOffset:flatbuffers.Offset, specialLevelUnlockTaskIdOffset:flatbuffers.Offset, missionProgressFormatOffset:flatbuffers.Offset, gachaDefaultProb:number, gachaExtraProb:number):flatbuffers.Offset {
   clz_Torappu_Act24SideData_ConstData.startclz_Torappu_Act24SideData_ConstData(builder);
   clz_Torappu_Act24SideData_ConstData.addStageUnlockToolDesc(builder, stageUnlockToolDescOffset);
   clz_Torappu_Act24SideData_ConstData.addMealLackMoney(builder, mealLackMoneyOffset);
   clz_Torappu_Act24SideData_ConstData.addMealDayTimesLimit(builder, mealDayTimesLimit);
   clz_Torappu_Act24SideData_ConstData.addToolMaximum(builder, toolMaximum);
   clz_Torappu_Act24SideData_ConstData.addStageCanNotUseToTool(builder, stageCanNotUseToToolOffset);
+  clz_Torappu_Act24SideData_ConstData.addHunterGuideRewardItemId(builder, hunterGuideRewardItemIdOffset);
+  clz_Torappu_Act24SideData_ConstData.addHunterGuideRewardItemType(builder, hunterGuideRewardItemTypeOffset);
+  clz_Torappu_Act24SideData_ConstData.addHunterGuideRewardItemCount(builder, hunterGuideRewardItemCount);
+  clz_Torappu_Act24SideData_ConstData.addHunterGuideDetailTabPosition(builder, hunterGuideDetailTabPosition);
+  clz_Torappu_Act24SideData_ConstData.addTaskRewardItemNoIconDisplayId(builder, taskRewardItemNoIconDisplayIdOffset);
+  clz_Torappu_Act24SideData_ConstData.addSpecialLevelUnlockTaskId(builder, specialLevelUnlockTaskIdOffset);
+  clz_Torappu_Act24SideData_ConstData.addMissionProgressFormat(builder, missionProgressFormatOffset);
   clz_Torappu_Act24SideData_ConstData.addGachaDefaultProb(builder, gachaDefaultProb);
   clz_Torappu_Act24SideData_ConstData.addGachaExtraProb(builder, gachaExtraProb);
   return clz_Torappu_Act24SideData_ConstData.endclz_Torappu_Act24SideData_ConstData(builder);
@@ -138,6 +218,13 @@ unpack(): clz_Torappu_Act24SideData_ConstDataT {
     this.mealDayTimesLimit(),
     this.toolMaximum(),
     this.bb!.createScalarList<string>(this.stageCanNotUseToTool.bind(this), this.stageCanNotUseToToolLength()),
+    this.hunterGuideRewardItemId(),
+    this.hunterGuideRewardItemType(),
+    this.hunterGuideRewardItemCount(),
+    this.hunterGuideDetailTabPosition(),
+    this.taskRewardItemNoIconDisplayId(),
+    this.specialLevelUnlockTaskId(),
+    this.missionProgressFormat(),
     this.gachaDefaultProb(),
     this.gachaExtraProb()
   );
@@ -150,6 +237,13 @@ unpackTo(_o: clz_Torappu_Act24SideData_ConstDataT): void {
   _o.mealDayTimesLimit = this.mealDayTimesLimit();
   _o.toolMaximum = this.toolMaximum();
   _o.stageCanNotUseToTool = this.bb!.createScalarList<string>(this.stageCanNotUseToTool.bind(this), this.stageCanNotUseToToolLength());
+  _o.hunterGuideRewardItemId = this.hunterGuideRewardItemId();
+  _o.hunterGuideRewardItemType = this.hunterGuideRewardItemType();
+  _o.hunterGuideRewardItemCount = this.hunterGuideRewardItemCount();
+  _o.hunterGuideDetailTabPosition = this.hunterGuideDetailTabPosition();
+  _o.taskRewardItemNoIconDisplayId = this.taskRewardItemNoIconDisplayId();
+  _o.specialLevelUnlockTaskId = this.specialLevelUnlockTaskId();
+  _o.missionProgressFormat = this.missionProgressFormat();
   _o.gachaDefaultProb = this.gachaDefaultProb();
   _o.gachaExtraProb = this.gachaExtraProb();
 }
@@ -162,6 +256,13 @@ constructor(
   public mealDayTimesLimit: number = 0,
   public toolMaximum: number = 0,
   public stageCanNotUseToTool: (string)[] = [],
+  public hunterGuideRewardItemId: string|Uint8Array|null = null,
+  public hunterGuideRewardItemType: string|Uint8Array|null = null,
+  public hunterGuideRewardItemCount: number = 0,
+  public hunterGuideDetailTabPosition: number = 0,
+  public taskRewardItemNoIconDisplayId: string|Uint8Array|null = null,
+  public specialLevelUnlockTaskId: string|Uint8Array|null = null,
+  public missionProgressFormat: string|Uint8Array|null = null,
   public gachaDefaultProb: number = 0.0,
   public gachaExtraProb: number = 0.0
 ){}
@@ -171,6 +272,11 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const stageUnlockToolDesc = (this.stageUnlockToolDesc !== null ? builder.createString(this.stageUnlockToolDesc!) : 0);
   const mealLackMoney = (this.mealLackMoney !== null ? builder.createString(this.mealLackMoney!) : 0);
   const stageCanNotUseToTool = clz_Torappu_Act24SideData_ConstData.createStageCanNotUseToToolVector(builder, builder.createObjectOffsetList(this.stageCanNotUseToTool));
+  const hunterGuideRewardItemId = (this.hunterGuideRewardItemId !== null ? builder.createString(this.hunterGuideRewardItemId!) : 0);
+  const hunterGuideRewardItemType = (this.hunterGuideRewardItemType !== null ? builder.createString(this.hunterGuideRewardItemType!) : 0);
+  const taskRewardItemNoIconDisplayId = (this.taskRewardItemNoIconDisplayId !== null ? builder.createString(this.taskRewardItemNoIconDisplayId!) : 0);
+  const specialLevelUnlockTaskId = (this.specialLevelUnlockTaskId !== null ? builder.createString(this.specialLevelUnlockTaskId!) : 0);
+  const missionProgressFormat = (this.missionProgressFormat !== null ? builder.createString(this.missionProgressFormat!) : 0);
 
   return clz_Torappu_Act24SideData_ConstData.createclz_Torappu_Act24SideData_ConstData(builder,
     stageUnlockToolDesc,
@@ -178,6 +284,13 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.mealDayTimesLimit,
     this.toolMaximum,
     stageCanNotUseToTool,
+    hunterGuideRewardItemId,
+    hunterGuideRewardItemType,
+    this.hunterGuideRewardItemCount,
+    this.hunterGuideDetailTabPosition,
+    taskRewardItemNoIconDisplayId,
+    specialLevelUnlockTaskId,
+    missionProgressFormat,
     this.gachaDefaultProb,
     this.gachaExtraProb
   );

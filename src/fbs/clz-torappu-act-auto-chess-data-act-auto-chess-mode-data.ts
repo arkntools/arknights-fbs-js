@@ -164,8 +164,13 @@ inactiveEnemyKeyLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+startTime():bigint {
+  const offset = this.bb!.__offset(this.bb_pos, 40);
+  return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
+}
+
 static startclz_Torappu_ActAutoChessData_ActAutoChessModeData(builder:flatbuffers.Builder) {
-  builder.startObject(18);
+  builder.startObject(19);
 }
 
 static addModeId(builder:flatbuffers.Builder, modeIdOffset:flatbuffers.Offset) {
@@ -288,12 +293,16 @@ static startInactiveEnemyKeyVector(builder:flatbuffers.Builder, numElems:number)
   builder.startVector(4, numElems, 4);
 }
 
+static addStartTime(builder:flatbuffers.Builder, startTime:bigint) {
+  builder.addFieldInt64(18, startTime, BigInt('0'));
+}
+
 static endclz_Torappu_ActAutoChessData_ActAutoChessModeData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_ActAutoChessData_ActAutoChessModeData(builder:flatbuffers.Builder, modeIdOffset:flatbuffers.Offset, nameOffset:flatbuffers.Offset, codeOffset:flatbuffers.Offset, sortId:number, backgroundIdOffset:flatbuffers.Offset, descOffset:flatbuffers.Offset, effectDescListOffset:flatbuffers.Offset, preposedModeOffset:flatbuffers.Offset, unlockTextOffset:flatbuffers.Offset, loadingPicIdOffset:flatbuffers.Offset, modeType:enum__Torappu_ActAutoChessModeType, modeDifficulty:enum__Torappu_ActAutoChessModeDifficultyType, modeIconIdOffset:flatbuffers.Offset, modeColorOffset:flatbuffers.Offset, specialPhaseTime:number, activeBondIdListOffset:flatbuffers.Offset, inactiveBondIdListOffset:flatbuffers.Offset, inactiveEnemyKeyOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_ActAutoChessData_ActAutoChessModeData(builder:flatbuffers.Builder, modeIdOffset:flatbuffers.Offset, nameOffset:flatbuffers.Offset, codeOffset:flatbuffers.Offset, sortId:number, backgroundIdOffset:flatbuffers.Offset, descOffset:flatbuffers.Offset, effectDescListOffset:flatbuffers.Offset, preposedModeOffset:flatbuffers.Offset, unlockTextOffset:flatbuffers.Offset, loadingPicIdOffset:flatbuffers.Offset, modeType:enum__Torappu_ActAutoChessModeType, modeDifficulty:enum__Torappu_ActAutoChessModeDifficultyType, modeIconIdOffset:flatbuffers.Offset, modeColorOffset:flatbuffers.Offset, specialPhaseTime:number, activeBondIdListOffset:flatbuffers.Offset, inactiveBondIdListOffset:flatbuffers.Offset, inactiveEnemyKeyOffset:flatbuffers.Offset, startTime:bigint):flatbuffers.Offset {
   clz_Torappu_ActAutoChessData_ActAutoChessModeData.startclz_Torappu_ActAutoChessData_ActAutoChessModeData(builder);
   clz_Torappu_ActAutoChessData_ActAutoChessModeData.addModeId(builder, modeIdOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessModeData.addName(builder, nameOffset);
@@ -313,6 +322,7 @@ static createclz_Torappu_ActAutoChessData_ActAutoChessModeData(builder:flatbuffe
   clz_Torappu_ActAutoChessData_ActAutoChessModeData.addActiveBondIdList(builder, activeBondIdListOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessModeData.addInactiveBondIdList(builder, inactiveBondIdListOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessModeData.addInactiveEnemyKey(builder, inactiveEnemyKeyOffset);
+  clz_Torappu_ActAutoChessData_ActAutoChessModeData.addStartTime(builder, startTime);
   return clz_Torappu_ActAutoChessData_ActAutoChessModeData.endclz_Torappu_ActAutoChessData_ActAutoChessModeData(builder);
 }
 
@@ -335,7 +345,8 @@ unpack(): clz_Torappu_ActAutoChessData_ActAutoChessModeDataT {
     this.specialPhaseTime(),
     this.bb!.createScalarList<string>(this.activeBondIdList.bind(this), this.activeBondIdListLength()),
     this.bb!.createScalarList<string>(this.inactiveBondIdList.bind(this), this.inactiveBondIdListLength()),
-    this.bb!.createScalarList<string>(this.inactiveEnemyKey.bind(this), this.inactiveEnemyKeyLength())
+    this.bb!.createScalarList<string>(this.inactiveEnemyKey.bind(this), this.inactiveEnemyKeyLength()),
+    this.startTime()
   );
 }
 
@@ -359,6 +370,7 @@ unpackTo(_o: clz_Torappu_ActAutoChessData_ActAutoChessModeDataT): void {
   _o.activeBondIdList = this.bb!.createScalarList<string>(this.activeBondIdList.bind(this), this.activeBondIdListLength());
   _o.inactiveBondIdList = this.bb!.createScalarList<string>(this.inactiveBondIdList.bind(this), this.inactiveBondIdListLength());
   _o.inactiveEnemyKey = this.bb!.createScalarList<string>(this.inactiveEnemyKey.bind(this), this.inactiveEnemyKeyLength());
+  _o.startTime = this.startTime();
 }
 }
 
@@ -381,7 +393,8 @@ constructor(
   public specialPhaseTime: number = 0,
   public activeBondIdList: (string)[] = [],
   public inactiveBondIdList: (string)[] = [],
-  public inactiveEnemyKey: (string)[] = []
+  public inactiveEnemyKey: (string)[] = [],
+  public startTime: bigint = BigInt('0')
 ){}
 
 
@@ -419,7 +432,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.specialPhaseTime,
     activeBondIdList,
     inactiveBondIdList,
-    inactiveEnemyKey
+    inactiveEnemyKey,
+    this.startTime
   );
 }
 }

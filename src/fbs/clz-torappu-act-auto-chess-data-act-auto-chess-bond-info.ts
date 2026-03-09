@@ -4,6 +4,7 @@
 
 import * as flatbuffers from 'flatbuffers';
 
+import { enum__Torappu_ActAutoChessBondActiveConditionType } from './enum--torappu-act-auto-chess-bond-active-condition-type.js';
 import { enum__Torappu_ActAutoChessBondActiveType } from './enum--torappu-act-auto-chess-bond-active-type.js';
 
 
@@ -58,76 +59,105 @@ activeCount():number {
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
+activeCondition():enum__Torappu_ActAutoChessBondActiveConditionType {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_ActAutoChessBondActiveConditionType.BOARD;
+}
+
+activeConditionTemplate():string|null
+activeConditionTemplate(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+activeConditionTemplate(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+activeParamList(index: number):string
+activeParamList(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
+activeParamList(index: number,optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 18);
+  return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
+}
+
+activeParamListLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 18);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
 effectId():string|null
 effectId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 effectId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 activeType():enum__Torappu_ActAutoChessBondActiveType {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_ActAutoChessBondActiveType.BATTLE;
 }
 
 identifier():number {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 weight():number {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 isActiveInDeck():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+maxInactiveBondCount():number {
+  const offset = this.bb!.__offset(this.bb_pos, 30);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 descParamBaseList(index: number):string
 descParamBaseList(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 descParamBaseList(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
+  const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 descParamBaseListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
+  const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 descParamPerStackList(index: number):string
 descParamPerStackList(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 descParamPerStackList(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 descParamPerStackListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 noStack():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 28);
+  const offset = this.bb!.__offset(this.bb_pos, 36);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 chessIdList(index: number):string
 chessIdList(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 chessIdList(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 38);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 chessIdListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 38);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_ActAutoChessData_ActAutoChessBondInfo(builder:flatbuffers.Builder) {
-  builder.startObject(14);
+  builder.startObject(18);
 }
 
 static addBondId(builder:flatbuffers.Builder, bondIdOffset:flatbuffers.Offset) {
@@ -150,28 +180,56 @@ static addActiveCount(builder:flatbuffers.Builder, activeCount:number) {
   builder.addFieldInt32(4, activeCount, 0);
 }
 
+static addActiveCondition(builder:flatbuffers.Builder, activeCondition:enum__Torappu_ActAutoChessBondActiveConditionType) {
+  builder.addFieldInt32(5, activeCondition, enum__Torappu_ActAutoChessBondActiveConditionType.BOARD);
+}
+
+static addActiveConditionTemplate(builder:flatbuffers.Builder, activeConditionTemplateOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(6, activeConditionTemplateOffset, 0);
+}
+
+static addActiveParamList(builder:flatbuffers.Builder, activeParamListOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(7, activeParamListOffset, 0);
+}
+
+static createActiveParamListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startActiveParamListVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static addEffectId(builder:flatbuffers.Builder, effectIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, effectIdOffset, 0);
+  builder.addFieldOffset(8, effectIdOffset, 0);
 }
 
 static addActiveType(builder:flatbuffers.Builder, activeType:enum__Torappu_ActAutoChessBondActiveType) {
-  builder.addFieldInt32(6, activeType, enum__Torappu_ActAutoChessBondActiveType.BATTLE);
+  builder.addFieldInt32(9, activeType, enum__Torappu_ActAutoChessBondActiveType.BATTLE);
 }
 
 static addIdentifier(builder:flatbuffers.Builder, identifier:number) {
-  builder.addFieldInt32(7, identifier, 0);
+  builder.addFieldInt32(10, identifier, 0);
 }
 
 static addWeight(builder:flatbuffers.Builder, weight:number) {
-  builder.addFieldInt32(8, weight, 0);
+  builder.addFieldInt32(11, weight, 0);
 }
 
 static addIsActiveInDeck(builder:flatbuffers.Builder, isActiveInDeck:boolean) {
-  builder.addFieldInt8(9, +isActiveInDeck, +false);
+  builder.addFieldInt8(12, +isActiveInDeck, +false);
+}
+
+static addMaxInactiveBondCount(builder:flatbuffers.Builder, maxInactiveBondCount:number) {
+  builder.addFieldInt32(13, maxInactiveBondCount, 0);
 }
 
 static addDescParamBaseList(builder:flatbuffers.Builder, descParamBaseListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(10, descParamBaseListOffset, 0);
+  builder.addFieldOffset(14, descParamBaseListOffset, 0);
 }
 
 static createDescParamBaseListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -187,7 +245,7 @@ static startDescParamBaseListVector(builder:flatbuffers.Builder, numElems:number
 }
 
 static addDescParamPerStackList(builder:flatbuffers.Builder, descParamPerStackListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(11, descParamPerStackListOffset, 0);
+  builder.addFieldOffset(15, descParamPerStackListOffset, 0);
 }
 
 static createDescParamPerStackListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -203,11 +261,11 @@ static startDescParamPerStackListVector(builder:flatbuffers.Builder, numElems:nu
 }
 
 static addNoStack(builder:flatbuffers.Builder, noStack:boolean) {
-  builder.addFieldInt8(12, +noStack, +false);
+  builder.addFieldInt8(16, +noStack, +false);
 }
 
 static addChessIdList(builder:flatbuffers.Builder, chessIdListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(13, chessIdListOffset, 0);
+  builder.addFieldOffset(17, chessIdListOffset, 0);
 }
 
 static createChessIdListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -227,18 +285,22 @@ static endclz_Torappu_ActAutoChessData_ActAutoChessBondInfo(builder:flatbuffers.
   return offset;
 }
 
-static createclz_Torappu_ActAutoChessData_ActAutoChessBondInfo(builder:flatbuffers.Builder, bondIdOffset:flatbuffers.Offset, nameOffset:flatbuffers.Offset, descOffset:flatbuffers.Offset, iconIdOffset:flatbuffers.Offset, activeCount:number, effectIdOffset:flatbuffers.Offset, activeType:enum__Torappu_ActAutoChessBondActiveType, identifier:number, weight:number, isActiveInDeck:boolean, descParamBaseListOffset:flatbuffers.Offset, descParamPerStackListOffset:flatbuffers.Offset, noStack:boolean, chessIdListOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_ActAutoChessData_ActAutoChessBondInfo(builder:flatbuffers.Builder, bondIdOffset:flatbuffers.Offset, nameOffset:flatbuffers.Offset, descOffset:flatbuffers.Offset, iconIdOffset:flatbuffers.Offset, activeCount:number, activeCondition:enum__Torappu_ActAutoChessBondActiveConditionType, activeConditionTemplateOffset:flatbuffers.Offset, activeParamListOffset:flatbuffers.Offset, effectIdOffset:flatbuffers.Offset, activeType:enum__Torappu_ActAutoChessBondActiveType, identifier:number, weight:number, isActiveInDeck:boolean, maxInactiveBondCount:number, descParamBaseListOffset:flatbuffers.Offset, descParamPerStackListOffset:flatbuffers.Offset, noStack:boolean, chessIdListOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.startclz_Torappu_ActAutoChessData_ActAutoChessBondInfo(builder);
   clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addBondId(builder, bondIdOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addName(builder, nameOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addDesc(builder, descOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addIconId(builder, iconIdOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addActiveCount(builder, activeCount);
+  clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addActiveCondition(builder, activeCondition);
+  clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addActiveConditionTemplate(builder, activeConditionTemplateOffset);
+  clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addActiveParamList(builder, activeParamListOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addEffectId(builder, effectIdOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addActiveType(builder, activeType);
   clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addIdentifier(builder, identifier);
   clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addWeight(builder, weight);
   clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addIsActiveInDeck(builder, isActiveInDeck);
+  clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addMaxInactiveBondCount(builder, maxInactiveBondCount);
   clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addDescParamBaseList(builder, descParamBaseListOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addDescParamPerStackList(builder, descParamPerStackListOffset);
   clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.addNoStack(builder, noStack);
@@ -253,11 +315,15 @@ unpack(): clz_Torappu_ActAutoChessData_ActAutoChessBondInfoT {
     this.desc(),
     this.iconId(),
     this.activeCount(),
+    this.activeCondition(),
+    this.activeConditionTemplate(),
+    this.bb!.createScalarList<string>(this.activeParamList.bind(this), this.activeParamListLength()),
     this.effectId(),
     this.activeType(),
     this.identifier(),
     this.weight(),
     this.isActiveInDeck(),
+    this.maxInactiveBondCount(),
     this.bb!.createScalarList<string>(this.descParamBaseList.bind(this), this.descParamBaseListLength()),
     this.bb!.createScalarList<string>(this.descParamPerStackList.bind(this), this.descParamPerStackListLength()),
     this.noStack(),
@@ -272,11 +338,15 @@ unpackTo(_o: clz_Torappu_ActAutoChessData_ActAutoChessBondInfoT): void {
   _o.desc = this.desc();
   _o.iconId = this.iconId();
   _o.activeCount = this.activeCount();
+  _o.activeCondition = this.activeCondition();
+  _o.activeConditionTemplate = this.activeConditionTemplate();
+  _o.activeParamList = this.bb!.createScalarList<string>(this.activeParamList.bind(this), this.activeParamListLength());
   _o.effectId = this.effectId();
   _o.activeType = this.activeType();
   _o.identifier = this.identifier();
   _o.weight = this.weight();
   _o.isActiveInDeck = this.isActiveInDeck();
+  _o.maxInactiveBondCount = this.maxInactiveBondCount();
   _o.descParamBaseList = this.bb!.createScalarList<string>(this.descParamBaseList.bind(this), this.descParamBaseListLength());
   _o.descParamPerStackList = this.bb!.createScalarList<string>(this.descParamPerStackList.bind(this), this.descParamPerStackListLength());
   _o.noStack = this.noStack();
@@ -291,11 +361,15 @@ constructor(
   public desc: string|Uint8Array|null = null,
   public iconId: string|Uint8Array|null = null,
   public activeCount: number = 0,
+  public activeCondition: enum__Torappu_ActAutoChessBondActiveConditionType = enum__Torappu_ActAutoChessBondActiveConditionType.BOARD,
+  public activeConditionTemplate: string|Uint8Array|null = null,
+  public activeParamList: (string)[] = [],
   public effectId: string|Uint8Array|null = null,
   public activeType: enum__Torappu_ActAutoChessBondActiveType = enum__Torappu_ActAutoChessBondActiveType.BATTLE,
   public identifier: number = 0,
   public weight: number = 0,
   public isActiveInDeck: boolean = false,
+  public maxInactiveBondCount: number = 0,
   public descParamBaseList: (string)[] = [],
   public descParamPerStackList: (string)[] = [],
   public noStack: boolean = false,
@@ -308,6 +382,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const name = (this.name !== null ? builder.createString(this.name!) : 0);
   const desc = (this.desc !== null ? builder.createString(this.desc!) : 0);
   const iconId = (this.iconId !== null ? builder.createString(this.iconId!) : 0);
+  const activeConditionTemplate = (this.activeConditionTemplate !== null ? builder.createString(this.activeConditionTemplate!) : 0);
+  const activeParamList = clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.createActiveParamListVector(builder, builder.createObjectOffsetList(this.activeParamList));
   const effectId = (this.effectId !== null ? builder.createString(this.effectId!) : 0);
   const descParamBaseList = clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.createDescParamBaseListVector(builder, builder.createObjectOffsetList(this.descParamBaseList));
   const descParamPerStackList = clz_Torappu_ActAutoChessData_ActAutoChessBondInfo.createDescParamPerStackListVector(builder, builder.createObjectOffsetList(this.descParamPerStackList));
@@ -319,11 +395,15 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     desc,
     iconId,
     this.activeCount,
+    this.activeCondition,
+    activeConditionTemplate,
+    activeParamList,
     effectId,
     this.activeType,
     this.identifier,
     this.weight,
     this.isActiveInDeck,
+    this.maxInactiveBondCount,
     descParamBaseList,
     descParamPerStackList,
     this.noStack,

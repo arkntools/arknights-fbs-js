@@ -9,7 +9,6 @@ import { clz_Torappu_NewbieCheckInPackageData, clz_Torappu_NewbieCheckInPackageD
 import { clz_Torappu_OpenServerConst, clz_Torappu_OpenServerConstT } from './clz-torappu-open-server-const.js';
 import { clz_Torappu_OpenServerScheduleItem, clz_Torappu_OpenServerScheduleItemT } from './clz-torappu-open-server-schedule-item.js';
 import { clz_Torappu_ReturnData, clz_Torappu_ReturnDataT } from './clz-torappu-return-data.js';
-import { clz_Torappu_ReturnV2Data, clz_Torappu_ReturnV2DataT } from './clz-torappu-return-v2-data.js';
 import { dict__string__clz_Torappu_OpenServerData, dict__string__clz_Torappu_OpenServerDataT } from './dict--string--clz-torappu-open-server-data.js';
 
 
@@ -61,28 +60,23 @@ playerReturn(obj?:clz_Torappu_ReturnData):clz_Torappu_ReturnData|null {
   return offset ? (obj || new clz_Torappu_ReturnData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-playerReturnV2(obj?:clz_Torappu_ReturnV2Data):clz_Torappu_ReturnV2Data|null {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
-  return offset ? (obj || new clz_Torappu_ReturnV2Data()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
-}
-
 newbieCheckInPackageList(index: number, obj?:clz_Torappu_NewbieCheckInPackageData):clz_Torappu_NewbieCheckInPackageData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? (obj || new clz_Torappu_NewbieCheckInPackageData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 newbieCheckInPackageListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 longTermCheckInData(obj?:clz_Torappu_LongTermCheckInData):clz_Torappu_LongTermCheckInData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? (obj || new clz_Torappu_LongTermCheckInData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 static startclz_Torappu_OpenServerSchedule(builder:flatbuffers.Builder) {
-  builder.startObject(7);
+  builder.startObject(6);
 }
 
 static addSchedule(builder:flatbuffers.Builder, scheduleOffset:flatbuffers.Offset) {
@@ -125,12 +119,8 @@ static addPlayerReturn(builder:flatbuffers.Builder, playerReturnOffset:flatbuffe
   builder.addFieldOffset(3, playerReturnOffset, 0);
 }
 
-static addPlayerReturnV2(builder:flatbuffers.Builder, playerReturnV2Offset:flatbuffers.Offset) {
-  builder.addFieldOffset(4, playerReturnV2Offset, 0);
-}
-
 static addNewbieCheckInPackageList(builder:flatbuffers.Builder, newbieCheckInPackageListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, newbieCheckInPackageListOffset, 0);
+  builder.addFieldOffset(4, newbieCheckInPackageListOffset, 0);
 }
 
 static createNewbieCheckInPackageListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -146,7 +136,7 @@ static startNewbieCheckInPackageListVector(builder:flatbuffers.Builder, numElems
 }
 
 static addLongTermCheckInData(builder:flatbuffers.Builder, longTermCheckInDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(6, longTermCheckInDataOffset, 0);
+  builder.addFieldOffset(5, longTermCheckInDataOffset, 0);
 }
 
 static endclz_Torappu_OpenServerSchedule(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -169,7 +159,6 @@ unpack(): clz_Torappu_OpenServerScheduleT {
     this.bb!.createObjList<dict__string__clz_Torappu_OpenServerData, dict__string__clz_Torappu_OpenServerDataT>(this.dataMap.bind(this), this.dataMapLength()),
     (this.constant() !== null ? this.constant()!.unpack() : null),
     (this.playerReturn() !== null ? this.playerReturn()!.unpack() : null),
-    (this.playerReturnV2() !== null ? this.playerReturnV2()!.unpack() : null),
     this.bb!.createObjList<clz_Torappu_NewbieCheckInPackageData, clz_Torappu_NewbieCheckInPackageDataT>(this.newbieCheckInPackageList.bind(this), this.newbieCheckInPackageListLength()),
     (this.longTermCheckInData() !== null ? this.longTermCheckInData()!.unpack() : null)
   );
@@ -181,7 +170,6 @@ unpackTo(_o: clz_Torappu_OpenServerScheduleT): void {
   _o.dataMap = this.bb!.createObjList<dict__string__clz_Torappu_OpenServerData, dict__string__clz_Torappu_OpenServerDataT>(this.dataMap.bind(this), this.dataMapLength());
   _o.constant = (this.constant() !== null ? this.constant()!.unpack() : null);
   _o.playerReturn = (this.playerReturn() !== null ? this.playerReturn()!.unpack() : null);
-  _o.playerReturnV2 = (this.playerReturnV2() !== null ? this.playerReturnV2()!.unpack() : null);
   _o.newbieCheckInPackageList = this.bb!.createObjList<clz_Torappu_NewbieCheckInPackageData, clz_Torappu_NewbieCheckInPackageDataT>(this.newbieCheckInPackageList.bind(this), this.newbieCheckInPackageListLength());
   _o.longTermCheckInData = (this.longTermCheckInData() !== null ? this.longTermCheckInData()!.unpack() : null);
 }
@@ -193,7 +181,6 @@ constructor(
   public dataMap: (dict__string__clz_Torappu_OpenServerDataT)[] = [],
   public constant: clz_Torappu_OpenServerConstT|null = null,
   public playerReturn: clz_Torappu_ReturnDataT|null = null,
-  public playerReturnV2: clz_Torappu_ReturnV2DataT|null = null,
   public newbieCheckInPackageList: (clz_Torappu_NewbieCheckInPackageDataT)[] = [],
   public longTermCheckInData: clz_Torappu_LongTermCheckInDataT|null = null
 ){}
@@ -204,7 +191,6 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const dataMap = clz_Torappu_OpenServerSchedule.createDataMapVector(builder, builder.createObjectOffsetList(this.dataMap));
   const constant = (this.constant !== null ? this.constant!.pack(builder) : 0);
   const playerReturn = (this.playerReturn !== null ? this.playerReturn!.pack(builder) : 0);
-  const playerReturnV2 = (this.playerReturnV2 !== null ? this.playerReturnV2!.pack(builder) : 0);
   const newbieCheckInPackageList = clz_Torappu_OpenServerSchedule.createNewbieCheckInPackageListVector(builder, builder.createObjectOffsetList(this.newbieCheckInPackageList));
   const longTermCheckInData = (this.longTermCheckInData !== null ? this.longTermCheckInData!.pack(builder) : 0);
 
@@ -213,7 +199,6 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_OpenServerSchedule.addDataMap(builder, dataMap);
   clz_Torappu_OpenServerSchedule.addConstant(builder, constant);
   clz_Torappu_OpenServerSchedule.addPlayerReturn(builder, playerReturn);
-  clz_Torappu_OpenServerSchedule.addPlayerReturnV2(builder, playerReturnV2);
   clz_Torappu_OpenServerSchedule.addNewbieCheckInPackageList(builder, newbieCheckInPackageList);
   clz_Torappu_OpenServerSchedule.addLongTermCheckInData(builder, longTermCheckInData);
 

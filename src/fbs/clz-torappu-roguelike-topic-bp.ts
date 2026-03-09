@@ -74,8 +74,18 @@ isGrandPrize():boolean {
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
+isReturnDisplay():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 22);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+returnSortId():number {
+  const offset = this.bb!.__offset(this.bb_pos, 24);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_RoguelikeTopicBP(builder:flatbuffers.Builder) {
-  builder.startObject(9);
+  builder.startObject(11);
 }
 
 static addId(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset) {
@@ -114,12 +124,20 @@ static addIsGrandPrize(builder:flatbuffers.Builder, isGrandPrize:boolean) {
   builder.addFieldInt8(8, +isGrandPrize, +false);
 }
 
+static addIsReturnDisplay(builder:flatbuffers.Builder, isReturnDisplay:boolean) {
+  builder.addFieldInt8(9, +isReturnDisplay, +false);
+}
+
+static addReturnSortId(builder:flatbuffers.Builder, returnSortId:number) {
+  builder.addFieldInt32(10, returnSortId, 0);
+}
+
 static endclz_Torappu_RoguelikeTopicBP(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_RoguelikeTopicBP(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, level:number, tokenNum:number, nextTokenNum:number, itemIdOffset:flatbuffers.Offset, itemType:enum__Torappu_ItemType, itemCount:number, isGoodPrize:boolean, isGrandPrize:boolean):flatbuffers.Offset {
+static createclz_Torappu_RoguelikeTopicBP(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, level:number, tokenNum:number, nextTokenNum:number, itemIdOffset:flatbuffers.Offset, itemType:enum__Torappu_ItemType, itemCount:number, isGoodPrize:boolean, isGrandPrize:boolean, isReturnDisplay:boolean, returnSortId:number):flatbuffers.Offset {
   clz_Torappu_RoguelikeTopicBP.startclz_Torappu_RoguelikeTopicBP(builder);
   clz_Torappu_RoguelikeTopicBP.addId(builder, idOffset);
   clz_Torappu_RoguelikeTopicBP.addLevel(builder, level);
@@ -130,6 +148,8 @@ static createclz_Torappu_RoguelikeTopicBP(builder:flatbuffers.Builder, idOffset:
   clz_Torappu_RoguelikeTopicBP.addItemCount(builder, itemCount);
   clz_Torappu_RoguelikeTopicBP.addIsGoodPrize(builder, isGoodPrize);
   clz_Torappu_RoguelikeTopicBP.addIsGrandPrize(builder, isGrandPrize);
+  clz_Torappu_RoguelikeTopicBP.addIsReturnDisplay(builder, isReturnDisplay);
+  clz_Torappu_RoguelikeTopicBP.addReturnSortId(builder, returnSortId);
   return clz_Torappu_RoguelikeTopicBP.endclz_Torappu_RoguelikeTopicBP(builder);
 }
 
@@ -143,7 +163,9 @@ unpack(): clz_Torappu_RoguelikeTopicBPT {
     this.itemType(),
     this.itemCount(),
     this.isGoodPrize(),
-    this.isGrandPrize()
+    this.isGrandPrize(),
+    this.isReturnDisplay(),
+    this.returnSortId()
   );
 }
 
@@ -158,6 +180,8 @@ unpackTo(_o: clz_Torappu_RoguelikeTopicBPT): void {
   _o.itemCount = this.itemCount();
   _o.isGoodPrize = this.isGoodPrize();
   _o.isGrandPrize = this.isGrandPrize();
+  _o.isReturnDisplay = this.isReturnDisplay();
+  _o.returnSortId = this.returnSortId();
 }
 }
 
@@ -171,7 +195,9 @@ constructor(
   public itemType: enum__Torappu_ItemType = enum__Torappu_ItemType.NONE,
   public itemCount: number = 0,
   public isGoodPrize: boolean = false,
-  public isGrandPrize: boolean = false
+  public isGrandPrize: boolean = false,
+  public isReturnDisplay: boolean = false,
+  public returnSortId: number = 0
 ){}
 
 
@@ -188,7 +214,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.itemType,
     this.itemCount,
     this.isGoodPrize,
-    this.isGrandPrize
+    this.isGrandPrize,
+    this.isReturnDisplay,
+    this.returnSortId
   );
 }
 }

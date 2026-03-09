@@ -141,106 +141,118 @@ enemyMagicResistanceFactor():number {
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
-specialPhaseStayTime():number {
+singleReconnectTime():number {
   const offset = this.bb!.__offset(this.bb_pos, 42);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-hintTimeSpecialPhase():number {
+specialPhaseStayTime():number {
   const offset = this.bb!.__offset(this.bb_pos, 44);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-hintTimeNormalPhase():number {
+hintTimeSpecialPhase():number {
   const offset = this.bb!.__offset(this.bb_pos, 46);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-hintTimeFightPhase():number {
+hintTimeNormalPhase():number {
   const offset = this.bb!.__offset(this.bb_pos, 48);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-hintTimeDotPhase():number {
+hintTimeFightPhase():number {
   const offset = this.bb!.__offset(this.bb_pos, 50);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-invitationSendCd():number {
+hintTimeDotPhase():number {
   const offset = this.bb!.__offset(this.bb_pos, 52);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+invitationSendCd():number {
+  const offset = this.bb!.__offset(this.bb_pos, 54);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 discountColor():string|null
 discountColor(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 discountColor(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 54);
+  const offset = this.bb!.__offset(this.bb_pos, 56);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 premiumColor():string|null
 premiumColor(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 premiumColor(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 56);
+  const offset = this.bb!.__offset(this.bb_pos, 58);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 normalColor():string|null
 normalColor(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 normalColor(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 58);
+  const offset = this.bb!.__offset(this.bb_pos, 60);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 reportMaxNum():number {
-  const offset = this.bb!.__offset(this.bb_pos, 60);
+  const offset = this.bb!.__offset(this.bb_pos, 62);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 chatCd():number {
-  const offset = this.bb!.__offset(this.bb_pos, 62);
-  return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
-}
-
-chatTime():number {
   const offset = this.bb!.__offset(this.bb_pos, 64);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
-broadcastBeginDelay():number {
+chatTime():number {
   const offset = this.bb!.__offset(this.bb_pos, 66);
+  return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
+}
+
+broadcastBeginDelay():number {
+  const offset = this.bb!.__offset(this.bb_pos, 68);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 noMoneyTipsBand(index: number):string
 noMoneyTipsBand(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 noMoneyTipsBand(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 68);
+  const offset = this.bb!.__offset(this.bb_pos, 70);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 noMoneyTipsBandLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 68);
+  const offset = this.bb!.__offset(this.bb_pos, 70);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 bossTrailerStartRound():number {
-  const offset = this.bb!.__offset(this.bb_pos, 70);
+  const offset = this.bb!.__offset(this.bb_pos, 72);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 singleClosureStayTime():number {
-  const offset = this.bb!.__offset(this.bb_pos, 72);
-  return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
-}
-
-matchTimeMax():number {
   const offset = this.bb!.__offset(this.bb_pos, 74);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
+matchTimeMax():number {
+  const offset = this.bb!.__offset(this.bb_pos, 76);
+  return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
+}
+
+enemyDataLevelId():string|null
+enemyDataLevelId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+enemyDataLevelId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 78);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 static startclz_Torappu_AutoChessData_AutoChessConstData(builder:flatbuffers.Builder) {
-  builder.startObject(36);
+  builder.startObject(38);
 }
 
 static addPingConds(builder:flatbuffers.Builder, pingCondsOffset:flatbuffers.Offset) {
@@ -331,60 +343,64 @@ static addEnemyMagicResistanceFactor(builder:flatbuffers.Builder, enemyMagicResi
   builder.addFieldFloat32(18, enemyMagicResistanceFactor, 0.0);
 }
 
+static addSingleReconnectTime(builder:flatbuffers.Builder, singleReconnectTime:number) {
+  builder.addFieldInt32(19, singleReconnectTime, 0);
+}
+
 static addSpecialPhaseStayTime(builder:flatbuffers.Builder, specialPhaseStayTime:number) {
-  builder.addFieldInt32(19, specialPhaseStayTime, 0);
+  builder.addFieldInt32(20, specialPhaseStayTime, 0);
 }
 
 static addHintTimeSpecialPhase(builder:flatbuffers.Builder, hintTimeSpecialPhase:number) {
-  builder.addFieldInt32(20, hintTimeSpecialPhase, 0);
+  builder.addFieldInt32(21, hintTimeSpecialPhase, 0);
 }
 
 static addHintTimeNormalPhase(builder:flatbuffers.Builder, hintTimeNormalPhase:number) {
-  builder.addFieldInt32(21, hintTimeNormalPhase, 0);
+  builder.addFieldInt32(22, hintTimeNormalPhase, 0);
 }
 
 static addHintTimeFightPhase(builder:flatbuffers.Builder, hintTimeFightPhase:number) {
-  builder.addFieldInt32(22, hintTimeFightPhase, 0);
+  builder.addFieldInt32(23, hintTimeFightPhase, 0);
 }
 
 static addHintTimeDotPhase(builder:flatbuffers.Builder, hintTimeDotPhase:number) {
-  builder.addFieldInt32(23, hintTimeDotPhase, 0);
+  builder.addFieldInt32(24, hintTimeDotPhase, 0);
 }
 
 static addInvitationSendCd(builder:flatbuffers.Builder, invitationSendCd:number) {
-  builder.addFieldInt32(24, invitationSendCd, 0);
+  builder.addFieldInt32(25, invitationSendCd, 0);
 }
 
 static addDiscountColor(builder:flatbuffers.Builder, discountColorOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(25, discountColorOffset, 0);
+  builder.addFieldOffset(26, discountColorOffset, 0);
 }
 
 static addPremiumColor(builder:flatbuffers.Builder, premiumColorOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(26, premiumColorOffset, 0);
+  builder.addFieldOffset(27, premiumColorOffset, 0);
 }
 
 static addNormalColor(builder:flatbuffers.Builder, normalColorOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(27, normalColorOffset, 0);
+  builder.addFieldOffset(28, normalColorOffset, 0);
 }
 
 static addReportMaxNum(builder:flatbuffers.Builder, reportMaxNum:number) {
-  builder.addFieldInt32(28, reportMaxNum, 0);
+  builder.addFieldInt32(29, reportMaxNum, 0);
 }
 
 static addChatCd(builder:flatbuffers.Builder, chatCd:number) {
-  builder.addFieldFloat32(29, chatCd, 0.0);
+  builder.addFieldFloat32(30, chatCd, 0.0);
 }
 
 static addChatTime(builder:flatbuffers.Builder, chatTime:number) {
-  builder.addFieldFloat32(30, chatTime, 0.0);
+  builder.addFieldFloat32(31, chatTime, 0.0);
 }
 
 static addBroadcastBeginDelay(builder:flatbuffers.Builder, broadcastBeginDelay:number) {
-  builder.addFieldFloat32(31, broadcastBeginDelay, 0.0);
+  builder.addFieldFloat32(32, broadcastBeginDelay, 0.0);
 }
 
 static addNoMoneyTipsBand(builder:flatbuffers.Builder, noMoneyTipsBandOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(32, noMoneyTipsBandOffset, 0);
+  builder.addFieldOffset(33, noMoneyTipsBandOffset, 0);
 }
 
 static createNoMoneyTipsBandVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -400,15 +416,19 @@ static startNoMoneyTipsBandVector(builder:flatbuffers.Builder, numElems:number) 
 }
 
 static addBossTrailerStartRound(builder:flatbuffers.Builder, bossTrailerStartRound:number) {
-  builder.addFieldInt32(33, bossTrailerStartRound, 0);
+  builder.addFieldInt32(34, bossTrailerStartRound, 0);
 }
 
 static addSingleClosureStayTime(builder:flatbuffers.Builder, singleClosureStayTime:number) {
-  builder.addFieldFloat32(34, singleClosureStayTime, 0.0);
+  builder.addFieldFloat32(35, singleClosureStayTime, 0.0);
 }
 
 static addMatchTimeMax(builder:flatbuffers.Builder, matchTimeMax:number) {
-  builder.addFieldFloat32(35, matchTimeMax, 0.0);
+  builder.addFieldFloat32(36, matchTimeMax, 0.0);
+}
+
+static addEnemyDataLevelId(builder:flatbuffers.Builder, enemyDataLevelIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(37, enemyDataLevelIdOffset, 0);
 }
 
 static endclz_Torappu_AutoChessData_AutoChessConstData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -416,7 +436,7 @@ static endclz_Torappu_AutoChessData_AutoChessConstData(builder:flatbuffers.Build
   return offset;
 }
 
-static createclz_Torappu_AutoChessData_AutoChessConstData(builder:flatbuffers.Builder, pingCondsOffset:flatbuffers.Offset, matchingTipRotateInterval:number, minReplacedEnemyCount:number, maxReplacedEnemyCount:number, templateEnemyNormalOffset:flatbuffers.Offset, templateEnemyEliteOffset:flatbuffers.Offset, templateEnemySpecialOffset:flatbuffers.Offset, templateEnemyNormalFlyOffset:flatbuffers.Offset, templateEnemyEliteFlyOffset:flatbuffers.Offset, templateEnemySpecialFlyOffset:flatbuffers.Offset, templateEnemyTokenOffset:flatbuffers.Offset, templateEnemyTokenFlyOffset:flatbuffers.Offset, maxLevelCnt:number, specialEnemyNum:number, enemyTypeIdentifierToFillRandom:number, enemyMaxHpFactor:number, enemyAtkFactor:number, enemyDefFactor:number, enemyMagicResistanceFactor:number, specialPhaseStayTime:number, hintTimeSpecialPhase:number, hintTimeNormalPhase:number, hintTimeFightPhase:number, hintTimeDotPhase:number, invitationSendCd:number, discountColorOffset:flatbuffers.Offset, premiumColorOffset:flatbuffers.Offset, normalColorOffset:flatbuffers.Offset, reportMaxNum:number, chatCd:number, chatTime:number, broadcastBeginDelay:number, noMoneyTipsBandOffset:flatbuffers.Offset, bossTrailerStartRound:number, singleClosureStayTime:number, matchTimeMax:number):flatbuffers.Offset {
+static createclz_Torappu_AutoChessData_AutoChessConstData(builder:flatbuffers.Builder, pingCondsOffset:flatbuffers.Offset, matchingTipRotateInterval:number, minReplacedEnemyCount:number, maxReplacedEnemyCount:number, templateEnemyNormalOffset:flatbuffers.Offset, templateEnemyEliteOffset:flatbuffers.Offset, templateEnemySpecialOffset:flatbuffers.Offset, templateEnemyNormalFlyOffset:flatbuffers.Offset, templateEnemyEliteFlyOffset:flatbuffers.Offset, templateEnemySpecialFlyOffset:flatbuffers.Offset, templateEnemyTokenOffset:flatbuffers.Offset, templateEnemyTokenFlyOffset:flatbuffers.Offset, maxLevelCnt:number, specialEnemyNum:number, enemyTypeIdentifierToFillRandom:number, enemyMaxHpFactor:number, enemyAtkFactor:number, enemyDefFactor:number, enemyMagicResistanceFactor:number, singleReconnectTime:number, specialPhaseStayTime:number, hintTimeSpecialPhase:number, hintTimeNormalPhase:number, hintTimeFightPhase:number, hintTimeDotPhase:number, invitationSendCd:number, discountColorOffset:flatbuffers.Offset, premiumColorOffset:flatbuffers.Offset, normalColorOffset:flatbuffers.Offset, reportMaxNum:number, chatCd:number, chatTime:number, broadcastBeginDelay:number, noMoneyTipsBandOffset:flatbuffers.Offset, bossTrailerStartRound:number, singleClosureStayTime:number, matchTimeMax:number, enemyDataLevelIdOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_AutoChessData_AutoChessConstData.startclz_Torappu_AutoChessData_AutoChessConstData(builder);
   clz_Torappu_AutoChessData_AutoChessConstData.addPingConds(builder, pingCondsOffset);
   clz_Torappu_AutoChessData_AutoChessConstData.addMatchingTipRotateInterval(builder, matchingTipRotateInterval);
@@ -437,6 +457,7 @@ static createclz_Torappu_AutoChessData_AutoChessConstData(builder:flatbuffers.Bu
   clz_Torappu_AutoChessData_AutoChessConstData.addEnemyAtkFactor(builder, enemyAtkFactor);
   clz_Torappu_AutoChessData_AutoChessConstData.addEnemyDefFactor(builder, enemyDefFactor);
   clz_Torappu_AutoChessData_AutoChessConstData.addEnemyMagicResistanceFactor(builder, enemyMagicResistanceFactor);
+  clz_Torappu_AutoChessData_AutoChessConstData.addSingleReconnectTime(builder, singleReconnectTime);
   clz_Torappu_AutoChessData_AutoChessConstData.addSpecialPhaseStayTime(builder, specialPhaseStayTime);
   clz_Torappu_AutoChessData_AutoChessConstData.addHintTimeSpecialPhase(builder, hintTimeSpecialPhase);
   clz_Torappu_AutoChessData_AutoChessConstData.addHintTimeNormalPhase(builder, hintTimeNormalPhase);
@@ -454,6 +475,7 @@ static createclz_Torappu_AutoChessData_AutoChessConstData(builder:flatbuffers.Bu
   clz_Torappu_AutoChessData_AutoChessConstData.addBossTrailerStartRound(builder, bossTrailerStartRound);
   clz_Torappu_AutoChessData_AutoChessConstData.addSingleClosureStayTime(builder, singleClosureStayTime);
   clz_Torappu_AutoChessData_AutoChessConstData.addMatchTimeMax(builder, matchTimeMax);
+  clz_Torappu_AutoChessData_AutoChessConstData.addEnemyDataLevelId(builder, enemyDataLevelIdOffset);
   return clz_Torappu_AutoChessData_AutoChessConstData.endclz_Torappu_AutoChessData_AutoChessConstData(builder);
 }
 
@@ -478,6 +500,7 @@ unpack(): clz_Torappu_AutoChessData_AutoChessConstDataT {
     this.enemyAtkFactor(),
     this.enemyDefFactor(),
     this.enemyMagicResistanceFactor(),
+    this.singleReconnectTime(),
     this.specialPhaseStayTime(),
     this.hintTimeSpecialPhase(),
     this.hintTimeNormalPhase(),
@@ -494,7 +517,8 @@ unpack(): clz_Torappu_AutoChessData_AutoChessConstDataT {
     this.bb!.createScalarList<string>(this.noMoneyTipsBand.bind(this), this.noMoneyTipsBandLength()),
     this.bossTrailerStartRound(),
     this.singleClosureStayTime(),
-    this.matchTimeMax()
+    this.matchTimeMax(),
+    this.enemyDataLevelId()
   );
 }
 
@@ -519,6 +543,7 @@ unpackTo(_o: clz_Torappu_AutoChessData_AutoChessConstDataT): void {
   _o.enemyAtkFactor = this.enemyAtkFactor();
   _o.enemyDefFactor = this.enemyDefFactor();
   _o.enemyMagicResistanceFactor = this.enemyMagicResistanceFactor();
+  _o.singleReconnectTime = this.singleReconnectTime();
   _o.specialPhaseStayTime = this.specialPhaseStayTime();
   _o.hintTimeSpecialPhase = this.hintTimeSpecialPhase();
   _o.hintTimeNormalPhase = this.hintTimeNormalPhase();
@@ -536,6 +561,7 @@ unpackTo(_o: clz_Torappu_AutoChessData_AutoChessConstDataT): void {
   _o.bossTrailerStartRound = this.bossTrailerStartRound();
   _o.singleClosureStayTime = this.singleClosureStayTime();
   _o.matchTimeMax = this.matchTimeMax();
+  _o.enemyDataLevelId = this.enemyDataLevelId();
 }
 }
 
@@ -560,6 +586,7 @@ constructor(
   public enemyAtkFactor: number = 0.0,
   public enemyDefFactor: number = 0.0,
   public enemyMagicResistanceFactor: number = 0.0,
+  public singleReconnectTime: number = 0,
   public specialPhaseStayTime: number = 0,
   public hintTimeSpecialPhase: number = 0,
   public hintTimeNormalPhase: number = 0,
@@ -576,7 +603,8 @@ constructor(
   public noMoneyTipsBand: (string)[] = [],
   public bossTrailerStartRound: number = 0,
   public singleClosureStayTime: number = 0.0,
-  public matchTimeMax: number = 0.0
+  public matchTimeMax: number = 0.0,
+  public enemyDataLevelId: string|Uint8Array|null = null
 ){}
 
 
@@ -594,6 +622,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const premiumColor = (this.premiumColor !== null ? builder.createString(this.premiumColor!) : 0);
   const normalColor = (this.normalColor !== null ? builder.createString(this.normalColor!) : 0);
   const noMoneyTipsBand = clz_Torappu_AutoChessData_AutoChessConstData.createNoMoneyTipsBandVector(builder, builder.createObjectOffsetList(this.noMoneyTipsBand));
+  const enemyDataLevelId = (this.enemyDataLevelId !== null ? builder.createString(this.enemyDataLevelId!) : 0);
 
   return clz_Torappu_AutoChessData_AutoChessConstData.createclz_Torappu_AutoChessData_AutoChessConstData(builder,
     pingConds,
@@ -615,6 +644,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.enemyAtkFactor,
     this.enemyDefFactor,
     this.enemyMagicResistanceFactor,
+    this.singleReconnectTime,
     this.specialPhaseStayTime,
     this.hintTimeSpecialPhase,
     this.hintTimeNormalPhase,
@@ -631,7 +661,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     noMoneyTipsBand,
     this.bossTrailerStartRound,
     this.singleClosureStayTime,
-    this.matchTimeMax
+    this.matchTimeMax,
+    enemyDataLevelId
   );
 }
 }

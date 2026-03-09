@@ -31,6 +31,7 @@ export { clz_Torappu_HomeThemeLimitInfoData, clz_Torappu_HomeThemeLimitInfoDataT
 export { clz_Torappu_HomeThemeMultiFormData, clz_Torappu_HomeThemeMultiFormDataT } from './clz-torappu-home-theme-multi-form-data.js';
 export { clz_Torappu_ItemBundle, clz_Torappu_ItemBundleT } from './clz-torappu-item-bundle.js';
 export { clz_Torappu_KeyItem, clz_Torappu_KeyItemT } from './clz-torappu-key-item.js';
+export { clz_Torappu_KeySettingGroupData, clz_Torappu_KeySettingGroupDataT } from './clz-torappu-key-setting-group-data.js';
 export { clz_Torappu_KeySettingItemData, clz_Torappu_KeySettingItemDataT } from './clz-torappu-key-setting-item-data.js';
 export { clz_Torappu_MagazineLeafConst, clz_Torappu_MagazineLeafConstT } from './clz-torappu-magazine-leaf-const.js';
 export { clz_Torappu_MagazineLeafData, clz_Torappu_MagazineLeafDataT } from './clz-torappu-magazine-leaf-data.js';
@@ -60,7 +61,6 @@ export { clz_Torappu_StickerItemData, clz_Torappu_StickerItemDataT } from './clz
 export { clz_Torappu_StoryVariantData, clz_Torappu_StoryVariantDataT } from './clz-torappu-story-variant-data.js';
 export { clz_UnityEngine_Vector2, clz_UnityEngine_Vector2T } from './clz-unity-engine-vector2.js';
 export { dict__enum__Torappu_PlayerAvatarGroupType__clz_Torappu_PlayerAvatarGroupData, dict__enum__Torappu_PlayerAvatarGroupType__clz_Torappu_PlayerAvatarGroupDataT } from './dict--enum--torappu-player-avatar-group-type--clz-torappu-player-avatar-group-data.js';
-export { dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemData, dict__enum__Torappu_UI_KeyBoardVirtualButtonEnum__clz_Torappu_KeySettingItemDataT } from './dict--enum--torappu-ui-key-board-virtual-button-enum--clz-torappu-key-setting-item-data.js';
 export { dict__string__clz_Torappu_ArtGalleryCollectSetData, dict__string__clz_Torappu_ArtGalleryCollectSetDataT } from './dict--string--clz-torappu-art-gallery-collect-set-data.js';
 export { dict__string__clz_Torappu_ArtGalleryCollectSetMissionData, dict__string__clz_Torappu_ArtGalleryCollectSetMissionDataT } from './dict--string--clz-torappu-art-gallery-collect-set-mission-data.js';
 export { dict__string__clz_Torappu_ArtGalleryCollectTypeData, dict__string__clz_Torappu_ArtGalleryCollectTypeDataT } from './dict--string--clz-torappu-art-gallery-collect-type-data.js';
@@ -70,6 +70,7 @@ export { dict__string__clz_Torappu_GuidebookGroupData, dict__string__clz_Torappu
 export { dict__string__clz_Torappu_HomeBackgroundLimitData, dict__string__clz_Torappu_HomeBackgroundLimitDataT } from './dict--string--clz-torappu-home-background-limit-data.js';
 export { dict__string__clz_Torappu_HomeThemeLimitData, dict__string__clz_Torappu_HomeThemeLimitDataT } from './dict--string--clz-torappu-home-theme-limit-data.js';
 export { dict__string__clz_Torappu_KeyItem, dict__string__clz_Torappu_KeyItemT } from './dict--string--clz-torappu-key-item.js';
+export { dict__string__clz_Torappu_KeySettingGroupData, dict__string__clz_Torappu_KeySettingGroupDataT } from './dict--string--clz-torappu-key-setting-group-data.js';
 export { dict__string__clz_Torappu_MagazineLeafDecorTypeData, dict__string__clz_Torappu_MagazineLeafDecorTypeDataT } from './dict--string--clz-torappu-magazine-leaf-decor-type-data.js';
 export { dict__string__clz_Torappu_MagazineLeafItemData, dict__string__clz_Torappu_MagazineLeafItemDataT } from './dict--string--clz-torappu-magazine-leaf-item-data.js';
 export { dict__string__clz_Torappu_MagazineLeafTypeData, dict__string__clz_Torappu_MagazineLeafTypeDataT } from './dict--string--clz-torappu-magazine-leaf-type-data.js';
@@ -84,6 +85,7 @@ export { dict__string__int, dict__string__intT } from './dict--string--int.js';
 export { dict__string__list_clz_Torappu_HomeMultiFormTimeRuleData, dict__string__list_clz_Torappu_HomeMultiFormTimeRuleDataT } from './dict--string--list-clz-torappu-home-multi-form-time-rule-data.js';
 export { dict__string__list_dict__string__int, dict__string__list_dict__string__intT } from './dict--string--list-dict--string--int.js';
 export { dict__string__list_string, dict__string__list_stringT } from './dict--string--list-string.js';
+export { enum__Torappu_ActivityType } from './enum--torappu-activity-type.js';
 export { enum__Torappu_CollectType } from './enum--torappu-collect-type.js';
 export { enum__Torappu_EmojiSceneType } from './enum--torappu-emoji-scene-type.js';
 export { enum__Torappu_HomeMultiFormChangeRule } from './enum--torappu-home-multi-form-change-rule.js';
@@ -99,4 +101,3 @@ export { enum__Torappu_NameCardV2SkinType } from './enum--torappu-name-card-v2-s
 export { enum__Torappu_PlayerAvatarGroupType } from './enum--torappu-player-avatar-group-type.js';
 export { enum__Torappu_StickerType } from './enum--torappu-sticker-type.js';
 export { enum__Torappu_UIGuideTarget } from './enum--torappu-uiguide-target.js';
-export { enum__Torappu_UI_KeyBoardVirtualButtonEnum } from './enum--torappu-ui-key-board-virtual-button-enum.js';

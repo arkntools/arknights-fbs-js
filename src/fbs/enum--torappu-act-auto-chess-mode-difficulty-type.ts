@@ -7,5 +7,6 @@ export enum enum__Torappu_ActAutoChessModeDifficultyType {
   TRAINING = 0,
   FUNNY = 1,
   NORMAL = 2,
-  HARD = 3
+  HARD = 3,
+  ABYSS = 4
 }

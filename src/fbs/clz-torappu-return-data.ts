@@ -4,12 +4,16 @@
 
 import * as flatbuffers from 'flatbuffers';
 
-import { clz_Torappu_ItemBundle, clz_Torappu_ItemBundleT } from './clz-torappu-item-bundle.js';
-import { clz_Torappu_ReturnCheckinData, clz_Torappu_ReturnCheckinDataT } from './clz-torappu-return-checkin-data.js';
-import { clz_Torappu_ReturnConst, clz_Torappu_ReturnConstT } from './clz-torappu-return-const.js';
-import { clz_Torappu_ReturnIntroData, clz_Torappu_ReturnIntroDataT } from './clz-torappu-return-intro-data.js';
-import { clz_Torappu_ReturnLongTermTaskData, clz_Torappu_ReturnLongTermTaskDataT } from './clz-torappu-return-long-term-task-data.js';
-import { dict__string__list_clz_Torappu_ReturnDailyTaskData, dict__string__list_clz_Torappu_ReturnDailyTaskDataT } from './dict--string--list-clz-torappu-return-daily-task-data.js';
+import { clz_Torappu_ReturnConstData, clz_Torappu_ReturnConstDataT } from './clz-torappu-return-const-data.js';
+import { dict__string__clz_Torappu_ReturnCheckinGpRewardData, dict__string__clz_Torappu_ReturnCheckinGpRewardDataT } from './dict--string--clz-torappu-return-checkin-gp-reward-data.js';
+import { dict__string__clz_Torappu_ReturnCheckinGroupData, dict__string__clz_Torappu_ReturnCheckinGroupDataT } from './dict--string--clz-torappu-return-checkin-group-data.js';
+import { dict__string__clz_Torappu_ReturnGiftPackagePicData, dict__string__clz_Torappu_ReturnGiftPackagePicDataT } from './dict--string--clz-torappu-return-gift-package-pic-data.js';
+import { dict__string__clz_Torappu_ReturnGroupData, dict__string__clz_Torappu_ReturnGroupDataT } from './dict--string--clz-torappu-return-group-data.js';
+import { dict__string__clz_Torappu_ReturnMissionGroupData, dict__string__clz_Torappu_ReturnMissionGroupDataT } from './dict--string--clz-torappu-return-mission-group-data.js';
+import { dict__string__clz_Torappu_ReturnNewsData, dict__string__clz_Torappu_ReturnNewsDataT } from './dict--string--clz-torappu-return-news-data.js';
+import { dict__string__clz_Torappu_ReturnOnceRewardData, dict__string__clz_Torappu_ReturnOnceRewardDataT } from './dict--string--clz-torappu-return-once-reward-data.js';
+import { dict__string__clz_Torappu_ReturnOpenStyleData, dict__string__clz_Torappu_ReturnOpenStyleDataT } from './dict--string--clz-torappu-return-open-style-data.js';
+import { dict__string__clz_Torappu_ReturnPriceGroupData, dict__string__clz_Torappu_ReturnPriceGroupDataT } from './dict--string--clz-torappu-return-price-group-data.js';
 
 
 export class clz_Torappu_ReturnData implements flatbuffers.IUnpackableObject<clz_Torappu_ReturnDataT> {
@@ -30,173 +34,251 @@ static getSizePrefixedRootAsclz_Torappu_ReturnData(bb:flatbuffers.ByteBuffer, ob
   return (obj || new clz_Torappu_ReturnData()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-constData(obj?:clz_Torappu_ReturnConst):clz_Torappu_ReturnConst|null {
+groupDataMap(index: number, obj?:dict__string__clz_Torappu_ReturnGroupData):dict__string__clz_Torappu_ReturnGroupData|null {
   const offset = this.bb!.__offset(this.bb_pos, 4);
-  return offset ? (obj || new clz_Torappu_ReturnConst()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_ReturnGroupData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
-onceRewards(index: number, obj?:clz_Torappu_ItemBundle):clz_Torappu_ItemBundle|null {
+groupDataMapLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 4);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+onceDataMap(index: number, obj?:dict__string__clz_Torappu_ReturnOnceRewardData):dict__string__clz_Torappu_ReturnOnceRewardData|null {
   const offset = this.bb!.__offset(this.bb_pos, 6);
-  return offset ? (obj || new clz_Torappu_ItemBundle()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_ReturnOnceRewardData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
-onceRewardsLength():number {
+onceDataMapLength():number {
   const offset = this.bb!.__offset(this.bb_pos, 6);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-intro(index: number, obj?:clz_Torappu_ReturnIntroData):clz_Torappu_ReturnIntroData|null {
+checkinDataMap(index: number, obj?:dict__string__clz_Torappu_ReturnCheckinGroupData):dict__string__clz_Torappu_ReturnCheckinGroupData|null {
   const offset = this.bb!.__offset(this.bb_pos, 8);
-  return offset ? (obj || new clz_Torappu_ReturnIntroData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_ReturnCheckinGroupData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
-introLength():number {
+checkinDataMapLength():number {
   const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-returnDailyTaskDic(index: number, obj?:dict__string__list_clz_Torappu_ReturnDailyTaskData):dict__string__list_clz_Torappu_ReturnDailyTaskData|null {
+priceDataMap(index: number, obj?:dict__string__clz_Torappu_ReturnPriceGroupData):dict__string__clz_Torappu_ReturnPriceGroupData|null {
   const offset = this.bb!.__offset(this.bb_pos, 10);
-  return offset ? (obj || new dict__string__list_clz_Torappu_ReturnDailyTaskData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_ReturnPriceGroupData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
-returnDailyTaskDicLength():number {
+priceDataMapLength():number {
   const offset = this.bb!.__offset(this.bb_pos, 10);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-returnLongTermTaskList(index: number, obj?:clz_Torappu_ReturnLongTermTaskData):clz_Torappu_ReturnLongTermTaskData|null {
+missionDataMap(index: number, obj?:dict__string__clz_Torappu_ReturnMissionGroupData):dict__string__clz_Torappu_ReturnMissionGroupData|null {
   const offset = this.bb!.__offset(this.bb_pos, 12);
-  return offset ? (obj || new clz_Torappu_ReturnLongTermTaskData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_ReturnMissionGroupData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
-returnLongTermTaskListLength():number {
+missionDataMapLength():number {
   const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-creditsList(index: number, obj?:clz_Torappu_ItemBundle):clz_Torappu_ItemBundle|null {
+checkinGpData(index: number, obj?:dict__string__clz_Torappu_ReturnCheckinGpRewardData):dict__string__clz_Torappu_ReturnCheckinGpRewardData|null {
   const offset = this.bb!.__offset(this.bb_pos, 14);
-  return offset ? (obj || new clz_Torappu_ItemBundle()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_ReturnCheckinGpRewardData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
-creditsListLength():number {
+checkinGpDataLength():number {
   const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-checkinRewardList(index: number, obj?:clz_Torappu_ReturnCheckinData):clz_Torappu_ReturnCheckinData|null {
+newsDataMap(index: number, obj?:dict__string__clz_Torappu_ReturnNewsData):dict__string__clz_Torappu_ReturnNewsData|null {
   const offset = this.bb!.__offset(this.bb_pos, 16);
-  return offset ? (obj || new clz_Torappu_ReturnCheckinData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_ReturnNewsData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
-checkinRewardListLength():number {
+newsDataMapLength():number {
   const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+giftPackagePicDataMap(index: number, obj?:dict__string__clz_Torappu_ReturnGiftPackagePicData):dict__string__clz_Torappu_ReturnGiftPackagePicData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 18);
+  return offset ? (obj || new dict__string__clz_Torappu_ReturnGiftPackagePicData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+giftPackagePicDataMapLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 18);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+openStyleData(index: number, obj?:dict__string__clz_Torappu_ReturnOpenStyleData):dict__string__clz_Torappu_ReturnOpenStyleData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 20);
+  return offset ? (obj || new dict__string__clz_Torappu_ReturnOpenStyleData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+openStyleDataLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 20);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+constData(obj?:clz_Torappu_ReturnConstData):clz_Torappu_ReturnConstData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 22);
+  return offset ? (obj || new clz_Torappu_ReturnConstData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 static startclz_Torappu_ReturnData(builder:flatbuffers.Builder) {
-  builder.startObject(7);
+  builder.startObject(10);
+}
+
+static addGroupDataMap(builder:flatbuffers.Builder, groupDataMapOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(0, groupDataMapOffset, 0);
+}
+
+static createGroupDataMapVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startGroupDataMapVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addOnceDataMap(builder:flatbuffers.Builder, onceDataMapOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(1, onceDataMapOffset, 0);
+}
+
+static createOnceDataMapVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startOnceDataMapVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addCheckinDataMap(builder:flatbuffers.Builder, checkinDataMapOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(2, checkinDataMapOffset, 0);
+}
+
+static createCheckinDataMapVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startCheckinDataMapVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addPriceDataMap(builder:flatbuffers.Builder, priceDataMapOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(3, priceDataMapOffset, 0);
+}
+
+static createPriceDataMapVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startPriceDataMapVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addMissionDataMap(builder:flatbuffers.Builder, missionDataMapOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(4, missionDataMapOffset, 0);
+}
+
+static createMissionDataMapVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startMissionDataMapVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addCheckinGpData(builder:flatbuffers.Builder, checkinGpDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(5, checkinGpDataOffset, 0);
+}
+
+static createCheckinGpDataVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startCheckinGpDataVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addNewsDataMap(builder:flatbuffers.Builder, newsDataMapOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(6, newsDataMapOffset, 0);
+}
+
+static createNewsDataMapVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startNewsDataMapVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addGiftPackagePicDataMap(builder:flatbuffers.Builder, giftPackagePicDataMapOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(7, giftPackagePicDataMapOffset, 0);
+}
+
+static createGiftPackagePicDataMapVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startGiftPackagePicDataMapVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addOpenStyleData(builder:flatbuffers.Builder, openStyleDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(8, openStyleDataOffset, 0);
+}
+
+static createOpenStyleDataVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startOpenStyleDataVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
 }
 
 static addConstData(builder:flatbuffers.Builder, constDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(0, constDataOffset, 0);
-}
-
-static addOnceRewards(builder:flatbuffers.Builder, onceRewardsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(1, onceRewardsOffset, 0);
-}
-
-static createOnceRewardsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
-  builder.startVector(4, data.length, 4);
-  for (let i = data.length - 1; i >= 0; i--) {
-    builder.addOffset(data[i]!);
-  }
-  return builder.endVector();
-}
-
-static startOnceRewardsVector(builder:flatbuffers.Builder, numElems:number) {
-  builder.startVector(4, numElems, 4);
-}
-
-static addIntro(builder:flatbuffers.Builder, introOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(2, introOffset, 0);
-}
-
-static createIntroVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
-  builder.startVector(4, data.length, 4);
-  for (let i = data.length - 1; i >= 0; i--) {
-    builder.addOffset(data[i]!);
-  }
-  return builder.endVector();
-}
-
-static startIntroVector(builder:flatbuffers.Builder, numElems:number) {
-  builder.startVector(4, numElems, 4);
-}
-
-static addReturnDailyTaskDic(builder:flatbuffers.Builder, returnDailyTaskDicOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, returnDailyTaskDicOffset, 0);
-}
-
-static createReturnDailyTaskDicVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
-  builder.startVector(4, data.length, 4);
-  for (let i = data.length - 1; i >= 0; i--) {
-    builder.addOffset(data[i]!);
-  }
-  return builder.endVector();
-}
-
-static startReturnDailyTaskDicVector(builder:flatbuffers.Builder, numElems:number) {
-  builder.startVector(4, numElems, 4);
-}
-
-static addReturnLongTermTaskList(builder:flatbuffers.Builder, returnLongTermTaskListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(4, returnLongTermTaskListOffset, 0);
-}
-
-static createReturnLongTermTaskListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
-  builder.startVector(4, data.length, 4);
-  for (let i = data.length - 1; i >= 0; i--) {
-    builder.addOffset(data[i]!);
-  }
-  return builder.endVector();
-}
-
-static startReturnLongTermTaskListVector(builder:flatbuffers.Builder, numElems:number) {
-  builder.startVector(4, numElems, 4);
-}
-
-static addCreditsList(builder:flatbuffers.Builder, creditsListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, creditsListOffset, 0);
-}
-
-static createCreditsListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
-  builder.startVector(4, data.length, 4);
-  for (let i = data.length - 1; i >= 0; i--) {
-    builder.addOffset(data[i]!);
-  }
-  return builder.endVector();
-}
-
-static startCreditsListVector(builder:flatbuffers.Builder, numElems:number) {
-  builder.startVector(4, numElems, 4);
-}
-
-static addCheckinRewardList(builder:flatbuffers.Builder, checkinRewardListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(6, checkinRewardListOffset, 0);
-}
-
-static createCheckinRewardListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
-  builder.startVector(4, data.length, 4);
-  for (let i = data.length - 1; i >= 0; i--) {
-    builder.addOffset(data[i]!);
-  }
-  return builder.endVector();
-}
-
-static startCheckinRewardListVector(builder:flatbuffers.Builder, numElems:number) {
-  builder.startVector(4, numElems, 4);
+  builder.addFieldOffset(9, constDataOffset, 0);
 }
 
 static endclz_Torappu_ReturnData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -204,71 +286,76 @@ static endclz_Torappu_ReturnData(builder:flatbuffers.Builder):flatbuffers.Offset
   return offset;
 }
 
-static createclz_Torappu_ReturnData(builder:flatbuffers.Builder, constDataOffset:flatbuffers.Offset, onceRewardsOffset:flatbuffers.Offset, introOffset:flatbuffers.Offset, returnDailyTaskDicOffset:flatbuffers.Offset, returnLongTermTaskListOffset:flatbuffers.Offset, creditsListOffset:flatbuffers.Offset, checkinRewardListOffset:flatbuffers.Offset):flatbuffers.Offset {
-  clz_Torappu_ReturnData.startclz_Torappu_ReturnData(builder);
-  clz_Torappu_ReturnData.addConstData(builder, constDataOffset);
-  clz_Torappu_ReturnData.addOnceRewards(builder, onceRewardsOffset);
-  clz_Torappu_ReturnData.addIntro(builder, introOffset);
-  clz_Torappu_ReturnData.addReturnDailyTaskDic(builder, returnDailyTaskDicOffset);
-  clz_Torappu_ReturnData.addReturnLongTermTaskList(builder, returnLongTermTaskListOffset);
-  clz_Torappu_ReturnData.addCreditsList(builder, creditsListOffset);
-  clz_Torappu_ReturnData.addCheckinRewardList(builder, checkinRewardListOffset);
-  return clz_Torappu_ReturnData.endclz_Torappu_ReturnData(builder);
-}
 
 unpack(): clz_Torappu_ReturnDataT {
   return new clz_Torappu_ReturnDataT(
-    (this.constData() !== null ? this.constData()!.unpack() : null),
-    this.bb!.createObjList<clz_Torappu_ItemBundle, clz_Torappu_ItemBundleT>(this.onceRewards.bind(this), this.onceRewardsLength()),
-    this.bb!.createObjList<clz_Torappu_ReturnIntroData, clz_Torappu_ReturnIntroDataT>(this.intro.bind(this), this.introLength()),
-    this.bb!.createObjList<dict__string__list_clz_Torappu_ReturnDailyTaskData, dict__string__list_clz_Torappu_ReturnDailyTaskDataT>(this.returnDailyTaskDic.bind(this), this.returnDailyTaskDicLength()),
-    this.bb!.createObjList<clz_Torappu_ReturnLongTermTaskData, clz_Torappu_ReturnLongTermTaskDataT>(this.returnLongTermTaskList.bind(this), this.returnLongTermTaskListLength()),
-    this.bb!.createObjList<clz_Torappu_ItemBundle, clz_Torappu_ItemBundleT>(this.creditsList.bind(this), this.creditsListLength()),
-    this.bb!.createObjList<clz_Torappu_ReturnCheckinData, clz_Torappu_ReturnCheckinDataT>(this.checkinRewardList.bind(this), this.checkinRewardListLength())
+    this.bb!.createObjList<dict__string__clz_Torappu_ReturnGroupData, dict__string__clz_Torappu_ReturnGroupDataT>(this.groupDataMap.bind(this), this.groupDataMapLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_ReturnOnceRewardData, dict__string__clz_Torappu_ReturnOnceRewardDataT>(this.onceDataMap.bind(this), this.onceDataMapLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_ReturnCheckinGroupData, dict__string__clz_Torappu_ReturnCheckinGroupDataT>(this.checkinDataMap.bind(this), this.checkinDataMapLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_ReturnPriceGroupData, dict__string__clz_Torappu_ReturnPriceGroupDataT>(this.priceDataMap.bind(this), this.priceDataMapLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_ReturnMissionGroupData, dict__string__clz_Torappu_ReturnMissionGroupDataT>(this.missionDataMap.bind(this), this.missionDataMapLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_ReturnCheckinGpRewardData, dict__string__clz_Torappu_ReturnCheckinGpRewardDataT>(this.checkinGpData.bind(this), this.checkinGpDataLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_ReturnNewsData, dict__string__clz_Torappu_ReturnNewsDataT>(this.newsDataMap.bind(this), this.newsDataMapLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_ReturnGiftPackagePicData, dict__string__clz_Torappu_ReturnGiftPackagePicDataT>(this.giftPackagePicDataMap.bind(this), this.giftPackagePicDataMapLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_ReturnOpenStyleData, dict__string__clz_Torappu_ReturnOpenStyleDataT>(this.openStyleData.bind(this), this.openStyleDataLength()),
+    (this.constData() !== null ? this.constData()!.unpack() : null)
   );
 }
 
 
 unpackTo(_o: clz_Torappu_ReturnDataT): void {
+  _o.groupDataMap = this.bb!.createObjList<dict__string__clz_Torappu_ReturnGroupData, dict__string__clz_Torappu_ReturnGroupDataT>(this.groupDataMap.bind(this), this.groupDataMapLength());
+  _o.onceDataMap = this.bb!.createObjList<dict__string__clz_Torappu_ReturnOnceRewardData, dict__string__clz_Torappu_ReturnOnceRewardDataT>(this.onceDataMap.bind(this), this.onceDataMapLength());
+  _o.checkinDataMap = this.bb!.createObjList<dict__string__clz_Torappu_ReturnCheckinGroupData, dict__string__clz_Torappu_ReturnCheckinGroupDataT>(this.checkinDataMap.bind(this), this.checkinDataMapLength());
+  _o.priceDataMap = this.bb!.createObjList<dict__string__clz_Torappu_ReturnPriceGroupData, dict__string__clz_Torappu_ReturnPriceGroupDataT>(this.priceDataMap.bind(this), this.priceDataMapLength());
+  _o.missionDataMap = this.bb!.createObjList<dict__string__clz_Torappu_ReturnMissionGroupData, dict__string__clz_Torappu_ReturnMissionGroupDataT>(this.missionDataMap.bind(this), this.missionDataMapLength());
+  _o.checkinGpData = this.bb!.createObjList<dict__string__clz_Torappu_ReturnCheckinGpRewardData, dict__string__clz_Torappu_ReturnCheckinGpRewardDataT>(this.checkinGpData.bind(this), this.checkinGpDataLength());
+  _o.newsDataMap = this.bb!.createObjList<dict__string__clz_Torappu_ReturnNewsData, dict__string__clz_Torappu_ReturnNewsDataT>(this.newsDataMap.bind(this), this.newsDataMapLength());
+  _o.giftPackagePicDataMap = this.bb!.createObjList<dict__string__clz_Torappu_ReturnGiftPackagePicData, dict__string__clz_Torappu_ReturnGiftPackagePicDataT>(this.giftPackagePicDataMap.bind(this), this.giftPackagePicDataMapLength());
+  _o.openStyleData = this.bb!.createObjList<dict__string__clz_Torappu_ReturnOpenStyleData, dict__string__clz_Torappu_ReturnOpenStyleDataT>(this.openStyleData.bind(this), this.openStyleDataLength());
   _o.constData = (this.constData() !== null ? this.constData()!.unpack() : null);
-  _o.onceRewards = this.bb!.createObjList<clz_Torappu_ItemBundle, clz_Torappu_ItemBundleT>(this.onceRewards.bind(this), this.onceRewardsLength());
-  _o.intro = this.bb!.createObjList<clz_Torappu_ReturnIntroData, clz_Torappu_ReturnIntroDataT>(this.intro.bind(this), this.introLength());
-  _o.returnDailyTaskDic = this.bb!.createObjList<dict__string__list_clz_Torappu_ReturnDailyTaskData, dict__string__list_clz_Torappu_ReturnDailyTaskDataT>(this.returnDailyTaskDic.bind(this), this.returnDailyTaskDicLength());
-  _o.returnLongTermTaskList = this.bb!.createObjList<clz_Torappu_ReturnLongTermTaskData, clz_Torappu_ReturnLongTermTaskDataT>(this.returnLongTermTaskList.bind(this), this.returnLongTermTaskListLength());
-  _o.creditsList = this.bb!.createObjList<clz_Torappu_ItemBundle, clz_Torappu_ItemBundleT>(this.creditsList.bind(this), this.creditsListLength());
-  _o.checkinRewardList = this.bb!.createObjList<clz_Torappu_ReturnCheckinData, clz_Torappu_ReturnCheckinDataT>(this.checkinRewardList.bind(this), this.checkinRewardListLength());
 }
 }
 
 export class clz_Torappu_ReturnDataT implements flatbuffers.IGeneratedObject {
 constructor(
-  public constData: clz_Torappu_ReturnConstT|null = null,
-  public onceRewards: (clz_Torappu_ItemBundleT)[] = [],
-  public intro: (clz_Torappu_ReturnIntroDataT)[] = [],
-  public returnDailyTaskDic: (dict__string__list_clz_Torappu_ReturnDailyTaskDataT)[] = [],
-  public returnLongTermTaskList: (clz_Torappu_ReturnLongTermTaskDataT)[] = [],
-  public creditsList: (clz_Torappu_ItemBundleT)[] = [],
-  public checkinRewardList: (clz_Torappu_ReturnCheckinDataT)[] = []
+  public groupDataMap: (dict__string__clz_Torappu_ReturnGroupDataT)[] = [],
+  public onceDataMap: (dict__string__clz_Torappu_ReturnOnceRewardDataT)[] = [],
+  public checkinDataMap: (dict__string__clz_Torappu_ReturnCheckinGroupDataT)[] = [],
+  public priceDataMap: (dict__string__clz_Torappu_ReturnPriceGroupDataT)[] = [],
+  public missionDataMap: (dict__string__clz_Torappu_ReturnMissionGroupDataT)[] = [],
+  public checkinGpData: (dict__string__clz_Torappu_ReturnCheckinGpRewardDataT)[] = [],
+  public newsDataMap: (dict__string__clz_Torappu_ReturnNewsDataT)[] = [],
+  public giftPackagePicDataMap: (dict__string__clz_Torappu_ReturnGiftPackagePicDataT)[] = [],
+  public openStyleData: (dict__string__clz_Torappu_ReturnOpenStyleDataT)[] = [],
+  public constData: clz_Torappu_ReturnConstDataT|null = null
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
+  const groupDataMap = clz_Torappu_ReturnData.createGroupDataMapVector(builder, builder.createObjectOffsetList(this.groupDataMap));
+  const onceDataMap = clz_Torappu_ReturnData.createOnceDataMapVector(builder, builder.createObjectOffsetList(this.onceDataMap));
+  const checkinDataMap = clz_Torappu_ReturnData.createCheckinDataMapVector(builder, builder.createObjectOffsetList(this.checkinDataMap));
+  const priceDataMap = clz_Torappu_ReturnData.createPriceDataMapVector(builder, builder.createObjectOffsetList(this.priceDataMap));
+  const missionDataMap = clz_Torappu_ReturnData.createMissionDataMapVector(builder, builder.createObjectOffsetList(this.missionDataMap));
+  const checkinGpData = clz_Torappu_ReturnData.createCheckinGpDataVector(builder, builder.createObjectOffsetList(this.checkinGpData));
+  const newsDataMap = clz_Torappu_ReturnData.createNewsDataMapVector(builder, builder.createObjectOffsetList(this.newsDataMap));
+  const giftPackagePicDataMap = clz_Torappu_ReturnData.createGiftPackagePicDataMapVector(builder, builder.createObjectOffsetList(this.giftPackagePicDataMap));
+  const openStyleData = clz_Torappu_ReturnData.createOpenStyleDataVector(builder, builder.createObjectOffsetList(this.openStyleData));
   const constData = (this.constData !== null ? this.constData!.pack(builder) : 0);
-  const onceRewards = clz_Torappu_ReturnData.createOnceRewardsVector(builder, builder.createObjectOffsetList(this.onceRewards));
-  const intro = clz_Torappu_ReturnData.createIntroVector(builder, builder.createObjectOffsetList(this.intro));
-  const returnDailyTaskDic = clz_Torappu_ReturnData.createReturnDailyTaskDicVector(builder, builder.createObjectOffsetList(this.returnDailyTaskDic));
-  const returnLongTermTaskList = clz_Torappu_ReturnData.createReturnLongTermTaskListVector(builder, builder.createObjectOffsetList(this.returnLongTermTaskList));
-  const creditsList = clz_Torappu_ReturnData.createCreditsListVector(builder, builder.createObjectOffsetList(this.creditsList));
-  const checkinRewardList = clz_Torappu_ReturnData.createCheckinRewardListVector(builder, builder.createObjectOffsetList(this.checkinRewardList));
 
-  return clz_Torappu_ReturnData.createclz_Torappu_ReturnData(builder,
-    constData,
-    onceRewards,
-    intro,
-    returnDailyTaskDic,
-    returnLongTermTaskList,
-    creditsList,
-    checkinRewardList
-  );
+  clz_Torappu_ReturnData.startclz_Torappu_ReturnData(builder);
+  clz_Torappu_ReturnData.addGroupDataMap(builder, groupDataMap);
+  clz_Torappu_ReturnData.addOnceDataMap(builder, onceDataMap);
+  clz_Torappu_ReturnData.addCheckinDataMap(builder, checkinDataMap);
+  clz_Torappu_ReturnData.addPriceDataMap(builder, priceDataMap);
+  clz_Torappu_ReturnData.addMissionDataMap(builder, missionDataMap);
+  clz_Torappu_ReturnData.addCheckinGpData(builder, checkinGpData);
+  clz_Torappu_ReturnData.addNewsDataMap(builder, newsDataMap);
+  clz_Torappu_ReturnData.addGiftPackagePicDataMap(builder, giftPackagePicDataMap);
+  clz_Torappu_ReturnData.addOpenStyleData(builder, openStyleData);
+  clz_Torappu_ReturnData.addConstData(builder, constData);
+
+  return clz_Torappu_ReturnData.endclz_Torappu_ReturnData(builder);
 }
 }

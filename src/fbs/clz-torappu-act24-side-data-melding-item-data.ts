@@ -32,39 +32,50 @@ meldingId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-sortId():number {
+bgId():string|null
+bgId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+bgId(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 6);
-  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-meldingPrice():number {
+sortId():number {
   const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-rarity():enum__Torappu_Act24SideData_MeldingItemRarityType {
+meldingPrice():number {
   const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+rarity():enum__Torappu_Act24SideData_MeldingItemRarityType {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_Act24SideData_MeldingItemRarityType.NONE;
 }
 
 static startclz_Torappu_Act24SideData_MeldingItemData(builder:flatbuffers.Builder) {
-  builder.startObject(4);
+  builder.startObject(5);
 }
 
 static addMeldingId(builder:flatbuffers.Builder, meldingIdOffset:flatbuffers.Offset) {
   builder.addFieldOffset(0, meldingIdOffset, 0);
 }
 
+static addBgId(builder:flatbuffers.Builder, bgIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(1, bgIdOffset, 0);
+}
+
 static addSortId(builder:flatbuffers.Builder, sortId:number) {
-  builder.addFieldInt32(1, sortId, 0);
+  builder.addFieldInt32(2, sortId, 0);
 }
 
 static addMeldingPrice(builder:flatbuffers.Builder, meldingPrice:number) {
-  builder.addFieldInt32(2, meldingPrice, 0);
+  builder.addFieldInt32(3, meldingPrice, 0);
 }
 
 static addRarity(builder:flatbuffers.Builder, rarity:enum__Torappu_Act24SideData_MeldingItemRarityType) {
-  builder.addFieldInt32(3, rarity, enum__Torappu_Act24SideData_MeldingItemRarityType.NONE);
+  builder.addFieldInt32(4, rarity, enum__Torappu_Act24SideData_MeldingItemRarityType.NONE);
 }
 
 static endclz_Torappu_Act24SideData_MeldingItemData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -72,9 +83,10 @@ static endclz_Torappu_Act24SideData_MeldingItemData(builder:flatbuffers.Builder)
   return offset;
 }
 
-static createclz_Torappu_Act24SideData_MeldingItemData(builder:flatbuffers.Builder, meldingIdOffset:flatbuffers.Offset, sortId:number, meldingPrice:number, rarity:enum__Torappu_Act24SideData_MeldingItemRarityType):flatbuffers.Offset {
+static createclz_Torappu_Act24SideData_MeldingItemData(builder:flatbuffers.Builder, meldingIdOffset:flatbuffers.Offset, bgIdOffset:flatbuffers.Offset, sortId:number, meldingPrice:number, rarity:enum__Torappu_Act24SideData_MeldingItemRarityType):flatbuffers.Offset {
   clz_Torappu_Act24SideData_MeldingItemData.startclz_Torappu_Act24SideData_MeldingItemData(builder);
   clz_Torappu_Act24SideData_MeldingItemData.addMeldingId(builder, meldingIdOffset);
+  clz_Torappu_Act24SideData_MeldingItemData.addBgId(builder, bgIdOffset);
   clz_Torappu_Act24SideData_MeldingItemData.addSortId(builder, sortId);
   clz_Torappu_Act24SideData_MeldingItemData.addMeldingPrice(builder, meldingPrice);
   clz_Torappu_Act24SideData_MeldingItemData.addRarity(builder, rarity);
@@ -84,6 +96,7 @@ static createclz_Torappu_Act24SideData_MeldingItemData(builder:flatbuffers.Build
 unpack(): clz_Torappu_Act24SideData_MeldingItemDataT {
   return new clz_Torappu_Act24SideData_MeldingItemDataT(
     this.meldingId(),
+    this.bgId(),
     this.sortId(),
     this.meldingPrice(),
     this.rarity()
@@ -93,6 +106,7 @@ unpack(): clz_Torappu_Act24SideData_MeldingItemDataT {
 
 unpackTo(_o: clz_Torappu_Act24SideData_MeldingItemDataT): void {
   _o.meldingId = this.meldingId();
+  _o.bgId = this.bgId();
   _o.sortId = this.sortId();
   _o.meldingPrice = this.meldingPrice();
   _o.rarity = this.rarity();
@@ -102,6 +116,7 @@ unpackTo(_o: clz_Torappu_Act24SideData_MeldingItemDataT): void {
 export class clz_Torappu_Act24SideData_MeldingItemDataT implements flatbuffers.IGeneratedObject {
 constructor(
   public meldingId: string|Uint8Array|null = null,
+  public bgId: string|Uint8Array|null = null,
   public sortId: number = 0,
   public meldingPrice: number = 0,
   public rarity: enum__Torappu_Act24SideData_MeldingItemRarityType = enum__Torappu_Act24SideData_MeldingItemRarityType.NONE
@@ -110,9 +125,11 @@ constructor(
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const meldingId = (this.meldingId !== null ? builder.createString(this.meldingId!) : 0);
+  const bgId = (this.bgId !== null ? builder.createString(this.bgId!) : 0);
 
   return clz_Torappu_Act24SideData_MeldingItemData.createclz_Torappu_Act24SideData_MeldingItemData(builder,
     meldingId,
+    bgId,
     this.sortId,
     this.meldingPrice,
     this.rarity
