@@ -1,5 +1,6 @@
 export * from './unpack/activity_table';
 export * from './unpack/audio_data';
+export * from './unpack/bake_muzzle_data';
 export * from './unpack/battle_equip_table';
 export * from './unpack/buff_table';
 export * from './unpack/building_data';
