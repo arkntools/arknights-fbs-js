@@ -7,6 +7,7 @@ export { clz_Torappu_Blackboard_DataPair, clz_Torappu_Blackboard_DataPairT } fro
 export { clz_Torappu_CharacterData_MasterInfo, clz_Torappu_CharacterData_MasterInfoT } from './clz-torappu-character-data-master-info.js';
 export { clz_Torappu_CharacterData_UniqueEquipPair, clz_Torappu_CharacterData_UniqueEquipPairT } from './clz-torappu-character-data-unique-equip-pair.js';
 export { clz_Torappu_CharacterInst_Metadata, clz_Torappu_CharacterInst_MetadataT } from './clz-torappu-character-inst-metadata.js';
+export { clz_Torappu_CharacterInst_TalentInst, clz_Torappu_CharacterInst_TalentInstT } from './clz-torappu-character-inst-talent-inst.js';
 export { clz_Torappu_EnemyDatabase_AttributesData, clz_Torappu_EnemyDatabase_AttributesDataT } from './clz-torappu-enemy-database-attributes-data.js';
 export { clz_Torappu_EnemyDatabase_EnemyData, clz_Torappu_EnemyDatabase_EnemyDataT } from './clz-torappu-enemy-database-enemy-data.js';
 export { clz_Torappu_GridPosition, clz_Torappu_GridPositionT } from './clz-torappu-grid-position.js';

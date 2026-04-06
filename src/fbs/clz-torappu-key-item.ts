@@ -4,6 +4,7 @@
 
 import * as flatbuffers from 'flatbuffers';
 
+import { enum__Torappu_KeyCodeType } from './enum--torappu-key-code-type.js';
 
 
 export class clz_Torappu_KeyItem implements flatbuffers.IUnpackableObject<clz_Torappu_KeyItemT> {
@@ -43,28 +44,33 @@ useIcon():boolean {
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-keyCodes(index: number):number|null {
+keyCodeType():enum__Torappu_KeyCodeType {
   const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_KeyCodeType.KEYBOARD;
+}
+
+keyCodes(index: number):number|null {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? this.bb!.readInt32(this.bb!.__vector(this.bb_pos + offset) + index * 4) : 0;
 }
 
 keyCodesLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 10);
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 keyCodesArray():Int32Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 10);
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? new Int32Array(this.bb!.bytes().buffer, this.bb!.bytes().byteOffset + this.bb!.__vector(this.bb_pos + offset), this.bb!.__vector_len(this.bb_pos + offset)) : null;
 }
 
 canBeSetted():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
+  const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 static startclz_Torappu_KeyItem(builder:flatbuffers.Builder) {
-  builder.startObject(5);
+  builder.startObject(6);
 }
 
 static addKeyId(builder:flatbuffers.Builder, keyIdOffset:flatbuffers.Offset) {
@@ -79,8 +85,12 @@ static addUseIcon(builder:flatbuffers.Builder, useIcon:boolean) {
   builder.addFieldInt8(2, +useIcon, +false);
 }
 
+static addKeyCodeType(builder:flatbuffers.Builder, keyCodeType:enum__Torappu_KeyCodeType) {
+  builder.addFieldInt32(3, keyCodeType, enum__Torappu_KeyCodeType.KEYBOARD);
+}
+
 static addKeyCodes(builder:flatbuffers.Builder, keyCodesOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, keyCodesOffset, 0);
+  builder.addFieldOffset(4, keyCodesOffset, 0);
 }
 
 static createKeyCodesVector(builder:flatbuffers.Builder, data:number[]|Int32Array):flatbuffers.Offset;
@@ -101,7 +111,7 @@ static startKeyCodesVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addCanBeSetted(builder:flatbuffers.Builder, canBeSetted:boolean) {
-  builder.addFieldInt8(4, +canBeSetted, +false);
+  builder.addFieldInt8(5, +canBeSetted, +false);
 }
 
 static endclz_Torappu_KeyItem(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -109,11 +119,12 @@ static endclz_Torappu_KeyItem(builder:flatbuffers.Builder):flatbuffers.Offset {
   return offset;
 }
 
-static createclz_Torappu_KeyItem(builder:flatbuffers.Builder, keyIdOffset:flatbuffers.Offset, keyNameOffset:flatbuffers.Offset, useIcon:boolean, keyCodesOffset:flatbuffers.Offset, canBeSetted:boolean):flatbuffers.Offset {
+static createclz_Torappu_KeyItem(builder:flatbuffers.Builder, keyIdOffset:flatbuffers.Offset, keyNameOffset:flatbuffers.Offset, useIcon:boolean, keyCodeType:enum__Torappu_KeyCodeType, keyCodesOffset:flatbuffers.Offset, canBeSetted:boolean):flatbuffers.Offset {
   clz_Torappu_KeyItem.startclz_Torappu_KeyItem(builder);
   clz_Torappu_KeyItem.addKeyId(builder, keyIdOffset);
   clz_Torappu_KeyItem.addKeyName(builder, keyNameOffset);
   clz_Torappu_KeyItem.addUseIcon(builder, useIcon);
+  clz_Torappu_KeyItem.addKeyCodeType(builder, keyCodeType);
   clz_Torappu_KeyItem.addKeyCodes(builder, keyCodesOffset);
   clz_Torappu_KeyItem.addCanBeSetted(builder, canBeSetted);
   return clz_Torappu_KeyItem.endclz_Torappu_KeyItem(builder);
@@ -124,6 +135,7 @@ unpack(): clz_Torappu_KeyItemT {
     this.keyId(),
     this.keyName(),
     this.useIcon(),
+    this.keyCodeType(),
     this.bb!.createScalarList<number>(this.keyCodes.bind(this), this.keyCodesLength()),
     this.canBeSetted()
   );
@@ -134,6 +146,7 @@ unpackTo(_o: clz_Torappu_KeyItemT): void {
   _o.keyId = this.keyId();
   _o.keyName = this.keyName();
   _o.useIcon = this.useIcon();
+  _o.keyCodeType = this.keyCodeType();
   _o.keyCodes = this.bb!.createScalarList<number>(this.keyCodes.bind(this), this.keyCodesLength());
   _o.canBeSetted = this.canBeSetted();
 }
@@ -144,6 +157,7 @@ constructor(
   public keyId: string|Uint8Array|null = null,
   public keyName: string|Uint8Array|null = null,
   public useIcon: boolean = false,
+  public keyCodeType: enum__Torappu_KeyCodeType = enum__Torappu_KeyCodeType.KEYBOARD,
   public keyCodes: (number)[] = [],
   public canBeSetted: boolean = false
 ){}
@@ -158,6 +172,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     keyId,
     keyName,
     this.useIcon,
+    this.keyCodeType,
     keyCodes,
     this.canBeSetted
   );

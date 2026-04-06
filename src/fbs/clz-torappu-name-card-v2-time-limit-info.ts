@@ -24,37 +24,48 @@ static getSizePrefixedRootAsclz_Torappu_NameCardV2TimeLimitInfo(bb:flatbuffers.B
   return (obj || new clz_Torappu_NameCardV2TimeLimitInfo()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-id():string|null
-id(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-id(optionalEncoding?:any):string|Uint8Array|null {
+limitId():string|null
+limitId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+limitId(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 4);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-availStartTime():bigint {
+id():string|null
+id(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+id(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 6);
-  return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-availEndTime():bigint {
+availStartTime():bigint {
   const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
 }
 
+availEndTime():bigint {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
+}
+
 static startclz_Torappu_NameCardV2TimeLimitInfo(builder:flatbuffers.Builder) {
-  builder.startObject(3);
+  builder.startObject(4);
+}
+
+static addLimitId(builder:flatbuffers.Builder, limitIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(0, limitIdOffset, 0);
 }
 
 static addId(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(0, idOffset, 0);
+  builder.addFieldOffset(1, idOffset, 0);
 }
 
 static addAvailStartTime(builder:flatbuffers.Builder, availStartTime:bigint) {
-  builder.addFieldInt64(1, availStartTime, BigInt('0'));
+  builder.addFieldInt64(2, availStartTime, BigInt('0'));
 }
 
 static addAvailEndTime(builder:flatbuffers.Builder, availEndTime:bigint) {
-  builder.addFieldInt64(2, availEndTime, BigInt('0'));
+  builder.addFieldInt64(3, availEndTime, BigInt('0'));
 }
 
 static endclz_Torappu_NameCardV2TimeLimitInfo(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -62,8 +73,9 @@ static endclz_Torappu_NameCardV2TimeLimitInfo(builder:flatbuffers.Builder):flatb
   return offset;
 }
 
-static createclz_Torappu_NameCardV2TimeLimitInfo(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, availStartTime:bigint, availEndTime:bigint):flatbuffers.Offset {
+static createclz_Torappu_NameCardV2TimeLimitInfo(builder:flatbuffers.Builder, limitIdOffset:flatbuffers.Offset, idOffset:flatbuffers.Offset, availStartTime:bigint, availEndTime:bigint):flatbuffers.Offset {
   clz_Torappu_NameCardV2TimeLimitInfo.startclz_Torappu_NameCardV2TimeLimitInfo(builder);
+  clz_Torappu_NameCardV2TimeLimitInfo.addLimitId(builder, limitIdOffset);
   clz_Torappu_NameCardV2TimeLimitInfo.addId(builder, idOffset);
   clz_Torappu_NameCardV2TimeLimitInfo.addAvailStartTime(builder, availStartTime);
   clz_Torappu_NameCardV2TimeLimitInfo.addAvailEndTime(builder, availEndTime);
@@ -72,6 +84,7 @@ static createclz_Torappu_NameCardV2TimeLimitInfo(builder:flatbuffers.Builder, id
 
 unpack(): clz_Torappu_NameCardV2TimeLimitInfoT {
   return new clz_Torappu_NameCardV2TimeLimitInfoT(
+    this.limitId(),
     this.id(),
     this.availStartTime(),
     this.availEndTime()
@@ -80,6 +93,7 @@ unpack(): clz_Torappu_NameCardV2TimeLimitInfoT {
 
 
 unpackTo(_o: clz_Torappu_NameCardV2TimeLimitInfoT): void {
+  _o.limitId = this.limitId();
   _o.id = this.id();
   _o.availStartTime = this.availStartTime();
   _o.availEndTime = this.availEndTime();
@@ -88,6 +102,7 @@ unpackTo(_o: clz_Torappu_NameCardV2TimeLimitInfoT): void {
 
 export class clz_Torappu_NameCardV2TimeLimitInfoT implements flatbuffers.IGeneratedObject {
 constructor(
+  public limitId: string|Uint8Array|null = null,
   public id: string|Uint8Array|null = null,
   public availStartTime: bigint = BigInt('0'),
   public availEndTime: bigint = BigInt('0')
@@ -95,9 +110,11 @@ constructor(
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
+  const limitId = (this.limitId !== null ? builder.createString(this.limitId!) : 0);
   const id = (this.id !== null ? builder.createString(this.id!) : 0);
 
   return clz_Torappu_NameCardV2TimeLimitInfo.createclz_Torappu_NameCardV2TimeLimitInfo(builder,
+    limitId,
     id,
     this.availStartTime,
     this.availEndTime

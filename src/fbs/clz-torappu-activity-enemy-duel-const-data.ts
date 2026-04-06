@@ -194,240 +194,247 @@ defaultEmoticonPicId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-modeOperationRoundNumber():number {
+defaultEnemyTag():string|null
+defaultEnemyTag(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+defaultEnemyTag(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 66);
-  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-modeOperationInitialScore():number {
+modeOperationRoundNumber():number {
   const offset = this.bb!.__offset(this.bb_pos, 68);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeOperationMaxScore():number {
+modeOperationInitialScore():number {
   const offset = this.bb!.__offset(this.bb_pos, 70);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeOperationSelectTime():number {
+modeOperationMaxScore():number {
   const offset = this.bb!.__offset(this.bb_pos, 72);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeOperationSelectTimeLast():number {
+modeOperationSelectTime():number {
   const offset = this.bb!.__offset(this.bb_pos, 74);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeOperationSkipParam():number {
+modeOperationSelectTimeLast():number {
   const offset = this.bb!.__offset(this.bb_pos, 76);
-  return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeOperationBetParam():number {
+modeOperationSkipParam():number {
   const offset = this.bb!.__offset(this.bb_pos, 78);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
-modeOperationAllinParam():number {
+modeOperationBetParam():number {
   const offset = this.bb!.__offset(this.bb_pos, 80);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
-modeOperationTopRank():number {
+modeOperationAllinParam():number {
   const offset = this.bb!.__offset(this.bb_pos, 82);
-  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+  return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
-modeOperationRankTime():number {
+modeOperationTopRank():number {
   const offset = this.bb!.__offset(this.bb_pos, 84);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeSoloOperationRankTime():number {
+modeOperationRankTime():number {
   const offset = this.bb!.__offset(this.bb_pos, 86);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeOperationRewardMultiplier():number {
+modeSoloOperationRankTime():number {
   const offset = this.bb!.__offset(this.bb_pos, 88);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeOperationRewardMultiplierAllin():number {
+modeOperationRewardMultiplier():number {
   const offset = this.bb!.__offset(this.bb_pos, 90);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeOperationHotRoundNumber():number {
+modeOperationRewardMultiplierAllin():number {
   const offset = this.bb!.__offset(this.bb_pos, 92);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeSoloOperationSelectTime():number {
+modeOperationHotRoundNumber():number {
   const offset = this.bb!.__offset(this.bb_pos, 94);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeStandRoundNumber():number {
+modeSoloOperationSelectTime():number {
   const offset = this.bb!.__offset(this.bb_pos, 96);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeStandShieldTurn():number {
+modeStandRoundNumber():number {
   const offset = this.bb!.__offset(this.bb_pos, 98);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeStandSelectTime():number {
+modeStandShieldTurn():number {
   const offset = this.bb!.__offset(this.bb_pos, 100);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeStandSelectTimeLast():number {
+modeStandSelectTime():number {
   const offset = this.bb!.__offset(this.bb_pos, 102);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeStandAllinParam():number {
+modeStandSelectTimeLast():number {
   const offset = this.bb!.__offset(this.bb_pos, 104);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+modeStandAllinParam():number {
+  const offset = this.bb!.__offset(this.bb_pos, 106);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 modeStandTopRank():number {
-  const offset = this.bb!.__offset(this.bb_pos, 106);
-  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
-}
-
-modeStandRankTime():number {
   const offset = this.bb!.__offset(this.bb_pos, 108);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-modeStandHotRoundNumber():number {
+modeStandRankTime():number {
   const offset = this.bb!.__offset(this.bb_pos, 110);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+modeStandHotRoundNumber():number {
+  const offset = this.bb!.__offset(this.bb_pos, 112);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 milestoneName():string|null
 milestoneName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 milestoneName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 112);
+  const offset = this.bb!.__offset(this.bb_pos, 114);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 milestoneItemId():string|null
 milestoneItemId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 milestoneItemId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 114);
+  const offset = this.bb!.__offset(this.bb_pos, 116);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 milestoneItemName():string|null
 milestoneItemName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 milestoneItemName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 116);
+  const offset = this.bb!.__offset(this.bb_pos, 118);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 milestoneItemText():string|null
 milestoneItemText(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 milestoneItemText(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 118);
+  const offset = this.bb!.__offset(this.bb_pos, 120);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 milestoneTrackId():string|null
 milestoneTrackId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 milestoneTrackId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 120);
+  const offset = this.bb!.__offset(this.bb_pos, 122);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 entryVideoId():string|null
 entryVideoId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 entryVideoId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 122);
+  const offset = this.bb!.__offset(this.bb_pos, 124);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 entryTabText():string|null
 entryTabText(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 entryTabText(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 124);
+  const offset = this.bb!.__offset(this.bb_pos, 126);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 matchTabText():string|null
 matchTabText(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 matchTabText(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 126);
+  const offset = this.bb!.__offset(this.bb_pos, 128);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 modeOperationId():string|null
 modeOperationId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 modeOperationId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 128);
+  const offset = this.bb!.__offset(this.bb_pos, 130);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 modeStandId():string|null
 modeStandId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 modeStandId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 130);
+  const offset = this.bb!.__offset(this.bb_pos, 132);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 multiPreposedModeId():string|null
 multiPreposedModeId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 multiPreposedModeId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 132);
+  const offset = this.bb!.__offset(this.bb_pos, 134);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 entryMusicName():string|null
 entryMusicName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 entryMusicName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 134);
+  const offset = this.bb!.__offset(this.bb_pos, 136);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 milestonePlanName():string|null
 milestonePlanName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 milestonePlanName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 136);
+  const offset = this.bb!.__offset(this.bb_pos, 138);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 modeCondLockText():string|null
 modeCondLockText(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 modeCondLockText(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 138);
+  const offset = this.bb!.__offset(this.bb_pos, 140);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 modeTimeLockText():string|null
 modeTimeLockText(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 modeTimeLockText(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 140);
+  const offset = this.bb!.__offset(this.bb_pos, 142);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 titlePicRotateTime():number {
-  const offset = this.bb!.__offset(this.bb_pos, 142);
+  const offset = this.bb!.__offset(this.bb_pos, 144);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 titlePicId():string|null
 titlePicId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 titlePicId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 144);
+  const offset = this.bb!.__offset(this.bb_pos, 146);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 static startclz_Torappu_ActivityEnemyDuelConstData(builder:flatbuffers.Builder) {
-  builder.startObject(71);
+  builder.startObject(72);
 }
 
 static addMaxLoadingTime(builder:flatbuffers.Builder, maxLoadingTime:number) {
@@ -566,164 +573,168 @@ static addDefaultEmoticonPicId(builder:flatbuffers.Builder, defaultEmoticonPicId
   builder.addFieldOffset(30, defaultEmoticonPicIdOffset, 0);
 }
 
+static addDefaultEnemyTag(builder:flatbuffers.Builder, defaultEnemyTagOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(31, defaultEnemyTagOffset, 0);
+}
+
 static addModeOperationRoundNumber(builder:flatbuffers.Builder, modeOperationRoundNumber:number) {
-  builder.addFieldInt32(31, modeOperationRoundNumber, 0);
+  builder.addFieldInt32(32, modeOperationRoundNumber, 0);
 }
 
 static addModeOperationInitialScore(builder:flatbuffers.Builder, modeOperationInitialScore:number) {
-  builder.addFieldInt32(32, modeOperationInitialScore, 0);
+  builder.addFieldInt32(33, modeOperationInitialScore, 0);
 }
 
 static addModeOperationMaxScore(builder:flatbuffers.Builder, modeOperationMaxScore:number) {
-  builder.addFieldInt32(33, modeOperationMaxScore, 0);
+  builder.addFieldInt32(34, modeOperationMaxScore, 0);
 }
 
 static addModeOperationSelectTime(builder:flatbuffers.Builder, modeOperationSelectTime:number) {
-  builder.addFieldInt32(34, modeOperationSelectTime, 0);
+  builder.addFieldInt32(35, modeOperationSelectTime, 0);
 }
 
 static addModeOperationSelectTimeLast(builder:flatbuffers.Builder, modeOperationSelectTimeLast:number) {
-  builder.addFieldInt32(35, modeOperationSelectTimeLast, 0);
+  builder.addFieldInt32(36, modeOperationSelectTimeLast, 0);
 }
 
 static addModeOperationSkipParam(builder:flatbuffers.Builder, modeOperationSkipParam:number) {
-  builder.addFieldFloat32(36, modeOperationSkipParam, 0.0);
+  builder.addFieldFloat32(37, modeOperationSkipParam, 0.0);
 }
 
 static addModeOperationBetParam(builder:flatbuffers.Builder, modeOperationBetParam:number) {
-  builder.addFieldFloat32(37, modeOperationBetParam, 0.0);
+  builder.addFieldFloat32(38, modeOperationBetParam, 0.0);
 }
 
 static addModeOperationAllinParam(builder:flatbuffers.Builder, modeOperationAllinParam:number) {
-  builder.addFieldFloat32(38, modeOperationAllinParam, 0.0);
+  builder.addFieldFloat32(39, modeOperationAllinParam, 0.0);
 }
 
 static addModeOperationTopRank(builder:flatbuffers.Builder, modeOperationTopRank:number) {
-  builder.addFieldInt32(39, modeOperationTopRank, 0);
+  builder.addFieldInt32(40, modeOperationTopRank, 0);
 }
 
 static addModeOperationRankTime(builder:flatbuffers.Builder, modeOperationRankTime:number) {
-  builder.addFieldInt32(40, modeOperationRankTime, 0);
+  builder.addFieldInt32(41, modeOperationRankTime, 0);
 }
 
 static addModeSoloOperationRankTime(builder:flatbuffers.Builder, modeSoloOperationRankTime:number) {
-  builder.addFieldInt32(41, modeSoloOperationRankTime, 0);
+  builder.addFieldInt32(42, modeSoloOperationRankTime, 0);
 }
 
 static addModeOperationRewardMultiplier(builder:flatbuffers.Builder, modeOperationRewardMultiplier:number) {
-  builder.addFieldInt32(42, modeOperationRewardMultiplier, 0);
+  builder.addFieldInt32(43, modeOperationRewardMultiplier, 0);
 }
 
 static addModeOperationRewardMultiplierAllin(builder:flatbuffers.Builder, modeOperationRewardMultiplierAllin:number) {
-  builder.addFieldInt32(43, modeOperationRewardMultiplierAllin, 0);
+  builder.addFieldInt32(44, modeOperationRewardMultiplierAllin, 0);
 }
 
 static addModeOperationHotRoundNumber(builder:flatbuffers.Builder, modeOperationHotRoundNumber:number) {
-  builder.addFieldInt32(44, modeOperationHotRoundNumber, 0);
+  builder.addFieldInt32(45, modeOperationHotRoundNumber, 0);
 }
 
 static addModeSoloOperationSelectTime(builder:flatbuffers.Builder, modeSoloOperationSelectTime:number) {
-  builder.addFieldInt32(45, modeSoloOperationSelectTime, 0);
+  builder.addFieldInt32(46, modeSoloOperationSelectTime, 0);
 }
 
 static addModeStandRoundNumber(builder:flatbuffers.Builder, modeStandRoundNumber:number) {
-  builder.addFieldInt32(46, modeStandRoundNumber, 0);
+  builder.addFieldInt32(47, modeStandRoundNumber, 0);
 }
 
 static addModeStandShieldTurn(builder:flatbuffers.Builder, modeStandShieldTurn:number) {
-  builder.addFieldInt32(47, modeStandShieldTurn, 0);
+  builder.addFieldInt32(48, modeStandShieldTurn, 0);
 }
 
 static addModeStandSelectTime(builder:flatbuffers.Builder, modeStandSelectTime:number) {
-  builder.addFieldInt32(48, modeStandSelectTime, 0);
+  builder.addFieldInt32(49, modeStandSelectTime, 0);
 }
 
 static addModeStandSelectTimeLast(builder:flatbuffers.Builder, modeStandSelectTimeLast:number) {
-  builder.addFieldInt32(49, modeStandSelectTimeLast, 0);
+  builder.addFieldInt32(50, modeStandSelectTimeLast, 0);
 }
 
 static addModeStandAllinParam(builder:flatbuffers.Builder, modeStandAllinParam:number) {
-  builder.addFieldFloat32(50, modeStandAllinParam, 0.0);
+  builder.addFieldFloat32(51, modeStandAllinParam, 0.0);
 }
 
 static addModeStandTopRank(builder:flatbuffers.Builder, modeStandTopRank:number) {
-  builder.addFieldInt32(51, modeStandTopRank, 0);
+  builder.addFieldInt32(52, modeStandTopRank, 0);
 }
 
 static addModeStandRankTime(builder:flatbuffers.Builder, modeStandRankTime:number) {
-  builder.addFieldInt32(52, modeStandRankTime, 0);
+  builder.addFieldInt32(53, modeStandRankTime, 0);
 }
 
 static addModeStandHotRoundNumber(builder:flatbuffers.Builder, modeStandHotRoundNumber:number) {
-  builder.addFieldInt32(53, modeStandHotRoundNumber, 0);
+  builder.addFieldInt32(54, modeStandHotRoundNumber, 0);
 }
 
 static addMilestoneName(builder:flatbuffers.Builder, milestoneNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(54, milestoneNameOffset, 0);
+  builder.addFieldOffset(55, milestoneNameOffset, 0);
 }
 
 static addMilestoneItemId(builder:flatbuffers.Builder, milestoneItemIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(55, milestoneItemIdOffset, 0);
+  builder.addFieldOffset(56, milestoneItemIdOffset, 0);
 }
 
 static addMilestoneItemName(builder:flatbuffers.Builder, milestoneItemNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(56, milestoneItemNameOffset, 0);
+  builder.addFieldOffset(57, milestoneItemNameOffset, 0);
 }
 
 static addMilestoneItemText(builder:flatbuffers.Builder, milestoneItemTextOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(57, milestoneItemTextOffset, 0);
+  builder.addFieldOffset(58, milestoneItemTextOffset, 0);
 }
 
 static addMilestoneTrackId(builder:flatbuffers.Builder, milestoneTrackIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(58, milestoneTrackIdOffset, 0);
+  builder.addFieldOffset(59, milestoneTrackIdOffset, 0);
 }
 
 static addEntryVideoId(builder:flatbuffers.Builder, entryVideoIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(59, entryVideoIdOffset, 0);
+  builder.addFieldOffset(60, entryVideoIdOffset, 0);
 }
 
 static addEntryTabText(builder:flatbuffers.Builder, entryTabTextOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(60, entryTabTextOffset, 0);
+  builder.addFieldOffset(61, entryTabTextOffset, 0);
 }
 
 static addMatchTabText(builder:flatbuffers.Builder, matchTabTextOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(61, matchTabTextOffset, 0);
+  builder.addFieldOffset(62, matchTabTextOffset, 0);
 }
 
 static addModeOperationId(builder:flatbuffers.Builder, modeOperationIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(62, modeOperationIdOffset, 0);
+  builder.addFieldOffset(63, modeOperationIdOffset, 0);
 }
 
 static addModeStandId(builder:flatbuffers.Builder, modeStandIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(63, modeStandIdOffset, 0);
+  builder.addFieldOffset(64, modeStandIdOffset, 0);
 }
 
 static addMultiPreposedModeId(builder:flatbuffers.Builder, multiPreposedModeIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(64, multiPreposedModeIdOffset, 0);
+  builder.addFieldOffset(65, multiPreposedModeIdOffset, 0);
 }
 
 static addEntryMusicName(builder:flatbuffers.Builder, entryMusicNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(65, entryMusicNameOffset, 0);
+  builder.addFieldOffset(66, entryMusicNameOffset, 0);
 }
 
 static addMilestonePlanName(builder:flatbuffers.Builder, milestonePlanNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(66, milestonePlanNameOffset, 0);
+  builder.addFieldOffset(67, milestonePlanNameOffset, 0);
 }
 
 static addModeCondLockText(builder:flatbuffers.Builder, modeCondLockTextOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(67, modeCondLockTextOffset, 0);
+  builder.addFieldOffset(68, modeCondLockTextOffset, 0);
 }
 
 static addModeTimeLockText(builder:flatbuffers.Builder, modeTimeLockTextOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(68, modeTimeLockTextOffset, 0);
+  builder.addFieldOffset(69, modeTimeLockTextOffset, 0);
 }
 
 static addTitlePicRotateTime(builder:flatbuffers.Builder, titlePicRotateTime:number) {
-  builder.addFieldFloat32(69, titlePicRotateTime, 0.0);
+  builder.addFieldFloat32(70, titlePicRotateTime, 0.0);
 }
 
 static addTitlePicId(builder:flatbuffers.Builder, titlePicIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(70, titlePicIdOffset, 0);
+  builder.addFieldOffset(71, titlePicIdOffset, 0);
 }
 
 static endclz_Torappu_ActivityEnemyDuelConstData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -765,6 +776,7 @@ unpack(): clz_Torappu_ActivityEnemyDuelConstDataT {
     this.minBetCd(),
     this.defaultEmoticonItemId(),
     this.defaultEmoticonPicId(),
+    this.defaultEnemyTag(),
     this.modeOperationRoundNumber(),
     this.modeOperationInitialScore(),
     this.modeOperationMaxScore(),
@@ -841,6 +853,7 @@ unpackTo(_o: clz_Torappu_ActivityEnemyDuelConstDataT): void {
   _o.minBetCd = this.minBetCd();
   _o.defaultEmoticonItemId = this.defaultEmoticonItemId();
   _o.defaultEmoticonPicId = this.defaultEmoticonPicId();
+  _o.defaultEnemyTag = this.defaultEnemyTag();
   _o.modeOperationRoundNumber = this.modeOperationRoundNumber();
   _o.modeOperationInitialScore = this.modeOperationInitialScore();
   _o.modeOperationMaxScore = this.modeOperationMaxScore();
@@ -917,6 +930,7 @@ constructor(
   public minBetCd: number = 0.0,
   public defaultEmoticonItemId: string|Uint8Array|null = null,
   public defaultEmoticonPicId: string|Uint8Array|null = null,
+  public defaultEnemyTag: string|Uint8Array|null = null,
   public modeOperationRoundNumber: number = 0,
   public modeOperationInitialScore: number = 0,
   public modeOperationMaxScore: number = 0,
@@ -967,6 +981,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const dailyMissionDesc = (this.dailyMissionDesc !== null ? builder.createString(this.dailyMissionDesc!) : 0);
   const defaultEmoticonItemId = (this.defaultEmoticonItemId !== null ? builder.createString(this.defaultEmoticonItemId!) : 0);
   const defaultEmoticonPicId = (this.defaultEmoticonPicId !== null ? builder.createString(this.defaultEmoticonPicId!) : 0);
+  const defaultEnemyTag = (this.defaultEnemyTag !== null ? builder.createString(this.defaultEnemyTag!) : 0);
   const milestoneName = (this.milestoneName !== null ? builder.createString(this.milestoneName!) : 0);
   const milestoneItemId = (this.milestoneItemId !== null ? builder.createString(this.milestoneItemId!) : 0);
   const milestoneItemName = (this.milestoneItemName !== null ? builder.createString(this.milestoneItemName!) : 0);
@@ -1016,6 +1031,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_ActivityEnemyDuelConstData.addMinBetCd(builder, this.minBetCd);
   clz_Torappu_ActivityEnemyDuelConstData.addDefaultEmoticonItemId(builder, defaultEmoticonItemId);
   clz_Torappu_ActivityEnemyDuelConstData.addDefaultEmoticonPicId(builder, defaultEmoticonPicId);
+  clz_Torappu_ActivityEnemyDuelConstData.addDefaultEnemyTag(builder, defaultEnemyTag);
   clz_Torappu_ActivityEnemyDuelConstData.addModeOperationRoundNumber(builder, this.modeOperationRoundNumber);
   clz_Torappu_ActivityEnemyDuelConstData.addModeOperationInitialScore(builder, this.modeOperationInitialScore);
   clz_Torappu_ActivityEnemyDuelConstData.addModeOperationMaxScore(builder, this.modeOperationMaxScore);

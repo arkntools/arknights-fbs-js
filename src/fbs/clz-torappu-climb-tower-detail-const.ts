@@ -131,8 +131,13 @@ squadMemStartTime():bigint {
   return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
 }
 
+recordNoResetStartTime():bigint {
+  const offset = this.bb!.__offset(this.bb_pos, 42);
+  return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
+}
+
 static startclz_Torappu_ClimbTowerDetailConst(builder:flatbuffers.Builder) {
-  builder.startObject(19);
+  builder.startObject(20);
 }
 
 static addUnlockLevelId(builder:flatbuffers.Builder, unlockLevelIdOffset:flatbuffers.Offset) {
@@ -211,12 +216,16 @@ static addSquadMemStartTime(builder:flatbuffers.Builder, squadMemStartTime:bigin
   builder.addFieldInt64(18, squadMemStartTime, BigInt('0'));
 }
 
+static addRecordNoResetStartTime(builder:flatbuffers.Builder, recordNoResetStartTime:bigint) {
+  builder.addFieldInt64(19, recordNoResetStartTime, BigInt('0'));
+}
+
 static endclz_Torappu_ClimbTowerDetailConst(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_ClimbTowerDetailConst(builder:flatbuffers.Builder, unlockLevelIdOffset:flatbuffers.Offset, unlockModuleNumRequirement:number, lowerItemIdOffset:flatbuffers.Offset, lowerItemLimit:number, higherItemIdOffset:flatbuffers.Offset, higherItemLimit:number, initCharCount:number, charRecruitTimes:number, charRecruitChoiceCount:number, subcardStageSort:number, assistCharLimit:number, firstClearTaskDescOffset:flatbuffers.Offset, subCardObtainDescOffset:flatbuffers.Offset, subGodCardUnlockDescOffset:flatbuffers.Offset, sweepStartTime:bigint, sweepOpenOrdinaryLayer:number, sweepOpenDifficultLayer:number, sweepCostCount:number, squadMemStartTime:bigint):flatbuffers.Offset {
+static createclz_Torappu_ClimbTowerDetailConst(builder:flatbuffers.Builder, unlockLevelIdOffset:flatbuffers.Offset, unlockModuleNumRequirement:number, lowerItemIdOffset:flatbuffers.Offset, lowerItemLimit:number, higherItemIdOffset:flatbuffers.Offset, higherItemLimit:number, initCharCount:number, charRecruitTimes:number, charRecruitChoiceCount:number, subcardStageSort:number, assistCharLimit:number, firstClearTaskDescOffset:flatbuffers.Offset, subCardObtainDescOffset:flatbuffers.Offset, subGodCardUnlockDescOffset:flatbuffers.Offset, sweepStartTime:bigint, sweepOpenOrdinaryLayer:number, sweepOpenDifficultLayer:number, sweepCostCount:number, squadMemStartTime:bigint, recordNoResetStartTime:bigint):flatbuffers.Offset {
   clz_Torappu_ClimbTowerDetailConst.startclz_Torappu_ClimbTowerDetailConst(builder);
   clz_Torappu_ClimbTowerDetailConst.addUnlockLevelId(builder, unlockLevelIdOffset);
   clz_Torappu_ClimbTowerDetailConst.addUnlockModuleNumRequirement(builder, unlockModuleNumRequirement);
@@ -237,6 +246,7 @@ static createclz_Torappu_ClimbTowerDetailConst(builder:flatbuffers.Builder, unlo
   clz_Torappu_ClimbTowerDetailConst.addSweepOpenDifficultLayer(builder, sweepOpenDifficultLayer);
   clz_Torappu_ClimbTowerDetailConst.addSweepCostCount(builder, sweepCostCount);
   clz_Torappu_ClimbTowerDetailConst.addSquadMemStartTime(builder, squadMemStartTime);
+  clz_Torappu_ClimbTowerDetailConst.addRecordNoResetStartTime(builder, recordNoResetStartTime);
   return clz_Torappu_ClimbTowerDetailConst.endclz_Torappu_ClimbTowerDetailConst(builder);
 }
 
@@ -260,7 +270,8 @@ unpack(): clz_Torappu_ClimbTowerDetailConstT {
     this.sweepOpenOrdinaryLayer(),
     this.sweepOpenDifficultLayer(),
     this.sweepCostCount(),
-    this.squadMemStartTime()
+    this.squadMemStartTime(),
+    this.recordNoResetStartTime()
   );
 }
 
@@ -285,6 +296,7 @@ unpackTo(_o: clz_Torappu_ClimbTowerDetailConstT): void {
   _o.sweepOpenDifficultLayer = this.sweepOpenDifficultLayer();
   _o.sweepCostCount = this.sweepCostCount();
   _o.squadMemStartTime = this.squadMemStartTime();
+  _o.recordNoResetStartTime = this.recordNoResetStartTime();
 }
 }
 
@@ -308,7 +320,8 @@ constructor(
   public sweepOpenOrdinaryLayer: number = 0,
   public sweepOpenDifficultLayer: number = 0,
   public sweepCostCount: number = 0,
-  public squadMemStartTime: bigint = BigInt('0')
+  public squadMemStartTime: bigint = BigInt('0'),
+  public recordNoResetStartTime: bigint = BigInt('0')
 ){}
 
 
@@ -339,7 +352,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.sweepOpenOrdinaryLayer,
     this.sweepOpenDifficultLayer,
     this.sweepCostCount,
-    this.squadMemStartTime
+    this.squadMemStartTime,
+    this.recordNoResetStartTime
   );
 }
 }

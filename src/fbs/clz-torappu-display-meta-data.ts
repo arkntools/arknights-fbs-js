@@ -4,6 +4,7 @@
 
 import * as flatbuffers from 'flatbuffers';
 
+import { clz_Torappu_AVGDialogSettingData, clz_Torappu_AVGDialogSettingDataT } from './clz-torappu-avgdialog-setting-data.js';
 import { clz_Torappu_ArtGalleryCollectData, clz_Torappu_ArtGalleryCollectDataT } from './clz-torappu-art-gallery-collect-data.js';
 import { clz_Torappu_EmoticonData, clz_Torappu_EmoticonDataT } from './clz-torappu-emoticon-data.js';
 import { clz_Torappu_HomeBackgroundData, clz_Torappu_HomeBackgroundDataT } from './clz-torappu-home-background-data.js';
@@ -117,8 +118,13 @@ stickerData(obj?:clz_Torappu_StickerData):clz_Torappu_StickerData|null {
   return offset ? (obj || new clz_Torappu_StickerData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
+avgDialogSettingData(obj?:clz_Torappu_AVGDialogSettingData):clz_Torappu_AVGDialogSettingData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 30);
+  return offset ? (obj || new clz_Torappu_AVGDialogSettingData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
 static startclz_Torappu_DisplayMetaData(builder:flatbuffers.Builder) {
-  builder.startObject(13);
+  builder.startObject(14);
 }
 
 static addPlayerAvatarData(builder:flatbuffers.Builder, playerAvatarDataOffset:flatbuffers.Offset) {
@@ -209,6 +215,10 @@ static addStickerData(builder:flatbuffers.Builder, stickerDataOffset:flatbuffers
   builder.addFieldOffset(12, stickerDataOffset, 0);
 }
 
+static addAvgDialogSettingData(builder:flatbuffers.Builder, avgDialogSettingDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(13, avgDialogSettingDataOffset, 0);
+}
+
 static endclz_Torappu_DisplayMetaData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -237,7 +247,8 @@ unpack(): clz_Torappu_DisplayMetaDataT {
     this.bb!.createObjList<clz_Torappu_ResolutionSettingItemData, clz_Torappu_ResolutionSettingItemDataT>(this.resolutionSettingList.bind(this), this.resolutionSettingListLength()),
     (this.artGalleryCollectData() !== null ? this.artGalleryCollectData()!.unpack() : null),
     (this.magazineLeafData() !== null ? this.magazineLeafData()!.unpack() : null),
-    (this.stickerData() !== null ? this.stickerData()!.unpack() : null)
+    (this.stickerData() !== null ? this.stickerData()!.unpack() : null),
+    (this.avgDialogSettingData() !== null ? this.avgDialogSettingData()!.unpack() : null)
   );
 }
 
@@ -256,6 +267,7 @@ unpackTo(_o: clz_Torappu_DisplayMetaDataT): void {
   _o.artGalleryCollectData = (this.artGalleryCollectData() !== null ? this.artGalleryCollectData()!.unpack() : null);
   _o.magazineLeafData = (this.magazineLeafData() !== null ? this.magazineLeafData()!.unpack() : null);
   _o.stickerData = (this.stickerData() !== null ? this.stickerData()!.unpack() : null);
+  _o.avgDialogSettingData = (this.avgDialogSettingData() !== null ? this.avgDialogSettingData()!.unpack() : null);
 }
 }
 
@@ -273,7 +285,8 @@ constructor(
   public resolutionSettingList: (clz_Torappu_ResolutionSettingItemDataT)[] = [],
   public artGalleryCollectData: clz_Torappu_ArtGalleryCollectDataT|null = null,
   public magazineLeafData: clz_Torappu_MagazineLeafDataT|null = null,
-  public stickerData: clz_Torappu_StickerDataT|null = null
+  public stickerData: clz_Torappu_StickerDataT|null = null,
+  public avgDialogSettingData: clz_Torappu_AVGDialogSettingDataT|null = null
 ){}
 
 
@@ -291,6 +304,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const artGalleryCollectData = (this.artGalleryCollectData !== null ? this.artGalleryCollectData!.pack(builder) : 0);
   const magazineLeafData = (this.magazineLeafData !== null ? this.magazineLeafData!.pack(builder) : 0);
   const stickerData = (this.stickerData !== null ? this.stickerData!.pack(builder) : 0);
+  const avgDialogSettingData = (this.avgDialogSettingData !== null ? this.avgDialogSettingData!.pack(builder) : 0);
 
   clz_Torappu_DisplayMetaData.startclz_Torappu_DisplayMetaData(builder);
   clz_Torappu_DisplayMetaData.addPlayerAvatarData(builder, playerAvatarData);
@@ -306,6 +320,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_DisplayMetaData.addArtGalleryCollectData(builder, artGalleryCollectData);
   clz_Torappu_DisplayMetaData.addMagazineLeafData(builder, magazineLeafData);
   clz_Torappu_DisplayMetaData.addStickerData(builder, stickerData);
+  clz_Torappu_DisplayMetaData.addAvgDialogSettingData(builder, avgDialogSettingData);
 
   return clz_Torappu_DisplayMetaData.endclz_Torappu_DisplayMetaData(builder);
 }

@@ -54,30 +54,45 @@ checkInDuration():number {
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-totalCheckInDay():number {
+compensateEndDay():number {
   const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+totalCheckInDay():number {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 iconId():string|null
 iconId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 iconId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 checkInRewardDict(index: number, obj?:dict__int__list_clz_Torappu_NewbieCheckInPackageRewardData):dict__int__list_clz_Torappu_NewbieCheckInPackageRewardData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? (obj || new dict__int__list_clz_Torappu_NewbieCheckInPackageRewardData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 checkInRewardDictLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+trigStartTime():bigint {
+  const offset = this.bb!.__offset(this.bb_pos, 22);
+  return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
+}
+
+trigEndTime():bigint {
+  const offset = this.bb!.__offset(this.bb_pos, 24);
+  return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
+}
+
 static startclz_Torappu_NewbieCheckInPackageData(builder:flatbuffers.Builder) {
-  builder.startObject(8);
+  builder.startObject(11);
 }
 
 static addGroupId(builder:flatbuffers.Builder, groupIdOffset:flatbuffers.Offset) {
@@ -100,16 +115,20 @@ static addCheckInDuration(builder:flatbuffers.Builder, checkInDuration:number) {
   builder.addFieldInt32(4, checkInDuration, 0);
 }
 
+static addCompensateEndDay(builder:flatbuffers.Builder, compensateEndDay:number) {
+  builder.addFieldInt32(5, compensateEndDay, 0);
+}
+
 static addTotalCheckInDay(builder:flatbuffers.Builder, totalCheckInDay:number) {
-  builder.addFieldInt32(5, totalCheckInDay, 0);
+  builder.addFieldInt32(6, totalCheckInDay, 0);
 }
 
 static addIconId(builder:flatbuffers.Builder, iconIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(6, iconIdOffset, 0);
+  builder.addFieldOffset(7, iconIdOffset, 0);
 }
 
 static addCheckInRewardDict(builder:flatbuffers.Builder, checkInRewardDictOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(7, checkInRewardDictOffset, 0);
+  builder.addFieldOffset(8, checkInRewardDictOffset, 0);
 }
 
 static createCheckInRewardDictVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -124,21 +143,32 @@ static startCheckInRewardDictVector(builder:flatbuffers.Builder, numElems:number
   builder.startVector(4, numElems, 4);
 }
 
+static addTrigStartTime(builder:flatbuffers.Builder, trigStartTime:bigint) {
+  builder.addFieldInt64(9, trigStartTime, BigInt('0'));
+}
+
+static addTrigEndTime(builder:flatbuffers.Builder, trigEndTime:bigint) {
+  builder.addFieldInt64(10, trigEndTime, BigInt('0'));
+}
+
 static endclz_Torappu_NewbieCheckInPackageData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_NewbieCheckInPackageData(builder:flatbuffers.Builder, groupIdOffset:flatbuffers.Offset, startTime:bigint, endTime:bigint, bindGpgoodIdOffset:flatbuffers.Offset, checkInDuration:number, totalCheckInDay:number, iconIdOffset:flatbuffers.Offset, checkInRewardDictOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_NewbieCheckInPackageData(builder:flatbuffers.Builder, groupIdOffset:flatbuffers.Offset, startTime:bigint, endTime:bigint, bindGpgoodIdOffset:flatbuffers.Offset, checkInDuration:number, compensateEndDay:number, totalCheckInDay:number, iconIdOffset:flatbuffers.Offset, checkInRewardDictOffset:flatbuffers.Offset, trigStartTime:bigint, trigEndTime:bigint):flatbuffers.Offset {
   clz_Torappu_NewbieCheckInPackageData.startclz_Torappu_NewbieCheckInPackageData(builder);
   clz_Torappu_NewbieCheckInPackageData.addGroupId(builder, groupIdOffset);
   clz_Torappu_NewbieCheckInPackageData.addStartTime(builder, startTime);
   clz_Torappu_NewbieCheckInPackageData.addEndTime(builder, endTime);
   clz_Torappu_NewbieCheckInPackageData.addBindGpgoodId(builder, bindGpgoodIdOffset);
   clz_Torappu_NewbieCheckInPackageData.addCheckInDuration(builder, checkInDuration);
+  clz_Torappu_NewbieCheckInPackageData.addCompensateEndDay(builder, compensateEndDay);
   clz_Torappu_NewbieCheckInPackageData.addTotalCheckInDay(builder, totalCheckInDay);
   clz_Torappu_NewbieCheckInPackageData.addIconId(builder, iconIdOffset);
   clz_Torappu_NewbieCheckInPackageData.addCheckInRewardDict(builder, checkInRewardDictOffset);
+  clz_Torappu_NewbieCheckInPackageData.addTrigStartTime(builder, trigStartTime);
+  clz_Torappu_NewbieCheckInPackageData.addTrigEndTime(builder, trigEndTime);
   return clz_Torappu_NewbieCheckInPackageData.endclz_Torappu_NewbieCheckInPackageData(builder);
 }
 
@@ -149,9 +179,12 @@ unpack(): clz_Torappu_NewbieCheckInPackageDataT {
     this.endTime(),
     this.bindGpgoodId(),
     this.checkInDuration(),
+    this.compensateEndDay(),
     this.totalCheckInDay(),
     this.iconId(),
-    this.bb!.createObjList<dict__int__list_clz_Torappu_NewbieCheckInPackageRewardData, dict__int__list_clz_Torappu_NewbieCheckInPackageRewardDataT>(this.checkInRewardDict.bind(this), this.checkInRewardDictLength())
+    this.bb!.createObjList<dict__int__list_clz_Torappu_NewbieCheckInPackageRewardData, dict__int__list_clz_Torappu_NewbieCheckInPackageRewardDataT>(this.checkInRewardDict.bind(this), this.checkInRewardDictLength()),
+    this.trigStartTime(),
+    this.trigEndTime()
   );
 }
 
@@ -162,9 +195,12 @@ unpackTo(_o: clz_Torappu_NewbieCheckInPackageDataT): void {
   _o.endTime = this.endTime();
   _o.bindGpgoodId = this.bindGpgoodId();
   _o.checkInDuration = this.checkInDuration();
+  _o.compensateEndDay = this.compensateEndDay();
   _o.totalCheckInDay = this.totalCheckInDay();
   _o.iconId = this.iconId();
   _o.checkInRewardDict = this.bb!.createObjList<dict__int__list_clz_Torappu_NewbieCheckInPackageRewardData, dict__int__list_clz_Torappu_NewbieCheckInPackageRewardDataT>(this.checkInRewardDict.bind(this), this.checkInRewardDictLength());
+  _o.trigStartTime = this.trigStartTime();
+  _o.trigEndTime = this.trigEndTime();
 }
 }
 
@@ -175,9 +211,12 @@ constructor(
   public endTime: bigint = BigInt('0'),
   public bindGpgoodId: string|Uint8Array|null = null,
   public checkInDuration: number = 0,
+  public compensateEndDay: number = 0,
   public totalCheckInDay: number = 0,
   public iconId: string|Uint8Array|null = null,
-  public checkInRewardDict: (dict__int__list_clz_Torappu_NewbieCheckInPackageRewardDataT)[] = []
+  public checkInRewardDict: (dict__int__list_clz_Torappu_NewbieCheckInPackageRewardDataT)[] = [],
+  public trigStartTime: bigint = BigInt('0'),
+  public trigEndTime: bigint = BigInt('0')
 ){}
 
 
@@ -193,9 +232,12 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.endTime,
     bindGpgoodId,
     this.checkInDuration,
+    this.compensateEndDay,
     this.totalCheckInDay,
     iconId,
-    checkInRewardDict
+    checkInRewardDict,
+    this.trigStartTime,
+    this.trigEndTime
   );
 }
 }

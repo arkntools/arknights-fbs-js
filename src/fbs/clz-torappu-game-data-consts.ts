@@ -4,6 +4,7 @@
 
 import * as flatbuffers from 'flatbuffers';
 
+import { clz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting, clz_Torappu_GameDataConsts_AVGReaderModeDefaultSettingT } from './clz-torappu-game-data-consts-avgreader-mode-default-setting.js';
 import { clz_Torappu_GameDataConsts_CharAssistRefreshTimeState, clz_Torappu_GameDataConsts_CharAssistRefreshTimeStateT } from './clz-torappu-game-data-consts-char-assist-refresh-time-state.js';
 import { clz_Torappu_GameDataConsts_FeverGameData, clz_Torappu_GameDataConsts_FeverGameDataT } from './clz-torappu-game-data-consts-fever-game-data.js';
 import { clz_Torappu_ItemBundle, clz_Torappu_ItemBundleT } from './clz-torappu-item-bundle.js';
@@ -861,8 +862,13 @@ isSoCharEnabled():boolean {
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
+avgReaderModeDefaultSetting(obj?:clz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting):clz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting|null {
+  const offset = this.bb!.__offset(this.bb_pos, 252);
+  return offset ? (obj || new clz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
 static startclz_Torappu_GameDataConsts(builder:flatbuffers.Builder) {
-  builder.startObject(124);
+  builder.startObject(125);
 }
 
 static addMaxPlayerLevel(builder:flatbuffers.Builder, maxPlayerLevel:number) {
@@ -1660,6 +1666,10 @@ static addIsSoCharEnabled(builder:flatbuffers.Builder, isSoCharEnabled:boolean) 
   builder.addFieldInt8(123, +isSoCharEnabled, +false);
 }
 
+static addAvgReaderModeDefaultSetting(builder:flatbuffers.Builder, avgReaderModeDefaultSettingOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(124, avgReaderModeDefaultSettingOffset, 0);
+}
+
 static endclz_Torappu_GameDataConsts(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -1799,7 +1809,8 @@ unpack(): clz_Torappu_GameDataConstsT {
     this.leapBirthdayRewardDay(),
     this.birthdaySettingShowStageId(),
     this.isBirthdayFuncEnabled(),
-    this.isSoCharEnabled()
+    this.isSoCharEnabled(),
+    (this.avgReaderModeDefaultSetting() !== null ? this.avgReaderModeDefaultSetting()!.unpack() : null)
   );
 }
 
@@ -1929,6 +1940,7 @@ unpackTo(_o: clz_Torappu_GameDataConstsT): void {
   _o.birthdaySettingShowStageId = this.birthdaySettingShowStageId();
   _o.isBirthdayFuncEnabled = this.isBirthdayFuncEnabled();
   _o.isSoCharEnabled = this.isSoCharEnabled();
+  _o.avgReaderModeDefaultSetting = (this.avgReaderModeDefaultSetting() !== null ? this.avgReaderModeDefaultSetting()!.unpack() : null);
 }
 }
 
@@ -2057,7 +2069,8 @@ constructor(
   public leapBirthdayRewardDay: number = 0,
   public birthdaySettingShowStageId: string|Uint8Array|null = null,
   public isBirthdayFuncEnabled: boolean = false,
-  public isSoCharEnabled: boolean = false
+  public isSoCharEnabled: boolean = false,
+  public avgReaderModeDefaultSetting: clz_Torappu_GameDataConsts_AVGReaderModeDefaultSettingT|null = null
 ){}
 
 
@@ -2112,6 +2125,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const birthdaySettingConfirmDesc = (this.birthdaySettingConfirmDesc !== null ? builder.createString(this.birthdaySettingConfirmDesc!) : 0);
   const birthdaySettingLeapConfirmDesc = (this.birthdaySettingLeapConfirmDesc !== null ? builder.createString(this.birthdaySettingLeapConfirmDesc!) : 0);
   const birthdaySettingShowStageId = (this.birthdaySettingShowStageId !== null ? builder.createString(this.birthdaySettingShowStageId!) : 0);
+  const avgReaderModeDefaultSetting = (this.avgReaderModeDefaultSetting !== null ? this.avgReaderModeDefaultSetting!.pack(builder) : 0);
 
   clz_Torappu_GameDataConsts.startclz_Torappu_GameDataConsts(builder);
   clz_Torappu_GameDataConsts.addMaxPlayerLevel(builder, this.maxPlayerLevel);
@@ -2238,6 +2252,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_GameDataConsts.addBirthdaySettingShowStageId(builder, birthdaySettingShowStageId);
   clz_Torappu_GameDataConsts.addIsBirthdayFuncEnabled(builder, this.isBirthdayFuncEnabled);
   clz_Torappu_GameDataConsts.addIsSoCharEnabled(builder, this.isSoCharEnabled);
+  clz_Torappu_GameDataConsts.addAvgReaderModeDefaultSetting(builder, avgReaderModeDefaultSetting);
 
   return clz_Torappu_GameDataConsts.endclz_Torappu_GameDataConsts(builder);
 }

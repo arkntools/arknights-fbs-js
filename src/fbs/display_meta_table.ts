@@ -2,6 +2,8 @@
 
 /* eslint-disable @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any, @typescript-eslint/no-non-null-assertion */
 
+export { clz_Torappu_AVGDialogPresetData, clz_Torappu_AVGDialogPresetDataT } from './clz-torappu-avgdialog-preset-data.js';
+export { clz_Torappu_AVGDialogSettingData, clz_Torappu_AVGDialogSettingDataT } from './clz-torappu-avgdialog-setting-data.js';
 export { clz_Torappu_ArtGalleryCollectConstData, clz_Torappu_ArtGalleryCollectConstDataT } from './clz-torappu-art-gallery-collect-const-data.js';
 export { clz_Torappu_ArtGalleryCollectData, clz_Torappu_ArtGalleryCollectDataT } from './clz-torappu-art-gallery-collect-data.js';
 export { clz_Torappu_ArtGalleryCollectItemData, clz_Torappu_ArtGalleryCollectItemDataT } from './clz-torappu-art-gallery-collect-item-data.js';
@@ -79,6 +81,7 @@ export { dict__string__clz_Torappu_MailSenderSingleInfo, dict__string__clz_Torap
 export { dict__string__clz_Torappu_NameCardV2ModuleData, dict__string__clz_Torappu_NameCardV2ModuleDataT } from './dict--string--clz-torappu-name-card-v2-module-data.js';
 export { dict__string__clz_Torappu_NameCardV2RemovableModuleData, dict__string__clz_Torappu_NameCardV2RemovableModuleDataT } from './dict--string--clz-torappu-name-card-v2-removable-module-data.js';
 export { dict__string__clz_Torappu_NameCardV2SkinData, dict__string__clz_Torappu_NameCardV2SkinDataT } from './dict--string--clz-torappu-name-card-v2-skin-data.js';
+export { dict__string__clz_Torappu_NameCardV2TimeLimitInfo, dict__string__clz_Torappu_NameCardV2TimeLimitInfoT } from './dict--string--clz-torappu-name-card-v2-time-limit-info.js';
 export { dict__string__clz_Torappu_StickerItemData, dict__string__clz_Torappu_StickerItemDataT } from './dict--string--clz-torappu-sticker-item-data.js';
 export { dict__string__clz_Torappu_StoryVariantData, dict__string__clz_Torappu_StoryVariantDataT } from './dict--string--clz-torappu-story-variant-data.js';
 export { dict__string__int, dict__string__intT } from './dict--string--int.js';
@@ -91,6 +94,7 @@ export { enum__Torappu_EmojiSceneType } from './enum--torappu-emoji-scene-type.j
 export { enum__Torappu_HomeMultiFormChangeRule } from './enum--torappu-home-multi-form-change-rule.js';
 export { enum__Torappu_ItemRarity } from './enum--torappu-item-rarity.js';
 export { enum__Torappu_ItemType } from './enum--torappu-item-type.js';
+export { enum__Torappu_KeyCodeType } from './enum--torappu-key-code-type.js';
 export { enum__Torappu_KeyEffectGroup } from './enum--torappu-key-effect-group.js';
 export { enum__Torappu_KeySettingGroup } from './enum--torappu-key-setting-group.js';
 export { enum__Torappu_MagazineLeafType } from './enum--torappu-magazine-leaf-type.js';

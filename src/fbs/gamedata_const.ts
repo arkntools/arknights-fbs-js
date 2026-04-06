@@ -3,6 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any, @typescript-eslint/no-non-null-assertion */
 
 export { clz_Torappu_GameDataConsts, clz_Torappu_GameDataConstsT } from './clz-torappu-game-data-consts.js';
+export { clz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting, clz_Torappu_GameDataConsts_AVGReaderModeDefaultSettingT } from './clz-torappu-game-data-consts-avgreader-mode-default-setting.js';
 export { clz_Torappu_GameDataConsts_CharAssistRefreshTimeState, clz_Torappu_GameDataConsts_CharAssistRefreshTimeStateT } from './clz-torappu-game-data-consts-char-assist-refresh-time-state.js';
 export { clz_Torappu_GameDataConsts_FeverGameData, clz_Torappu_GameDataConsts_FeverGameDataT } from './clz-torappu-game-data-consts-fever-game-data.js';
 export { clz_Torappu_ItemBundle, clz_Torappu_ItemBundleT } from './clz-torappu-item-bundle.js';

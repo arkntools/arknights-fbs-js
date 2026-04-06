@@ -2,11 +2,7 @@
 
 /* eslint-disable @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any, @typescript-eslint/no-non-null-assertion */
 
-export enum enum__Torappu_ShopCondTrigPackageType {
-  NONE = 0,
-  RETURN_PROGRESS = 1,
-  RETURN_ONCE = 2,
-  NEW_PROGRESS = 3,
-  CHOOSE_REGISTER_TIME = 4,
-  CHOOSE_NEWBIE = 5
+export enum enum__Torappu_KeyCodeType {
+  KEYBOARD = 0,
+  MOUSE = 1
 }

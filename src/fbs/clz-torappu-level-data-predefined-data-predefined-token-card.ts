@@ -8,6 +8,7 @@ import { clz_Torappu_Blackboard_DataPair, clz_Torappu_Blackboard_DataPairT } fro
 import { clz_Torappu_CharacterData_MasterInfo, clz_Torappu_CharacterData_MasterInfoT } from './clz-torappu-character-data-master-info.js';
 import { clz_Torappu_CharacterData_UniqueEquipPair, clz_Torappu_CharacterData_UniqueEquipPairT } from './clz-torappu-character-data-unique-equip-pair.js';
 import { clz_Torappu_CharacterInst_Metadata, clz_Torappu_CharacterInst_MetadataT } from './clz-torappu-character-inst-metadata.js';
+import { clz_Torappu_CharacterInst_TalentInst, clz_Torappu_CharacterInst_TalentInstT } from './clz-torappu-character-inst-talent-inst.js';
 
 
 export class clz_Torappu_LevelData_PredefinedData_PredefinedTokenCard implements flatbuffers.IUnpackableObject<clz_Torappu_LevelData_PredefinedData_PredefinedTokenCardT> {
@@ -109,8 +110,18 @@ overrideSkillBlackboardLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+overrideTalents(index: number, obj?:clz_Torappu_CharacterInst_TalentInst):clz_Torappu_CharacterInst_TalentInst|null {
+  const offset = this.bb!.__offset(this.bb_pos, 28);
+  return offset ? (obj || new clz_Torappu_CharacterInst_TalentInst()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+overrideTalentsLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 28);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_LevelData_PredefinedData_PredefinedTokenCard(builder:flatbuffers.Builder) {
-  builder.startObject(12);
+  builder.startObject(13);
 }
 
 static addInitialCnt(builder:flatbuffers.Builder, initialCnt:number) {
@@ -197,6 +208,22 @@ static startOverrideSkillBlackboardVector(builder:flatbuffers.Builder, numElems:
   builder.startVector(4, numElems, 4);
 }
 
+static addOverrideTalents(builder:flatbuffers.Builder, overrideTalentsOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(12, overrideTalentsOffset, 0);
+}
+
+static createOverrideTalentsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startOverrideTalentsVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static endclz_Torappu_LevelData_PredefinedData_PredefinedTokenCard(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -216,7 +243,8 @@ unpack(): clz_Torappu_LevelData_PredefinedData_PredefinedTokenCardT {
     this.mainSkillLvl(),
     this.skinId(),
     this.tmplId(),
-    this.bb!.createObjList<clz_Torappu_Blackboard_DataPair, clz_Torappu_Blackboard_DataPairT>(this.overrideSkillBlackboard.bind(this), this.overrideSkillBlackboardLength())
+    this.bb!.createObjList<clz_Torappu_Blackboard_DataPair, clz_Torappu_Blackboard_DataPairT>(this.overrideSkillBlackboard.bind(this), this.overrideSkillBlackboardLength()),
+    this.bb!.createObjList<clz_Torappu_CharacterInst_TalentInst, clz_Torappu_CharacterInst_TalentInstT>(this.overrideTalents.bind(this), this.overrideTalentsLength())
   );
 }
 
@@ -234,6 +262,7 @@ unpackTo(_o: clz_Torappu_LevelData_PredefinedData_PredefinedTokenCardT): void {
   _o.skinId = this.skinId();
   _o.tmplId = this.tmplId();
   _o.overrideSkillBlackboard = this.bb!.createObjList<clz_Torappu_Blackboard_DataPair, clz_Torappu_Blackboard_DataPairT>(this.overrideSkillBlackboard.bind(this), this.overrideSkillBlackboardLength());
+  _o.overrideTalents = this.bb!.createObjList<clz_Torappu_CharacterInst_TalentInst, clz_Torappu_CharacterInst_TalentInstT>(this.overrideTalents.bind(this), this.overrideTalentsLength());
 }
 }
 
@@ -250,7 +279,8 @@ constructor(
   public mainSkillLvl: number = 0,
   public skinId: string|Uint8Array|null = null,
   public tmplId: string|Uint8Array|null = null,
-  public overrideSkillBlackboard: (clz_Torappu_Blackboard_DataPairT)[] = []
+  public overrideSkillBlackboard: (clz_Torappu_Blackboard_DataPairT)[] = [],
+  public overrideTalents: (clz_Torappu_CharacterInst_TalentInstT)[] = []
 ){}
 
 
@@ -262,6 +292,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const skinId = (this.skinId !== null ? builder.createString(this.skinId!) : 0);
   const tmplId = (this.tmplId !== null ? builder.createString(this.tmplId!) : 0);
   const overrideSkillBlackboard = clz_Torappu_LevelData_PredefinedData_PredefinedTokenCard.createOverrideSkillBlackboardVector(builder, builder.createObjectOffsetList(this.overrideSkillBlackboard));
+  const overrideTalents = clz_Torappu_LevelData_PredefinedData_PredefinedTokenCard.createOverrideTalentsVector(builder, builder.createObjectOffsetList(this.overrideTalents));
 
   clz_Torappu_LevelData_PredefinedData_PredefinedTokenCard.startclz_Torappu_LevelData_PredefinedData_PredefinedTokenCard(builder);
   clz_Torappu_LevelData_PredefinedData_PredefinedTokenCard.addInitialCnt(builder, this.initialCnt);
@@ -276,6 +307,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_LevelData_PredefinedData_PredefinedTokenCard.addSkinId(builder, skinId);
   clz_Torappu_LevelData_PredefinedData_PredefinedTokenCard.addTmplId(builder, tmplId);
   clz_Torappu_LevelData_PredefinedData_PredefinedTokenCard.addOverrideSkillBlackboard(builder, overrideSkillBlackboard);
+  clz_Torappu_LevelData_PredefinedData_PredefinedTokenCard.addOverrideTalents(builder, overrideTalents);
 
   return clz_Torappu_LevelData_PredefinedData_PredefinedTokenCard.endclz_Torappu_LevelData_PredefinedData_PredefinedTokenCard(builder);
 }

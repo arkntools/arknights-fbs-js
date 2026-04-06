@@ -4,7 +4,7 @@
 
 import * as flatbuffers from 'flatbuffers';
 
-import { clz_Torappu_NameCardV2TimeLimitInfo, clz_Torappu_NameCardV2TimeLimitInfoT } from './clz-torappu-name-card-v2-time-limit-info.js';
+import { dict__string__clz_Torappu_NameCardV2TimeLimitInfo, dict__string__clz_Torappu_NameCardV2TimeLimitInfoT } from './dict--string--clz-torappu-name-card-v2-time-limit-info.js';
 import { enum__Torappu_ItemRarity } from './enum--torappu-item-rarity.js';
 import { enum__Torappu_NameCardV2SkinType } from './enum--torappu-name-card-v2-skin-type.js';
 
@@ -155,9 +155,9 @@ isTimeLimit():boolean {
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-timeLimitInfoList(index: number, obj?:clz_Torappu_NameCardV2TimeLimitInfo):clz_Torappu_NameCardV2TimeLimitInfo|null {
+timeLimitInfoList(index: number, obj?:dict__string__clz_Torappu_NameCardV2TimeLimitInfo):dict__string__clz_Torappu_NameCardV2TimeLimitInfo|null {
   const offset = this.bb!.__offset(this.bb_pos, 44);
-  return offset ? (obj || new clz_Torappu_NameCardV2TimeLimitInfo()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_NameCardV2TimeLimitInfo()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 timeLimitInfoListLength():number {
@@ -342,7 +342,7 @@ unpack(): clz_Torappu_NameCardV2SkinDataT {
     this.skinTmplCnt(),
     this.canChangeTmpl(),
     this.isTimeLimit(),
-    this.bb!.createObjList<clz_Torappu_NameCardV2TimeLimitInfo, clz_Torappu_NameCardV2TimeLimitInfoT>(this.timeLimitInfoList.bind(this), this.timeLimitInfoListLength())
+    this.bb!.createObjList<dict__string__clz_Torappu_NameCardV2TimeLimitInfo, dict__string__clz_Torappu_NameCardV2TimeLimitInfoT>(this.timeLimitInfoList.bind(this), this.timeLimitInfoListLength())
   );
 }
 
@@ -368,7 +368,7 @@ unpackTo(_o: clz_Torappu_NameCardV2SkinDataT): void {
   _o.skinTmplCnt = this.skinTmplCnt();
   _o.canChangeTmpl = this.canChangeTmpl();
   _o.isTimeLimit = this.isTimeLimit();
-  _o.timeLimitInfoList = this.bb!.createObjList<clz_Torappu_NameCardV2TimeLimitInfo, clz_Torappu_NameCardV2TimeLimitInfoT>(this.timeLimitInfoList.bind(this), this.timeLimitInfoListLength());
+  _o.timeLimitInfoList = this.bb!.createObjList<dict__string__clz_Torappu_NameCardV2TimeLimitInfo, dict__string__clz_Torappu_NameCardV2TimeLimitInfoT>(this.timeLimitInfoList.bind(this), this.timeLimitInfoListLength());
 }
 }
 
@@ -394,7 +394,7 @@ constructor(
   public skinTmplCnt: number = 0,
   public canChangeTmpl: boolean = false,
   public isTimeLimit: boolean = false,
-  public timeLimitInfoList: (clz_Torappu_NameCardV2TimeLimitInfoT)[] = []
+  public timeLimitInfoList: (dict__string__clz_Torappu_NameCardV2TimeLimitInfoT)[] = []
 ){}
 
 

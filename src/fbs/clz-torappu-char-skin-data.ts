@@ -87,70 +87,84 @@ avatarId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+spAvatarId():string|null
+spAvatarId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+spAvatarId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 20);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 portraitId():string|null
 portraitId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 portraitId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+spPortraitId():string|null
+spPortraitId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+spPortraitId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 dynPortraitId():string|null
 dynPortraitId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 dynPortraitId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 dynEntranceId():string|null
 dynEntranceId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 dynEntranceId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 buildingId():string|null
 buildingId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 buildingId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 battleSkin(obj?:clz_Torappu_CharSkinData_BattleSkin):clz_Torappu_CharSkinData_BattleSkin|null {
-  const offset = this.bb!.__offset(this.bb_pos, 28);
+  const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? (obj || new clz_Torappu_CharSkinData_BattleSkin()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 isBuySkin():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 tmplId():string|null
 tmplId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 tmplId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 32);
+  const offset = this.bb!.__offset(this.bb_pos, 36);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 voiceId():string|null
 voiceId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 voiceId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 34);
+  const offset = this.bb!.__offset(this.bb_pos, 38);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 voiceType():enum__Torappu_SkinVoiceType {
-  const offset = this.bb!.__offset(this.bb_pos, 36);
+  const offset = this.bb!.__offset(this.bb_pos, 40);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_SkinVoiceType.NONE;
 }
 
 displaySkin(obj?:clz_Torappu_CharSkinData_DisplaySkin):clz_Torappu_CharSkinData_DisplaySkin|null {
-  const offset = this.bb!.__offset(this.bb_pos, 38);
+  const offset = this.bb!.__offset(this.bb_pos, 42);
   return offset ? (obj || new clz_Torappu_CharSkinData_DisplaySkin()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 static startclz_Torappu_CharSkinData(builder:flatbuffers.Builder) {
-  builder.startObject(18);
+  builder.startObject(20);
 }
 
 static addSkinId(builder:flatbuffers.Builder, skinIdOffset:flatbuffers.Offset) {
@@ -197,44 +211,52 @@ static addAvatarId(builder:flatbuffers.Builder, avatarIdOffset:flatbuffers.Offse
   builder.addFieldOffset(7, avatarIdOffset, 0);
 }
 
+static addSpAvatarId(builder:flatbuffers.Builder, spAvatarIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(8, spAvatarIdOffset, 0);
+}
+
 static addPortraitId(builder:flatbuffers.Builder, portraitIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(8, portraitIdOffset, 0);
+  builder.addFieldOffset(9, portraitIdOffset, 0);
+}
+
+static addSpPortraitId(builder:flatbuffers.Builder, spPortraitIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(10, spPortraitIdOffset, 0);
 }
 
 static addDynPortraitId(builder:flatbuffers.Builder, dynPortraitIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(9, dynPortraitIdOffset, 0);
+  builder.addFieldOffset(11, dynPortraitIdOffset, 0);
 }
 
 static addDynEntranceId(builder:flatbuffers.Builder, dynEntranceIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(10, dynEntranceIdOffset, 0);
+  builder.addFieldOffset(12, dynEntranceIdOffset, 0);
 }
 
 static addBuildingId(builder:flatbuffers.Builder, buildingIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(11, buildingIdOffset, 0);
+  builder.addFieldOffset(13, buildingIdOffset, 0);
 }
 
 static addBattleSkin(builder:flatbuffers.Builder, battleSkinOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(12, battleSkinOffset, 0);
+  builder.addFieldOffset(14, battleSkinOffset, 0);
 }
 
 static addIsBuySkin(builder:flatbuffers.Builder, isBuySkin:boolean) {
-  builder.addFieldInt8(13, +isBuySkin, +false);
+  builder.addFieldInt8(15, +isBuySkin, +false);
 }
 
 static addTmplId(builder:flatbuffers.Builder, tmplIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(14, tmplIdOffset, 0);
+  builder.addFieldOffset(16, tmplIdOffset, 0);
 }
 
 static addVoiceId(builder:flatbuffers.Builder, voiceIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(15, voiceIdOffset, 0);
+  builder.addFieldOffset(17, voiceIdOffset, 0);
 }
 
 static addVoiceType(builder:flatbuffers.Builder, voiceType:enum__Torappu_SkinVoiceType) {
-  builder.addFieldInt32(16, voiceType, enum__Torappu_SkinVoiceType.NONE);
+  builder.addFieldInt32(18, voiceType, enum__Torappu_SkinVoiceType.NONE);
 }
 
 static addDisplaySkin(builder:flatbuffers.Builder, displaySkinOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(17, displaySkinOffset, 0);
+  builder.addFieldOffset(19, displaySkinOffset, 0);
 }
 
 static endclz_Torappu_CharSkinData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -253,7 +275,9 @@ unpack(): clz_Torappu_CharSkinDataT {
     this.dynIllustId(),
     this.spDynIllustId(),
     this.avatarId(),
+    this.spAvatarId(),
     this.portraitId(),
+    this.spPortraitId(),
     this.dynPortraitId(),
     this.dynEntranceId(),
     this.buildingId(),
@@ -276,7 +300,9 @@ unpackTo(_o: clz_Torappu_CharSkinDataT): void {
   _o.dynIllustId = this.dynIllustId();
   _o.spDynIllustId = this.spDynIllustId();
   _o.avatarId = this.avatarId();
+  _o.spAvatarId = this.spAvatarId();
   _o.portraitId = this.portraitId();
+  _o.spPortraitId = this.spPortraitId();
   _o.dynPortraitId = this.dynPortraitId();
   _o.dynEntranceId = this.dynEntranceId();
   _o.buildingId = this.buildingId();
@@ -299,7 +325,9 @@ constructor(
   public dynIllustId: string|Uint8Array|null = null,
   public spDynIllustId: string|Uint8Array|null = null,
   public avatarId: string|Uint8Array|null = null,
+  public spAvatarId: string|Uint8Array|null = null,
   public portraitId: string|Uint8Array|null = null,
+  public spPortraitId: string|Uint8Array|null = null,
   public dynPortraitId: string|Uint8Array|null = null,
   public dynEntranceId: string|Uint8Array|null = null,
   public buildingId: string|Uint8Array|null = null,
@@ -321,7 +349,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const dynIllustId = (this.dynIllustId !== null ? builder.createString(this.dynIllustId!) : 0);
   const spDynIllustId = (this.spDynIllustId !== null ? builder.createString(this.spDynIllustId!) : 0);
   const avatarId = (this.avatarId !== null ? builder.createString(this.avatarId!) : 0);
+  const spAvatarId = (this.spAvatarId !== null ? builder.createString(this.spAvatarId!) : 0);
   const portraitId = (this.portraitId !== null ? builder.createString(this.portraitId!) : 0);
+  const spPortraitId = (this.spPortraitId !== null ? builder.createString(this.spPortraitId!) : 0);
   const dynPortraitId = (this.dynPortraitId !== null ? builder.createString(this.dynPortraitId!) : 0);
   const dynEntranceId = (this.dynEntranceId !== null ? builder.createString(this.dynEntranceId!) : 0);
   const buildingId = (this.buildingId !== null ? builder.createString(this.buildingId!) : 0);
@@ -339,7 +369,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_CharSkinData.addDynIllustId(builder, dynIllustId);
   clz_Torappu_CharSkinData.addSpDynIllustId(builder, spDynIllustId);
   clz_Torappu_CharSkinData.addAvatarId(builder, avatarId);
+  clz_Torappu_CharSkinData.addSpAvatarId(builder, spAvatarId);
   clz_Torappu_CharSkinData.addPortraitId(builder, portraitId);
+  clz_Torappu_CharSkinData.addSpPortraitId(builder, spPortraitId);
   clz_Torappu_CharSkinData.addDynPortraitId(builder, dynPortraitId);
   clz_Torappu_CharSkinData.addDynEntranceId(builder, dynEntranceId);
   clz_Torappu_CharSkinData.addBuildingId(builder, buildingId);

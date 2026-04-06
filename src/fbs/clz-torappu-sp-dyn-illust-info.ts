@@ -52,8 +52,22 @@ spIllustId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+spPortraitId():string|null
+spPortraitId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+spPortraitId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+spAvatarId():string|null
+spAvatarId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+spAvatarId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 static startclz_Torappu_SpDynIllustInfo(builder:flatbuffers.Builder) {
-  builder.startObject(4);
+  builder.startObject(6);
 }
 
 static addSkinId(builder:flatbuffers.Builder, skinIdOffset:flatbuffers.Offset) {
@@ -72,17 +86,27 @@ static addSpIllustId(builder:flatbuffers.Builder, spIllustIdOffset:flatbuffers.O
   builder.addFieldOffset(3, spIllustIdOffset, 0);
 }
 
+static addSpPortraitId(builder:flatbuffers.Builder, spPortraitIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(4, spPortraitIdOffset, 0);
+}
+
+static addSpAvatarId(builder:flatbuffers.Builder, spAvatarIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(5, spAvatarIdOffset, 0);
+}
+
 static endclz_Torappu_SpDynIllustInfo(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_SpDynIllustInfo(builder:flatbuffers.Builder, skinIdOffset:flatbuffers.Offset, spDynIllustIdOffset:flatbuffers.Offset, spDynIllustSkinTagOffset:flatbuffers.Offset, spIllustIdOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_SpDynIllustInfo(builder:flatbuffers.Builder, skinIdOffset:flatbuffers.Offset, spDynIllustIdOffset:flatbuffers.Offset, spDynIllustSkinTagOffset:flatbuffers.Offset, spIllustIdOffset:flatbuffers.Offset, spPortraitIdOffset:flatbuffers.Offset, spAvatarIdOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_SpDynIllustInfo.startclz_Torappu_SpDynIllustInfo(builder);
   clz_Torappu_SpDynIllustInfo.addSkinId(builder, skinIdOffset);
   clz_Torappu_SpDynIllustInfo.addSpDynIllustId(builder, spDynIllustIdOffset);
   clz_Torappu_SpDynIllustInfo.addSpDynIllustSkinTag(builder, spDynIllustSkinTagOffset);
   clz_Torappu_SpDynIllustInfo.addSpIllustId(builder, spIllustIdOffset);
+  clz_Torappu_SpDynIllustInfo.addSpPortraitId(builder, spPortraitIdOffset);
+  clz_Torappu_SpDynIllustInfo.addSpAvatarId(builder, spAvatarIdOffset);
   return clz_Torappu_SpDynIllustInfo.endclz_Torappu_SpDynIllustInfo(builder);
 }
 
@@ -91,7 +115,9 @@ unpack(): clz_Torappu_SpDynIllustInfoT {
     this.skinId(),
     this.spDynIllustId(),
     this.spDynIllustSkinTag(),
-    this.spIllustId()
+    this.spIllustId(),
+    this.spPortraitId(),
+    this.spAvatarId()
   );
 }
 
@@ -101,6 +127,8 @@ unpackTo(_o: clz_Torappu_SpDynIllustInfoT): void {
   _o.spDynIllustId = this.spDynIllustId();
   _o.spDynIllustSkinTag = this.spDynIllustSkinTag();
   _o.spIllustId = this.spIllustId();
+  _o.spPortraitId = this.spPortraitId();
+  _o.spAvatarId = this.spAvatarId();
 }
 }
 
@@ -109,7 +137,9 @@ constructor(
   public skinId: string|Uint8Array|null = null,
   public spDynIllustId: string|Uint8Array|null = null,
   public spDynIllustSkinTag: string|Uint8Array|null = null,
-  public spIllustId: string|Uint8Array|null = null
+  public spIllustId: string|Uint8Array|null = null,
+  public spPortraitId: string|Uint8Array|null = null,
+  public spAvatarId: string|Uint8Array|null = null
 ){}
 
 
@@ -118,12 +148,16 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const spDynIllustId = (this.spDynIllustId !== null ? builder.createString(this.spDynIllustId!) : 0);
   const spDynIllustSkinTag = (this.spDynIllustSkinTag !== null ? builder.createString(this.spDynIllustSkinTag!) : 0);
   const spIllustId = (this.spIllustId !== null ? builder.createString(this.spIllustId!) : 0);
+  const spPortraitId = (this.spPortraitId !== null ? builder.createString(this.spPortraitId!) : 0);
+  const spAvatarId = (this.spAvatarId !== null ? builder.createString(this.spAvatarId!) : 0);
 
   return clz_Torappu_SpDynIllustInfo.createclz_Torappu_SpDynIllustInfo(builder,
     skinId,
     spDynIllustId,
     spDynIllustSkinTag,
-    spIllustId
+    spIllustId,
+    spPortraitId,
+    spAvatarId
   );
 }
 }

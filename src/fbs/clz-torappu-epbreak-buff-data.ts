@@ -29,28 +29,37 @@ elementBreakDuration():number {
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
+enemyElementBreakDuration():number {
+  const offset = this.bb!.__offset(this.bb_pos, 6);
+  return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
+}
+
 elementBuffs(index: number):string
 elementBuffs(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 elementBuffs(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 6);
+  const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 elementBuffsLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 6);
+  const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_EPBreakBuffData(builder:flatbuffers.Builder) {
-  builder.startObject(2);
+  builder.startObject(3);
 }
 
 static addElementBreakDuration(builder:flatbuffers.Builder, elementBreakDuration:number) {
   builder.addFieldFloat32(0, elementBreakDuration, 0.0);
 }
 
+static addEnemyElementBreakDuration(builder:flatbuffers.Builder, enemyElementBreakDuration:number) {
+  builder.addFieldFloat32(1, enemyElementBreakDuration, 0.0);
+}
+
 static addElementBuffs(builder:flatbuffers.Builder, elementBuffsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(1, elementBuffsOffset, 0);
+  builder.addFieldOffset(2, elementBuffsOffset, 0);
 }
 
 static createElementBuffsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -70,9 +79,10 @@ static endclz_Torappu_EPBreakBuffData(builder:flatbuffers.Builder):flatbuffers.O
   return offset;
 }
 
-static createclz_Torappu_EPBreakBuffData(builder:flatbuffers.Builder, elementBreakDuration:number, elementBuffsOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_EPBreakBuffData(builder:flatbuffers.Builder, elementBreakDuration:number, enemyElementBreakDuration:number, elementBuffsOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_EPBreakBuffData.startclz_Torappu_EPBreakBuffData(builder);
   clz_Torappu_EPBreakBuffData.addElementBreakDuration(builder, elementBreakDuration);
+  clz_Torappu_EPBreakBuffData.addEnemyElementBreakDuration(builder, enemyElementBreakDuration);
   clz_Torappu_EPBreakBuffData.addElementBuffs(builder, elementBuffsOffset);
   return clz_Torappu_EPBreakBuffData.endclz_Torappu_EPBreakBuffData(builder);
 }
@@ -80,6 +90,7 @@ static createclz_Torappu_EPBreakBuffData(builder:flatbuffers.Builder, elementBre
 unpack(): clz_Torappu_EPBreakBuffDataT {
   return new clz_Torappu_EPBreakBuffDataT(
     this.elementBreakDuration(),
+    this.enemyElementBreakDuration(),
     this.bb!.createScalarList<string>(this.elementBuffs.bind(this), this.elementBuffsLength())
   );
 }
@@ -87,6 +98,7 @@ unpack(): clz_Torappu_EPBreakBuffDataT {
 
 unpackTo(_o: clz_Torappu_EPBreakBuffDataT): void {
   _o.elementBreakDuration = this.elementBreakDuration();
+  _o.enemyElementBreakDuration = this.enemyElementBreakDuration();
   _o.elementBuffs = this.bb!.createScalarList<string>(this.elementBuffs.bind(this), this.elementBuffsLength());
 }
 }
@@ -94,6 +106,7 @@ unpackTo(_o: clz_Torappu_EPBreakBuffDataT): void {
 export class clz_Torappu_EPBreakBuffDataT implements flatbuffers.IGeneratedObject {
 constructor(
   public elementBreakDuration: number = 0.0,
+  public enemyElementBreakDuration: number = 0.0,
   public elementBuffs: (string)[] = []
 ){}
 
@@ -103,6 +116,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
 
   return clz_Torappu_EPBreakBuffData.createclz_Torappu_EPBreakBuffData(builder,
     this.elementBreakDuration,
+    this.enemyElementBreakDuration,
     elementBuffs
   );
 }
