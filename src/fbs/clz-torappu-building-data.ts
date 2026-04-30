@@ -18,6 +18,7 @@ import { clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_ShopPhase_, cl
 import { clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_WorkshopPhase_, clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_WorkshopPhase_T } from './clz-torappu-building-data-room-bean1-torappu-building-data-workshop-phase-.js';
 import { clz_Torappu_BuildingData_StationManageConstData, clz_Torappu_BuildingData_StationManageConstDataT } from './clz-torappu-building-data-station-manage-const-data.js';
 import { clz_Torappu_BuildingData_TradingRoomBean, clz_Torappu_BuildingData_TradingRoomBeanT } from './clz-torappu-building-data-trading-room-bean.js';
+import { clz_Torappu_BuildingData_TradingRoomInfoData, clz_Torappu_BuildingData_TradingRoomInfoDataT } from './clz-torappu-building-data-trading-room-info-data.js';
 import { clz_Torappu_BuildingData_TrainingBean, clz_Torappu_BuildingData_TrainingBeanT } from './clz-torappu-building-data-training-bean.js';
 import { clz_Torappu_BuildingData_WorkshopRarityInfo, clz_Torappu_BuildingData_WorkshopRarityInfoT } from './clz-torappu-building-data-workshop-rarity-info.js';
 import { dict__int__clz_Torappu_BuildingData_StationManageFilterInfo, dict__int__clz_Torappu_BuildingData_StationManageFilterInfoT } from './dict--int--clz-torappu-building-data-station-manage-filter-info.js';
@@ -635,8 +636,13 @@ buffSortDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+tradingRoomInfoData(obj?:clz_Torappu_BuildingData_TradingRoomInfoData):clz_Torappu_BuildingData_TradingRoomInfoData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 166);
+  return offset ? (obj || new clz_Torappu_BuildingData_TradingRoomInfoData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
 static startclz_Torappu_BuildingData(builder:flatbuffers.Builder) {
-  builder.startObject(81);
+  builder.startObject(82);
 }
 
 static addControlSlotId(builder:flatbuffers.Builder, controlSlotIdOffset:flatbuffers.Offset) {
@@ -1319,6 +1325,10 @@ static startBuffSortDataVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
+static addTradingRoomInfoData(builder:flatbuffers.Builder, tradingRoomInfoDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(81, tradingRoomInfoDataOffset, 0);
+}
+
 static endclz_Torappu_BuildingData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -1415,7 +1425,8 @@ unpack(): clz_Torappu_BuildingDataT {
     (this.musicData() !== null ? this.musicData()!.unpack() : null),
     this.bb!.createScalarList<string>(this.emojis.bind(this), this.emojisLength()),
     this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.categoryNames.bind(this), this.categoryNamesLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_BuildingData_BuildingRoomTypeBuffSortData, dict__string__clz_Torappu_BuildingData_BuildingRoomTypeBuffSortDataT>(this.buffSortData.bind(this), this.buffSortDataLength())
+    this.bb!.createObjList<dict__string__clz_Torappu_BuildingData_BuildingRoomTypeBuffSortData, dict__string__clz_Torappu_BuildingData_BuildingRoomTypeBuffSortDataT>(this.buffSortData.bind(this), this.buffSortDataLength()),
+    (this.tradingRoomInfoData() !== null ? this.tradingRoomInfoData()!.unpack() : null)
   );
 }
 
@@ -1502,6 +1513,7 @@ unpackTo(_o: clz_Torappu_BuildingDataT): void {
   _o.emojis = this.bb!.createScalarList<string>(this.emojis.bind(this), this.emojisLength());
   _o.categoryNames = this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.categoryNames.bind(this), this.categoryNamesLength());
   _o.buffSortData = this.bb!.createObjList<dict__string__clz_Torappu_BuildingData_BuildingRoomTypeBuffSortData, dict__string__clz_Torappu_BuildingData_BuildingRoomTypeBuffSortDataT>(this.buffSortData.bind(this), this.buffSortDataLength());
+  _o.tradingRoomInfoData = (this.tradingRoomInfoData() !== null ? this.tradingRoomInfoData()!.unpack() : null);
 }
 }
 
@@ -1587,7 +1599,8 @@ constructor(
   public musicData: clz_Torappu_BuildingData_MusicDataT|null = null,
   public emojis: (string)[] = [],
   public categoryNames: (dict__string__stringT)[] = [],
-  public buffSortData: (dict__string__clz_Torappu_BuildingData_BuildingRoomTypeBuffSortDataT)[] = []
+  public buffSortData: (dict__string__clz_Torappu_BuildingData_BuildingRoomTypeBuffSortDataT)[] = [],
+  public tradingRoomInfoData: clz_Torappu_BuildingData_TradingRoomInfoDataT|null = null
 ){}
 
 
@@ -1640,6 +1653,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const emojis = clz_Torappu_BuildingData.createEmojisVector(builder, builder.createObjectOffsetList(this.emojis));
   const categoryNames = clz_Torappu_BuildingData.createCategoryNamesVector(builder, builder.createObjectOffsetList(this.categoryNames));
   const buffSortData = clz_Torappu_BuildingData.createBuffSortDataVector(builder, builder.createObjectOffsetList(this.buffSortData));
+  const tradingRoomInfoData = (this.tradingRoomInfoData !== null ? this.tradingRoomInfoData!.pack(builder) : 0);
 
   clz_Torappu_BuildingData.startclz_Torappu_BuildingData(builder);
   clz_Torappu_BuildingData.addControlSlotId(builder, controlSlotId);
@@ -1723,6 +1737,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_BuildingData.addEmojis(builder, emojis);
   clz_Torappu_BuildingData.addCategoryNames(builder, categoryNames);
   clz_Torappu_BuildingData.addBuffSortData(builder, buffSortData);
+  clz_Torappu_BuildingData.addTradingRoomInfoData(builder, tradingRoomInfoData);
 
   return clz_Torappu_BuildingData.endclz_Torappu_BuildingData(builder);
 }

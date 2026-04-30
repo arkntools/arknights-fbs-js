@@ -4,7 +4,6 @@
 
 import * as flatbuffers from 'flatbuffers';
 
-import { clz_Torappu_Battle_BakedFrameData, clz_Torappu_Battle_BakedFrameDataT } from './clz-torappu-battle-baked-frame-data.js';
 
 
 export class clz_Torappu_Battle_BakedMountPointData implements flatbuffers.IUnpackableObject<clz_Torappu_Battle_BakedMountPointDataT> {
@@ -25,51 +24,61 @@ static getSizePrefixedRootAsclz_Torappu_Battle_BakedMountPointData(bb:flatbuffer
   return (obj || new clz_Torappu_Battle_BakedMountPointData()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-isConstant():boolean {
+bakedStepInterval():number {
   const offset = this.bb!.__offset(this.bb_pos, 4);
-  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-bakedStepInterval():number {
+frameCount():number {
   const offset = this.bb!.__offset(this.bb_pos, 6);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-frames(index: number, obj?:clz_Torappu_Battle_BakedFrameData):clz_Torappu_Battle_BakedFrameData|null {
+trsData(index: number):number|null {
   const offset = this.bb!.__offset(this.bb_pos, 8);
-  return offset ? (obj || new clz_Torappu_Battle_BakedFrameData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? this.bb!.readFloat32(this.bb!.__vector(this.bb_pos + offset) + index * 4) : 0;
 }
 
-framesLength():number {
+trsDataLength():number {
   const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+trsDataArray():Float32Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 8);
+  return offset ? new Float32Array(this.bb!.bytes().buffer, this.bb!.bytes().byteOffset + this.bb!.__vector(this.bb_pos + offset), this.bb!.__vector_len(this.bb_pos + offset)) : null;
 }
 
 static startclz_Torappu_Battle_BakedMountPointData(builder:flatbuffers.Builder) {
   builder.startObject(3);
 }
 
-static addIsConstant(builder:flatbuffers.Builder, isConstant:boolean) {
-  builder.addFieldInt8(0, +isConstant, +false);
-}
-
 static addBakedStepInterval(builder:flatbuffers.Builder, bakedStepInterval:number) {
-  builder.addFieldInt32(1, bakedStepInterval, 0);
+  builder.addFieldInt32(0, bakedStepInterval, 0);
 }
 
-static addFrames(builder:flatbuffers.Builder, framesOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(2, framesOffset, 0);
+static addFrameCount(builder:flatbuffers.Builder, frameCount:number) {
+  builder.addFieldInt32(1, frameCount, 0);
 }
 
-static createFramesVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+static addTrsData(builder:flatbuffers.Builder, trsDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(2, trsDataOffset, 0);
+}
+
+static createTrsDataVector(builder:flatbuffers.Builder, data:number[]|Float32Array):flatbuffers.Offset;
+/**
+ * @deprecated This Uint8Array overload will be removed in the future.
+ */
+static createTrsDataVector(builder:flatbuffers.Builder, data:number[]|Uint8Array):flatbuffers.Offset;
+static createTrsDataVector(builder:flatbuffers.Builder, data:number[]|Float32Array|Uint8Array):flatbuffers.Offset {
   builder.startVector(4, data.length, 4);
   for (let i = data.length - 1; i >= 0; i--) {
-    builder.addOffset(data[i]!);
+    builder.addFloat32(data[i]!);
   }
   return builder.endVector();
 }
 
-static startFramesVector(builder:flatbuffers.Builder, numElems:number) {
+static startTrsDataVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
@@ -78,45 +87,45 @@ static endclz_Torappu_Battle_BakedMountPointData(builder:flatbuffers.Builder):fl
   return offset;
 }
 
-static createclz_Torappu_Battle_BakedMountPointData(builder:flatbuffers.Builder, isConstant:boolean, bakedStepInterval:number, framesOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_Battle_BakedMountPointData(builder:flatbuffers.Builder, bakedStepInterval:number, frameCount:number, trsDataOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_Battle_BakedMountPointData.startclz_Torappu_Battle_BakedMountPointData(builder);
-  clz_Torappu_Battle_BakedMountPointData.addIsConstant(builder, isConstant);
   clz_Torappu_Battle_BakedMountPointData.addBakedStepInterval(builder, bakedStepInterval);
-  clz_Torappu_Battle_BakedMountPointData.addFrames(builder, framesOffset);
+  clz_Torappu_Battle_BakedMountPointData.addFrameCount(builder, frameCount);
+  clz_Torappu_Battle_BakedMountPointData.addTrsData(builder, trsDataOffset);
   return clz_Torappu_Battle_BakedMountPointData.endclz_Torappu_Battle_BakedMountPointData(builder);
 }
 
 unpack(): clz_Torappu_Battle_BakedMountPointDataT {
   return new clz_Torappu_Battle_BakedMountPointDataT(
-    this.isConstant(),
     this.bakedStepInterval(),
-    this.bb!.createObjList<clz_Torappu_Battle_BakedFrameData, clz_Torappu_Battle_BakedFrameDataT>(this.frames.bind(this), this.framesLength())
+    this.frameCount(),
+    this.bb!.createScalarList<number>(this.trsData.bind(this), this.trsDataLength())
   );
 }
 
 
 unpackTo(_o: clz_Torappu_Battle_BakedMountPointDataT): void {
-  _o.isConstant = this.isConstant();
   _o.bakedStepInterval = this.bakedStepInterval();
-  _o.frames = this.bb!.createObjList<clz_Torappu_Battle_BakedFrameData, clz_Torappu_Battle_BakedFrameDataT>(this.frames.bind(this), this.framesLength());
+  _o.frameCount = this.frameCount();
+  _o.trsData = this.bb!.createScalarList<number>(this.trsData.bind(this), this.trsDataLength());
 }
 }
 
 export class clz_Torappu_Battle_BakedMountPointDataT implements flatbuffers.IGeneratedObject {
 constructor(
-  public isConstant: boolean = false,
   public bakedStepInterval: number = 0,
-  public frames: (clz_Torappu_Battle_BakedFrameDataT)[] = []
+  public frameCount: number = 0,
+  public trsData: (number)[] = []
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
-  const frames = clz_Torappu_Battle_BakedMountPointData.createFramesVector(builder, builder.createObjectOffsetList(this.frames));
+  const trsData = clz_Torappu_Battle_BakedMountPointData.createTrsDataVector(builder, this.trsData);
 
   return clz_Torappu_Battle_BakedMountPointData.createclz_Torappu_Battle_BakedMountPointData(builder,
-    this.isConstant,
     this.bakedStepInterval,
-    frames
+    this.frameCount,
+    trsData
   );
 }
 }

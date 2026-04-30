@@ -26,6 +26,7 @@ export { dict__string__clz_Torappu_ShopClientGPData, dict__string__clz_Torappu_S
 export { dict__string__clz_Torappu_ShopCreditUnlockGroup, dict__string__clz_Torappu_ShopCreditUnlockGroupT } from './dict--string--clz-torappu-shop-credit-unlock-group.js';
 export { dict__string__clz_Torappu_ShopGPTabDisplayData, dict__string__clz_Torappu_ShopGPTabDisplayDataT } from './dict--string--clz-torappu-shop-gptab-display-data.js';
 export { dict__string__enum__Torappu_ShopUnlockType, dict__string__enum__Torappu_ShopUnlockTypeT } from './dict--string--enum--torappu-shop-unlock-type.js';
+export { dict__string__string, dict__string__stringT } from './dict--string--string.js';
 export { enum__Torappu_RecommendItemTagTips } from './enum--torappu-recommend-item-tag-tips.js';
 export { enum__Torappu_ShopCondTrigPackageType } from './enum--torappu-shop-cond-trig-package-type.js';
 export { enum__Torappu_ShopGPTabType } from './enum--torappu-shop-gptab-type.js';

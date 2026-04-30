@@ -5,6 +5,7 @@
 import * as flatbuffers from 'flatbuffers';
 
 import { dict__string__clz_Torappu_SandboxV2Data, dict__string__clz_Torappu_SandboxV2DataT } from './dict--string--clz-torappu-sandbox-v2-data.js';
+import { dict__string__clz_Torappu_SandboxV3Data, dict__string__clz_Torappu_SandboxV3DataT } from './dict--string--clz-torappu-sandbox-v3-data.js';
 
 
 export class clz_Torappu_SandboxPermDetailData implements flatbuffers.IUnpackableObject<clz_Torappu_SandboxPermDetailDataT> {
@@ -35,8 +36,18 @@ sandboxV2Length():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+sandboxV3(index: number, obj?:dict__string__clz_Torappu_SandboxV3Data):dict__string__clz_Torappu_SandboxV3Data|null {
+  const offset = this.bb!.__offset(this.bb_pos, 6);
+  return offset ? (obj || new dict__string__clz_Torappu_SandboxV3Data()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+sandboxV3Length():number {
+  const offset = this.bb!.__offset(this.bb_pos, 6);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_SandboxPermDetailData(builder:flatbuffers.Builder) {
-  builder.startObject(1);
+  builder.startObject(2);
 }
 
 static addSandboxV2(builder:flatbuffers.Builder, sandboxV2Offset:flatbuffers.Offset) {
@@ -55,40 +66,62 @@ static startSandboxV2Vector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
+static addSandboxV3(builder:flatbuffers.Builder, sandboxV3Offset:flatbuffers.Offset) {
+  builder.addFieldOffset(1, sandboxV3Offset, 0);
+}
+
+static createSandboxV3Vector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startSandboxV3Vector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static endclz_Torappu_SandboxPermDetailData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_SandboxPermDetailData(builder:flatbuffers.Builder, sandboxV2Offset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_SandboxPermDetailData(builder:flatbuffers.Builder, sandboxV2Offset:flatbuffers.Offset, sandboxV3Offset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_SandboxPermDetailData.startclz_Torappu_SandboxPermDetailData(builder);
   clz_Torappu_SandboxPermDetailData.addSandboxV2(builder, sandboxV2Offset);
+  clz_Torappu_SandboxPermDetailData.addSandboxV3(builder, sandboxV3Offset);
   return clz_Torappu_SandboxPermDetailData.endclz_Torappu_SandboxPermDetailData(builder);
 }
 
 unpack(): clz_Torappu_SandboxPermDetailDataT {
   return new clz_Torappu_SandboxPermDetailDataT(
-    this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2Data, dict__string__clz_Torappu_SandboxV2DataT>(this.sandboxV2.bind(this), this.sandboxV2Length())
+    this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2Data, dict__string__clz_Torappu_SandboxV2DataT>(this.sandboxV2.bind(this), this.sandboxV2Length()),
+    this.bb!.createObjList<dict__string__clz_Torappu_SandboxV3Data, dict__string__clz_Torappu_SandboxV3DataT>(this.sandboxV3.bind(this), this.sandboxV3Length())
   );
 }
 
 
 unpackTo(_o: clz_Torappu_SandboxPermDetailDataT): void {
   _o.sandboxV2 = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2Data, dict__string__clz_Torappu_SandboxV2DataT>(this.sandboxV2.bind(this), this.sandboxV2Length());
+  _o.sandboxV3 = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV3Data, dict__string__clz_Torappu_SandboxV3DataT>(this.sandboxV3.bind(this), this.sandboxV3Length());
 }
 }
 
 export class clz_Torappu_SandboxPermDetailDataT implements flatbuffers.IGeneratedObject {
 constructor(
-  public sandboxV2: (dict__string__clz_Torappu_SandboxV2DataT)[] = []
+  public sandboxV2: (dict__string__clz_Torappu_SandboxV2DataT)[] = [],
+  public sandboxV3: (dict__string__clz_Torappu_SandboxV3DataT)[] = []
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const sandboxV2 = clz_Torappu_SandboxPermDetailData.createSandboxV2Vector(builder, builder.createObjectOffsetList(this.sandboxV2));
+  const sandboxV3 = clz_Torappu_SandboxPermDetailData.createSandboxV3Vector(builder, builder.createObjectOffsetList(this.sandboxV3));
 
   return clz_Torappu_SandboxPermDetailData.createclz_Torappu_SandboxPermDetailData(builder,
-    sandboxV2
+    sandboxV2,
+    sandboxV3
   );
 }
 }

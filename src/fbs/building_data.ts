@@ -63,6 +63,8 @@ export { clz_Torappu_BuildingData_StationManageConstData, clz_Torappu_BuildingDa
 export { clz_Torappu_BuildingData_StationManageFilterInfo, clz_Torappu_BuildingData_StationManageFilterInfoT } from './clz-torappu-building-data-station-manage-filter-info.js';
 export { clz_Torappu_BuildingData_TradingPhase, clz_Torappu_BuildingData_TradingPhaseT } from './clz-torappu-building-data-trading-phase.js';
 export { clz_Torappu_BuildingData_TradingRoomBean, clz_Torappu_BuildingData_TradingRoomBeanT } from './clz-torappu-building-data-trading-room-bean.js';
+export { clz_Torappu_BuildingData_TradingRoomInfoData, clz_Torappu_BuildingData_TradingRoomInfoDataT } from './clz-torappu-building-data-trading-room-info-data.js';
+export { clz_Torappu_BuildingData_TradingRoomSpecialOrderInfo, clz_Torappu_BuildingData_TradingRoomSpecialOrderInfoT } from './clz-torappu-building-data-trading-room-special-order-info.js';
 export { clz_Torappu_BuildingData_TrainingBean, clz_Torappu_BuildingData_TrainingBeanT } from './clz-torappu-building-data-training-bean.js';
 export { clz_Torappu_BuildingData_TrainingPhase, clz_Torappu_BuildingData_TrainingPhaseT } from './clz-torappu-building-data-training-phase.js';
 export { clz_Torappu_BuildingData_WorkshopExtraWeightItem, clz_Torappu_BuildingData_WorkshopExtraWeightItemT } from './clz-torappu-building-data-workshop-extra-weight-item.js';
@@ -101,6 +103,7 @@ export { dict__string__clz_Torappu_BuildingData_RoomData, dict__string__clz_Tora
 export { dict__string__clz_Torappu_BuildingData_RoomUnlockCond, dict__string__clz_Torappu_BuildingData_RoomUnlockCondT } from './dict--string--clz-torappu-building-data-room-unlock-cond.js';
 export { dict__string__clz_Torappu_BuildingData_ShopFormula, dict__string__clz_Torappu_BuildingData_ShopFormulaT } from './dict--string--clz-torappu-building-data-shop-formula.js';
 export { dict__string__clz_Torappu_BuildingData_SlotPrequeData, dict__string__clz_Torappu_BuildingData_SlotPrequeDataT } from './dict--string--clz-torappu-building-data-slot-preque-data.js';
+export { dict__string__clz_Torappu_BuildingData_TradingRoomSpecialOrderInfo, dict__string__clz_Torappu_BuildingData_TradingRoomSpecialOrderInfoT } from './dict--string--clz-torappu-building-data-trading-room-special-order-info.js';
 export { dict__string__clz_Torappu_BuildingData_WorkshopFormula, dict__string__clz_Torappu_BuildingData_WorkshopFormulaT } from './dict--string--clz-torappu-building-data-workshop-formula.js';
 export { dict__string__int, dict__string__intT } from './dict--string--int.js';
 export { dict__string__list_clz_Torappu_BuildingData_CustomData_DormitoryDefaultFurnitureItem, dict__string__list_clz_Torappu_BuildingData_CustomData_DormitoryDefaultFurnitureItemT } from './dict--string--list-clz-torappu-building-data-custom-data-dormitory-default-furniture-item.js';

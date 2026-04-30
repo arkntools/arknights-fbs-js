@@ -16,5 +16,18 @@ export enum enum__Torappu_SandboxPermItemType {
   STAMINAPOT = 12,
   ANIMAL = 13,
   INSECT = 14,
-  SLUGITEM = 15
+  SLUGITEM = 15,
+  RELIC = 16,
+  RECIPE = 17,
+  PRODUCT = 18,
+  TOOLKIT = 19,
+  RANDRELIC = 20,
+  RANDRECIPE = 21,
+  CURRENCY = 22,
+  COOKBOOK = 23,
+  BASEBUILDING = 24,
+  BASECOIN = 25,
+  BASEANIMAL = 26,
+  BASETACTICAL = 27,
+  TECHPOINT = 28
 }

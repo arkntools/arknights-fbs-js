@@ -4,13 +4,13 @@
 
 import * as flatbuffers from 'flatbuffers';
 
+import { clz_Torappu_SandboxDevelopmentLineSegmentData, clz_Torappu_SandboxDevelopmentLineSegmentDataT } from './clz-torappu-sandbox-development-line-segment-data.js';
 import { clz_Torappu_SandboxV2BaseUpdateData, clz_Torappu_SandboxV2BaseUpdateDataT } from './clz-torappu-sandbox-v2-base-update-data.js';
 import { clz_Torappu_SandboxV2BasicConst, clz_Torappu_SandboxV2BasicConstT } from './clz-torappu-sandbox-v2-basic-const.js';
 import { clz_Torappu_SandboxV2BattleRushEnemyData, clz_Torappu_SandboxV2BattleRushEnemyDataT } from './clz-torappu-sandbox-v2-battle-rush-enemy-data.js';
 import { clz_Torappu_SandboxV2ChallengeModeData, clz_Torappu_SandboxV2ChallengeModeDataT } from './clz-torappu-sandbox-v2-challenge-mode-data.js';
 import { clz_Torappu_SandboxV2ConfirmIconData, clz_Torappu_SandboxV2ConfirmIconDataT } from './clz-torappu-sandbox-v2-confirm-icon-data.js';
 import { clz_Torappu_SandboxV2DevelopmentConst, clz_Torappu_SandboxV2DevelopmentConstT } from './clz-torappu-sandbox-v2-development-const.js';
-import { clz_Torappu_SandboxV2DevelopmentLineSegmentData, clz_Torappu_SandboxV2DevelopmentLineSegmentDataT } from './clz-torappu-sandbox-v2-development-line-segment-data.js';
 import { clz_Torappu_SandboxV2GameConst, clz_Torappu_SandboxV2GameConstT } from './clz-torappu-sandbox-v2-game-const.js';
 import { clz_Torappu_SandboxV2LogisticsData, clz_Torappu_SandboxV2LogisticsDataT } from './clz-torappu-sandbox-v2-logistics-data.js';
 import { clz_Torappu_SandboxV2MonthRushData, clz_Torappu_SandboxV2MonthRushDataT } from './clz-torappu-sandbox-v2-month-rush-data.js';
@@ -22,17 +22,20 @@ import { clz_Torappu_SandboxV2TutorialData, clz_Torappu_SandboxV2TutorialDataT }
 import { clz_Torappu_TipData, clz_Torappu_TipDataT } from './clz-torappu-tip-data.js';
 import { dict__int__list_dict__int__list_clz_Torappu_SandboxV2LogisticsCharData, dict__int__list_dict__int__list_clz_Torappu_SandboxV2LogisticsCharDataT } from './dict--int--list-dict--int--list-clz-torappu-sandbox-v2-logistics-char-data.js';
 import { dict__string__clz_Torappu_RuneTable_PackedRuneData, dict__string__clz_Torappu_RuneTable_PackedRuneDataT } from './dict--string--clz-torappu-rune-table-packed-rune-data.js';
+import { dict__string__clz_Torappu_SandboxArchiveAchievementData, dict__string__clz_Torappu_SandboxArchiveAchievementDataT } from './dict--string--clz-torappu-sandbox-archive-achievement-data.js';
+import { dict__string__clz_Torappu_SandboxArchiveAchievementTypeData, dict__string__clz_Torappu_SandboxArchiveAchievementTypeDataT } from './dict--string--clz-torappu-sandbox-archive-achievement-type-data.js';
+import { dict__string__clz_Torappu_SandboxArchiveMusicUnlockData, dict__string__clz_Torappu_SandboxArchiveMusicUnlockDataT } from './dict--string--clz-torappu-sandbox-archive-music-unlock-data.js';
+import { dict__string__clz_Torappu_SandboxArchiveQuestData, dict__string__clz_Torappu_SandboxArchiveQuestDataT } from './dict--string--clz-torappu-sandbox-archive-quest-data.js';
+import { dict__string__clz_Torappu_SandboxArchiveQuestTypeData, dict__string__clz_Torappu_SandboxArchiveQuestTypeDataT } from './dict--string--clz-torappu-sandbox-archive-quest-type-data.js';
+import { dict__string__clz_Torappu_SandboxBuildingItemData, dict__string__clz_Torappu_SandboxBuildingItemDataT } from './dict--string--clz-torappu-sandbox-building-item-data.js';
+import { dict__string__clz_Torappu_SandboxDevelopmentData, dict__string__clz_Torappu_SandboxDevelopmentDataT } from './dict--string--clz-torappu-sandbox-development-data.js';
+import { dict__string__clz_Torappu_SandboxFoodData, dict__string__clz_Torappu_SandboxFoodDataT } from './dict--string--clz-torappu-sandbox-food-data.js';
+import { dict__string__clz_Torappu_SandboxFoodMatData, dict__string__clz_Torappu_SandboxFoodMatDataT } from './dict--string--clz-torappu-sandbox-food-mat-data.js';
+import { dict__string__clz_Torappu_SandboxShopGoodData, dict__string__clz_Torappu_SandboxShopGoodDataT } from './dict--string--clz-torappu-sandbox-shop-good-data.js';
 import { dict__string__clz_Torappu_SandboxV2AlchemyRecipeData, dict__string__clz_Torappu_SandboxV2AlchemyRecipeDataT } from './dict--string--clz-torappu-sandbox-v2-alchemy-recipe-data.js';
-import { dict__string__clz_Torappu_SandboxV2ArchiveAchievementData, dict__string__clz_Torappu_SandboxV2ArchiveAchievementDataT } from './dict--string--clz-torappu-sandbox-v2-archive-achievement-data.js';
-import { dict__string__clz_Torappu_SandboxV2ArchiveAchievementTypeData, dict__string__clz_Torappu_SandboxV2ArchiveAchievementTypeDataT } from './dict--string--clz-torappu-sandbox-v2-archive-achievement-type-data.js';
-import { dict__string__clz_Torappu_SandboxV2ArchiveMusicUnlockData, dict__string__clz_Torappu_SandboxV2ArchiveMusicUnlockDataT } from './dict--string--clz-torappu-sandbox-v2-archive-music-unlock-data.js';
-import { dict__string__clz_Torappu_SandboxV2ArchiveQuestData, dict__string__clz_Torappu_SandboxV2ArchiveQuestDataT } from './dict--string--clz-torappu-sandbox-v2-archive-quest-data.js';
-import { dict__string__clz_Torappu_SandboxV2ArchiveQuestTypeData, dict__string__clz_Torappu_SandboxV2ArchiveQuestTypeDataT } from './dict--string--clz-torappu-sandbox-v2-archive-quest-type-data.js';
-import { dict__string__clz_Torappu_SandboxV2BuildingItemData, dict__string__clz_Torappu_SandboxV2BuildingItemDataT } from './dict--string--clz-torappu-sandbox-v2-building-item-data.js';
 import { dict__string__clz_Torappu_SandboxV2BuildingNodeScoreData, dict__string__clz_Torappu_SandboxV2BuildingNodeScoreDataT } from './dict--string--clz-torappu-sandbox-v2-building-node-score-data.js';
 import { dict__string__clz_Torappu_SandboxV2CraftGroupData, dict__string__clz_Torappu_SandboxV2CraftGroupDataT } from './dict--string--clz-torappu-sandbox-v2-craft-group-data.js';
 import { dict__string__clz_Torappu_SandboxV2CraftItemData, dict__string__clz_Torappu_SandboxV2CraftItemDataT } from './dict--string--clz-torappu-sandbox-v2-craft-item-data.js';
-import { dict__string__clz_Torappu_SandboxV2DevelopmentData, dict__string__clz_Torappu_SandboxV2DevelopmentDataT } from './dict--string--clz-torappu-sandbox-v2-development-data.js';
 import { dict__string__clz_Torappu_SandboxV2DialogData, dict__string__clz_Torappu_SandboxV2DialogDataT } from './dict--string--clz-torappu-sandbox-v2-dialog-data.js';
 import { dict__string__clz_Torappu_SandboxV2DrinkMatData, dict__string__clz_Torappu_SandboxV2DrinkMatDataT } from './dict--string--clz-torappu-sandbox-v2-drink-mat-data.js';
 import { dict__string__clz_Torappu_SandboxV2EnemyRushTypeData, dict__string__clz_Torappu_SandboxV2EnemyRushTypeDataT } from './dict--string--clz-torappu-sandbox-v2-enemy-rush-type-data.js';
@@ -43,8 +46,6 @@ import { dict__string__clz_Torappu_SandboxV2EventSceneData, dict__string__clz_To
 import { dict__string__clz_Torappu_SandboxV2ExpeditionData, dict__string__clz_Torappu_SandboxV2ExpeditionDataT } from './dict--string--clz-torappu-sandbox-v2-expedition-data.js';
 import { dict__string__clz_Torappu_SandboxV2FixedRiftData, dict__string__clz_Torappu_SandboxV2FixedRiftDataT } from './dict--string--clz-torappu-sandbox-v2-fixed-rift-data.js';
 import { dict__string__clz_Torappu_SandboxV2FloatIconData, dict__string__clz_Torappu_SandboxV2FloatIconDataT } from './dict--string--clz-torappu-sandbox-v2-float-icon-data.js';
-import { dict__string__clz_Torappu_SandboxV2FoodData, dict__string__clz_Torappu_SandboxV2FoodDataT } from './dict--string--clz-torappu-sandbox-v2-food-data.js';
-import { dict__string__clz_Torappu_SandboxV2FoodMatData, dict__string__clz_Torappu_SandboxV2FoodMatDataT } from './dict--string--clz-torappu-sandbox-v2-food-mat-data.js';
 import { dict__string__clz_Torappu_SandboxV2GuideQuestData, dict__string__clz_Torappu_SandboxV2GuideQuestDataT } from './dict--string--clz-torappu-sandbox-v2-guide-quest-data.js';
 import { dict__string__clz_Torappu_SandboxV2ItemTrapData, dict__string__clz_Torappu_SandboxV2ItemTrapDataT } from './dict--string--clz-torappu-sandbox-v2-item-trap-data.js';
 import { dict__string__clz_Torappu_SandboxV2ItemTrapTagData, dict__string__clz_Torappu_SandboxV2ItemTrapTagDataT } from './dict--string--clz-torappu-sandbox-v2-item-trap-tag-data.js';
@@ -62,7 +63,6 @@ import { dict__string__clz_Torappu_SandboxV2RiftMainTargetData, dict__string__cl
 import { dict__string__clz_Torappu_SandboxV2RiftParamData, dict__string__clz_Torappu_SandboxV2RiftParamDataT } from './dict--string--clz-torappu-sandbox-v2-rift-param-data.js';
 import { dict__string__clz_Torappu_SandboxV2RiftSubTargetData, dict__string__clz_Torappu_SandboxV2RiftSubTargetDataT } from './dict--string--clz-torappu-sandbox-v2-rift-sub-target-data.js';
 import { dict__string__clz_Torappu_SandboxV2SeasonData, dict__string__clz_Torappu_SandboxV2SeasonDataT } from './dict--string--clz-torappu-sandbox-v2-season-data.js';
-import { dict__string__clz_Torappu_SandboxV2ShopGoodData, dict__string__clz_Torappu_SandboxV2ShopGoodDataT } from './dict--string--clz-torappu-sandbox-v2-shop-good-data.js';
 import { dict__string__clz_Torappu_SandboxV2StageData, dict__string__clz_Torappu_SandboxV2StageDataT } from './dict--string--clz-torappu-sandbox-v2-stage-data.js';
 import { dict__string__clz_Torappu_SandboxV2WeatherData, dict__string__clz_Torappu_SandboxV2WeatherDataT } from './dict--string--clz-torappu-sandbox-v2-weather-data.js';
 import { dict__string__clz_Torappu_SandboxV2ZoneData, dict__string__clz_Torappu_SandboxV2ZoneDataT } from './dict--string--clz-torappu-sandbox-v2-zone-data.js';
@@ -121,9 +121,9 @@ itemTrapTagDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-buildingItemData(index: number, obj?:dict__string__clz_Torappu_SandboxV2BuildingItemData):dict__string__clz_Torappu_SandboxV2BuildingItemData|null {
+buildingItemData(index: number, obj?:dict__string__clz_Torappu_SandboxBuildingItemData):dict__string__clz_Torappu_SandboxBuildingItemData|null {
   const offset = this.bb!.__offset(this.bb_pos, 10);
-  return offset ? (obj || new dict__string__clz_Torappu_SandboxV2BuildingItemData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_SandboxBuildingItemData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 buildingItemDataLength():number {
@@ -181,9 +181,9 @@ drinkMatDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-foodMatData(index: number, obj?:dict__string__clz_Torappu_SandboxV2FoodMatData):dict__string__clz_Torappu_SandboxV2FoodMatData|null {
+foodMatData(index: number, obj?:dict__string__clz_Torappu_SandboxFoodMatData):dict__string__clz_Torappu_SandboxFoodMatData|null {
   const offset = this.bb!.__offset(this.bb_pos, 22);
-  return offset ? (obj || new dict__string__clz_Torappu_SandboxV2FoodMatData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_SandboxFoodMatData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 foodMatDataLength():number {
@@ -191,9 +191,9 @@ foodMatDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-foodData(index: number, obj?:dict__string__clz_Torappu_SandboxV2FoodData):dict__string__clz_Torappu_SandboxV2FoodData|null {
+foodData(index: number, obj?:dict__string__clz_Torappu_SandboxFoodData):dict__string__clz_Torappu_SandboxFoodData|null {
   const offset = this.bb!.__offset(this.bb_pos, 24);
-  return offset ? (obj || new dict__string__clz_Torappu_SandboxV2FoodData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_SandboxFoodData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 foodDataLength():number {
@@ -401,9 +401,9 @@ guideQuestDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-developmentData(index: number, obj?:dict__string__clz_Torappu_SandboxV2DevelopmentData):dict__string__clz_Torappu_SandboxV2DevelopmentData|null {
+developmentData(index: number, obj?:dict__string__clz_Torappu_SandboxDevelopmentData):dict__string__clz_Torappu_SandboxDevelopmentData|null {
   const offset = this.bb!.__offset(this.bb_pos, 72);
-  return offset ? (obj || new dict__string__clz_Torappu_SandboxV2DevelopmentData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_SandboxDevelopmentData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 developmentDataLength():number {
@@ -461,9 +461,9 @@ eventEffectDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-shopGoodData(index: number, obj?:dict__string__clz_Torappu_SandboxV2ShopGoodData):dict__string__clz_Torappu_SandboxV2ShopGoodData|null {
+shopGoodData(index: number, obj?:dict__string__clz_Torappu_SandboxShopGoodData):dict__string__clz_Torappu_SandboxShopGoodData|null {
   const offset = this.bb!.__offset(this.bb_pos, 84);
-  return offset ? (obj || new dict__string__clz_Torappu_SandboxV2ShopGoodData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_SandboxShopGoodData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 shopGoodDataLength():number {
@@ -626,9 +626,9 @@ enemyReplaceDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-archiveQuestData(index: number, obj?:dict__string__clz_Torappu_SandboxV2ArchiveQuestData):dict__string__clz_Torappu_SandboxV2ArchiveQuestData|null {
+archiveQuestData(index: number, obj?:dict__string__clz_Torappu_SandboxArchiveQuestData):dict__string__clz_Torappu_SandboxArchiveQuestData|null {
   const offset = this.bb!.__offset(this.bb_pos, 118);
-  return offset ? (obj || new dict__string__clz_Torappu_SandboxV2ArchiveQuestData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_SandboxArchiveQuestData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 archiveQuestDataLength():number {
@@ -636,9 +636,9 @@ archiveQuestDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-achievementData(index: number, obj?:dict__string__clz_Torappu_SandboxV2ArchiveAchievementData):dict__string__clz_Torappu_SandboxV2ArchiveAchievementData|null {
+achievementData(index: number, obj?:dict__string__clz_Torappu_SandboxArchiveAchievementData):dict__string__clz_Torappu_SandboxArchiveAchievementData|null {
   const offset = this.bb!.__offset(this.bb_pos, 120);
-  return offset ? (obj || new dict__string__clz_Torappu_SandboxV2ArchiveAchievementData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_SandboxArchiveAchievementData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 achievementDataLength():number {
@@ -646,9 +646,9 @@ achievementDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-achievementTypeData(index: number, obj?:dict__string__clz_Torappu_SandboxV2ArchiveAchievementTypeData):dict__string__clz_Torappu_SandboxV2ArchiveAchievementTypeData|null {
+achievementTypeData(index: number, obj?:dict__string__clz_Torappu_SandboxArchiveAchievementTypeData):dict__string__clz_Torappu_SandboxArchiveAchievementTypeData|null {
   const offset = this.bb!.__offset(this.bb_pos, 122);
-  return offset ? (obj || new dict__string__clz_Torappu_SandboxV2ArchiveAchievementTypeData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_SandboxArchiveAchievementTypeData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 achievementTypeDataLength():number {
@@ -656,9 +656,9 @@ achievementTypeDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-archiveQuestTypeData(index: number, obj?:dict__string__clz_Torappu_SandboxV2ArchiveQuestTypeData):dict__string__clz_Torappu_SandboxV2ArchiveQuestTypeData|null {
+archiveQuestTypeData(index: number, obj?:dict__string__clz_Torappu_SandboxArchiveQuestTypeData):dict__string__clz_Torappu_SandboxArchiveQuestTypeData|null {
   const offset = this.bb!.__offset(this.bb_pos, 124);
-  return offset ? (obj || new dict__string__clz_Torappu_SandboxV2ArchiveQuestTypeData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_SandboxArchiveQuestTypeData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 archiveQuestTypeDataLength():number {
@@ -666,9 +666,9 @@ archiveQuestTypeDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-archiveMusicUnlockData(index: number, obj?:dict__string__clz_Torappu_SandboxV2ArchiveMusicUnlockData):dict__string__clz_Torappu_SandboxV2ArchiveMusicUnlockData|null {
+archiveMusicUnlockData(index: number, obj?:dict__string__clz_Torappu_SandboxArchiveMusicUnlockData):dict__string__clz_Torappu_SandboxArchiveMusicUnlockData|null {
   const offset = this.bb!.__offset(this.bb_pos, 126);
-  return offset ? (obj || new dict__string__clz_Torappu_SandboxV2ArchiveMusicUnlockData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new dict__string__clz_Torappu_SandboxArchiveMusicUnlockData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 archiveMusicUnlockDataLength():number {
@@ -686,9 +686,9 @@ baseUpdateLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-developmentLineSegmentDatas(index: number, obj?:clz_Torappu_SandboxV2DevelopmentLineSegmentData):clz_Torappu_SandboxV2DevelopmentLineSegmentData|null {
+developmentLineSegmentDatas(index: number, obj?:clz_Torappu_SandboxDevelopmentLineSegmentData):clz_Torappu_SandboxDevelopmentLineSegmentData|null {
   const offset = this.bb!.__offset(this.bb_pos, 130);
-  return offset ? (obj || new clz_Torappu_SandboxV2DevelopmentLineSegmentData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new clz_Torappu_SandboxDevelopmentLineSegmentData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 developmentLineSegmentDatasLength():number {
@@ -1782,14 +1782,14 @@ unpack(): clz_Torappu_SandboxV2DataT {
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2MapData, dict__string__clz_Torappu_SandboxV2MapDataT>(this.mapData.bind(this), this.mapDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ItemTrapData, dict__string__clz_Torappu_SandboxV2ItemTrapDataT>(this.itemTrapData.bind(this), this.itemTrapDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ItemTrapTagData, dict__string__clz_Torappu_SandboxV2ItemTrapTagDataT>(this.itemTrapTagData.bind(this), this.itemTrapTagDataLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2BuildingItemData, dict__string__clz_Torappu_SandboxV2BuildingItemDataT>(this.buildingItemData.bind(this), this.buildingItemDataLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_SandboxBuildingItemData, dict__string__clz_Torappu_SandboxBuildingItemDataT>(this.buildingItemData.bind(this), this.buildingItemDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2CraftItemData, dict__string__clz_Torappu_SandboxV2CraftItemDataT>(this.craftItemData.bind(this), this.craftItemDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2LivestockData, dict__string__clz_Torappu_SandboxV2LivestockDataT>(this.livestockProduceData.bind(this), this.livestockProduceDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2CraftGroupData, dict__string__clz_Torappu_SandboxV2CraftGroupDataT>(this.craftGroupData.bind(this), this.craftGroupDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2AlchemyRecipeData, dict__string__clz_Torappu_SandboxV2AlchemyRecipeDataT>(this.alchemyRecipeData.bind(this), this.alchemyRecipeDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2DrinkMatData, dict__string__clz_Torappu_SandboxV2DrinkMatDataT>(this.drinkMatData.bind(this), this.drinkMatDataLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2FoodMatData, dict__string__clz_Torappu_SandboxV2FoodMatDataT>(this.foodMatData.bind(this), this.foodMatDataLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2FoodData, dict__string__clz_Torappu_SandboxV2FoodDataT>(this.foodData.bind(this), this.foodDataLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_SandboxFoodMatData, dict__string__clz_Torappu_SandboxFoodMatDataT>(this.foodMatData.bind(this), this.foodMatDataLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_SandboxFoodData, dict__string__clz_Torappu_SandboxFoodDataT>(this.foodData.bind(this), this.foodDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2NodeTypeData, dict__string__clz_Torappu_SandboxV2NodeTypeDataT>(this.nodeTypeData.bind(this), this.nodeTypeDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2NodeUpgradeData, dict__string__clz_Torappu_SandboxV2NodeUpgradeDataT>(this.nodeUpgradeData.bind(this), this.nodeUpgradeDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2WeatherData, dict__string__clz_Torappu_SandboxV2WeatherDataT>(this.weatherData.bind(this), this.weatherDataLength()),
@@ -1813,13 +1813,13 @@ unpack(): clz_Torappu_SandboxV2DataT {
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2QuestLineData, dict__string__clz_Torappu_SandboxV2QuestLineDataT>(this.questLineData.bind(this), this.questLineDataLength()),
     this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.questLineStoryData.bind(this), this.questLineStoryDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2GuideQuestData, dict__string__clz_Torappu_SandboxV2GuideQuestDataT>(this.guideQuestData.bind(this), this.guideQuestDataLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2DevelopmentData, dict__string__clz_Torappu_SandboxV2DevelopmentDataT>(this.developmentData.bind(this), this.developmentDataLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_SandboxDevelopmentData, dict__string__clz_Torappu_SandboxDevelopmentDataT>(this.developmentData.bind(this), this.developmentDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2EventData, dict__string__clz_Torappu_SandboxV2EventDataT>(this.eventData.bind(this), this.eventDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2EventSceneData, dict__string__clz_Torappu_SandboxV2EventSceneDataT>(this.eventSceneData.bind(this), this.eventSceneDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2EventChoiceData, dict__string__clz_Torappu_SandboxV2EventChoiceDataT>(this.eventChoiceData.bind(this), this.eventChoiceDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ExpeditionData, dict__string__clz_Torappu_SandboxV2ExpeditionDataT>(this.expeditionData.bind(this), this.expeditionDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2EventEffectData, dict__string__clz_Torappu_SandboxV2EventEffectDataT>(this.eventEffectData.bind(this), this.eventEffectDataLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ShopGoodData, dict__string__clz_Torappu_SandboxV2ShopGoodDataT>(this.shopGoodData.bind(this), this.shopGoodDataLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_SandboxShopGoodData, dict__string__clz_Torappu_SandboxShopGoodDataT>(this.shopGoodData.bind(this), this.shopGoodDataLength()),
     (this.shopDialogData() !== null ? this.shopDialogData()!.unpack() : null),
     this.bb!.createObjList<clz_Torappu_SandboxV2LogisticsData, clz_Torappu_SandboxV2LogisticsDataT>(this.logisticsData.bind(this), this.logisticsDataLength()),
     this.bb!.createObjList<dict__int__list_dict__int__list_clz_Torappu_SandboxV2LogisticsCharData, dict__int__list_dict__int__list_clz_Torappu_SandboxV2LogisticsCharDataT>(this.logisticsCharMapping.bind(this), this.logisticsCharMappingLength()),
@@ -1836,13 +1836,13 @@ unpack(): clz_Torappu_SandboxV2DataT {
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2RiftDifficultyData, dict__string__clz_Torappu_SandboxV2RiftDifficultyDataT>(this.riftDifficultyData.bind(this), this.riftDifficultyDataLength()),
     this.bb!.createObjList<dict__string__list_string, dict__string__list_stringT>(this.riftRewardDisplayData.bind(this), this.riftRewardDisplayDataLength()),
     this.bb!.createObjList<dict__string__list_dict__string__string, dict__string__list_dict__string__stringT>(this.enemyReplaceData.bind(this), this.enemyReplaceDataLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ArchiveQuestData, dict__string__clz_Torappu_SandboxV2ArchiveQuestDataT>(this.archiveQuestData.bind(this), this.archiveQuestDataLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ArchiveAchievementData, dict__string__clz_Torappu_SandboxV2ArchiveAchievementDataT>(this.achievementData.bind(this), this.achievementDataLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ArchiveAchievementTypeData, dict__string__clz_Torappu_SandboxV2ArchiveAchievementTypeDataT>(this.achievementTypeData.bind(this), this.achievementTypeDataLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ArchiveQuestTypeData, dict__string__clz_Torappu_SandboxV2ArchiveQuestTypeDataT>(this.archiveQuestTypeData.bind(this), this.archiveQuestTypeDataLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ArchiveMusicUnlockData, dict__string__clz_Torappu_SandboxV2ArchiveMusicUnlockDataT>(this.archiveMusicUnlockData.bind(this), this.archiveMusicUnlockDataLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_SandboxArchiveQuestData, dict__string__clz_Torappu_SandboxArchiveQuestDataT>(this.archiveQuestData.bind(this), this.archiveQuestDataLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_SandboxArchiveAchievementData, dict__string__clz_Torappu_SandboxArchiveAchievementDataT>(this.achievementData.bind(this), this.achievementDataLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_SandboxArchiveAchievementTypeData, dict__string__clz_Torappu_SandboxArchiveAchievementTypeDataT>(this.achievementTypeData.bind(this), this.achievementTypeDataLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_SandboxArchiveQuestTypeData, dict__string__clz_Torappu_SandboxArchiveQuestTypeDataT>(this.archiveQuestTypeData.bind(this), this.archiveQuestTypeDataLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_SandboxArchiveMusicUnlockData, dict__string__clz_Torappu_SandboxArchiveMusicUnlockDataT>(this.archiveMusicUnlockData.bind(this), this.archiveMusicUnlockDataLength()),
     this.bb!.createObjList<clz_Torappu_SandboxV2BaseUpdateData, clz_Torappu_SandboxV2BaseUpdateDataT>(this.baseUpdate.bind(this), this.baseUpdateLength()),
-    this.bb!.createObjList<clz_Torappu_SandboxV2DevelopmentLineSegmentData, clz_Torappu_SandboxV2DevelopmentLineSegmentDataT>(this.developmentLineSegmentDatas.bind(this), this.developmentLineSegmentDatasLength()),
+    this.bb!.createObjList<clz_Torappu_SandboxDevelopmentLineSegmentData, clz_Torappu_SandboxDevelopmentLineSegmentDataT>(this.developmentLineSegmentDatas.bind(this), this.developmentLineSegmentDatasLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2BuildingNodeScoreData, dict__string__clz_Torappu_SandboxV2BuildingNodeScoreDataT>(this.buildingNodeScoreData.bind(this), this.buildingNodeScoreDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2SeasonData, dict__string__clz_Torappu_SandboxV2SeasonDataT>(this.seasonData.bind(this), this.seasonDataLength()),
     this.bb!.createObjList<clz_Torappu_SandboxV2ConfirmIconData, clz_Torappu_SandboxV2ConfirmIconDataT>(this.confirmIconData.bind(this), this.confirmIconDataLength()),
@@ -1858,14 +1858,14 @@ unpackTo(_o: clz_Torappu_SandboxV2DataT): void {
   _o.mapData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2MapData, dict__string__clz_Torappu_SandboxV2MapDataT>(this.mapData.bind(this), this.mapDataLength());
   _o.itemTrapData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ItemTrapData, dict__string__clz_Torappu_SandboxV2ItemTrapDataT>(this.itemTrapData.bind(this), this.itemTrapDataLength());
   _o.itemTrapTagData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ItemTrapTagData, dict__string__clz_Torappu_SandboxV2ItemTrapTagDataT>(this.itemTrapTagData.bind(this), this.itemTrapTagDataLength());
-  _o.buildingItemData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2BuildingItemData, dict__string__clz_Torappu_SandboxV2BuildingItemDataT>(this.buildingItemData.bind(this), this.buildingItemDataLength());
+  _o.buildingItemData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxBuildingItemData, dict__string__clz_Torappu_SandboxBuildingItemDataT>(this.buildingItemData.bind(this), this.buildingItemDataLength());
   _o.craftItemData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2CraftItemData, dict__string__clz_Torappu_SandboxV2CraftItemDataT>(this.craftItemData.bind(this), this.craftItemDataLength());
   _o.livestockProduceData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2LivestockData, dict__string__clz_Torappu_SandboxV2LivestockDataT>(this.livestockProduceData.bind(this), this.livestockProduceDataLength());
   _o.craftGroupData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2CraftGroupData, dict__string__clz_Torappu_SandboxV2CraftGroupDataT>(this.craftGroupData.bind(this), this.craftGroupDataLength());
   _o.alchemyRecipeData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2AlchemyRecipeData, dict__string__clz_Torappu_SandboxV2AlchemyRecipeDataT>(this.alchemyRecipeData.bind(this), this.alchemyRecipeDataLength());
   _o.drinkMatData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2DrinkMatData, dict__string__clz_Torappu_SandboxV2DrinkMatDataT>(this.drinkMatData.bind(this), this.drinkMatDataLength());
-  _o.foodMatData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2FoodMatData, dict__string__clz_Torappu_SandboxV2FoodMatDataT>(this.foodMatData.bind(this), this.foodMatDataLength());
-  _o.foodData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2FoodData, dict__string__clz_Torappu_SandboxV2FoodDataT>(this.foodData.bind(this), this.foodDataLength());
+  _o.foodMatData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxFoodMatData, dict__string__clz_Torappu_SandboxFoodMatDataT>(this.foodMatData.bind(this), this.foodMatDataLength());
+  _o.foodData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxFoodData, dict__string__clz_Torappu_SandboxFoodDataT>(this.foodData.bind(this), this.foodDataLength());
   _o.nodeTypeData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2NodeTypeData, dict__string__clz_Torappu_SandboxV2NodeTypeDataT>(this.nodeTypeData.bind(this), this.nodeTypeDataLength());
   _o.nodeUpgradeData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2NodeUpgradeData, dict__string__clz_Torappu_SandboxV2NodeUpgradeDataT>(this.nodeUpgradeData.bind(this), this.nodeUpgradeDataLength());
   _o.weatherData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2WeatherData, dict__string__clz_Torappu_SandboxV2WeatherDataT>(this.weatherData.bind(this), this.weatherDataLength());
@@ -1889,13 +1889,13 @@ unpackTo(_o: clz_Torappu_SandboxV2DataT): void {
   _o.questLineData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2QuestLineData, dict__string__clz_Torappu_SandboxV2QuestLineDataT>(this.questLineData.bind(this), this.questLineDataLength());
   _o.questLineStoryData = this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.questLineStoryData.bind(this), this.questLineStoryDataLength());
   _o.guideQuestData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2GuideQuestData, dict__string__clz_Torappu_SandboxV2GuideQuestDataT>(this.guideQuestData.bind(this), this.guideQuestDataLength());
-  _o.developmentData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2DevelopmentData, dict__string__clz_Torappu_SandboxV2DevelopmentDataT>(this.developmentData.bind(this), this.developmentDataLength());
+  _o.developmentData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxDevelopmentData, dict__string__clz_Torappu_SandboxDevelopmentDataT>(this.developmentData.bind(this), this.developmentDataLength());
   _o.eventData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2EventData, dict__string__clz_Torappu_SandboxV2EventDataT>(this.eventData.bind(this), this.eventDataLength());
   _o.eventSceneData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2EventSceneData, dict__string__clz_Torappu_SandboxV2EventSceneDataT>(this.eventSceneData.bind(this), this.eventSceneDataLength());
   _o.eventChoiceData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2EventChoiceData, dict__string__clz_Torappu_SandboxV2EventChoiceDataT>(this.eventChoiceData.bind(this), this.eventChoiceDataLength());
   _o.expeditionData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ExpeditionData, dict__string__clz_Torappu_SandboxV2ExpeditionDataT>(this.expeditionData.bind(this), this.expeditionDataLength());
   _o.eventEffectData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2EventEffectData, dict__string__clz_Torappu_SandboxV2EventEffectDataT>(this.eventEffectData.bind(this), this.eventEffectDataLength());
-  _o.shopGoodData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ShopGoodData, dict__string__clz_Torappu_SandboxV2ShopGoodDataT>(this.shopGoodData.bind(this), this.shopGoodDataLength());
+  _o.shopGoodData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxShopGoodData, dict__string__clz_Torappu_SandboxShopGoodDataT>(this.shopGoodData.bind(this), this.shopGoodDataLength());
   _o.shopDialogData = (this.shopDialogData() !== null ? this.shopDialogData()!.unpack() : null);
   _o.logisticsData = this.bb!.createObjList<clz_Torappu_SandboxV2LogisticsData, clz_Torappu_SandboxV2LogisticsDataT>(this.logisticsData.bind(this), this.logisticsDataLength());
   _o.logisticsCharMapping = this.bb!.createObjList<dict__int__list_dict__int__list_clz_Torappu_SandboxV2LogisticsCharData, dict__int__list_dict__int__list_clz_Torappu_SandboxV2LogisticsCharDataT>(this.logisticsCharMapping.bind(this), this.logisticsCharMappingLength());
@@ -1912,13 +1912,13 @@ unpackTo(_o: clz_Torappu_SandboxV2DataT): void {
   _o.riftDifficultyData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2RiftDifficultyData, dict__string__clz_Torappu_SandboxV2RiftDifficultyDataT>(this.riftDifficultyData.bind(this), this.riftDifficultyDataLength());
   _o.riftRewardDisplayData = this.bb!.createObjList<dict__string__list_string, dict__string__list_stringT>(this.riftRewardDisplayData.bind(this), this.riftRewardDisplayDataLength());
   _o.enemyReplaceData = this.bb!.createObjList<dict__string__list_dict__string__string, dict__string__list_dict__string__stringT>(this.enemyReplaceData.bind(this), this.enemyReplaceDataLength());
-  _o.archiveQuestData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ArchiveQuestData, dict__string__clz_Torappu_SandboxV2ArchiveQuestDataT>(this.archiveQuestData.bind(this), this.archiveQuestDataLength());
-  _o.achievementData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ArchiveAchievementData, dict__string__clz_Torappu_SandboxV2ArchiveAchievementDataT>(this.achievementData.bind(this), this.achievementDataLength());
-  _o.achievementTypeData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ArchiveAchievementTypeData, dict__string__clz_Torappu_SandboxV2ArchiveAchievementTypeDataT>(this.achievementTypeData.bind(this), this.achievementTypeDataLength());
-  _o.archiveQuestTypeData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ArchiveQuestTypeData, dict__string__clz_Torappu_SandboxV2ArchiveQuestTypeDataT>(this.archiveQuestTypeData.bind(this), this.archiveQuestTypeDataLength());
-  _o.archiveMusicUnlockData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2ArchiveMusicUnlockData, dict__string__clz_Torappu_SandboxV2ArchiveMusicUnlockDataT>(this.archiveMusicUnlockData.bind(this), this.archiveMusicUnlockDataLength());
+  _o.archiveQuestData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxArchiveQuestData, dict__string__clz_Torappu_SandboxArchiveQuestDataT>(this.archiveQuestData.bind(this), this.archiveQuestDataLength());
+  _o.achievementData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxArchiveAchievementData, dict__string__clz_Torappu_SandboxArchiveAchievementDataT>(this.achievementData.bind(this), this.achievementDataLength());
+  _o.achievementTypeData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxArchiveAchievementTypeData, dict__string__clz_Torappu_SandboxArchiveAchievementTypeDataT>(this.achievementTypeData.bind(this), this.achievementTypeDataLength());
+  _o.archiveQuestTypeData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxArchiveQuestTypeData, dict__string__clz_Torappu_SandboxArchiveQuestTypeDataT>(this.archiveQuestTypeData.bind(this), this.archiveQuestTypeDataLength());
+  _o.archiveMusicUnlockData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxArchiveMusicUnlockData, dict__string__clz_Torappu_SandboxArchiveMusicUnlockDataT>(this.archiveMusicUnlockData.bind(this), this.archiveMusicUnlockDataLength());
   _o.baseUpdate = this.bb!.createObjList<clz_Torappu_SandboxV2BaseUpdateData, clz_Torappu_SandboxV2BaseUpdateDataT>(this.baseUpdate.bind(this), this.baseUpdateLength());
-  _o.developmentLineSegmentDatas = this.bb!.createObjList<clz_Torappu_SandboxV2DevelopmentLineSegmentData, clz_Torappu_SandboxV2DevelopmentLineSegmentDataT>(this.developmentLineSegmentDatas.bind(this), this.developmentLineSegmentDatasLength());
+  _o.developmentLineSegmentDatas = this.bb!.createObjList<clz_Torappu_SandboxDevelopmentLineSegmentData, clz_Torappu_SandboxDevelopmentLineSegmentDataT>(this.developmentLineSegmentDatas.bind(this), this.developmentLineSegmentDatasLength());
   _o.buildingNodeScoreData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2BuildingNodeScoreData, dict__string__clz_Torappu_SandboxV2BuildingNodeScoreDataT>(this.buildingNodeScoreData.bind(this), this.buildingNodeScoreDataLength());
   _o.seasonData = this.bb!.createObjList<dict__string__clz_Torappu_SandboxV2SeasonData, dict__string__clz_Torappu_SandboxV2SeasonDataT>(this.seasonData.bind(this), this.seasonDataLength());
   _o.confirmIconData = this.bb!.createObjList<clz_Torappu_SandboxV2ConfirmIconData, clz_Torappu_SandboxV2ConfirmIconDataT>(this.confirmIconData.bind(this), this.confirmIconDataLength());
@@ -1934,14 +1934,14 @@ constructor(
   public mapData: (dict__string__clz_Torappu_SandboxV2MapDataT)[] = [],
   public itemTrapData: (dict__string__clz_Torappu_SandboxV2ItemTrapDataT)[] = [],
   public itemTrapTagData: (dict__string__clz_Torappu_SandboxV2ItemTrapTagDataT)[] = [],
-  public buildingItemData: (dict__string__clz_Torappu_SandboxV2BuildingItemDataT)[] = [],
+  public buildingItemData: (dict__string__clz_Torappu_SandboxBuildingItemDataT)[] = [],
   public craftItemData: (dict__string__clz_Torappu_SandboxV2CraftItemDataT)[] = [],
   public livestockProduceData: (dict__string__clz_Torappu_SandboxV2LivestockDataT)[] = [],
   public craftGroupData: (dict__string__clz_Torappu_SandboxV2CraftGroupDataT)[] = [],
   public alchemyRecipeData: (dict__string__clz_Torappu_SandboxV2AlchemyRecipeDataT)[] = [],
   public drinkMatData: (dict__string__clz_Torappu_SandboxV2DrinkMatDataT)[] = [],
-  public foodMatData: (dict__string__clz_Torappu_SandboxV2FoodMatDataT)[] = [],
-  public foodData: (dict__string__clz_Torappu_SandboxV2FoodDataT)[] = [],
+  public foodMatData: (dict__string__clz_Torappu_SandboxFoodMatDataT)[] = [],
+  public foodData: (dict__string__clz_Torappu_SandboxFoodDataT)[] = [],
   public nodeTypeData: (dict__string__clz_Torappu_SandboxV2NodeTypeDataT)[] = [],
   public nodeUpgradeData: (dict__string__clz_Torappu_SandboxV2NodeUpgradeDataT)[] = [],
   public weatherData: (dict__string__clz_Torappu_SandboxV2WeatherDataT)[] = [],
@@ -1965,13 +1965,13 @@ constructor(
   public questLineData: (dict__string__clz_Torappu_SandboxV2QuestLineDataT)[] = [],
   public questLineStoryData: (dict__string__stringT)[] = [],
   public guideQuestData: (dict__string__clz_Torappu_SandboxV2GuideQuestDataT)[] = [],
-  public developmentData: (dict__string__clz_Torappu_SandboxV2DevelopmentDataT)[] = [],
+  public developmentData: (dict__string__clz_Torappu_SandboxDevelopmentDataT)[] = [],
   public eventData: (dict__string__clz_Torappu_SandboxV2EventDataT)[] = [],
   public eventSceneData: (dict__string__clz_Torappu_SandboxV2EventSceneDataT)[] = [],
   public eventChoiceData: (dict__string__clz_Torappu_SandboxV2EventChoiceDataT)[] = [],
   public expeditionData: (dict__string__clz_Torappu_SandboxV2ExpeditionDataT)[] = [],
   public eventEffectData: (dict__string__clz_Torappu_SandboxV2EventEffectDataT)[] = [],
-  public shopGoodData: (dict__string__clz_Torappu_SandboxV2ShopGoodDataT)[] = [],
+  public shopGoodData: (dict__string__clz_Torappu_SandboxShopGoodDataT)[] = [],
   public shopDialogData: clz_Torappu_SandboxV2ShopDialogDataT|null = null,
   public logisticsData: (clz_Torappu_SandboxV2LogisticsDataT)[] = [],
   public logisticsCharMapping: (dict__int__list_dict__int__list_clz_Torappu_SandboxV2LogisticsCharDataT)[] = [],
@@ -1988,13 +1988,13 @@ constructor(
   public riftDifficultyData: (dict__string__clz_Torappu_SandboxV2RiftDifficultyDataT)[] = [],
   public riftRewardDisplayData: (dict__string__list_stringT)[] = [],
   public enemyReplaceData: (dict__string__list_dict__string__stringT)[] = [],
-  public archiveQuestData: (dict__string__clz_Torappu_SandboxV2ArchiveQuestDataT)[] = [],
-  public achievementData: (dict__string__clz_Torappu_SandboxV2ArchiveAchievementDataT)[] = [],
-  public achievementTypeData: (dict__string__clz_Torappu_SandboxV2ArchiveAchievementTypeDataT)[] = [],
-  public archiveQuestTypeData: (dict__string__clz_Torappu_SandboxV2ArchiveQuestTypeDataT)[] = [],
-  public archiveMusicUnlockData: (dict__string__clz_Torappu_SandboxV2ArchiveMusicUnlockDataT)[] = [],
+  public archiveQuestData: (dict__string__clz_Torappu_SandboxArchiveQuestDataT)[] = [],
+  public achievementData: (dict__string__clz_Torappu_SandboxArchiveAchievementDataT)[] = [],
+  public achievementTypeData: (dict__string__clz_Torappu_SandboxArchiveAchievementTypeDataT)[] = [],
+  public archiveQuestTypeData: (dict__string__clz_Torappu_SandboxArchiveQuestTypeDataT)[] = [],
+  public archiveMusicUnlockData: (dict__string__clz_Torappu_SandboxArchiveMusicUnlockDataT)[] = [],
   public baseUpdate: (clz_Torappu_SandboxV2BaseUpdateDataT)[] = [],
-  public developmentLineSegmentDatas: (clz_Torappu_SandboxV2DevelopmentLineSegmentDataT)[] = [],
+  public developmentLineSegmentDatas: (clz_Torappu_SandboxDevelopmentLineSegmentDataT)[] = [],
   public buildingNodeScoreData: (dict__string__clz_Torappu_SandboxV2BuildingNodeScoreDataT)[] = [],
   public seasonData: (dict__string__clz_Torappu_SandboxV2SeasonDataT)[] = [],
   public confirmIconData: (clz_Torappu_SandboxV2ConfirmIconDataT)[] = [],

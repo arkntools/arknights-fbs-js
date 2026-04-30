@@ -14,6 +14,7 @@ import { dict__string__clz_Torappu_ShopClientGPData, dict__string__clz_Torappu_S
 import { dict__string__clz_Torappu_ShopCreditUnlockGroup, dict__string__clz_Torappu_ShopCreditUnlockGroupT } from './dict--string--clz-torappu-shop-credit-unlock-group.js';
 import { dict__string__clz_Torappu_ShopGPTabDisplayData, dict__string__clz_Torappu_ShopGPTabDisplayDataT } from './dict--string--clz-torappu-shop-gptab-display-data.js';
 import { dict__string__enum__Torappu_ShopUnlockType, dict__string__enum__Torappu_ShopUnlockTypeT } from './dict--string--enum--torappu-shop-unlock-type.js';
+import { dict__string__string, dict__string__stringT } from './dict--string--string.js';
 
 
 export class clz_Torappu_ShopClientData implements flatbuffers.IUnpackableObject<clz_Torappu_ShopClientDataT> {
@@ -79,89 +80,99 @@ chooseShopRelationsLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-shopUnlockDict(index: number, obj?:dict__string__enum__Torappu_ShopUnlockType):dict__string__enum__Torappu_ShopUnlockType|null {
+chooseOptionToGoodDict(index: number, obj?:dict__string__string):dict__string__string|null {
   const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? (obj || new dict__string__string()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+chooseOptionToGoodDictLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+shopUnlockDict(index: number, obj?:dict__string__enum__Torappu_ShopUnlockType):dict__string__enum__Torappu_ShopUnlockType|null {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? (obj || new dict__string__enum__Torappu_ShopUnlockType()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 shopUnlockDictLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 extraQcshopRule(index: number):string
 extraQcshopRule(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 extraQcshopRule(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 extraQcshopRuleLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 repQcshopRule(index: number):string
 repQcshopRule(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 repQcshopRule(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 repQcshopRuleLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 shopGpdataDict(index: number, obj?:dict__string__clz_Torappu_ShopClientGPData):dict__string__clz_Torappu_ShopClientGPData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? (obj || new dict__string__clz_Torappu_ShopClientGPData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 shopGpdataDictLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 tabDisplayData(index: number, obj?:dict__string__clz_Torappu_ShopGPTabDisplayData):dict__string__clz_Torappu_ShopGPTabDisplayData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? (obj || new dict__string__clz_Torappu_ShopGPTabDisplayData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 tabDisplayDataLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 shopMonthlySubGoodId():string|null
 shopMonthlySubGoodId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 shopMonthlySubGoodId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 ls(index: number, obj?:clz_Torappu_LMTGSShopSchedule):clz_Torappu_LMTGSShopSchedule|null {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? (obj || new clz_Torappu_LMTGSShopSchedule()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 lsLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 os(index: number, obj?:clz_Torappu_LMTGSShopOverlaySchedule):clz_Torappu_LMTGSShopOverlaySchedule|null {
-  const offset = this.bb!.__offset(this.bb_pos, 28);
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? (obj || new clz_Torappu_LMTGSShopOverlaySchedule()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 osLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 28);
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_ShopClientData(builder:flatbuffers.Builder) {
-  builder.startObject(13);
+  builder.startObject(14);
 }
 
 static addRecommendList(builder:flatbuffers.Builder, recommendListOffset:flatbuffers.Offset) {
@@ -232,8 +243,24 @@ static startChooseShopRelationsVector(builder:flatbuffers.Builder, numElems:numb
   builder.startVector(4, numElems, 4);
 }
 
+static addChooseOptionToGoodDict(builder:flatbuffers.Builder, chooseOptionToGoodDictOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(5, chooseOptionToGoodDictOffset, 0);
+}
+
+static createChooseOptionToGoodDictVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startChooseOptionToGoodDictVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static addShopUnlockDict(builder:flatbuffers.Builder, shopUnlockDictOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, shopUnlockDictOffset, 0);
+  builder.addFieldOffset(6, shopUnlockDictOffset, 0);
 }
 
 static createShopUnlockDictVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -249,7 +276,7 @@ static startShopUnlockDictVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addExtraQcshopRule(builder:flatbuffers.Builder, extraQcshopRuleOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(6, extraQcshopRuleOffset, 0);
+  builder.addFieldOffset(7, extraQcshopRuleOffset, 0);
 }
 
 static createExtraQcshopRuleVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -265,7 +292,7 @@ static startExtraQcshopRuleVector(builder:flatbuffers.Builder, numElems:number) 
 }
 
 static addRepQcshopRule(builder:flatbuffers.Builder, repQcshopRuleOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(7, repQcshopRuleOffset, 0);
+  builder.addFieldOffset(8, repQcshopRuleOffset, 0);
 }
 
 static createRepQcshopRuleVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -281,7 +308,7 @@ static startRepQcshopRuleVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addShopGpdataDict(builder:flatbuffers.Builder, shopGpdataDictOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(8, shopGpdataDictOffset, 0);
+  builder.addFieldOffset(9, shopGpdataDictOffset, 0);
 }
 
 static createShopGpdataDictVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -297,7 +324,7 @@ static startShopGpdataDictVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addTabDisplayData(builder:flatbuffers.Builder, tabDisplayDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(9, tabDisplayDataOffset, 0);
+  builder.addFieldOffset(10, tabDisplayDataOffset, 0);
 }
 
 static createTabDisplayDataVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -313,11 +340,11 @@ static startTabDisplayDataVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addShopMonthlySubGoodId(builder:flatbuffers.Builder, shopMonthlySubGoodIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(10, shopMonthlySubGoodIdOffset, 0);
+  builder.addFieldOffset(11, shopMonthlySubGoodIdOffset, 0);
 }
 
 static addLs(builder:flatbuffers.Builder, lsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(11, lsOffset, 0);
+  builder.addFieldOffset(12, lsOffset, 0);
 }
 
 static createLsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -333,7 +360,7 @@ static startLsVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addOs(builder:flatbuffers.Builder, osOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(12, osOffset, 0);
+  builder.addFieldOffset(13, osOffset, 0);
 }
 
 static createOsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -369,6 +396,7 @@ unpack(): clz_Torappu_ShopClientDataT {
     (this.shopKeeperData() !== null ? this.shopKeeperData()!.unpack() : null),
     this.bb!.createObjList<clz_Torappu_ShopCarouselData, clz_Torappu_ShopCarouselDataT>(this.carousels.bind(this), this.carouselsLength()),
     this.bb!.createObjList<clz_Torappu_ChooseShopRelation, clz_Torappu_ChooseShopRelationT>(this.chooseShopRelations.bind(this), this.chooseShopRelationsLength()),
+    this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.chooseOptionToGoodDict.bind(this), this.chooseOptionToGoodDictLength()),
     this.bb!.createObjList<dict__string__enum__Torappu_ShopUnlockType, dict__string__enum__Torappu_ShopUnlockTypeT>(this.shopUnlockDict.bind(this), this.shopUnlockDictLength()),
     this.bb!.createScalarList<string>(this.extraQcshopRule.bind(this), this.extraQcshopRuleLength()),
     this.bb!.createScalarList<string>(this.repQcshopRule.bind(this), this.repQcshopRuleLength()),
@@ -387,6 +415,7 @@ unpackTo(_o: clz_Torappu_ShopClientDataT): void {
   _o.shopKeeperData = (this.shopKeeperData() !== null ? this.shopKeeperData()!.unpack() : null);
   _o.carousels = this.bb!.createObjList<clz_Torappu_ShopCarouselData, clz_Torappu_ShopCarouselDataT>(this.carousels.bind(this), this.carouselsLength());
   _o.chooseShopRelations = this.bb!.createObjList<clz_Torappu_ChooseShopRelation, clz_Torappu_ChooseShopRelationT>(this.chooseShopRelations.bind(this), this.chooseShopRelationsLength());
+  _o.chooseOptionToGoodDict = this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.chooseOptionToGoodDict.bind(this), this.chooseOptionToGoodDictLength());
   _o.shopUnlockDict = this.bb!.createObjList<dict__string__enum__Torappu_ShopUnlockType, dict__string__enum__Torappu_ShopUnlockTypeT>(this.shopUnlockDict.bind(this), this.shopUnlockDictLength());
   _o.extraQcshopRule = this.bb!.createScalarList<string>(this.extraQcshopRule.bind(this), this.extraQcshopRuleLength());
   _o.repQcshopRule = this.bb!.createScalarList<string>(this.repQcshopRule.bind(this), this.repQcshopRuleLength());
@@ -405,6 +434,7 @@ constructor(
   public shopKeeperData: clz_Torappu_ShopClientData_ShopKeeperDataT|null = null,
   public carousels: (clz_Torappu_ShopCarouselDataT)[] = [],
   public chooseShopRelations: (clz_Torappu_ChooseShopRelationT)[] = [],
+  public chooseOptionToGoodDict: (dict__string__stringT)[] = [],
   public shopUnlockDict: (dict__string__enum__Torappu_ShopUnlockTypeT)[] = [],
   public extraQcshopRule: (string)[] = [],
   public repQcshopRule: (string)[] = [],
@@ -422,6 +452,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const shopKeeperData = (this.shopKeeperData !== null ? this.shopKeeperData!.pack(builder) : 0);
   const carousels = clz_Torappu_ShopClientData.createCarouselsVector(builder, builder.createObjectOffsetList(this.carousels));
   const chooseShopRelations = clz_Torappu_ShopClientData.createChooseShopRelationsVector(builder, builder.createObjectOffsetList(this.chooseShopRelations));
+  const chooseOptionToGoodDict = clz_Torappu_ShopClientData.createChooseOptionToGoodDictVector(builder, builder.createObjectOffsetList(this.chooseOptionToGoodDict));
   const shopUnlockDict = clz_Torappu_ShopClientData.createShopUnlockDictVector(builder, builder.createObjectOffsetList(this.shopUnlockDict));
   const extraQcshopRule = clz_Torappu_ShopClientData.createExtraQcshopRuleVector(builder, builder.createObjectOffsetList(this.extraQcshopRule));
   const repQcshopRule = clz_Torappu_ShopClientData.createRepQcshopRuleVector(builder, builder.createObjectOffsetList(this.repQcshopRule));
@@ -437,6 +468,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_ShopClientData.addShopKeeperData(builder, shopKeeperData);
   clz_Torappu_ShopClientData.addCarousels(builder, carousels);
   clz_Torappu_ShopClientData.addChooseShopRelations(builder, chooseShopRelations);
+  clz_Torappu_ShopClientData.addChooseOptionToGoodDict(builder, chooseOptionToGoodDict);
   clz_Torappu_ShopClientData.addShopUnlockDict(builder, shopUnlockDict);
   clz_Torappu_ShopClientData.addExtraQcshopRule(builder, extraQcshopRule);
   clz_Torappu_ShopClientData.addRepQcshopRule(builder, repQcshopRule);

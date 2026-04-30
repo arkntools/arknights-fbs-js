@@ -4,7 +4,6 @@
 
 export { clz_Torappu_Battle_BakedAnimData, clz_Torappu_Battle_BakedAnimDataT } from './clz-torappu-battle-baked-anim-data.js';
 export { clz_Torappu_Battle_BakedEventTimeline, clz_Torappu_Battle_BakedEventTimelineT } from './clz-torappu-battle-baked-event-timeline.js';
-export { clz_Torappu_Battle_BakedFrameData, clz_Torappu_Battle_BakedFrameDataT } from './clz-torappu-battle-baked-frame-data.js';
 export { clz_Torappu_Battle_BakedMountPointData, clz_Torappu_Battle_BakedMountPointDataT } from './clz-torappu-battle-baked-mount-point-data.js';
 export { clz_Torappu_Battle_BakedSpineData, clz_Torappu_Battle_BakedSpineDataT } from './clz-torappu-battle-baked-spine-data.js';
 export { dict__int__clz_Torappu_Battle_BakedMountPointData, dict__int__clz_Torappu_Battle_BakedMountPointDataT } from './dict--int--clz-torappu-battle-baked-mount-point-data.js';

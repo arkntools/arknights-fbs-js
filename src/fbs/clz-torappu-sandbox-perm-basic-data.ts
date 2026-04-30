@@ -5,6 +5,7 @@
 import * as flatbuffers from 'flatbuffers';
 
 import { clz_Torappu_SandboxPermBasicData_HomeEntryDisplayData, clz_Torappu_SandboxPermBasicData_HomeEntryDisplayDataT } from './clz-torappu-sandbox-perm-basic-data-home-entry-display-data.js';
+import { dict__string__clz_Torappu_SandboxPermEnrollPointData, dict__string__clz_Torappu_SandboxPermEnrollPointDataT } from './dict--string--clz-torappu-sandbox-perm-enroll-point-data.js';
 import { enum__Torappu_SandboxPermTemplateType } from './enum--torappu-sandbox-perm-template-type.js';
 
 
@@ -98,8 +99,32 @@ medalGroupId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+showMedalId():string|null
+showMedalId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+showMedalId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 26);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+description():string|null
+description(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+description(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 28);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+enrollPoints(index: number, obj?:dict__string__clz_Torappu_SandboxPermEnrollPointData):dict__string__clz_Torappu_SandboxPermEnrollPointData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 30);
+  return offset ? (obj || new dict__string__clz_Torappu_SandboxPermEnrollPointData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+enrollPointsLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 30);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_SandboxPermBasicData(builder:flatbuffers.Builder) {
-  builder.startObject(11);
+  builder.startObject(14);
 }
 
 static addTopicId(builder:flatbuffers.Builder, topicIdOffset:flatbuffers.Offset) {
@@ -158,12 +183,36 @@ static addMedalGroupId(builder:flatbuffers.Builder, medalGroupIdOffset:flatbuffe
   builder.addFieldOffset(10, medalGroupIdOffset, 0);
 }
 
+static addShowMedalId(builder:flatbuffers.Builder, showMedalIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(11, showMedalIdOffset, 0);
+}
+
+static addDescription(builder:flatbuffers.Builder, descriptionOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(12, descriptionOffset, 0);
+}
+
+static addEnrollPoints(builder:flatbuffers.Builder, enrollPointsOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(13, enrollPointsOffset, 0);
+}
+
+static createEnrollPointsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startEnrollPointsVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static endclz_Torappu_SandboxPermBasicData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_SandboxPermBasicData(builder:flatbuffers.Builder, topicIdOffset:flatbuffers.Offset, topicTemplate:enum__Torappu_SandboxPermTemplateType, topicNameOffset:flatbuffers.Offset, topicStartTime:bigint, fullStoredTime:bigint, sortId:number, priceItemIdOffset:flatbuffers.Offset, templateShopIdOffset:flatbuffers.Offset, homeEntryDisplayDataOffset:flatbuffers.Offset, webBusTypeOffset:flatbuffers.Offset, medalGroupIdOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_SandboxPermBasicData(builder:flatbuffers.Builder, topicIdOffset:flatbuffers.Offset, topicTemplate:enum__Torappu_SandboxPermTemplateType, topicNameOffset:flatbuffers.Offset, topicStartTime:bigint, fullStoredTime:bigint, sortId:number, priceItemIdOffset:flatbuffers.Offset, templateShopIdOffset:flatbuffers.Offset, homeEntryDisplayDataOffset:flatbuffers.Offset, webBusTypeOffset:flatbuffers.Offset, medalGroupIdOffset:flatbuffers.Offset, showMedalIdOffset:flatbuffers.Offset, descriptionOffset:flatbuffers.Offset, enrollPointsOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_SandboxPermBasicData.startclz_Torappu_SandboxPermBasicData(builder);
   clz_Torappu_SandboxPermBasicData.addTopicId(builder, topicIdOffset);
   clz_Torappu_SandboxPermBasicData.addTopicTemplate(builder, topicTemplate);
@@ -176,6 +225,9 @@ static createclz_Torappu_SandboxPermBasicData(builder:flatbuffers.Builder, topic
   clz_Torappu_SandboxPermBasicData.addHomeEntryDisplayData(builder, homeEntryDisplayDataOffset);
   clz_Torappu_SandboxPermBasicData.addWebBusType(builder, webBusTypeOffset);
   clz_Torappu_SandboxPermBasicData.addMedalGroupId(builder, medalGroupIdOffset);
+  clz_Torappu_SandboxPermBasicData.addShowMedalId(builder, showMedalIdOffset);
+  clz_Torappu_SandboxPermBasicData.addDescription(builder, descriptionOffset);
+  clz_Torappu_SandboxPermBasicData.addEnrollPoints(builder, enrollPointsOffset);
   return clz_Torappu_SandboxPermBasicData.endclz_Torappu_SandboxPermBasicData(builder);
 }
 
@@ -191,7 +243,10 @@ unpack(): clz_Torappu_SandboxPermBasicDataT {
     this.templateShopId(),
     this.bb!.createObjList<clz_Torappu_SandboxPermBasicData_HomeEntryDisplayData, clz_Torappu_SandboxPermBasicData_HomeEntryDisplayDataT>(this.homeEntryDisplayData.bind(this), this.homeEntryDisplayDataLength()),
     this.webBusType(),
-    this.medalGroupId()
+    this.medalGroupId(),
+    this.showMedalId(),
+    this.description(),
+    this.bb!.createObjList<dict__string__clz_Torappu_SandboxPermEnrollPointData, dict__string__clz_Torappu_SandboxPermEnrollPointDataT>(this.enrollPoints.bind(this), this.enrollPointsLength())
   );
 }
 
@@ -208,6 +263,9 @@ unpackTo(_o: clz_Torappu_SandboxPermBasicDataT): void {
   _o.homeEntryDisplayData = this.bb!.createObjList<clz_Torappu_SandboxPermBasicData_HomeEntryDisplayData, clz_Torappu_SandboxPermBasicData_HomeEntryDisplayDataT>(this.homeEntryDisplayData.bind(this), this.homeEntryDisplayDataLength());
   _o.webBusType = this.webBusType();
   _o.medalGroupId = this.medalGroupId();
+  _o.showMedalId = this.showMedalId();
+  _o.description = this.description();
+  _o.enrollPoints = this.bb!.createObjList<dict__string__clz_Torappu_SandboxPermEnrollPointData, dict__string__clz_Torappu_SandboxPermEnrollPointDataT>(this.enrollPoints.bind(this), this.enrollPointsLength());
 }
 }
 
@@ -223,7 +281,10 @@ constructor(
   public templateShopId: string|Uint8Array|null = null,
   public homeEntryDisplayData: (clz_Torappu_SandboxPermBasicData_HomeEntryDisplayDataT)[] = [],
   public webBusType: string|Uint8Array|null = null,
-  public medalGroupId: string|Uint8Array|null = null
+  public medalGroupId: string|Uint8Array|null = null,
+  public showMedalId: string|Uint8Array|null = null,
+  public description: string|Uint8Array|null = null,
+  public enrollPoints: (dict__string__clz_Torappu_SandboxPermEnrollPointDataT)[] = []
 ){}
 
 
@@ -235,6 +296,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const homeEntryDisplayData = clz_Torappu_SandboxPermBasicData.createHomeEntryDisplayDataVector(builder, builder.createObjectOffsetList(this.homeEntryDisplayData));
   const webBusType = (this.webBusType !== null ? builder.createString(this.webBusType!) : 0);
   const medalGroupId = (this.medalGroupId !== null ? builder.createString(this.medalGroupId!) : 0);
+  const showMedalId = (this.showMedalId !== null ? builder.createString(this.showMedalId!) : 0);
+  const description = (this.description !== null ? builder.createString(this.description!) : 0);
+  const enrollPoints = clz_Torappu_SandboxPermBasicData.createEnrollPointsVector(builder, builder.createObjectOffsetList(this.enrollPoints));
 
   return clz_Torappu_SandboxPermBasicData.createclz_Torappu_SandboxPermBasicData(builder,
     topicId,
@@ -247,7 +311,10 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     templateShopId,
     homeEntryDisplayData,
     webBusType,
-    medalGroupId
+    medalGroupId,
+    showMedalId,
+    description,
+    enrollPoints
   );
 }
 }

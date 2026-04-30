@@ -4,5 +4,6 @@
 
 export enum enum__Torappu_SandboxPermTemplateType {
   NONE = 0,
-  SANDBOX_V2 = 1
+  SANDBOX_V2 = 1,
+  SANDBOX_V3 = 2
 }

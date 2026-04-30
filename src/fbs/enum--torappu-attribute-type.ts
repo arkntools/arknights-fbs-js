@@ -39,5 +39,7 @@ export enum enum__Torappu_AttributeType {
   DAMAGE_HITRATE_PHYSICAL = 33,
   DAMAGE_HITRATE_MAGICAL = 34,
   EP_BREAK_RECOVER_SPEED = 35,
-  E_NUM = 36
+  SLOW_DOWN = 36,
+  BLOCK_RADIUS_SCALE = 37,
+  E_NUM = 38
 }

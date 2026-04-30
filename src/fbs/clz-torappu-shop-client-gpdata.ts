@@ -32,32 +32,43 @@ goodId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-displayName():string|null
-displayName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-displayName(optionalEncoding?:any):string|Uint8Array|null {
+giftPackageId():string|null
+giftPackageId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+giftPackageId(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 6);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-condTrigPackageType():enum__Torappu_ShopCondTrigPackageType {
+displayName():string|null
+displayName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+displayName(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 8);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+condTrigPackageType():enum__Torappu_ShopCondTrigPackageType {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_ShopCondTrigPackageType.NONE;
 }
 
 static startclz_Torappu_ShopClientGPData(builder:flatbuffers.Builder) {
-  builder.startObject(3);
+  builder.startObject(4);
 }
 
 static addGoodId(builder:flatbuffers.Builder, goodIdOffset:flatbuffers.Offset) {
   builder.addFieldOffset(0, goodIdOffset, 0);
 }
 
+static addGiftPackageId(builder:flatbuffers.Builder, giftPackageIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(1, giftPackageIdOffset, 0);
+}
+
 static addDisplayName(builder:flatbuffers.Builder, displayNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(1, displayNameOffset, 0);
+  builder.addFieldOffset(2, displayNameOffset, 0);
 }
 
 static addCondTrigPackageType(builder:flatbuffers.Builder, condTrigPackageType:enum__Torappu_ShopCondTrigPackageType) {
-  builder.addFieldInt32(2, condTrigPackageType, enum__Torappu_ShopCondTrigPackageType.NONE);
+  builder.addFieldInt32(3, condTrigPackageType, enum__Torappu_ShopCondTrigPackageType.NONE);
 }
 
 static endclz_Torappu_ShopClientGPData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -65,9 +76,10 @@ static endclz_Torappu_ShopClientGPData(builder:flatbuffers.Builder):flatbuffers.
   return offset;
 }
 
-static createclz_Torappu_ShopClientGPData(builder:flatbuffers.Builder, goodIdOffset:flatbuffers.Offset, displayNameOffset:flatbuffers.Offset, condTrigPackageType:enum__Torappu_ShopCondTrigPackageType):flatbuffers.Offset {
+static createclz_Torappu_ShopClientGPData(builder:flatbuffers.Builder, goodIdOffset:flatbuffers.Offset, giftPackageIdOffset:flatbuffers.Offset, displayNameOffset:flatbuffers.Offset, condTrigPackageType:enum__Torappu_ShopCondTrigPackageType):flatbuffers.Offset {
   clz_Torappu_ShopClientGPData.startclz_Torappu_ShopClientGPData(builder);
   clz_Torappu_ShopClientGPData.addGoodId(builder, goodIdOffset);
+  clz_Torappu_ShopClientGPData.addGiftPackageId(builder, giftPackageIdOffset);
   clz_Torappu_ShopClientGPData.addDisplayName(builder, displayNameOffset);
   clz_Torappu_ShopClientGPData.addCondTrigPackageType(builder, condTrigPackageType);
   return clz_Torappu_ShopClientGPData.endclz_Torappu_ShopClientGPData(builder);
@@ -76,6 +88,7 @@ static createclz_Torappu_ShopClientGPData(builder:flatbuffers.Builder, goodIdOff
 unpack(): clz_Torappu_ShopClientGPDataT {
   return new clz_Torappu_ShopClientGPDataT(
     this.goodId(),
+    this.giftPackageId(),
     this.displayName(),
     this.condTrigPackageType()
   );
@@ -84,6 +97,7 @@ unpack(): clz_Torappu_ShopClientGPDataT {
 
 unpackTo(_o: clz_Torappu_ShopClientGPDataT): void {
   _o.goodId = this.goodId();
+  _o.giftPackageId = this.giftPackageId();
   _o.displayName = this.displayName();
   _o.condTrigPackageType = this.condTrigPackageType();
 }
@@ -92,6 +106,7 @@ unpackTo(_o: clz_Torappu_ShopClientGPDataT): void {
 export class clz_Torappu_ShopClientGPDataT implements flatbuffers.IGeneratedObject {
 constructor(
   public goodId: string|Uint8Array|null = null,
+  public giftPackageId: string|Uint8Array|null = null,
   public displayName: string|Uint8Array|null = null,
   public condTrigPackageType: enum__Torappu_ShopCondTrigPackageType = enum__Torappu_ShopCondTrigPackageType.NONE
 ){}
@@ -99,10 +114,12 @@ constructor(
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const goodId = (this.goodId !== null ? builder.createString(this.goodId!) : 0);
+  const giftPackageId = (this.giftPackageId !== null ? builder.createString(this.giftPackageId!) : 0);
   const displayName = (this.displayName !== null ? builder.createString(this.displayName!) : 0);
 
   return clz_Torappu_ShopClientGPData.createclz_Torappu_ShopClientGPData(builder,
     goodId,
+    giftPackageId,
     displayName,
     this.condTrigPackageType
   );

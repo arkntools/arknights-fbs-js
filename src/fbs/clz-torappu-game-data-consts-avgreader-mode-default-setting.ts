@@ -39,8 +39,13 @@ defaultReaderBackgroundAlpha():number {
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
+defaultNameReaderFontsize():number {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting(builder:flatbuffers.Builder) {
-  builder.startObject(3);
+  builder.startObject(4);
 }
 
 static addDefaultReaderFontsize(builder:flatbuffers.Builder, defaultReaderFontsize:number) {
@@ -55,16 +60,21 @@ static addDefaultReaderBackgroundAlpha(builder:flatbuffers.Builder, defaultReade
   builder.addFieldInt32(2, defaultReaderBackgroundAlpha, 0);
 }
 
+static addDefaultNameReaderFontsize(builder:flatbuffers.Builder, defaultNameReaderFontsize:number) {
+  builder.addFieldInt32(3, defaultNameReaderFontsize, 0);
+}
+
 static endclz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting(builder:flatbuffers.Builder, defaultReaderFontsize:number, defaultReaderLinespace:number, defaultReaderBackgroundAlpha:number):flatbuffers.Offset {
+static createclz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting(builder:flatbuffers.Builder, defaultReaderFontsize:number, defaultReaderLinespace:number, defaultReaderBackgroundAlpha:number, defaultNameReaderFontsize:number):flatbuffers.Offset {
   clz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting.startclz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting(builder);
   clz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting.addDefaultReaderFontsize(builder, defaultReaderFontsize);
   clz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting.addDefaultReaderLinespace(builder, defaultReaderLinespace);
   clz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting.addDefaultReaderBackgroundAlpha(builder, defaultReaderBackgroundAlpha);
+  clz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting.addDefaultNameReaderFontsize(builder, defaultNameReaderFontsize);
   return clz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting.endclz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting(builder);
 }
 
@@ -72,7 +82,8 @@ unpack(): clz_Torappu_GameDataConsts_AVGReaderModeDefaultSettingT {
   return new clz_Torappu_GameDataConsts_AVGReaderModeDefaultSettingT(
     this.defaultReaderFontsize(),
     this.defaultReaderLinespace(),
-    this.defaultReaderBackgroundAlpha()
+    this.defaultReaderBackgroundAlpha(),
+    this.defaultNameReaderFontsize()
   );
 }
 
@@ -81,6 +92,7 @@ unpackTo(_o: clz_Torappu_GameDataConsts_AVGReaderModeDefaultSettingT): void {
   _o.defaultReaderFontsize = this.defaultReaderFontsize();
   _o.defaultReaderLinespace = this.defaultReaderLinespace();
   _o.defaultReaderBackgroundAlpha = this.defaultReaderBackgroundAlpha();
+  _o.defaultNameReaderFontsize = this.defaultNameReaderFontsize();
 }
 }
 
@@ -88,7 +100,8 @@ export class clz_Torappu_GameDataConsts_AVGReaderModeDefaultSettingT implements 
 constructor(
   public defaultReaderFontsize: number = 0,
   public defaultReaderLinespace: number = 0,
-  public defaultReaderBackgroundAlpha: number = 0
+  public defaultReaderBackgroundAlpha: number = 0,
+  public defaultNameReaderFontsize: number = 0
 ){}
 
 
@@ -96,7 +109,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   return clz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting.createclz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting(builder,
     this.defaultReaderFontsize,
     this.defaultReaderLinespace,
-    this.defaultReaderBackgroundAlpha
+    this.defaultReaderBackgroundAlpha,
+    this.defaultNameReaderFontsize
   );
 }
 }
