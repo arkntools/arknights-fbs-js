@@ -79,8 +79,13 @@ showBtnBack():boolean {
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
+useSpecialToast():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 20);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
 static startclz_Torappu_ActivityTable_ActivityTrapConstData(builder:flatbuffers.Builder) {
-  builder.startObject(8);
+  builder.startObject(9);
 }
 
 static addStageUnlockTrapDesc(builder:flatbuffers.Builder, stageUnlockTrapDescOffset:flatbuffers.Offset) {
@@ -127,12 +132,16 @@ static addShowBtnBack(builder:flatbuffers.Builder, showBtnBack:boolean) {
   builder.addFieldInt8(7, +showBtnBack, +false);
 }
 
+static addUseSpecialToast(builder:flatbuffers.Builder, useSpecialToast:boolean) {
+  builder.addFieldInt8(8, +useSpecialToast, +false);
+}
+
 static endclz_Torappu_ActivityTable_ActivityTrapConstData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_ActivityTable_ActivityTrapConstData(builder:flatbuffers.Builder, stageUnlockTrapDescOffset:flatbuffers.Offset, trapMaximum:number, stageCanNotUseTrapOffset:flatbuffers.Offset, mustSelectTrap:boolean, systemUnlockToastOffset:flatbuffers.Offset, squadSaveSuccessToastOffset:flatbuffers.Offset, lockedToastOffset:flatbuffers.Offset, showBtnBack:boolean):flatbuffers.Offset {
+static createclz_Torappu_ActivityTable_ActivityTrapConstData(builder:flatbuffers.Builder, stageUnlockTrapDescOffset:flatbuffers.Offset, trapMaximum:number, stageCanNotUseTrapOffset:flatbuffers.Offset, mustSelectTrap:boolean, systemUnlockToastOffset:flatbuffers.Offset, squadSaveSuccessToastOffset:flatbuffers.Offset, lockedToastOffset:flatbuffers.Offset, showBtnBack:boolean, useSpecialToast:boolean):flatbuffers.Offset {
   clz_Torappu_ActivityTable_ActivityTrapConstData.startclz_Torappu_ActivityTable_ActivityTrapConstData(builder);
   clz_Torappu_ActivityTable_ActivityTrapConstData.addStageUnlockTrapDesc(builder, stageUnlockTrapDescOffset);
   clz_Torappu_ActivityTable_ActivityTrapConstData.addTrapMaximum(builder, trapMaximum);
@@ -142,6 +151,7 @@ static createclz_Torappu_ActivityTable_ActivityTrapConstData(builder:flatbuffers
   clz_Torappu_ActivityTable_ActivityTrapConstData.addSquadSaveSuccessToast(builder, squadSaveSuccessToastOffset);
   clz_Torappu_ActivityTable_ActivityTrapConstData.addLockedToast(builder, lockedToastOffset);
   clz_Torappu_ActivityTable_ActivityTrapConstData.addShowBtnBack(builder, showBtnBack);
+  clz_Torappu_ActivityTable_ActivityTrapConstData.addUseSpecialToast(builder, useSpecialToast);
   return clz_Torappu_ActivityTable_ActivityTrapConstData.endclz_Torappu_ActivityTable_ActivityTrapConstData(builder);
 }
 
@@ -154,7 +164,8 @@ unpack(): clz_Torappu_ActivityTable_ActivityTrapConstDataT {
     this.systemUnlockToast(),
     this.squadSaveSuccessToast(),
     this.lockedToast(),
-    this.showBtnBack()
+    this.showBtnBack(),
+    this.useSpecialToast()
   );
 }
 
@@ -168,6 +179,7 @@ unpackTo(_o: clz_Torappu_ActivityTable_ActivityTrapConstDataT): void {
   _o.squadSaveSuccessToast = this.squadSaveSuccessToast();
   _o.lockedToast = this.lockedToast();
   _o.showBtnBack = this.showBtnBack();
+  _o.useSpecialToast = this.useSpecialToast();
 }
 }
 
@@ -180,7 +192,8 @@ constructor(
   public systemUnlockToast: string|Uint8Array|null = null,
   public squadSaveSuccessToast: string|Uint8Array|null = null,
   public lockedToast: string|Uint8Array|null = null,
-  public showBtnBack: boolean = false
+  public showBtnBack: boolean = false,
+  public useSpecialToast: boolean = false
 ){}
 
 
@@ -199,7 +212,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     systemUnlockToast,
     squadSaveSuccessToast,
     lockedToast,
-    this.showBtnBack
+    this.showBtnBack,
+    this.useSpecialToast
   );
 }
 }

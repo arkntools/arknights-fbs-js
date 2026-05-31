@@ -57,34 +57,48 @@ trapText(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+trapIcon1():string|null
+trapIcon1(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+trapIcon1(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+trapIcon2():string|null
+trapIcon2(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+trapIcon2(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 trapTaskId():string|null
 trapTaskId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 trapTaskId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 trapUnlockDesc():string|null
 trapUnlockDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 trapUnlockDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 trapBuffId():string|null
 trapBuffId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 trapBuffId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 availableCount():number {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_ActivityTable_TemplateTrapData(builder:flatbuffers.Builder) {
-  builder.startObject(9);
+  builder.startObject(11);
 }
 
 static addTrapId(builder:flatbuffers.Builder, trapIdOffset:flatbuffers.Offset) {
@@ -107,20 +121,28 @@ static addTrapText(builder:flatbuffers.Builder, trapTextOffset:flatbuffers.Offse
   builder.addFieldOffset(4, trapTextOffset, 0);
 }
 
+static addTrapIcon1(builder:flatbuffers.Builder, trapIcon1Offset:flatbuffers.Offset) {
+  builder.addFieldOffset(5, trapIcon1Offset, 0);
+}
+
+static addTrapIcon2(builder:flatbuffers.Builder, trapIcon2Offset:flatbuffers.Offset) {
+  builder.addFieldOffset(6, trapIcon2Offset, 0);
+}
+
 static addTrapTaskId(builder:flatbuffers.Builder, trapTaskIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, trapTaskIdOffset, 0);
+  builder.addFieldOffset(7, trapTaskIdOffset, 0);
 }
 
 static addTrapUnlockDesc(builder:flatbuffers.Builder, trapUnlockDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(6, trapUnlockDescOffset, 0);
+  builder.addFieldOffset(8, trapUnlockDescOffset, 0);
 }
 
 static addTrapBuffId(builder:flatbuffers.Builder, trapBuffIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(7, trapBuffIdOffset, 0);
+  builder.addFieldOffset(9, trapBuffIdOffset, 0);
 }
 
 static addAvailableCount(builder:flatbuffers.Builder, availableCount:number) {
-  builder.addFieldInt32(8, availableCount, 0);
+  builder.addFieldInt32(10, availableCount, 0);
 }
 
 static endclz_Torappu_ActivityTable_TemplateTrapData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -128,13 +150,15 @@ static endclz_Torappu_ActivityTable_TemplateTrapData(builder:flatbuffers.Builder
   return offset;
 }
 
-static createclz_Torappu_ActivityTable_TemplateTrapData(builder:flatbuffers.Builder, trapIdOffset:flatbuffers.Offset, sortId:number, trapNameOffset:flatbuffers.Offset, trapDescOffset:flatbuffers.Offset, trapTextOffset:flatbuffers.Offset, trapTaskIdOffset:flatbuffers.Offset, trapUnlockDescOffset:flatbuffers.Offset, trapBuffIdOffset:flatbuffers.Offset, availableCount:number):flatbuffers.Offset {
+static createclz_Torappu_ActivityTable_TemplateTrapData(builder:flatbuffers.Builder, trapIdOffset:flatbuffers.Offset, sortId:number, trapNameOffset:flatbuffers.Offset, trapDescOffset:flatbuffers.Offset, trapTextOffset:flatbuffers.Offset, trapIcon1Offset:flatbuffers.Offset, trapIcon2Offset:flatbuffers.Offset, trapTaskIdOffset:flatbuffers.Offset, trapUnlockDescOffset:flatbuffers.Offset, trapBuffIdOffset:flatbuffers.Offset, availableCount:number):flatbuffers.Offset {
   clz_Torappu_ActivityTable_TemplateTrapData.startclz_Torappu_ActivityTable_TemplateTrapData(builder);
   clz_Torappu_ActivityTable_TemplateTrapData.addTrapId(builder, trapIdOffset);
   clz_Torappu_ActivityTable_TemplateTrapData.addSortId(builder, sortId);
   clz_Torappu_ActivityTable_TemplateTrapData.addTrapName(builder, trapNameOffset);
   clz_Torappu_ActivityTable_TemplateTrapData.addTrapDesc(builder, trapDescOffset);
   clz_Torappu_ActivityTable_TemplateTrapData.addTrapText(builder, trapTextOffset);
+  clz_Torappu_ActivityTable_TemplateTrapData.addTrapIcon1(builder, trapIcon1Offset);
+  clz_Torappu_ActivityTable_TemplateTrapData.addTrapIcon2(builder, trapIcon2Offset);
   clz_Torappu_ActivityTable_TemplateTrapData.addTrapTaskId(builder, trapTaskIdOffset);
   clz_Torappu_ActivityTable_TemplateTrapData.addTrapUnlockDesc(builder, trapUnlockDescOffset);
   clz_Torappu_ActivityTable_TemplateTrapData.addTrapBuffId(builder, trapBuffIdOffset);
@@ -149,6 +173,8 @@ unpack(): clz_Torappu_ActivityTable_TemplateTrapDataT {
     this.trapName(),
     this.trapDesc(),
     this.trapText(),
+    this.trapIcon1(),
+    this.trapIcon2(),
     this.trapTaskId(),
     this.trapUnlockDesc(),
     this.trapBuffId(),
@@ -163,6 +189,8 @@ unpackTo(_o: clz_Torappu_ActivityTable_TemplateTrapDataT): void {
   _o.trapName = this.trapName();
   _o.trapDesc = this.trapDesc();
   _o.trapText = this.trapText();
+  _o.trapIcon1 = this.trapIcon1();
+  _o.trapIcon2 = this.trapIcon2();
   _o.trapTaskId = this.trapTaskId();
   _o.trapUnlockDesc = this.trapUnlockDesc();
   _o.trapBuffId = this.trapBuffId();
@@ -177,6 +205,8 @@ constructor(
   public trapName: string|Uint8Array|null = null,
   public trapDesc: string|Uint8Array|null = null,
   public trapText: string|Uint8Array|null = null,
+  public trapIcon1: string|Uint8Array|null = null,
+  public trapIcon2: string|Uint8Array|null = null,
   public trapTaskId: string|Uint8Array|null = null,
   public trapUnlockDesc: string|Uint8Array|null = null,
   public trapBuffId: string|Uint8Array|null = null,
@@ -189,6 +219,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const trapName = (this.trapName !== null ? builder.createString(this.trapName!) : 0);
   const trapDesc = (this.trapDesc !== null ? builder.createString(this.trapDesc!) : 0);
   const trapText = (this.trapText !== null ? builder.createString(this.trapText!) : 0);
+  const trapIcon1 = (this.trapIcon1 !== null ? builder.createString(this.trapIcon1!) : 0);
+  const trapIcon2 = (this.trapIcon2 !== null ? builder.createString(this.trapIcon2!) : 0);
   const trapTaskId = (this.trapTaskId !== null ? builder.createString(this.trapTaskId!) : 0);
   const trapUnlockDesc = (this.trapUnlockDesc !== null ? builder.createString(this.trapUnlockDesc!) : 0);
   const trapBuffId = (this.trapBuffId !== null ? builder.createString(this.trapBuffId!) : 0);
@@ -199,6 +231,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     trapName,
     trapDesc,
     trapText,
+    trapIcon1,
+    trapIcon2,
     trapTaskId,
     trapUnlockDesc,
     trapBuffId,

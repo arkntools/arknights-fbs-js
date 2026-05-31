@@ -311,6 +311,12 @@ export { clz_Torappu_ActAutoChessData_ActAutochessBossEntry, clz_Torappu_ActAuto
 export { clz_Torappu_ActAutoChessData_ActAutochessSpecialEnemyEntry, clz_Torappu_ActAutoChessData_ActAutochessSpecialEnemyEntryT } from './clz-torappu-act-auto-chess-data-act-autochess-special-enemy-entry.js';
 export { clz_Torappu_ActAutoChessData_ActAutochessSpecialEnemyTypeEntry, clz_Torappu_ActAutoChessData_ActAutochessSpecialEnemyTypeEntryT } from './clz-torappu-act-auto-chess-data-act-autochess-special-enemy-type-entry.js';
 export { clz_Torappu_ActAutoChessData_AutoChessTrapChessStatusData, clz_Torappu_ActAutoChessData_AutoChessTrapChessStatusDataT } from './clz-torappu-act-auto-chess-data-auto-chess-trap-chess-status-data.js';
+export { clz_Torappu_ActFootballData, clz_Torappu_ActFootballDataT } from './clz-torappu-act-football-data.js';
+export { clz_Torappu_ActFootballData_ActFootballConstData, clz_Torappu_ActFootballData_ActFootballConstDataT } from './clz-torappu-act-football-data-act-football-const-data.js';
+export { clz_Torappu_ActFootballData_ActFootballMilestoneItemData, clz_Torappu_ActFootballData_ActFootballMilestoneItemDataT } from './clz-torappu-act-football-data-act-football-milestone-item-data.js';
+export { clz_Torappu_ActFootballData_ActFootballNPCCharData, clz_Torappu_ActFootballData_ActFootballNPCCharDataT } from './clz-torappu-act-football-data-act-football-npcchar-data.js';
+export { clz_Torappu_ActFootballData_ActFootballStageAdditionData, clz_Torappu_ActFootballData_ActFootballStageAdditionDataT } from './clz-torappu-act-football-data-act-football-stage-addition-data.js';
+export { clz_Torappu_ActFootballData_ActFootballZoneAdditionData, clz_Torappu_ActFootballData_ActFootballZoneAdditionDataT } from './clz-torappu-act-football-data-act-football-zone-addition-data.js';
 export { clz_Torappu_ActMainSSData, clz_Torappu_ActMainSSDataT } from './clz-torappu-act-main-ssdata.js';
 export { clz_Torappu_ActMainSSZoneAdditionData, clz_Torappu_ActMainSSZoneAdditionDataT } from './clz-torappu-act-main-sszone-addition-data.js';
 export { clz_Torappu_ActMainlineBpExtraData, clz_Torappu_ActMainlineBpExtraDataT } from './clz-torappu-act-mainline-bp-extra-data.js';
@@ -578,6 +584,7 @@ export { dict__enum__Torappu_CartComponents_CartAccessoryPos__list_string, dict_
 export { dict__enum__Torappu_VersusCheckInData_TasteType__clz_Torappu_VersusCheckInData_TasteRewardData, dict__enum__Torappu_VersusCheckInData_TasteType__clz_Torappu_VersusCheckInData_TasteRewardDataT } from './dict--enum--torappu-versus-check-in-data-taste-type--clz-torappu-versus-check-in-data-taste-reward-data.js';
 export { dict__int__clz_Torappu_ActAutoChessData_ActAutoChessShopLevelData, dict__int__clz_Torappu_ActAutoChessData_ActAutoChessShopLevelDataT } from './dict--int--clz-torappu-act-auto-chess-data-act-auto-chess-shop-level-data.js';
 export { dict__int__clz_Torappu_ActAutoChessData_ActAutoChessShopLevelDisplayData, dict__int__clz_Torappu_ActAutoChessData_ActAutoChessShopLevelDisplayDataT } from './dict--int--clz-torappu-act-auto-chess-data-act-auto-chess-shop-level-display-data.js';
+export { dict__int__clz_Torappu_ActFootballData_ActFootballNPCCharData, dict__int__clz_Torappu_ActFootballData_ActFootballNPCCharDataT } from './dict--int--clz-torappu-act-football-data-act-football-npcchar-data.js';
 export { dict__int__clz_Torappu_ActivityBossRushData_BossRushDropInfo, dict__int__clz_Torappu_ActivityBossRushData_BossRushDropInfoT } from './dict--int--clz-torappu-activity-boss-rush-data-boss-rush-drop-info.js';
 export { dict__int__clz_Torappu_ActivityBossRushData_RelicLevelInfo, dict__int__clz_Torappu_ActivityBossRushData_RelicLevelInfoT } from './dict--int--clz-torappu-activity-boss-rush-data-relic-level-info.js';
 export { dict__int__clz_Torappu_ActivityRoguelikeData_OuterBuffUnlockInfo, dict__int__clz_Torappu_ActivityRoguelikeData_OuterBuffUnlockInfoT } from './dict--int--clz-torappu-activity-roguelike-data-outer-buff-unlock-info.js';
@@ -784,6 +791,9 @@ export { dict__string__clz_Torappu_ActAutoChessData_ActAutoChessTrapShopChessDat
 export { dict__string__clz_Torappu_ActAutoChessData_ActAutochessBossEntry, dict__string__clz_Torappu_ActAutoChessData_ActAutochessBossEntryT } from './dict--string--clz-torappu-act-auto-chess-data-act-autochess-boss-entry.js';
 export { dict__string__clz_Torappu_ActAutoChessData_ActAutochessSpecialEnemyEntry, dict__string__clz_Torappu_ActAutoChessData_ActAutochessSpecialEnemyEntryT } from './dict--string--clz-torappu-act-auto-chess-data-act-autochess-special-enemy-entry.js';
 export { dict__string__clz_Torappu_ActAutoChessData_ActAutochessSpecialEnemyTypeEntry, dict__string__clz_Torappu_ActAutoChessData_ActAutochessSpecialEnemyTypeEntryT } from './dict--string--clz-torappu-act-auto-chess-data-act-autochess-special-enemy-type-entry.js';
+export { dict__string__clz_Torappu_ActFootballData, dict__string__clz_Torappu_ActFootballDataT } from './dict--string--clz-torappu-act-football-data.js';
+export { dict__string__clz_Torappu_ActFootballData_ActFootballStageAdditionData, dict__string__clz_Torappu_ActFootballData_ActFootballStageAdditionDataT } from './dict--string--clz-torappu-act-football-data-act-football-stage-addition-data.js';
+export { dict__string__clz_Torappu_ActFootballData_ActFootballZoneAdditionData, dict__string__clz_Torappu_ActFootballData_ActFootballZoneAdditionDataT } from './dict--string--clz-torappu-act-football-data-act-football-zone-addition-data.js';
 export { dict__string__clz_Torappu_ActMainSSData, dict__string__clz_Torappu_ActMainSSDataT } from './dict--string--clz-torappu-act-main-ssdata.js';
 export { dict__string__clz_Torappu_ActMainSSZoneAdditionData, dict__string__clz_Torappu_ActMainSSZoneAdditionDataT } from './dict--string--clz-torappu-act-main-sszone-addition-data.js';
 export { dict__string__clz_Torappu_ActMainlineBpExtraData, dict__string__clz_Torappu_ActMainlineBpExtraDataT } from './dict--string--clz-torappu-act-mainline-bp-extra-data.js';
@@ -1044,6 +1054,7 @@ export { enum__Torappu_OccPer } from './enum--torappu-occ-per.js';
 export { enum__Torappu_PlayerAvatarGroupType } from './enum--torappu-player-avatar-group-type.js';
 export { enum__Torappu_PlayerBattleRank } from './enum--torappu-player-battle-rank.js';
 export { enum__Torappu_PlayerSideMask } from './enum--torappu-player-side-mask.js';
+export { enum__Torappu_PlayerStageState } from './enum--torappu-player-stage-state.js';
 export { enum__Torappu_ProfessionCategory } from './enum--torappu-profession-category.js';
 export { enum__Torappu_RarityRank } from './enum--torappu-rarity-rank.js';
 export { enum__Torappu_SiracusaData_CardGainType } from './enum--torappu-siracusa-data-card-gain-type.js';

@@ -6,6 +6,7 @@ import * as flatbuffers from 'flatbuffers';
 
 import { clz_Torappu_Battle_Cooperate_CooperateAheadGoalData, clz_Torappu_Battle_Cooperate_CooperateAheadGoalDataT } from './clz-torappu-battle-cooperate-cooperate-ahead-goal-data.js';
 import { clz_Torappu_Battle_Cooperate_CooperateTeamWeight, clz_Torappu_Battle_Cooperate_CooperateTeamWeightT } from './clz-torappu-battle-cooperate-cooperate-team-weight.js';
+import { clz_Torappu_Battle_Cooperate_FootballStadiumWeight, clz_Torappu_Battle_Cooperate_FootballStadiumWeightT } from './clz-torappu-battle-cooperate-football-stadium-weight.js';
 import { dict__enum__Torappu_Battle_Cooperate_EndTileType__clz_Torappu_Battle_Cooperate_CooperateEndTileInfo, dict__enum__Torappu_Battle_Cooperate_EndTileType__clz_Torappu_Battle_Cooperate_CooperateEndTileInfoT } from './dict--enum--torappu-battle-cooperate-end-tile-type--clz-torappu-battle-cooperate-cooperate-end-tile-info.js';
 import { dict__enum__Torappu_Battle_Cooperate_LASTROUNDRESULT__int, dict__enum__Torappu_Battle_Cooperate_LASTROUNDRESULT__intT } from './dict--enum--torappu-battle-cooperate-lastroundresult--int.js';
 import { dict__int__list_clz_Torappu_Battle_Cooperate_CooperateWaveWeight, dict__int__list_clz_Torappu_Battle_Cooperate_CooperateWaveWeightT } from './dict--int--list-clz-torappu-battle-cooperate-cooperate-wave-weight.js';
@@ -116,8 +117,23 @@ footballPlayersNameLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+footballPlayersWaitTimeOnWaveStart():number {
+  const offset = this.bb!.__offset(this.bb_pos, 24);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+footballStadiumWeights(index: number, obj?:clz_Torappu_Battle_Cooperate_FootballStadiumWeight):clz_Torappu_Battle_Cooperate_FootballStadiumWeight|null {
+  const offset = this.bb!.__offset(this.bb_pos, 26);
+  return offset ? (obj || new clz_Torappu_Battle_Cooperate_FootballStadiumWeight()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+footballStadiumWeightsLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 26);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_Battle_Cooperate_CooperateModeBattleData(builder:flatbuffers.Builder) {
-  builder.startObject(10);
+  builder.startObject(12);
 }
 
 static addCostTransferred(builder:flatbuffers.Builder, costTransferred:number) {
@@ -244,6 +260,26 @@ static startFootballPlayersNameVector(builder:flatbuffers.Builder, numElems:numb
   builder.startVector(4, numElems, 4);
 }
 
+static addFootballPlayersWaitTimeOnWaveStart(builder:flatbuffers.Builder, footballPlayersWaitTimeOnWaveStart:number) {
+  builder.addFieldInt32(10, footballPlayersWaitTimeOnWaveStart, 0);
+}
+
+static addFootballStadiumWeights(builder:flatbuffers.Builder, footballStadiumWeightsOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(11, footballStadiumWeightsOffset, 0);
+}
+
+static createFootballStadiumWeightsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startFootballStadiumWeightsVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static endclz_Torappu_Battle_Cooperate_CooperateModeBattleData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -257,7 +293,7 @@ static finishSizePrefixedclz_Torappu_Battle_Cooperate_CooperateModeBattleDataBuf
   builder.finish(offset, undefined, true);
 }
 
-static createclz_Torappu_Battle_Cooperate_CooperateModeBattleData(builder:flatbuffers.Builder, costTransferred:number, getMaxMsgCntInOneUpdate:number, endTileInfoOffset:flatbuffers.Offset, footballAheadGoalCntFactorOffset:flatbuffers.Offset, footballHardTypeFactor:number, footballLastRoundResultFactorOffset:flatbuffers.Offset, footballLevelOfWaveFactorOffset:flatbuffers.Offset, footballTeamWeightsOffset:flatbuffers.Offset, footballTeamPlayersOffset:flatbuffers.Offset, footballPlayersNameOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_Battle_Cooperate_CooperateModeBattleData(builder:flatbuffers.Builder, costTransferred:number, getMaxMsgCntInOneUpdate:number, endTileInfoOffset:flatbuffers.Offset, footballAheadGoalCntFactorOffset:flatbuffers.Offset, footballHardTypeFactor:number, footballLastRoundResultFactorOffset:flatbuffers.Offset, footballLevelOfWaveFactorOffset:flatbuffers.Offset, footballTeamWeightsOffset:flatbuffers.Offset, footballTeamPlayersOffset:flatbuffers.Offset, footballPlayersNameOffset:flatbuffers.Offset, footballPlayersWaitTimeOnWaveStart:number, footballStadiumWeightsOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_Battle_Cooperate_CooperateModeBattleData.startclz_Torappu_Battle_Cooperate_CooperateModeBattleData(builder);
   clz_Torappu_Battle_Cooperate_CooperateModeBattleData.addCostTransferred(builder, costTransferred);
   clz_Torappu_Battle_Cooperate_CooperateModeBattleData.addGetMaxMsgCntInOneUpdate(builder, getMaxMsgCntInOneUpdate);
@@ -269,6 +305,8 @@ static createclz_Torappu_Battle_Cooperate_CooperateModeBattleData(builder:flatbu
   clz_Torappu_Battle_Cooperate_CooperateModeBattleData.addFootballTeamWeights(builder, footballTeamWeightsOffset);
   clz_Torappu_Battle_Cooperate_CooperateModeBattleData.addFootballTeamPlayers(builder, footballTeamPlayersOffset);
   clz_Torappu_Battle_Cooperate_CooperateModeBattleData.addFootballPlayersName(builder, footballPlayersNameOffset);
+  clz_Torappu_Battle_Cooperate_CooperateModeBattleData.addFootballPlayersWaitTimeOnWaveStart(builder, footballPlayersWaitTimeOnWaveStart);
+  clz_Torappu_Battle_Cooperate_CooperateModeBattleData.addFootballStadiumWeights(builder, footballStadiumWeightsOffset);
   return clz_Torappu_Battle_Cooperate_CooperateModeBattleData.endclz_Torappu_Battle_Cooperate_CooperateModeBattleData(builder);
 }
 
@@ -283,7 +321,9 @@ unpack(): clz_Torappu_Battle_Cooperate_CooperateModeBattleDataT {
     this.bb!.createObjList<dict__int__list_clz_Torappu_Battle_Cooperate_CooperateWaveWeight, dict__int__list_clz_Torappu_Battle_Cooperate_CooperateWaveWeightT>(this.footballLevelOfWaveFactor.bind(this), this.footballLevelOfWaveFactorLength()),
     this.bb!.createObjList<clz_Torappu_Battle_Cooperate_CooperateTeamWeight, clz_Torappu_Battle_Cooperate_CooperateTeamWeightT>(this.footballTeamWeights.bind(this), this.footballTeamWeightsLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_Battle_Cooperate_CooperateTeamPlayer, dict__string__clz_Torappu_Battle_Cooperate_CooperateTeamPlayerT>(this.footballTeamPlayers.bind(this), this.footballTeamPlayersLength()),
-    this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.footballPlayersName.bind(this), this.footballPlayersNameLength())
+    this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.footballPlayersName.bind(this), this.footballPlayersNameLength()),
+    this.footballPlayersWaitTimeOnWaveStart(),
+    this.bb!.createObjList<clz_Torappu_Battle_Cooperate_FootballStadiumWeight, clz_Torappu_Battle_Cooperate_FootballStadiumWeightT>(this.footballStadiumWeights.bind(this), this.footballStadiumWeightsLength())
   );
 }
 
@@ -299,6 +339,8 @@ unpackTo(_o: clz_Torappu_Battle_Cooperate_CooperateModeBattleDataT): void {
   _o.footballTeamWeights = this.bb!.createObjList<clz_Torappu_Battle_Cooperate_CooperateTeamWeight, clz_Torappu_Battle_Cooperate_CooperateTeamWeightT>(this.footballTeamWeights.bind(this), this.footballTeamWeightsLength());
   _o.footballTeamPlayers = this.bb!.createObjList<dict__string__clz_Torappu_Battle_Cooperate_CooperateTeamPlayer, dict__string__clz_Torappu_Battle_Cooperate_CooperateTeamPlayerT>(this.footballTeamPlayers.bind(this), this.footballTeamPlayersLength());
   _o.footballPlayersName = this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.footballPlayersName.bind(this), this.footballPlayersNameLength());
+  _o.footballPlayersWaitTimeOnWaveStart = this.footballPlayersWaitTimeOnWaveStart();
+  _o.footballStadiumWeights = this.bb!.createObjList<clz_Torappu_Battle_Cooperate_FootballStadiumWeight, clz_Torappu_Battle_Cooperate_FootballStadiumWeightT>(this.footballStadiumWeights.bind(this), this.footballStadiumWeightsLength());
 }
 }
 
@@ -313,7 +355,9 @@ constructor(
   public footballLevelOfWaveFactor: (dict__int__list_clz_Torappu_Battle_Cooperate_CooperateWaveWeightT)[] = [],
   public footballTeamWeights: (clz_Torappu_Battle_Cooperate_CooperateTeamWeightT)[] = [],
   public footballTeamPlayers: (dict__string__clz_Torappu_Battle_Cooperate_CooperateTeamPlayerT)[] = [],
-  public footballPlayersName: (dict__string__stringT)[] = []
+  public footballPlayersName: (dict__string__stringT)[] = [],
+  public footballPlayersWaitTimeOnWaveStart: number = 0,
+  public footballStadiumWeights: (clz_Torappu_Battle_Cooperate_FootballStadiumWeightT)[] = []
 ){}
 
 
@@ -325,6 +369,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const footballTeamWeights = clz_Torappu_Battle_Cooperate_CooperateModeBattleData.createFootballTeamWeightsVector(builder, builder.createObjectOffsetList(this.footballTeamWeights));
   const footballTeamPlayers = clz_Torappu_Battle_Cooperate_CooperateModeBattleData.createFootballTeamPlayersVector(builder, builder.createObjectOffsetList(this.footballTeamPlayers));
   const footballPlayersName = clz_Torappu_Battle_Cooperate_CooperateModeBattleData.createFootballPlayersNameVector(builder, builder.createObjectOffsetList(this.footballPlayersName));
+  const footballStadiumWeights = clz_Torappu_Battle_Cooperate_CooperateModeBattleData.createFootballStadiumWeightsVector(builder, builder.createObjectOffsetList(this.footballStadiumWeights));
 
   return clz_Torappu_Battle_Cooperate_CooperateModeBattleData.createclz_Torappu_Battle_Cooperate_CooperateModeBattleData(builder,
     this.costTransferred,
@@ -336,7 +381,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     footballLevelOfWaveFactor,
     footballTeamWeights,
     footballTeamPlayers,
-    footballPlayersName
+    footballPlayersName,
+    this.footballPlayersWaitTimeOnWaveStart,
+    footballStadiumWeights
   );
 }
 }

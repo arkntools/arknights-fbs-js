@@ -36,8 +36,13 @@ weight():number {
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
+teamType():number {
+  const offset = this.bb!.__offset(this.bb_pos, 8);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_Battle_Cooperate_CooperateTeamWeight(builder:flatbuffers.Builder) {
-  builder.startObject(2);
+  builder.startObject(3);
 }
 
 static addTeamName(builder:flatbuffers.Builder, teamNameOffset:flatbuffers.Offset) {
@@ -48,22 +53,28 @@ static addWeight(builder:flatbuffers.Builder, weight:number) {
   builder.addFieldInt32(1, weight, 0);
 }
 
+static addTeamType(builder:flatbuffers.Builder, teamType:number) {
+  builder.addFieldInt32(2, teamType, 0);
+}
+
 static endclz_Torappu_Battle_Cooperate_CooperateTeamWeight(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_Battle_Cooperate_CooperateTeamWeight(builder:flatbuffers.Builder, teamNameOffset:flatbuffers.Offset, weight:number):flatbuffers.Offset {
+static createclz_Torappu_Battle_Cooperate_CooperateTeamWeight(builder:flatbuffers.Builder, teamNameOffset:flatbuffers.Offset, weight:number, teamType:number):flatbuffers.Offset {
   clz_Torappu_Battle_Cooperate_CooperateTeamWeight.startclz_Torappu_Battle_Cooperate_CooperateTeamWeight(builder);
   clz_Torappu_Battle_Cooperate_CooperateTeamWeight.addTeamName(builder, teamNameOffset);
   clz_Torappu_Battle_Cooperate_CooperateTeamWeight.addWeight(builder, weight);
+  clz_Torappu_Battle_Cooperate_CooperateTeamWeight.addTeamType(builder, teamType);
   return clz_Torappu_Battle_Cooperate_CooperateTeamWeight.endclz_Torappu_Battle_Cooperate_CooperateTeamWeight(builder);
 }
 
 unpack(): clz_Torappu_Battle_Cooperate_CooperateTeamWeightT {
   return new clz_Torappu_Battle_Cooperate_CooperateTeamWeightT(
     this.teamName(),
-    this.weight()
+    this.weight(),
+    this.teamType()
   );
 }
 
@@ -71,13 +82,15 @@ unpack(): clz_Torappu_Battle_Cooperate_CooperateTeamWeightT {
 unpackTo(_o: clz_Torappu_Battle_Cooperate_CooperateTeamWeightT): void {
   _o.teamName = this.teamName();
   _o.weight = this.weight();
+  _o.teamType = this.teamType();
 }
 }
 
 export class clz_Torappu_Battle_Cooperate_CooperateTeamWeightT implements flatbuffers.IGeneratedObject {
 constructor(
   public teamName: string|Uint8Array|null = null,
-  public weight: number = 0
+  public weight: number = 0,
+  public teamType: number = 0
 ){}
 
 
@@ -86,7 +99,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
 
   return clz_Torappu_Battle_Cooperate_CooperateTeamWeight.createclz_Torappu_Battle_Cooperate_CooperateTeamWeight(builder,
     teamName,
-    this.weight
+    this.weight,
+    this.teamType
   );
 }
 }

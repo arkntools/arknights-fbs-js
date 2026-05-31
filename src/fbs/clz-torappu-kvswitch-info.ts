@@ -4,6 +4,7 @@
 
 import * as flatbuffers from 'flatbuffers';
 
+import { enum__Torappu_PlayerStageState } from './enum--torappu-player-stage-state.js';
 
 
 export class clz_Torappu_KVSwitchInfo implements flatbuffers.IUnpackableObject<clz_Torappu_KVSwitchInfoT> {
@@ -34,15 +35,20 @@ displayTime():bigint {
   return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
 }
 
-zoneId():string|null
-zoneId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-zoneId(optionalEncoding?:any):string|Uint8Array|null {
+stageId():string|null
+stageId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+stageId(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+passState():enum__Torappu_PlayerStageState {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_PlayerStageState.UNLOCKED;
+}
+
 static startclz_Torappu_KVSwitchInfo(builder:flatbuffers.Builder) {
-  builder.startObject(3);
+  builder.startObject(4);
 }
 
 static addIsDefault(builder:flatbuffers.Builder, isDefault:boolean) {
@@ -53,8 +59,12 @@ static addDisplayTime(builder:flatbuffers.Builder, displayTime:bigint) {
   builder.addFieldInt64(1, displayTime, BigInt('0'));
 }
 
-static addZoneId(builder:flatbuffers.Builder, zoneIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(2, zoneIdOffset, 0);
+static addStageId(builder:flatbuffers.Builder, stageIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(2, stageIdOffset, 0);
+}
+
+static addPassState(builder:flatbuffers.Builder, passState:enum__Torappu_PlayerStageState) {
+  builder.addFieldInt32(3, passState, enum__Torappu_PlayerStageState.UNLOCKED);
 }
 
 static endclz_Torappu_KVSwitchInfo(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -62,11 +72,12 @@ static endclz_Torappu_KVSwitchInfo(builder:flatbuffers.Builder):flatbuffers.Offs
   return offset;
 }
 
-static createclz_Torappu_KVSwitchInfo(builder:flatbuffers.Builder, isDefault:boolean, displayTime:bigint, zoneIdOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_KVSwitchInfo(builder:flatbuffers.Builder, isDefault:boolean, displayTime:bigint, stageIdOffset:flatbuffers.Offset, passState:enum__Torappu_PlayerStageState):flatbuffers.Offset {
   clz_Torappu_KVSwitchInfo.startclz_Torappu_KVSwitchInfo(builder);
   clz_Torappu_KVSwitchInfo.addIsDefault(builder, isDefault);
   clz_Torappu_KVSwitchInfo.addDisplayTime(builder, displayTime);
-  clz_Torappu_KVSwitchInfo.addZoneId(builder, zoneIdOffset);
+  clz_Torappu_KVSwitchInfo.addStageId(builder, stageIdOffset);
+  clz_Torappu_KVSwitchInfo.addPassState(builder, passState);
   return clz_Torappu_KVSwitchInfo.endclz_Torappu_KVSwitchInfo(builder);
 }
 
@@ -74,7 +85,8 @@ unpack(): clz_Torappu_KVSwitchInfoT {
   return new clz_Torappu_KVSwitchInfoT(
     this.isDefault(),
     this.displayTime(),
-    this.zoneId()
+    this.stageId(),
+    this.passState()
   );
 }
 
@@ -82,7 +94,8 @@ unpack(): clz_Torappu_KVSwitchInfoT {
 unpackTo(_o: clz_Torappu_KVSwitchInfoT): void {
   _o.isDefault = this.isDefault();
   _o.displayTime = this.displayTime();
-  _o.zoneId = this.zoneId();
+  _o.stageId = this.stageId();
+  _o.passState = this.passState();
 }
 }
 
@@ -90,17 +103,19 @@ export class clz_Torappu_KVSwitchInfoT implements flatbuffers.IGeneratedObject {
 constructor(
   public isDefault: boolean = false,
   public displayTime: bigint = BigInt('0'),
-  public zoneId: string|Uint8Array|null = null
+  public stageId: string|Uint8Array|null = null,
+  public passState: enum__Torappu_PlayerStageState = enum__Torappu_PlayerStageState.UNLOCKED
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
-  const zoneId = (this.zoneId !== null ? builder.createString(this.zoneId!) : 0);
+  const stageId = (this.stageId !== null ? builder.createString(this.stageId!) : 0);
 
   return clz_Torappu_KVSwitchInfo.createclz_Torappu_KVSwitchInfo(builder,
     this.isDefault,
     this.displayTime,
-    zoneId
+    stageId,
+    this.passState
   );
 }
 }

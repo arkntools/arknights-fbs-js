@@ -8,6 +8,7 @@ export { clz_Torappu_Battle_Cooperate_CooperateModeBattleData, clz_Torappu_Battl
 export { clz_Torappu_Battle_Cooperate_CooperateTeamPlayer, clz_Torappu_Battle_Cooperate_CooperateTeamPlayerT } from './clz-torappu-battle-cooperate-cooperate-team-player.js';
 export { clz_Torappu_Battle_Cooperate_CooperateTeamWeight, clz_Torappu_Battle_Cooperate_CooperateTeamWeightT } from './clz-torappu-battle-cooperate-cooperate-team-weight.js';
 export { clz_Torappu_Battle_Cooperate_CooperateWaveWeight, clz_Torappu_Battle_Cooperate_CooperateWaveWeightT } from './clz-torappu-battle-cooperate-cooperate-wave-weight.js';
+export { clz_Torappu_Battle_Cooperate_FootballStadiumWeight, clz_Torappu_Battle_Cooperate_FootballStadiumWeightT } from './clz-torappu-battle-cooperate-football-stadium-weight.js';
 export { dict__enum__Torappu_Battle_Cooperate_EndTileType__clz_Torappu_Battle_Cooperate_CooperateEndTileInfo, dict__enum__Torappu_Battle_Cooperate_EndTileType__clz_Torappu_Battle_Cooperate_CooperateEndTileInfoT } from './dict--enum--torappu-battle-cooperate-end-tile-type--clz-torappu-battle-cooperate-cooperate-end-tile-info.js';
 export { dict__enum__Torappu_Battle_Cooperate_LASTROUNDRESULT__int, dict__enum__Torappu_Battle_Cooperate_LASTROUNDRESULT__intT } from './dict--enum--torappu-battle-cooperate-lastroundresult--int.js';
 export { dict__int__list_clz_Torappu_Battle_Cooperate_CooperateWaveWeight, dict__int__list_clz_Torappu_Battle_Cooperate_CooperateWaveWeightT } from './dict--int--list-clz-torappu-battle-cooperate-cooperate-wave-weight.js';

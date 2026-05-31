@@ -5,5 +5,6 @@
 export enum enum__Torappu_NameCardV2SkinType {
   NONE = 0,
   BASE = 1,
-  SPECIAL = 2
+  SPECIAL = 2,
+  DYNAMIC = 3
 }
