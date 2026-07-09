@@ -89,8 +89,18 @@ forceShowWhenOnlyLeave():boolean {
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
+isHiddenChoice():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 24);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+sortId():number {
+  const offset = this.bb!.__offset(this.bb_pos, 26);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_RoguelikeGameChoiceData(builder:flatbuffers.Builder) {
-  builder.startObject(10);
+  builder.startObject(12);
 }
 
 static addId(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset) {
@@ -133,6 +143,14 @@ static addForceShowWhenOnlyLeave(builder:flatbuffers.Builder, forceShowWhenOnlyL
   builder.addFieldInt8(9, +forceShowWhenOnlyLeave, +false);
 }
 
+static addIsHiddenChoice(builder:flatbuffers.Builder, isHiddenChoice:boolean) {
+  builder.addFieldInt8(10, +isHiddenChoice, +false);
+}
+
+static addSortId(builder:flatbuffers.Builder, sortId:number) {
+  builder.addFieldInt32(11, sortId, 0);
+}
+
 static endclz_Torappu_RoguelikeGameChoiceData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -150,7 +168,9 @@ unpack(): clz_Torappu_RoguelikeGameChoiceDataT {
     this.nextSceneId(),
     this.icon(),
     (this.displayData() !== null ? this.displayData()!.unpack() : null),
-    this.forceShowWhenOnlyLeave()
+    this.forceShowWhenOnlyLeave(),
+    this.isHiddenChoice(),
+    this.sortId()
   );
 }
 
@@ -166,6 +186,8 @@ unpackTo(_o: clz_Torappu_RoguelikeGameChoiceDataT): void {
   _o.icon = this.icon();
   _o.displayData = (this.displayData() !== null ? this.displayData()!.unpack() : null);
   _o.forceShowWhenOnlyLeave = this.forceShowWhenOnlyLeave();
+  _o.isHiddenChoice = this.isHiddenChoice();
+  _o.sortId = this.sortId();
 }
 }
 
@@ -180,7 +202,9 @@ constructor(
   public nextSceneId: string|Uint8Array|null = null,
   public icon: string|Uint8Array|null = null,
   public displayData: clz_Torappu_RoguelikeChoiceDisplayDataT|null = null,
-  public forceShowWhenOnlyLeave: boolean = false
+  public forceShowWhenOnlyLeave: boolean = false,
+  public isHiddenChoice: boolean = false,
+  public sortId: number = 0
 ){}
 
 
@@ -204,6 +228,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_RoguelikeGameChoiceData.addIcon(builder, icon);
   clz_Torappu_RoguelikeGameChoiceData.addDisplayData(builder, displayData);
   clz_Torappu_RoguelikeGameChoiceData.addForceShowWhenOnlyLeave(builder, this.forceShowWhenOnlyLeave);
+  clz_Torappu_RoguelikeGameChoiceData.addIsHiddenChoice(builder, this.isHiddenChoice);
+  clz_Torappu_RoguelikeGameChoiceData.addSortId(builder, this.sortId);
 
   return clz_Torappu_RoguelikeGameChoiceData.endclz_Torappu_RoguelikeGameChoiceData(builder);
 }

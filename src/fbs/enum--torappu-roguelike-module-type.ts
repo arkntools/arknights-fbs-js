@@ -15,5 +15,8 @@ export enum enum__Torappu_RoguelikeModuleType {
   COPPER = 9,
   WRATH = 10,
   CANDLE = 11,
-  SKY = 12
+  SKY = 12,
+  GRID_ZONE = 13,
+  WEATHER = 14,
+  SCRAP = 15
 }

@@ -11,5 +11,6 @@ export enum enum__Torappu_RoguelikeCharState {
   ASSIST = 5,
   THIRD = 6,
   MONTHLY = 7,
-  THIRD_LOW = 8
+  THIRD_LOW = 8,
+  MERCENARY = 9
 }

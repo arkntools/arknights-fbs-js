@@ -10,11 +10,14 @@ import { clz_Torappu_RoguelikeCopperModuleData, clz_Torappu_RoguelikeCopperModul
 import { clz_Torappu_RoguelikeDiceModuleData, clz_Torappu_RoguelikeDiceModuleDataT } from './clz-torappu-roguelike-dice-module-data.js';
 import { clz_Torappu_RoguelikeDisasterModuleData, clz_Torappu_RoguelikeDisasterModuleDataT } from './clz-torappu-roguelike-disaster-module-data.js';
 import { clz_Torappu_RoguelikeFragmentModuleData, clz_Torappu_RoguelikeFragmentModuleDataT } from './clz-torappu-roguelike-fragment-module-data.js';
+import { clz_Torappu_RoguelikeGridZoneModuleData, clz_Torappu_RoguelikeGridZoneModuleDataT } from './clz-torappu-roguelike-grid-zone-module-data.js';
 import { clz_Torappu_RoguelikeNodeUpgradeModuleData, clz_Torappu_RoguelikeNodeUpgradeModuleDataT } from './clz-torappu-roguelike-node-upgrade-module-data.js';
 import { clz_Torappu_RoguelikeSanCheckModuleData, clz_Torappu_RoguelikeSanCheckModuleDataT } from './clz-torappu-roguelike-san-check-module-data.js';
+import { clz_Torappu_RoguelikeScrapModuleData, clz_Torappu_RoguelikeScrapModuleDataT } from './clz-torappu-roguelike-scrap-module-data.js';
 import { clz_Torappu_RoguelikeSkyModuleData, clz_Torappu_RoguelikeSkyModuleDataT } from './clz-torappu-roguelike-sky-module-data.js';
 import { clz_Torappu_RoguelikeTotemBuffModuleData, clz_Torappu_RoguelikeTotemBuffModuleDataT } from './clz-torappu-roguelike-totem-buff-module-data.js';
 import { clz_Torappu_RoguelikeVisionModuleData, clz_Torappu_RoguelikeVisionModuleDataT } from './clz-torappu-roguelike-vision-module-data.js';
+import { clz_Torappu_RoguelikeWeatherModuleData, clz_Torappu_RoguelikeWeatherModuleDataT } from './clz-torappu-roguelike-weather-module-data.js';
 import { clz_Torappu_RoguelikeWrathModuleData, clz_Torappu_RoguelikeWrathModuleDataT } from './clz-torappu-roguelike-wrath-module-data.js';
 import { enum__Torappu_RoguelikeModuleType } from './enum--torappu-roguelike-module-type.js';
 
@@ -112,8 +115,23 @@ sky(obj?:clz_Torappu_RoguelikeSkyModuleData):clz_Torappu_RoguelikeSkyModuleData|
   return offset ? (obj || new clz_Torappu_RoguelikeSkyModuleData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
+weather(obj?:clz_Torappu_RoguelikeWeatherModuleData):clz_Torappu_RoguelikeWeatherModuleData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 30);
+  return offset ? (obj || new clz_Torappu_RoguelikeWeatherModuleData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
+gridZone(obj?:clz_Torappu_RoguelikeGridZoneModuleData):clz_Torappu_RoguelikeGridZoneModuleData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 32);
+  return offset ? (obj || new clz_Torappu_RoguelikeGridZoneModuleData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
+scrap(obj?:clz_Torappu_RoguelikeScrapModuleData):clz_Torappu_RoguelikeScrapModuleData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 34);
+  return offset ? (obj || new clz_Torappu_RoguelikeScrapModuleData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
 static startclz_Torappu_RoguelikeModule(builder:flatbuffers.Builder) {
-  builder.startObject(13);
+  builder.startObject(16);
 }
 
 static addModuleTypes(builder:flatbuffers.Builder, moduleTypesOffset:flatbuffers.Offset) {
@@ -180,6 +198,18 @@ static addSky(builder:flatbuffers.Builder, skyOffset:flatbuffers.Offset) {
   builder.addFieldOffset(12, skyOffset, 0);
 }
 
+static addWeather(builder:flatbuffers.Builder, weatherOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(13, weatherOffset, 0);
+}
+
+static addGridZone(builder:flatbuffers.Builder, gridZoneOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(14, gridZoneOffset, 0);
+}
+
+static addScrap(builder:flatbuffers.Builder, scrapOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(15, scrapOffset, 0);
+}
+
 static endclz_Torappu_RoguelikeModule(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -200,7 +230,10 @@ unpack(): clz_Torappu_RoguelikeModuleT {
     (this.copper() !== null ? this.copper()!.unpack() : null),
     (this.wrath() !== null ? this.wrath()!.unpack() : null),
     (this.candle() !== null ? this.candle()!.unpack() : null),
-    (this.sky() !== null ? this.sky()!.unpack() : null)
+    (this.sky() !== null ? this.sky()!.unpack() : null),
+    (this.weather() !== null ? this.weather()!.unpack() : null),
+    (this.gridZone() !== null ? this.gridZone()!.unpack() : null),
+    (this.scrap() !== null ? this.scrap()!.unpack() : null)
   );
 }
 
@@ -219,6 +252,9 @@ unpackTo(_o: clz_Torappu_RoguelikeModuleT): void {
   _o.wrath = (this.wrath() !== null ? this.wrath()!.unpack() : null);
   _o.candle = (this.candle() !== null ? this.candle()!.unpack() : null);
   _o.sky = (this.sky() !== null ? this.sky()!.unpack() : null);
+  _o.weather = (this.weather() !== null ? this.weather()!.unpack() : null);
+  _o.gridZone = (this.gridZone() !== null ? this.gridZone()!.unpack() : null);
+  _o.scrap = (this.scrap() !== null ? this.scrap()!.unpack() : null);
 }
 }
 
@@ -236,7 +272,10 @@ constructor(
   public copper: clz_Torappu_RoguelikeCopperModuleDataT|null = null,
   public wrath: clz_Torappu_RoguelikeWrathModuleDataT|null = null,
   public candle: clz_Torappu_RoguelikeCandleModuleDataT|null = null,
-  public sky: clz_Torappu_RoguelikeSkyModuleDataT|null = null
+  public sky: clz_Torappu_RoguelikeSkyModuleDataT|null = null,
+  public weather: clz_Torappu_RoguelikeWeatherModuleDataT|null = null,
+  public gridZone: clz_Torappu_RoguelikeGridZoneModuleDataT|null = null,
+  public scrap: clz_Torappu_RoguelikeScrapModuleDataT|null = null
 ){}
 
 
@@ -254,6 +293,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const wrath = (this.wrath !== null ? this.wrath!.pack(builder) : 0);
   const candle = (this.candle !== null ? this.candle!.pack(builder) : 0);
   const sky = (this.sky !== null ? this.sky!.pack(builder) : 0);
+  const weather = (this.weather !== null ? this.weather!.pack(builder) : 0);
+  const gridZone = (this.gridZone !== null ? this.gridZone!.pack(builder) : 0);
+  const scrap = (this.scrap !== null ? this.scrap!.pack(builder) : 0);
 
   clz_Torappu_RoguelikeModule.startclz_Torappu_RoguelikeModule(builder);
   clz_Torappu_RoguelikeModule.addModuleTypes(builder, moduleTypes);
@@ -269,6 +311,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_RoguelikeModule.addWrath(builder, wrath);
   clz_Torappu_RoguelikeModule.addCandle(builder, candle);
   clz_Torappu_RoguelikeModule.addSky(builder, sky);
+  clz_Torappu_RoguelikeModule.addWeather(builder, weather);
+  clz_Torappu_RoguelikeModule.addGridZone(builder, gridZone);
+  clz_Torappu_RoguelikeModule.addScrap(builder, scrap);
 
   return clz_Torappu_RoguelikeModule.endclz_Torappu_RoguelikeModule(builder);
 }

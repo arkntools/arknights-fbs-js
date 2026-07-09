@@ -9,5 +9,6 @@ export enum enum__Torappu_EmojiSceneType {
   ACTMULTIV3_BATTLE = 3,
   ENEMYDUEL_BATTLE = 4,
   AUTOCHESS_ROOM = 5,
-  AUTOCHESS_BATTLE = 6
+  AUTOCHESS_BATTLE = 6,
+  BUILDING_ACTION = 7
 }

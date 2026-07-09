@@ -167,494 +167,527 @@ badBoxTrapId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+toolBoxTrapId():string|null
+toolBoxTrapId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+toolBoxTrapId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 44);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 maxHpItemId():string|null
 maxHpItemId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 maxHpItemId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 44);
+  const offset = this.bb!.__offset(this.bb_pos, 46);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 shieldItemId():string|null
 shieldItemId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 shieldItemId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 46);
+  const offset = this.bb!.__offset(this.bb_pos, 48);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 keyItemId():string|null
 keyItemId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 keyItemId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 48);
+  const offset = this.bb!.__offset(this.bb_pos, 50);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 divinationKitItemId():string|null
 divinationKitItemId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 divinationKitItemId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 50);
+  const offset = this.bb!.__offset(this.bb_pos, 52);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 chestKeyCnt():number {
-  const offset = this.bb!.__offset(this.bb_pos, 52);
+  const offset = this.bb!.__offset(this.bb_pos, 54);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 chestKeyItemId():string|null
 chestKeyItemId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 chestKeyItemId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 54);
+  const offset = this.bb!.__offset(this.bb_pos, 56);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 keyColorId():string|null
 keyColorId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 keyColorId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 56);
+  const offset = this.bb!.__offset(this.bb_pos, 58);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 onceNodeTypeList(index: number):enum__Torappu_RoguelikeEventType|null {
-  const offset = this.bb!.__offset(this.bb_pos, 58);
+  const offset = this.bb!.__offset(this.bb_pos, 60);
   return offset ? this.bb!.readInt32(this.bb!.__vector(this.bb_pos + offset) + index * 4) : null;
 }
 
 onceNodeTypeListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 58);
+  const offset = this.bb!.__offset(this.bb_pos, 60);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 onceNodeTypeListArray():Int32Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 58);
+  const offset = this.bb!.__offset(this.bb_pos, 60);
   return offset ? new Int32Array(this.bb!.bytes().buffer, this.bb!.bytes().byteOffset + this.bb!.__vector(this.bb_pos + offset), this.bb!.__vector_len(this.bb_pos + offset)) : null;
 }
 
 vertNodeCostDialogUseItemIconType():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 60);
+  const offset = this.bb!.__offset(this.bb_pos, 62);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 gpScoreRatio():number {
-  const offset = this.bb!.__offset(this.bb_pos, 62);
+  const offset = this.bb!.__offset(this.bb_pos, 64);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 overflowUsageSquadBuff():string|null
 overflowUsageSquadBuff(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 overflowUsageSquadBuff(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 64);
+  const offset = this.bb!.__offset(this.bb_pos, 66);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 specialTrapId():string|null
 specialTrapId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 specialTrapId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 66);
+  const offset = this.bb!.__offset(this.bb_pos, 68);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 trapRewardRelicId():string|null
 trapRewardRelicId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 trapRewardRelicId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 68);
+  const offset = this.bb!.__offset(this.bb_pos, 70);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 unlockRouteItemId():string|null
 unlockRouteItemId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 unlockRouteItemId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 70);
+  const offset = this.bb!.__offset(this.bb_pos, 72);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 unlockRouteItemCount():number {
-  const offset = this.bb!.__offset(this.bb_pos, 72);
+  const offset = this.bb!.__offset(this.bb_pos, 74);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 hideBattleNodeName():string|null
 hideBattleNodeName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 hideBattleNodeName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 74);
+  const offset = this.bb!.__offset(this.bb_pos, 76);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 hideBattleNodeDescription():string|null
 hideBattleNodeDescription(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 hideBattleNodeDescription(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 76);
+  const offset = this.bb!.__offset(this.bb_pos, 78);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 hideNonBattleNodeName():string|null
 hideNonBattleNodeName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 hideNonBattleNodeName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 78);
+  const offset = this.bb!.__offset(this.bb_pos, 80);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 hideNonBattleNodeDescription():string|null
 hideNonBattleNodeDescription(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 hideNonBattleNodeDescription(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 80);
+  const offset = this.bb!.__offset(this.bb_pos, 82);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 charSelectExpeditionConflictToast():string|null
 charSelectExpeditionConflictToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 charSelectExpeditionConflictToast(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 82);
+  const offset = this.bb!.__offset(this.bb_pos, 84);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 charSelectNoUpgradeConflictToast():string|null
 charSelectNoUpgradeConflictToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 charSelectNoUpgradeConflictToast(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 84);
+  const offset = this.bb!.__offset(this.bb_pos, 86);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 itemDropTagDict(index: number, obj?:dict__enum__Torappu_RoguelikeRewardExDropTagSrcType__string):dict__enum__Torappu_RoguelikeRewardExDropTagSrcType__string|null {
-  const offset = this.bb!.__offset(this.bb_pos, 86);
+  const offset = this.bb!.__offset(this.bb_pos, 88);
   return offset ? (obj || new dict__enum__Torappu_RoguelikeRewardExDropTagSrcType__string()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 itemDropTagDictLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 86);
+  const offset = this.bb!.__offset(this.bb_pos, 88);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 shopRefreshCostId():string|null
 shopRefreshCostId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 shopRefreshCostId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 88);
+  const offset = this.bb!.__offset(this.bb_pos, 90);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 expeditionLeaveToastFormat():string|null
 expeditionLeaveToastFormat(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 expeditionLeaveToastFormat(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 90);
+  const offset = this.bb!.__offset(this.bb_pos, 92);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 expeditionReturnDescCureUpgrade():string|null
 expeditionReturnDescCureUpgrade(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 expeditionReturnDescCureUpgrade(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 92);
+  const offset = this.bb!.__offset(this.bb_pos, 94);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 expeditionReturnDescUpgrade():string|null
 expeditionReturnDescUpgrade(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 expeditionReturnDescUpgrade(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 94);
+  const offset = this.bb!.__offset(this.bb_pos, 96);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 expeditionReturnDescCure():string|null
 expeditionReturnDescCure(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 expeditionReturnDescCure(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 96);
+  const offset = this.bb!.__offset(this.bb_pos, 98);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 expeditionReturnDesc():string|null
 expeditionReturnDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 expeditionReturnDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 98);
+  const offset = this.bb!.__offset(this.bb_pos, 100);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 expeditionSelectDescFormat():string|null
 expeditionSelectDescFormat(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 expeditionSelectDescFormat(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 100);
+  const offset = this.bb!.__offset(this.bb_pos, 102);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 expeditionReturnDescItem():string|null
 expeditionReturnDescItem(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 expeditionReturnDescItem(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 102);
+  const offset = this.bb!.__offset(this.bb_pos, 104);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+expedEndingRelic():string|null
+expedEndingRelic(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+expedEndingRelic(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 106);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+expedEndingRelicDesc():string|null
+expedEndingRelicDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+expedEndingRelicDesc(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 108);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 expeditionReturnRewardBlackList(index: number):string
 expeditionReturnRewardBlackList(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 expeditionReturnRewardBlackList(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 104);
+  const offset = this.bb!.__offset(this.bb_pos, 110);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 expeditionReturnRewardBlackListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 104);
+  const offset = this.bb!.__offset(this.bb_pos, 110);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 travelLeaveToastFormat():string|null
 travelLeaveToastFormat(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 travelLeaveToastFormat(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 106);
+  const offset = this.bb!.__offset(this.bb_pos, 112);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 charSelectTravelConflictToast():string|null
 charSelectTravelConflictToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 charSelectTravelConflictToast(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 108);
+  const offset = this.bb!.__offset(this.bb_pos, 114);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 travelReturnDescUpgrade():string|null
 travelReturnDescUpgrade(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 travelReturnDescUpgrade(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 110);
+  const offset = this.bb!.__offset(this.bb_pos, 116);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 travelReturnDesc():string|null
 travelReturnDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 travelReturnDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 112);
+  const offset = this.bb!.__offset(this.bb_pos, 118);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 travelReturnDescItem():string|null
 travelReturnDescItem(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 travelReturnDescItem(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 114);
+  const offset = this.bb!.__offset(this.bb_pos, 120);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 traderReturnTitle():string|null
 traderReturnTitle(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 traderReturnTitle(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 116);
+  const offset = this.bb!.__offset(this.bb_pos, 122);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 traderReturnDesc():string|null
 traderReturnDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 traderReturnDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 118);
+  const offset = this.bb!.__offset(this.bb_pos, 124);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 candleReturnDescCandleUpgrade():string|null
 candleReturnDescCandleUpgrade(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 candleReturnDescCandleUpgrade(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 120);
+  const offset = this.bb!.__offset(this.bb_pos, 126);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 candleReturnDescCandle():string|null
 candleReturnDescCandle(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 candleReturnDescCandle(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 122);
+  const offset = this.bb!.__offset(this.bb_pos, 128);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 charSelectCandleConflictToast():string|null
 charSelectCandleConflictToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 charSelectCandleConflictToast(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 124);
+  const offset = this.bb!.__offset(this.bb_pos, 130);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 charSelectGuidedConflictToast():string|null
 charSelectGuidedConflictToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 charSelectGuidedConflictToast(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 126);
+  const offset = this.bb!.__offset(this.bb_pos, 132);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 charSelectNonGuidedConflictToast():string|null
 charSelectNonGuidedConflictToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 charSelectNonGuidedConflictToast(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 128);
+  const offset = this.bb!.__offset(this.bb_pos, 134);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 gainBuffDiffGrade():number {
-  const offset = this.bb!.__offset(this.bb_pos, 130);
+  const offset = this.bb!.__offset(this.bb_pos, 136);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 dsPredictTips():string|null
 dsPredictTips(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 dsPredictTips(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 132);
+  const offset = this.bb!.__offset(this.bb_pos, 138);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 dsBuffActiveTips():string|null
 dsBuffActiveTips(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 dsBuffActiveTips(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 134);
+  const offset = this.bb!.__offset(this.bb_pos, 140);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 totemDesc():string|null
 totemDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 totemDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 136);
+  const offset = this.bb!.__offset(this.bb_pos, 142);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 copperGildDesc():string|null
 copperGildDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 copperGildDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 138);
+  const offset = this.bb!.__offset(this.bb_pos, 144);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 relicDesc():string|null
 relicDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 relicDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 140);
+  const offset = this.bb!.__offset(this.bb_pos, 146);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 buffDesc():string|null
 buffDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 buffDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 142);
+  const offset = this.bb!.__offset(this.bb_pos, 148);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 refreshNodeItemId():string|null
 refreshNodeItemId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 refreshNodeItemId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 144);
+  const offset = this.bb!.__offset(this.bb_pos, 150);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 storingRecruitDesc():string|null
 storingRecruitDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 storingRecruitDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 146);
+  const offset = this.bb!.__offset(this.bb_pos, 152);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 storingRecruitSucceedToast():string|null
 storingRecruitSucceedToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 storingRecruitSucceedToast(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 148);
+  const offset = this.bb!.__offset(this.bb_pos, 154);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 specialRecruitReductionDesc():string|null
 specialRecruitReductionDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 specialRecruitReductionDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 150);
+  const offset = this.bb!.__offset(this.bb_pos, 156);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 specialRecruitFuncDesc():string|null
 specialRecruitFuncDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 specialRecruitFuncDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 152);
+  const offset = this.bb!.__offset(this.bb_pos, 158);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 specialRecruitDetailDesc():string|null
 specialRecruitDetailDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 specialRecruitDetailDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 154);
+  const offset = this.bb!.__offset(this.bb_pos, 160);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 portalZones(index: number):string
 portalZones(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 portalZones(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 156);
+  const offset = this.bb!.__offset(this.bb_pos, 162);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 portalZonesLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 156);
+  const offset = this.bb!.__offset(this.bb_pos, 162);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+treasureBuffs(index: number):string
+treasureBuffs(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
+treasureBuffs(index: number,optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 164);
+  return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
+}
+
+treasureBuffsLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 164);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 diffDisplayZoneId():string|null
 diffDisplayZoneId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 diffDisplayZoneId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 158);
+  const offset = this.bb!.__offset(this.bb_pos, 166);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 exploreExpOnKill():string|null
 exploreExpOnKill(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 exploreExpOnKill(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 160);
+  const offset = this.bb!.__offset(this.bb_pos, 168);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 fusionName():string|null
 fusionName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 fusionName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 162);
+  const offset = this.bb!.__offset(this.bb_pos, 170);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 fusionNotifyToast():string|null
 fusionNotifyToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 fusionNotifyToast(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 164);
+  const offset = this.bb!.__offset(this.bb_pos, 172);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-haveSpZone():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 166);
+haveCustomZone():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 174);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 gotCharCandleBuffToast():string|null
 gotCharCandleBuffToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 gotCharCandleBuffToast(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 168);
+  const offset = this.bb!.__offset(this.bb_pos, 176);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 gotCharsCandleBuffToast():string|null
 gotCharsCandleBuffToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 gotCharsCandleBuffToast(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 170);
+  const offset = this.bb!.__offset(this.bb_pos, 178);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 stashedRecruitNodeDescription():string|null
 stashedRecruitNodeDescription(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 stashedRecruitNodeDescription(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 172);
+  const offset = this.bb!.__offset(this.bb_pos, 180);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 stashedRecruitEmptyNodeDescription():string|null
 stashedRecruitEmptyNodeDescription(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 stashedRecruitEmptyNodeDescription(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 174);
+  const offset = this.bb!.__offset(this.bb_pos, 182);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 recruitStashMaxNum():number {
-  const offset = this.bb!.__offset(this.bb_pos, 176);
+  const offset = this.bb!.__offset(this.bb_pos, 184);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 recruitStashMinNum():number {
-  const offset = this.bb!.__offset(this.bb_pos, 178);
+  const offset = this.bb!.__offset(this.bb_pos, 186);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 hasTopicCharSelectMenuButton():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 180);
+  const offset = this.bb!.__offset(this.bb_pos, 188);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 static startclz_Torappu_RoguelikeGameConst(builder:flatbuffers.Builder) {
-  builder.startObject(89);
+  builder.startObject(93);
 }
 
 static addInitSceneName(builder:flatbuffers.Builder, initSceneNameOffset:flatbuffers.Offset) {
@@ -761,36 +794,40 @@ static addBadBoxTrapId(builder:flatbuffers.Builder, badBoxTrapIdOffset:flatbuffe
   builder.addFieldOffset(19, badBoxTrapIdOffset, 0);
 }
 
+static addToolBoxTrapId(builder:flatbuffers.Builder, toolBoxTrapIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(20, toolBoxTrapIdOffset, 0);
+}
+
 static addMaxHpItemId(builder:flatbuffers.Builder, maxHpItemIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(20, maxHpItemIdOffset, 0);
+  builder.addFieldOffset(21, maxHpItemIdOffset, 0);
 }
 
 static addShieldItemId(builder:flatbuffers.Builder, shieldItemIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(21, shieldItemIdOffset, 0);
+  builder.addFieldOffset(22, shieldItemIdOffset, 0);
 }
 
 static addKeyItemId(builder:flatbuffers.Builder, keyItemIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(22, keyItemIdOffset, 0);
+  builder.addFieldOffset(23, keyItemIdOffset, 0);
 }
 
 static addDivinationKitItemId(builder:flatbuffers.Builder, divinationKitItemIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(23, divinationKitItemIdOffset, 0);
+  builder.addFieldOffset(24, divinationKitItemIdOffset, 0);
 }
 
 static addChestKeyCnt(builder:flatbuffers.Builder, chestKeyCnt:number) {
-  builder.addFieldInt32(24, chestKeyCnt, 0);
+  builder.addFieldInt32(25, chestKeyCnt, 0);
 }
 
 static addChestKeyItemId(builder:flatbuffers.Builder, chestKeyItemIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(25, chestKeyItemIdOffset, 0);
+  builder.addFieldOffset(26, chestKeyItemIdOffset, 0);
 }
 
 static addKeyColorId(builder:flatbuffers.Builder, keyColorIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(26, keyColorIdOffset, 0);
+  builder.addFieldOffset(27, keyColorIdOffset, 0);
 }
 
 static addOnceNodeTypeList(builder:flatbuffers.Builder, onceNodeTypeListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(27, onceNodeTypeListOffset, 0);
+  builder.addFieldOffset(28, onceNodeTypeListOffset, 0);
 }
 
 static createOnceNodeTypeListVector(builder:flatbuffers.Builder, data:enum__Torappu_RoguelikeEventType[]):flatbuffers.Offset {
@@ -806,59 +843,59 @@ static startOnceNodeTypeListVector(builder:flatbuffers.Builder, numElems:number)
 }
 
 static addVertNodeCostDialogUseItemIconType(builder:flatbuffers.Builder, vertNodeCostDialogUseItemIconType:boolean) {
-  builder.addFieldInt8(28, +vertNodeCostDialogUseItemIconType, +false);
+  builder.addFieldInt8(29, +vertNodeCostDialogUseItemIconType, +false);
 }
 
 static addGpScoreRatio(builder:flatbuffers.Builder, gpScoreRatio:number) {
-  builder.addFieldInt32(29, gpScoreRatio, 0);
+  builder.addFieldInt32(30, gpScoreRatio, 0);
 }
 
 static addOverflowUsageSquadBuff(builder:flatbuffers.Builder, overflowUsageSquadBuffOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(30, overflowUsageSquadBuffOffset, 0);
+  builder.addFieldOffset(31, overflowUsageSquadBuffOffset, 0);
 }
 
 static addSpecialTrapId(builder:flatbuffers.Builder, specialTrapIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(31, specialTrapIdOffset, 0);
+  builder.addFieldOffset(32, specialTrapIdOffset, 0);
 }
 
 static addTrapRewardRelicId(builder:flatbuffers.Builder, trapRewardRelicIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(32, trapRewardRelicIdOffset, 0);
+  builder.addFieldOffset(33, trapRewardRelicIdOffset, 0);
 }
 
 static addUnlockRouteItemId(builder:flatbuffers.Builder, unlockRouteItemIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(33, unlockRouteItemIdOffset, 0);
+  builder.addFieldOffset(34, unlockRouteItemIdOffset, 0);
 }
 
 static addUnlockRouteItemCount(builder:flatbuffers.Builder, unlockRouteItemCount:number) {
-  builder.addFieldInt32(34, unlockRouteItemCount, 0);
+  builder.addFieldInt32(35, unlockRouteItemCount, 0);
 }
 
 static addHideBattleNodeName(builder:flatbuffers.Builder, hideBattleNodeNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(35, hideBattleNodeNameOffset, 0);
+  builder.addFieldOffset(36, hideBattleNodeNameOffset, 0);
 }
 
 static addHideBattleNodeDescription(builder:flatbuffers.Builder, hideBattleNodeDescriptionOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(36, hideBattleNodeDescriptionOffset, 0);
+  builder.addFieldOffset(37, hideBattleNodeDescriptionOffset, 0);
 }
 
 static addHideNonBattleNodeName(builder:flatbuffers.Builder, hideNonBattleNodeNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(37, hideNonBattleNodeNameOffset, 0);
+  builder.addFieldOffset(38, hideNonBattleNodeNameOffset, 0);
 }
 
 static addHideNonBattleNodeDescription(builder:flatbuffers.Builder, hideNonBattleNodeDescriptionOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(38, hideNonBattleNodeDescriptionOffset, 0);
+  builder.addFieldOffset(39, hideNonBattleNodeDescriptionOffset, 0);
 }
 
 static addCharSelectExpeditionConflictToast(builder:flatbuffers.Builder, charSelectExpeditionConflictToastOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(39, charSelectExpeditionConflictToastOffset, 0);
+  builder.addFieldOffset(40, charSelectExpeditionConflictToastOffset, 0);
 }
 
 static addCharSelectNoUpgradeConflictToast(builder:flatbuffers.Builder, charSelectNoUpgradeConflictToastOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(40, charSelectNoUpgradeConflictToastOffset, 0);
+  builder.addFieldOffset(41, charSelectNoUpgradeConflictToastOffset, 0);
 }
 
 static addItemDropTagDict(builder:flatbuffers.Builder, itemDropTagDictOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(41, itemDropTagDictOffset, 0);
+  builder.addFieldOffset(42, itemDropTagDictOffset, 0);
 }
 
 static createItemDropTagDictVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -874,39 +911,47 @@ static startItemDropTagDictVector(builder:flatbuffers.Builder, numElems:number) 
 }
 
 static addShopRefreshCostId(builder:flatbuffers.Builder, shopRefreshCostIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(42, shopRefreshCostIdOffset, 0);
+  builder.addFieldOffset(43, shopRefreshCostIdOffset, 0);
 }
 
 static addExpeditionLeaveToastFormat(builder:flatbuffers.Builder, expeditionLeaveToastFormatOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(43, expeditionLeaveToastFormatOffset, 0);
+  builder.addFieldOffset(44, expeditionLeaveToastFormatOffset, 0);
 }
 
 static addExpeditionReturnDescCureUpgrade(builder:flatbuffers.Builder, expeditionReturnDescCureUpgradeOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(44, expeditionReturnDescCureUpgradeOffset, 0);
+  builder.addFieldOffset(45, expeditionReturnDescCureUpgradeOffset, 0);
 }
 
 static addExpeditionReturnDescUpgrade(builder:flatbuffers.Builder, expeditionReturnDescUpgradeOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(45, expeditionReturnDescUpgradeOffset, 0);
+  builder.addFieldOffset(46, expeditionReturnDescUpgradeOffset, 0);
 }
 
 static addExpeditionReturnDescCure(builder:flatbuffers.Builder, expeditionReturnDescCureOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(46, expeditionReturnDescCureOffset, 0);
+  builder.addFieldOffset(47, expeditionReturnDescCureOffset, 0);
 }
 
 static addExpeditionReturnDesc(builder:flatbuffers.Builder, expeditionReturnDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(47, expeditionReturnDescOffset, 0);
+  builder.addFieldOffset(48, expeditionReturnDescOffset, 0);
 }
 
 static addExpeditionSelectDescFormat(builder:flatbuffers.Builder, expeditionSelectDescFormatOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(48, expeditionSelectDescFormatOffset, 0);
+  builder.addFieldOffset(49, expeditionSelectDescFormatOffset, 0);
 }
 
 static addExpeditionReturnDescItem(builder:flatbuffers.Builder, expeditionReturnDescItemOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(49, expeditionReturnDescItemOffset, 0);
+  builder.addFieldOffset(50, expeditionReturnDescItemOffset, 0);
+}
+
+static addExpedEndingRelic(builder:flatbuffers.Builder, expedEndingRelicOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(51, expedEndingRelicOffset, 0);
+}
+
+static addExpedEndingRelicDesc(builder:flatbuffers.Builder, expedEndingRelicDescOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(52, expedEndingRelicDescOffset, 0);
 }
 
 static addExpeditionReturnRewardBlackList(builder:flatbuffers.Builder, expeditionReturnRewardBlackListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(50, expeditionReturnRewardBlackListOffset, 0);
+  builder.addFieldOffset(53, expeditionReturnRewardBlackListOffset, 0);
 }
 
 static createExpeditionReturnRewardBlackListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -922,107 +967,107 @@ static startExpeditionReturnRewardBlackListVector(builder:flatbuffers.Builder, n
 }
 
 static addTravelLeaveToastFormat(builder:flatbuffers.Builder, travelLeaveToastFormatOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(51, travelLeaveToastFormatOffset, 0);
+  builder.addFieldOffset(54, travelLeaveToastFormatOffset, 0);
 }
 
 static addCharSelectTravelConflictToast(builder:flatbuffers.Builder, charSelectTravelConflictToastOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(52, charSelectTravelConflictToastOffset, 0);
+  builder.addFieldOffset(55, charSelectTravelConflictToastOffset, 0);
 }
 
 static addTravelReturnDescUpgrade(builder:flatbuffers.Builder, travelReturnDescUpgradeOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(53, travelReturnDescUpgradeOffset, 0);
+  builder.addFieldOffset(56, travelReturnDescUpgradeOffset, 0);
 }
 
 static addTravelReturnDesc(builder:flatbuffers.Builder, travelReturnDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(54, travelReturnDescOffset, 0);
+  builder.addFieldOffset(57, travelReturnDescOffset, 0);
 }
 
 static addTravelReturnDescItem(builder:flatbuffers.Builder, travelReturnDescItemOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(55, travelReturnDescItemOffset, 0);
+  builder.addFieldOffset(58, travelReturnDescItemOffset, 0);
 }
 
 static addTraderReturnTitle(builder:flatbuffers.Builder, traderReturnTitleOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(56, traderReturnTitleOffset, 0);
+  builder.addFieldOffset(59, traderReturnTitleOffset, 0);
 }
 
 static addTraderReturnDesc(builder:flatbuffers.Builder, traderReturnDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(57, traderReturnDescOffset, 0);
+  builder.addFieldOffset(60, traderReturnDescOffset, 0);
 }
 
 static addCandleReturnDescCandleUpgrade(builder:flatbuffers.Builder, candleReturnDescCandleUpgradeOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(58, candleReturnDescCandleUpgradeOffset, 0);
+  builder.addFieldOffset(61, candleReturnDescCandleUpgradeOffset, 0);
 }
 
 static addCandleReturnDescCandle(builder:flatbuffers.Builder, candleReturnDescCandleOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(59, candleReturnDescCandleOffset, 0);
+  builder.addFieldOffset(62, candleReturnDescCandleOffset, 0);
 }
 
 static addCharSelectCandleConflictToast(builder:flatbuffers.Builder, charSelectCandleConflictToastOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(60, charSelectCandleConflictToastOffset, 0);
+  builder.addFieldOffset(63, charSelectCandleConflictToastOffset, 0);
 }
 
 static addCharSelectGuidedConflictToast(builder:flatbuffers.Builder, charSelectGuidedConflictToastOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(61, charSelectGuidedConflictToastOffset, 0);
+  builder.addFieldOffset(64, charSelectGuidedConflictToastOffset, 0);
 }
 
 static addCharSelectNonGuidedConflictToast(builder:flatbuffers.Builder, charSelectNonGuidedConflictToastOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(62, charSelectNonGuidedConflictToastOffset, 0);
+  builder.addFieldOffset(65, charSelectNonGuidedConflictToastOffset, 0);
 }
 
 static addGainBuffDiffGrade(builder:flatbuffers.Builder, gainBuffDiffGrade:number) {
-  builder.addFieldInt32(63, gainBuffDiffGrade, 0);
+  builder.addFieldInt32(66, gainBuffDiffGrade, 0);
 }
 
 static addDsPredictTips(builder:flatbuffers.Builder, dsPredictTipsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(64, dsPredictTipsOffset, 0);
+  builder.addFieldOffset(67, dsPredictTipsOffset, 0);
 }
 
 static addDsBuffActiveTips(builder:flatbuffers.Builder, dsBuffActiveTipsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(65, dsBuffActiveTipsOffset, 0);
+  builder.addFieldOffset(68, dsBuffActiveTipsOffset, 0);
 }
 
 static addTotemDesc(builder:flatbuffers.Builder, totemDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(66, totemDescOffset, 0);
+  builder.addFieldOffset(69, totemDescOffset, 0);
 }
 
 static addCopperGildDesc(builder:flatbuffers.Builder, copperGildDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(67, copperGildDescOffset, 0);
+  builder.addFieldOffset(70, copperGildDescOffset, 0);
 }
 
 static addRelicDesc(builder:flatbuffers.Builder, relicDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(68, relicDescOffset, 0);
+  builder.addFieldOffset(71, relicDescOffset, 0);
 }
 
 static addBuffDesc(builder:flatbuffers.Builder, buffDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(69, buffDescOffset, 0);
+  builder.addFieldOffset(72, buffDescOffset, 0);
 }
 
 static addRefreshNodeItemId(builder:flatbuffers.Builder, refreshNodeItemIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(70, refreshNodeItemIdOffset, 0);
+  builder.addFieldOffset(73, refreshNodeItemIdOffset, 0);
 }
 
 static addStoringRecruitDesc(builder:flatbuffers.Builder, storingRecruitDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(71, storingRecruitDescOffset, 0);
+  builder.addFieldOffset(74, storingRecruitDescOffset, 0);
 }
 
 static addStoringRecruitSucceedToast(builder:flatbuffers.Builder, storingRecruitSucceedToastOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(72, storingRecruitSucceedToastOffset, 0);
+  builder.addFieldOffset(75, storingRecruitSucceedToastOffset, 0);
 }
 
 static addSpecialRecruitReductionDesc(builder:flatbuffers.Builder, specialRecruitReductionDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(73, specialRecruitReductionDescOffset, 0);
+  builder.addFieldOffset(76, specialRecruitReductionDescOffset, 0);
 }
 
 static addSpecialRecruitFuncDesc(builder:flatbuffers.Builder, specialRecruitFuncDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(74, specialRecruitFuncDescOffset, 0);
+  builder.addFieldOffset(77, specialRecruitFuncDescOffset, 0);
 }
 
 static addSpecialRecruitDetailDesc(builder:flatbuffers.Builder, specialRecruitDetailDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(75, specialRecruitDetailDescOffset, 0);
+  builder.addFieldOffset(78, specialRecruitDetailDescOffset, 0);
 }
 
 static addPortalZones(builder:flatbuffers.Builder, portalZonesOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(76, portalZonesOffset, 0);
+  builder.addFieldOffset(79, portalZonesOffset, 0);
 }
 
 static createPortalZonesVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1037,52 +1082,68 @@ static startPortalZonesVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
+static addTreasureBuffs(builder:flatbuffers.Builder, treasureBuffsOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(80, treasureBuffsOffset, 0);
+}
+
+static createTreasureBuffsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startTreasureBuffsVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static addDiffDisplayZoneId(builder:flatbuffers.Builder, diffDisplayZoneIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(77, diffDisplayZoneIdOffset, 0);
+  builder.addFieldOffset(81, diffDisplayZoneIdOffset, 0);
 }
 
 static addExploreExpOnKill(builder:flatbuffers.Builder, exploreExpOnKillOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(78, exploreExpOnKillOffset, 0);
+  builder.addFieldOffset(82, exploreExpOnKillOffset, 0);
 }
 
 static addFusionName(builder:flatbuffers.Builder, fusionNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(79, fusionNameOffset, 0);
+  builder.addFieldOffset(83, fusionNameOffset, 0);
 }
 
 static addFusionNotifyToast(builder:flatbuffers.Builder, fusionNotifyToastOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(80, fusionNotifyToastOffset, 0);
+  builder.addFieldOffset(84, fusionNotifyToastOffset, 0);
 }
 
-static addHaveSpZone(builder:flatbuffers.Builder, haveSpZone:boolean) {
-  builder.addFieldInt8(81, +haveSpZone, +false);
+static addHaveCustomZone(builder:flatbuffers.Builder, haveCustomZone:boolean) {
+  builder.addFieldInt8(85, +haveCustomZone, +false);
 }
 
 static addGotCharCandleBuffToast(builder:flatbuffers.Builder, gotCharCandleBuffToastOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(82, gotCharCandleBuffToastOffset, 0);
+  builder.addFieldOffset(86, gotCharCandleBuffToastOffset, 0);
 }
 
 static addGotCharsCandleBuffToast(builder:flatbuffers.Builder, gotCharsCandleBuffToastOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(83, gotCharsCandleBuffToastOffset, 0);
+  builder.addFieldOffset(87, gotCharsCandleBuffToastOffset, 0);
 }
 
 static addStashedRecruitNodeDescription(builder:flatbuffers.Builder, stashedRecruitNodeDescriptionOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(84, stashedRecruitNodeDescriptionOffset, 0);
+  builder.addFieldOffset(88, stashedRecruitNodeDescriptionOffset, 0);
 }
 
 static addStashedRecruitEmptyNodeDescription(builder:flatbuffers.Builder, stashedRecruitEmptyNodeDescriptionOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(85, stashedRecruitEmptyNodeDescriptionOffset, 0);
+  builder.addFieldOffset(89, stashedRecruitEmptyNodeDescriptionOffset, 0);
 }
 
 static addRecruitStashMaxNum(builder:flatbuffers.Builder, recruitStashMaxNum:number) {
-  builder.addFieldInt32(86, recruitStashMaxNum, 0);
+  builder.addFieldInt32(90, recruitStashMaxNum, 0);
 }
 
 static addRecruitStashMinNum(builder:flatbuffers.Builder, recruitStashMinNum:number) {
-  builder.addFieldInt32(87, recruitStashMinNum, 0);
+  builder.addFieldInt32(91, recruitStashMinNum, 0);
 }
 
 static addHasTopicCharSelectMenuButton(builder:flatbuffers.Builder, hasTopicCharSelectMenuButton:boolean) {
-  builder.addFieldInt8(88, +hasTopicCharSelectMenuButton, +false);
+  builder.addFieldInt8(92, +hasTopicCharSelectMenuButton, +false);
 }
 
 static endclz_Torappu_RoguelikeGameConst(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -1090,7 +1151,7 @@ static endclz_Torappu_RoguelikeGameConst(builder:flatbuffers.Builder):flatbuffer
   return offset;
 }
 
-static createclz_Torappu_RoguelikeGameConst(builder:flatbuffers.Builder, initSceneNameOffset:flatbuffers.Offset, failSceneNameOffset:flatbuffers.Offset, hpItemIdOffset:flatbuffers.Offset, goldItemIdOffset:flatbuffers.Offset, populationItemIdOffset:flatbuffers.Offset, squadCapacityItemIdOffset:flatbuffers.Offset, expItemIdOffset:flatbuffers.Offset, initialBandShowGradeFlag:boolean, bankMaxGold:number, bankCostIdOffset:flatbuffers.Offset, bankDrawCount:number, bankDrawLimit:number, bankRewardCountType:enum__Torappu_RoguelikeBankRewardCountType, spZoneShopBgmSignalOffset:flatbuffers.Offset, mimicEnemyIdsOffset:flatbuffers.Offset, bossIdsOffset:flatbuffers.Offset, goldChestTrapIdOffset:flatbuffers.Offset, normBoxTrapIdOffset:flatbuffers.Offset, rareBoxTrapIdOffset:flatbuffers.Offset, badBoxTrapIdOffset:flatbuffers.Offset, maxHpItemIdOffset:flatbuffers.Offset, shieldItemIdOffset:flatbuffers.Offset, keyItemIdOffset:flatbuffers.Offset, divinationKitItemIdOffset:flatbuffers.Offset, chestKeyCnt:number, chestKeyItemIdOffset:flatbuffers.Offset, keyColorIdOffset:flatbuffers.Offset, onceNodeTypeListOffset:flatbuffers.Offset, vertNodeCostDialogUseItemIconType:boolean, gpScoreRatio:number, overflowUsageSquadBuffOffset:flatbuffers.Offset, specialTrapIdOffset:flatbuffers.Offset, trapRewardRelicIdOffset:flatbuffers.Offset, unlockRouteItemIdOffset:flatbuffers.Offset, unlockRouteItemCount:number, hideBattleNodeNameOffset:flatbuffers.Offset, hideBattleNodeDescriptionOffset:flatbuffers.Offset, hideNonBattleNodeNameOffset:flatbuffers.Offset, hideNonBattleNodeDescriptionOffset:flatbuffers.Offset, charSelectExpeditionConflictToastOffset:flatbuffers.Offset, charSelectNoUpgradeConflictToastOffset:flatbuffers.Offset, itemDropTagDictOffset:flatbuffers.Offset, shopRefreshCostIdOffset:flatbuffers.Offset, expeditionLeaveToastFormatOffset:flatbuffers.Offset, expeditionReturnDescCureUpgradeOffset:flatbuffers.Offset, expeditionReturnDescUpgradeOffset:flatbuffers.Offset, expeditionReturnDescCureOffset:flatbuffers.Offset, expeditionReturnDescOffset:flatbuffers.Offset, expeditionSelectDescFormatOffset:flatbuffers.Offset, expeditionReturnDescItemOffset:flatbuffers.Offset, expeditionReturnRewardBlackListOffset:flatbuffers.Offset, travelLeaveToastFormatOffset:flatbuffers.Offset, charSelectTravelConflictToastOffset:flatbuffers.Offset, travelReturnDescUpgradeOffset:flatbuffers.Offset, travelReturnDescOffset:flatbuffers.Offset, travelReturnDescItemOffset:flatbuffers.Offset, traderReturnTitleOffset:flatbuffers.Offset, traderReturnDescOffset:flatbuffers.Offset, candleReturnDescCandleUpgradeOffset:flatbuffers.Offset, candleReturnDescCandleOffset:flatbuffers.Offset, charSelectCandleConflictToastOffset:flatbuffers.Offset, charSelectGuidedConflictToastOffset:flatbuffers.Offset, charSelectNonGuidedConflictToastOffset:flatbuffers.Offset, gainBuffDiffGrade:number, dsPredictTipsOffset:flatbuffers.Offset, dsBuffActiveTipsOffset:flatbuffers.Offset, totemDescOffset:flatbuffers.Offset, copperGildDescOffset:flatbuffers.Offset, relicDescOffset:flatbuffers.Offset, buffDescOffset:flatbuffers.Offset, refreshNodeItemIdOffset:flatbuffers.Offset, storingRecruitDescOffset:flatbuffers.Offset, storingRecruitSucceedToastOffset:flatbuffers.Offset, specialRecruitReductionDescOffset:flatbuffers.Offset, specialRecruitFuncDescOffset:flatbuffers.Offset, specialRecruitDetailDescOffset:flatbuffers.Offset, portalZonesOffset:flatbuffers.Offset, diffDisplayZoneIdOffset:flatbuffers.Offset, exploreExpOnKillOffset:flatbuffers.Offset, fusionNameOffset:flatbuffers.Offset, fusionNotifyToastOffset:flatbuffers.Offset, haveSpZone:boolean, gotCharCandleBuffToastOffset:flatbuffers.Offset, gotCharsCandleBuffToastOffset:flatbuffers.Offset, stashedRecruitNodeDescriptionOffset:flatbuffers.Offset, stashedRecruitEmptyNodeDescriptionOffset:flatbuffers.Offset, recruitStashMaxNum:number, recruitStashMinNum:number, hasTopicCharSelectMenuButton:boolean):flatbuffers.Offset {
+static createclz_Torappu_RoguelikeGameConst(builder:flatbuffers.Builder, initSceneNameOffset:flatbuffers.Offset, failSceneNameOffset:flatbuffers.Offset, hpItemIdOffset:flatbuffers.Offset, goldItemIdOffset:flatbuffers.Offset, populationItemIdOffset:flatbuffers.Offset, squadCapacityItemIdOffset:flatbuffers.Offset, expItemIdOffset:flatbuffers.Offset, initialBandShowGradeFlag:boolean, bankMaxGold:number, bankCostIdOffset:flatbuffers.Offset, bankDrawCount:number, bankDrawLimit:number, bankRewardCountType:enum__Torappu_RoguelikeBankRewardCountType, spZoneShopBgmSignalOffset:flatbuffers.Offset, mimicEnemyIdsOffset:flatbuffers.Offset, bossIdsOffset:flatbuffers.Offset, goldChestTrapIdOffset:flatbuffers.Offset, normBoxTrapIdOffset:flatbuffers.Offset, rareBoxTrapIdOffset:flatbuffers.Offset, badBoxTrapIdOffset:flatbuffers.Offset, toolBoxTrapIdOffset:flatbuffers.Offset, maxHpItemIdOffset:flatbuffers.Offset, shieldItemIdOffset:flatbuffers.Offset, keyItemIdOffset:flatbuffers.Offset, divinationKitItemIdOffset:flatbuffers.Offset, chestKeyCnt:number, chestKeyItemIdOffset:flatbuffers.Offset, keyColorIdOffset:flatbuffers.Offset, onceNodeTypeListOffset:flatbuffers.Offset, vertNodeCostDialogUseItemIconType:boolean, gpScoreRatio:number, overflowUsageSquadBuffOffset:flatbuffers.Offset, specialTrapIdOffset:flatbuffers.Offset, trapRewardRelicIdOffset:flatbuffers.Offset, unlockRouteItemIdOffset:flatbuffers.Offset, unlockRouteItemCount:number, hideBattleNodeNameOffset:flatbuffers.Offset, hideBattleNodeDescriptionOffset:flatbuffers.Offset, hideNonBattleNodeNameOffset:flatbuffers.Offset, hideNonBattleNodeDescriptionOffset:flatbuffers.Offset, charSelectExpeditionConflictToastOffset:flatbuffers.Offset, charSelectNoUpgradeConflictToastOffset:flatbuffers.Offset, itemDropTagDictOffset:flatbuffers.Offset, shopRefreshCostIdOffset:flatbuffers.Offset, expeditionLeaveToastFormatOffset:flatbuffers.Offset, expeditionReturnDescCureUpgradeOffset:flatbuffers.Offset, expeditionReturnDescUpgradeOffset:flatbuffers.Offset, expeditionReturnDescCureOffset:flatbuffers.Offset, expeditionReturnDescOffset:flatbuffers.Offset, expeditionSelectDescFormatOffset:flatbuffers.Offset, expeditionReturnDescItemOffset:flatbuffers.Offset, expedEndingRelicOffset:flatbuffers.Offset, expedEndingRelicDescOffset:flatbuffers.Offset, expeditionReturnRewardBlackListOffset:flatbuffers.Offset, travelLeaveToastFormatOffset:flatbuffers.Offset, charSelectTravelConflictToastOffset:flatbuffers.Offset, travelReturnDescUpgradeOffset:flatbuffers.Offset, travelReturnDescOffset:flatbuffers.Offset, travelReturnDescItemOffset:flatbuffers.Offset, traderReturnTitleOffset:flatbuffers.Offset, traderReturnDescOffset:flatbuffers.Offset, candleReturnDescCandleUpgradeOffset:flatbuffers.Offset, candleReturnDescCandleOffset:flatbuffers.Offset, charSelectCandleConflictToastOffset:flatbuffers.Offset, charSelectGuidedConflictToastOffset:flatbuffers.Offset, charSelectNonGuidedConflictToastOffset:flatbuffers.Offset, gainBuffDiffGrade:number, dsPredictTipsOffset:flatbuffers.Offset, dsBuffActiveTipsOffset:flatbuffers.Offset, totemDescOffset:flatbuffers.Offset, copperGildDescOffset:flatbuffers.Offset, relicDescOffset:flatbuffers.Offset, buffDescOffset:flatbuffers.Offset, refreshNodeItemIdOffset:flatbuffers.Offset, storingRecruitDescOffset:flatbuffers.Offset, storingRecruitSucceedToastOffset:flatbuffers.Offset, specialRecruitReductionDescOffset:flatbuffers.Offset, specialRecruitFuncDescOffset:flatbuffers.Offset, specialRecruitDetailDescOffset:flatbuffers.Offset, portalZonesOffset:flatbuffers.Offset, treasureBuffsOffset:flatbuffers.Offset, diffDisplayZoneIdOffset:flatbuffers.Offset, exploreExpOnKillOffset:flatbuffers.Offset, fusionNameOffset:flatbuffers.Offset, fusionNotifyToastOffset:flatbuffers.Offset, haveCustomZone:boolean, gotCharCandleBuffToastOffset:flatbuffers.Offset, gotCharsCandleBuffToastOffset:flatbuffers.Offset, stashedRecruitNodeDescriptionOffset:flatbuffers.Offset, stashedRecruitEmptyNodeDescriptionOffset:flatbuffers.Offset, recruitStashMaxNum:number, recruitStashMinNum:number, hasTopicCharSelectMenuButton:boolean):flatbuffers.Offset {
   clz_Torappu_RoguelikeGameConst.startclz_Torappu_RoguelikeGameConst(builder);
   clz_Torappu_RoguelikeGameConst.addInitSceneName(builder, initSceneNameOffset);
   clz_Torappu_RoguelikeGameConst.addFailSceneName(builder, failSceneNameOffset);
@@ -1112,6 +1173,7 @@ static createclz_Torappu_RoguelikeGameConst(builder:flatbuffers.Builder, initSce
   clz_Torappu_RoguelikeGameConst.addNormBoxTrapId(builder, normBoxTrapIdOffset);
   clz_Torappu_RoguelikeGameConst.addRareBoxTrapId(builder, rareBoxTrapIdOffset);
   clz_Torappu_RoguelikeGameConst.addBadBoxTrapId(builder, badBoxTrapIdOffset);
+  clz_Torappu_RoguelikeGameConst.addToolBoxTrapId(builder, toolBoxTrapIdOffset);
   clz_Torappu_RoguelikeGameConst.addMaxHpItemId(builder, maxHpItemIdOffset);
   clz_Torappu_RoguelikeGameConst.addShieldItemId(builder, shieldItemIdOffset);
   clz_Torappu_RoguelikeGameConst.addKeyItemId(builder, keyItemIdOffset);
@@ -1142,6 +1204,8 @@ static createclz_Torappu_RoguelikeGameConst(builder:flatbuffers.Builder, initSce
   clz_Torappu_RoguelikeGameConst.addExpeditionReturnDesc(builder, expeditionReturnDescOffset);
   clz_Torappu_RoguelikeGameConst.addExpeditionSelectDescFormat(builder, expeditionSelectDescFormatOffset);
   clz_Torappu_RoguelikeGameConst.addExpeditionReturnDescItem(builder, expeditionReturnDescItemOffset);
+  clz_Torappu_RoguelikeGameConst.addExpedEndingRelic(builder, expedEndingRelicOffset);
+  clz_Torappu_RoguelikeGameConst.addExpedEndingRelicDesc(builder, expedEndingRelicDescOffset);
   clz_Torappu_RoguelikeGameConst.addExpeditionReturnRewardBlackList(builder, expeditionReturnRewardBlackListOffset);
   clz_Torappu_RoguelikeGameConst.addTravelLeaveToastFormat(builder, travelLeaveToastFormatOffset);
   clz_Torappu_RoguelikeGameConst.addCharSelectTravelConflictToast(builder, charSelectTravelConflictToastOffset);
@@ -1169,11 +1233,12 @@ static createclz_Torappu_RoguelikeGameConst(builder:flatbuffers.Builder, initSce
   clz_Torappu_RoguelikeGameConst.addSpecialRecruitFuncDesc(builder, specialRecruitFuncDescOffset);
   clz_Torappu_RoguelikeGameConst.addSpecialRecruitDetailDesc(builder, specialRecruitDetailDescOffset);
   clz_Torappu_RoguelikeGameConst.addPortalZones(builder, portalZonesOffset);
+  clz_Torappu_RoguelikeGameConst.addTreasureBuffs(builder, treasureBuffsOffset);
   clz_Torappu_RoguelikeGameConst.addDiffDisplayZoneId(builder, diffDisplayZoneIdOffset);
   clz_Torappu_RoguelikeGameConst.addExploreExpOnKill(builder, exploreExpOnKillOffset);
   clz_Torappu_RoguelikeGameConst.addFusionName(builder, fusionNameOffset);
   clz_Torappu_RoguelikeGameConst.addFusionNotifyToast(builder, fusionNotifyToastOffset);
-  clz_Torappu_RoguelikeGameConst.addHaveSpZone(builder, haveSpZone);
+  clz_Torappu_RoguelikeGameConst.addHaveCustomZone(builder, haveCustomZone);
   clz_Torappu_RoguelikeGameConst.addGotCharCandleBuffToast(builder, gotCharCandleBuffToastOffset);
   clz_Torappu_RoguelikeGameConst.addGotCharsCandleBuffToast(builder, gotCharsCandleBuffToastOffset);
   clz_Torappu_RoguelikeGameConst.addStashedRecruitNodeDescription(builder, stashedRecruitNodeDescriptionOffset);
@@ -1206,6 +1271,7 @@ unpack(): clz_Torappu_RoguelikeGameConstT {
     this.normBoxTrapId(),
     this.rareBoxTrapId(),
     this.badBoxTrapId(),
+    this.toolBoxTrapId(),
     this.maxHpItemId(),
     this.shieldItemId(),
     this.keyItemId(),
@@ -1236,6 +1302,8 @@ unpack(): clz_Torappu_RoguelikeGameConstT {
     this.expeditionReturnDesc(),
     this.expeditionSelectDescFormat(),
     this.expeditionReturnDescItem(),
+    this.expedEndingRelic(),
+    this.expedEndingRelicDesc(),
     this.bb!.createScalarList<string>(this.expeditionReturnRewardBlackList.bind(this), this.expeditionReturnRewardBlackListLength()),
     this.travelLeaveToastFormat(),
     this.charSelectTravelConflictToast(),
@@ -1263,11 +1331,12 @@ unpack(): clz_Torappu_RoguelikeGameConstT {
     this.specialRecruitFuncDesc(),
     this.specialRecruitDetailDesc(),
     this.bb!.createScalarList<string>(this.portalZones.bind(this), this.portalZonesLength()),
+    this.bb!.createScalarList<string>(this.treasureBuffs.bind(this), this.treasureBuffsLength()),
     this.diffDisplayZoneId(),
     this.exploreExpOnKill(),
     this.fusionName(),
     this.fusionNotifyToast(),
-    this.haveSpZone(),
+    this.haveCustomZone(),
     this.gotCharCandleBuffToast(),
     this.gotCharsCandleBuffToast(),
     this.stashedRecruitNodeDescription(),
@@ -1300,6 +1369,7 @@ unpackTo(_o: clz_Torappu_RoguelikeGameConstT): void {
   _o.normBoxTrapId = this.normBoxTrapId();
   _o.rareBoxTrapId = this.rareBoxTrapId();
   _o.badBoxTrapId = this.badBoxTrapId();
+  _o.toolBoxTrapId = this.toolBoxTrapId();
   _o.maxHpItemId = this.maxHpItemId();
   _o.shieldItemId = this.shieldItemId();
   _o.keyItemId = this.keyItemId();
@@ -1330,6 +1400,8 @@ unpackTo(_o: clz_Torappu_RoguelikeGameConstT): void {
   _o.expeditionReturnDesc = this.expeditionReturnDesc();
   _o.expeditionSelectDescFormat = this.expeditionSelectDescFormat();
   _o.expeditionReturnDescItem = this.expeditionReturnDescItem();
+  _o.expedEndingRelic = this.expedEndingRelic();
+  _o.expedEndingRelicDesc = this.expedEndingRelicDesc();
   _o.expeditionReturnRewardBlackList = this.bb!.createScalarList<string>(this.expeditionReturnRewardBlackList.bind(this), this.expeditionReturnRewardBlackListLength());
   _o.travelLeaveToastFormat = this.travelLeaveToastFormat();
   _o.charSelectTravelConflictToast = this.charSelectTravelConflictToast();
@@ -1357,11 +1429,12 @@ unpackTo(_o: clz_Torappu_RoguelikeGameConstT): void {
   _o.specialRecruitFuncDesc = this.specialRecruitFuncDesc();
   _o.specialRecruitDetailDesc = this.specialRecruitDetailDesc();
   _o.portalZones = this.bb!.createScalarList<string>(this.portalZones.bind(this), this.portalZonesLength());
+  _o.treasureBuffs = this.bb!.createScalarList<string>(this.treasureBuffs.bind(this), this.treasureBuffsLength());
   _o.diffDisplayZoneId = this.diffDisplayZoneId();
   _o.exploreExpOnKill = this.exploreExpOnKill();
   _o.fusionName = this.fusionName();
   _o.fusionNotifyToast = this.fusionNotifyToast();
-  _o.haveSpZone = this.haveSpZone();
+  _o.haveCustomZone = this.haveCustomZone();
   _o.gotCharCandleBuffToast = this.gotCharCandleBuffToast();
   _o.gotCharsCandleBuffToast = this.gotCharsCandleBuffToast();
   _o.stashedRecruitNodeDescription = this.stashedRecruitNodeDescription();
@@ -1394,6 +1467,7 @@ constructor(
   public normBoxTrapId: string|Uint8Array|null = null,
   public rareBoxTrapId: string|Uint8Array|null = null,
   public badBoxTrapId: string|Uint8Array|null = null,
+  public toolBoxTrapId: string|Uint8Array|null = null,
   public maxHpItemId: string|Uint8Array|null = null,
   public shieldItemId: string|Uint8Array|null = null,
   public keyItemId: string|Uint8Array|null = null,
@@ -1424,6 +1498,8 @@ constructor(
   public expeditionReturnDesc: string|Uint8Array|null = null,
   public expeditionSelectDescFormat: string|Uint8Array|null = null,
   public expeditionReturnDescItem: string|Uint8Array|null = null,
+  public expedEndingRelic: string|Uint8Array|null = null,
+  public expedEndingRelicDesc: string|Uint8Array|null = null,
   public expeditionReturnRewardBlackList: (string)[] = [],
   public travelLeaveToastFormat: string|Uint8Array|null = null,
   public charSelectTravelConflictToast: string|Uint8Array|null = null,
@@ -1451,11 +1527,12 @@ constructor(
   public specialRecruitFuncDesc: string|Uint8Array|null = null,
   public specialRecruitDetailDesc: string|Uint8Array|null = null,
   public portalZones: (string)[] = [],
+  public treasureBuffs: (string)[] = [],
   public diffDisplayZoneId: string|Uint8Array|null = null,
   public exploreExpOnKill: string|Uint8Array|null = null,
   public fusionName: string|Uint8Array|null = null,
   public fusionNotifyToast: string|Uint8Array|null = null,
-  public haveSpZone: boolean = false,
+  public haveCustomZone: boolean = false,
   public gotCharCandleBuffToast: string|Uint8Array|null = null,
   public gotCharsCandleBuffToast: string|Uint8Array|null = null,
   public stashedRecruitNodeDescription: string|Uint8Array|null = null,
@@ -1482,6 +1559,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const normBoxTrapId = (this.normBoxTrapId !== null ? builder.createString(this.normBoxTrapId!) : 0);
   const rareBoxTrapId = (this.rareBoxTrapId !== null ? builder.createString(this.rareBoxTrapId!) : 0);
   const badBoxTrapId = (this.badBoxTrapId !== null ? builder.createString(this.badBoxTrapId!) : 0);
+  const toolBoxTrapId = (this.toolBoxTrapId !== null ? builder.createString(this.toolBoxTrapId!) : 0);
   const maxHpItemId = (this.maxHpItemId !== null ? builder.createString(this.maxHpItemId!) : 0);
   const shieldItemId = (this.shieldItemId !== null ? builder.createString(this.shieldItemId!) : 0);
   const keyItemId = (this.keyItemId !== null ? builder.createString(this.keyItemId!) : 0);
@@ -1508,6 +1586,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const expeditionReturnDesc = (this.expeditionReturnDesc !== null ? builder.createString(this.expeditionReturnDesc!) : 0);
   const expeditionSelectDescFormat = (this.expeditionSelectDescFormat !== null ? builder.createString(this.expeditionSelectDescFormat!) : 0);
   const expeditionReturnDescItem = (this.expeditionReturnDescItem !== null ? builder.createString(this.expeditionReturnDescItem!) : 0);
+  const expedEndingRelic = (this.expedEndingRelic !== null ? builder.createString(this.expedEndingRelic!) : 0);
+  const expedEndingRelicDesc = (this.expedEndingRelicDesc !== null ? builder.createString(this.expedEndingRelicDesc!) : 0);
   const expeditionReturnRewardBlackList = clz_Torappu_RoguelikeGameConst.createExpeditionReturnRewardBlackListVector(builder, builder.createObjectOffsetList(this.expeditionReturnRewardBlackList));
   const travelLeaveToastFormat = (this.travelLeaveToastFormat !== null ? builder.createString(this.travelLeaveToastFormat!) : 0);
   const charSelectTravelConflictToast = (this.charSelectTravelConflictToast !== null ? builder.createString(this.charSelectTravelConflictToast!) : 0);
@@ -1534,6 +1614,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const specialRecruitFuncDesc = (this.specialRecruitFuncDesc !== null ? builder.createString(this.specialRecruitFuncDesc!) : 0);
   const specialRecruitDetailDesc = (this.specialRecruitDetailDesc !== null ? builder.createString(this.specialRecruitDetailDesc!) : 0);
   const portalZones = clz_Torappu_RoguelikeGameConst.createPortalZonesVector(builder, builder.createObjectOffsetList(this.portalZones));
+  const treasureBuffs = clz_Torappu_RoguelikeGameConst.createTreasureBuffsVector(builder, builder.createObjectOffsetList(this.treasureBuffs));
   const diffDisplayZoneId = (this.diffDisplayZoneId !== null ? builder.createString(this.diffDisplayZoneId!) : 0);
   const exploreExpOnKill = (this.exploreExpOnKill !== null ? builder.createString(this.exploreExpOnKill!) : 0);
   const fusionName = (this.fusionName !== null ? builder.createString(this.fusionName!) : 0);
@@ -1564,6 +1645,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     normBoxTrapId,
     rareBoxTrapId,
     badBoxTrapId,
+    toolBoxTrapId,
     maxHpItemId,
     shieldItemId,
     keyItemId,
@@ -1594,6 +1676,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     expeditionReturnDesc,
     expeditionSelectDescFormat,
     expeditionReturnDescItem,
+    expedEndingRelic,
+    expedEndingRelicDesc,
     expeditionReturnRewardBlackList,
     travelLeaveToastFormat,
     charSelectTravelConflictToast,
@@ -1621,11 +1705,12 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     specialRecruitFuncDesc,
     specialRecruitDetailDesc,
     portalZones,
+    treasureBuffs,
     diffDisplayZoneId,
     exploreExpOnKill,
     fusionName,
     fusionNotifyToast,
-    this.haveSpZone,
+    this.haveCustomZone,
     gotCharCandleBuffToast,
     gotCharsCandleBuffToast,
     stashedRecruitNodeDescription,

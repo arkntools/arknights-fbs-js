@@ -30,5 +30,7 @@ export enum enum__Torappu_ActArchiveType {
   FRAGMENT = 24,
   DISASTER = 25,
   COPPER = 26,
-  WRATH = 27
+  WRATH = 27,
+  SCRAP = 28,
+  WEATHER = 29
 }

@@ -302,347 +302,352 @@ canNotVisitToast(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-musicPlayerOpenTime():bigint {
+meetingMessageBoardEmoteTime():number {
   const offset = this.bb!.__offset(this.bb_pos, 86);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+musicPlayerOpenTime():bigint {
+  const offset = this.bb!.__offset(this.bb_pos, 88);
   return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
 }
 
 roomsWithoutRemoveStaff(index: number):string
 roomsWithoutRemoveStaff(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 roomsWithoutRemoveStaff(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 88);
+  const offset = this.bb!.__offset(this.bb_pos, 90);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 roomsWithoutRemoveStaffLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 88);
+  const offset = this.bb!.__offset(this.bb_pos, 90);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 privateFavorLevelThresholds(index: number):number|null {
-  const offset = this.bb!.__offset(this.bb_pos, 90);
+  const offset = this.bb!.__offset(this.bb_pos, 92);
   return offset ? this.bb!.readInt32(this.bb!.__vector(this.bb_pos + offset) + index * 4) : 0;
 }
 
 privateFavorLevelThresholdsLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 90);
+  const offset = this.bb!.__offset(this.bb_pos, 92);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 privateFavorLevelThresholdsArray():Int32Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 90);
+  const offset = this.bb!.__offset(this.bb_pos, 92);
   return offset ? new Int32Array(this.bb!.bytes().buffer, this.bb!.bytes().byteOffset + this.bb!.__vector(this.bb_pos + offset), this.bb!.__vector_len(this.bb_pos + offset)) : null;
 }
 
 roomUnlockConds(index: number, obj?:dict__string__clz_Torappu_BuildingData_RoomUnlockCond):dict__string__clz_Torappu_BuildingData_RoomUnlockCond|null {
-  const offset = this.bb!.__offset(this.bb_pos, 92);
+  const offset = this.bb!.__offset(this.bb_pos, 94);
   return offset ? (obj || new dict__string__clz_Torappu_BuildingData_RoomUnlockCond()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 roomUnlockCondsLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 92);
+  const offset = this.bb!.__offset(this.bb_pos, 94);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 rooms(index: number, obj?:dict__string__clz_Torappu_BuildingData_RoomData):dict__string__clz_Torappu_BuildingData_RoomData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 94);
+  const offset = this.bb!.__offset(this.bb_pos, 96);
   return offset ? (obj || new dict__string__clz_Torappu_BuildingData_RoomData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 roomsLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 94);
+  const offset = this.bb!.__offset(this.bb_pos, 96);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 layouts(index: number, obj?:dict__string__clz_Torappu_BuildingData_LayoutData):dict__string__clz_Torappu_BuildingData_LayoutData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 96);
+  const offset = this.bb!.__offset(this.bb_pos, 98);
   return offset ? (obj || new dict__string__clz_Torappu_BuildingData_LayoutData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 layoutsLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 96);
+  const offset = this.bb!.__offset(this.bb_pos, 98);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 prefabs(index: number, obj?:dict__string__clz_Torappu_BuildingData_PrefabInfo):dict__string__clz_Torappu_BuildingData_PrefabInfo|null {
-  const offset = this.bb!.__offset(this.bb_pos, 98);
+  const offset = this.bb!.__offset(this.bb_pos, 100);
   return offset ? (obj || new dict__string__clz_Torappu_BuildingData_PrefabInfo()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 prefabsLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 98);
+  const offset = this.bb!.__offset(this.bb_pos, 100);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 controlData(obj?:clz_Torappu_BuildingData_ControlRoomBean):clz_Torappu_BuildingData_ControlRoomBean|null {
-  const offset = this.bb!.__offset(this.bb_pos, 100);
+  const offset = this.bb!.__offset(this.bb_pos, 102);
   return offset ? (obj || new clz_Torappu_BuildingData_ControlRoomBean()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 manufactData(obj?:clz_Torappu_BuildingData_ManufactRoomBean):clz_Torappu_BuildingData_ManufactRoomBean|null {
-  const offset = this.bb!.__offset(this.bb_pos, 102);
+  const offset = this.bb!.__offset(this.bb_pos, 104);
   return offset ? (obj || new clz_Torappu_BuildingData_ManufactRoomBean()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 shopData(obj?:clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_ShopPhase_):clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_ShopPhase_|null {
-  const offset = this.bb!.__offset(this.bb_pos, 104);
+  const offset = this.bb!.__offset(this.bb_pos, 106);
   return offset ? (obj || new clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_ShopPhase_()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 hireData(obj?:clz_Torappu_BuildingData_HireRoomBean):clz_Torappu_BuildingData_HireRoomBean|null {
-  const offset = this.bb!.__offset(this.bb_pos, 106);
+  const offset = this.bb!.__offset(this.bb_pos, 108);
   return offset ? (obj || new clz_Torappu_BuildingData_HireRoomBean()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 dormData(obj?:clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_DormPhase_):clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_DormPhase_|null {
-  const offset = this.bb!.__offset(this.bb_pos, 108);
+  const offset = this.bb!.__offset(this.bb_pos, 110);
   return offset ? (obj || new clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_DormPhase_()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 privateRoomData(obj?:clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_PrivatePhase_):clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_PrivatePhase_|null {
-  const offset = this.bb!.__offset(this.bb_pos, 110);
+  const offset = this.bb!.__offset(this.bb_pos, 112);
   return offset ? (obj || new clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_PrivatePhase_()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 meetingData(obj?:clz_Torappu_BuildingData_MeetingRoomBean):clz_Torappu_BuildingData_MeetingRoomBean|null {
-  const offset = this.bb!.__offset(this.bb_pos, 112);
+  const offset = this.bb!.__offset(this.bb_pos, 114);
   return offset ? (obj || new clz_Torappu_BuildingData_MeetingRoomBean()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 tradingData(obj?:clz_Torappu_BuildingData_TradingRoomBean):clz_Torappu_BuildingData_TradingRoomBean|null {
-  const offset = this.bb!.__offset(this.bb_pos, 114);
+  const offset = this.bb!.__offset(this.bb_pos, 116);
   return offset ? (obj || new clz_Torappu_BuildingData_TradingRoomBean()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 workshopData(obj?:clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_WorkshopPhase_):clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_WorkshopPhase_|null {
-  const offset = this.bb!.__offset(this.bb_pos, 116);
+  const offset = this.bb!.__offset(this.bb_pos, 118);
   return offset ? (obj || new clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_WorkshopPhase_()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 trainingData(obj?:clz_Torappu_BuildingData_TrainingBean):clz_Torappu_BuildingData_TrainingBean|null {
-  const offset = this.bb!.__offset(this.bb_pos, 118);
+  const offset = this.bb!.__offset(this.bb_pos, 120);
   return offset ? (obj || new clz_Torappu_BuildingData_TrainingBean()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 powerData(obj?:clz_Torappu_BuildingData_PowerRoomBean):clz_Torappu_BuildingData_PowerRoomBean|null {
-  const offset = this.bb!.__offset(this.bb_pos, 120);
+  const offset = this.bb!.__offset(this.bb_pos, 122);
   return offset ? (obj || new clz_Torappu_BuildingData_PowerRoomBean()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 chars(index: number, obj?:dict__string__clz_Torappu_BuildingData_BuildingCharacter):dict__string__clz_Torappu_BuildingData_BuildingCharacter|null {
-  const offset = this.bb!.__offset(this.bb_pos, 122);
+  const offset = this.bb!.__offset(this.bb_pos, 124);
   return offset ? (obj || new dict__string__clz_Torappu_BuildingData_BuildingCharacter()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 charsLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 122);
+  const offset = this.bb!.__offset(this.bb_pos, 124);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 buffs(index: number, obj?:dict__string__clz_Torappu_BuildingData_BuildingBuff):dict__string__clz_Torappu_BuildingData_BuildingBuff|null {
-  const offset = this.bb!.__offset(this.bb_pos, 124);
+  const offset = this.bb!.__offset(this.bb_pos, 126);
   return offset ? (obj || new dict__string__clz_Torappu_BuildingData_BuildingBuff()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 buffsLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 124);
+  const offset = this.bb!.__offset(this.bb_pos, 126);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 workshopBonus(index: number, obj?:dict__string__list_string):dict__string__list_string|null {
-  const offset = this.bb!.__offset(this.bb_pos, 126);
+  const offset = this.bb!.__offset(this.bb_pos, 128);
   return offset ? (obj || new dict__string__list_string()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 workshopBonusLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 126);
+  const offset = this.bb!.__offset(this.bb_pos, 128);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 customData(obj?:clz_Torappu_BuildingData_CustomData):clz_Torappu_BuildingData_CustomData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 128);
+  const offset = this.bb!.__offset(this.bb_pos, 130);
   return offset ? (obj || new clz_Torappu_BuildingData_CustomData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 manufactFormulas(index: number, obj?:dict__string__clz_Torappu_BuildingData_ManufactFormula):dict__string__clz_Torappu_BuildingData_ManufactFormula|null {
-  const offset = this.bb!.__offset(this.bb_pos, 130);
+  const offset = this.bb!.__offset(this.bb_pos, 132);
   return offset ? (obj || new dict__string__clz_Torappu_BuildingData_ManufactFormula()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 manufactFormulasLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 130);
+  const offset = this.bb!.__offset(this.bb_pos, 132);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 shopFormulas(index: number, obj?:dict__string__clz_Torappu_BuildingData_ShopFormula):dict__string__clz_Torappu_BuildingData_ShopFormula|null {
-  const offset = this.bb!.__offset(this.bb_pos, 132);
+  const offset = this.bb!.__offset(this.bb_pos, 134);
   return offset ? (obj || new dict__string__clz_Torappu_BuildingData_ShopFormula()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 shopFormulasLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 132);
+  const offset = this.bb!.__offset(this.bb_pos, 134);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 workshopFormulas(index: number, obj?:dict__string__clz_Torappu_BuildingData_WorkshopFormula):dict__string__clz_Torappu_BuildingData_WorkshopFormula|null {
-  const offset = this.bb!.__offset(this.bb_pos, 134);
+  const offset = this.bb!.__offset(this.bb_pos, 136);
   return offset ? (obj || new dict__string__clz_Torappu_BuildingData_WorkshopFormula()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 workshopFormulasLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 134);
+  const offset = this.bb!.__offset(this.bb_pos, 136);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 creditFormula(obj?:clz_Torappu_BuildingData_CreditFormula):clz_Torappu_BuildingData_CreditFormula|null {
-  const offset = this.bb!.__offset(this.bb_pos, 136);
+  const offset = this.bb!.__offset(this.bb_pos, 138);
   return offset ? (obj || new clz_Torappu_BuildingData_CreditFormula()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 goldItems(index: number, obj?:dict__string__int):dict__string__int|null {
-  const offset = this.bb!.__offset(this.bb_pos, 138);
+  const offset = this.bb!.__offset(this.bb_pos, 140);
   return offset ? (obj || new dict__string__int()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 goldItemsLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 138);
+  const offset = this.bb!.__offset(this.bb_pos, 140);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 assistantUnlock(index: number):number|null {
-  const offset = this.bb!.__offset(this.bb_pos, 140);
+  const offset = this.bb!.__offset(this.bb_pos, 142);
   return offset ? this.bb!.readInt32(this.bb!.__vector(this.bb_pos + offset) + index * 4) : 0;
 }
 
 assistantUnlockLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 140);
+  const offset = this.bb!.__offset(this.bb_pos, 142);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 assistantUnlockArray():Int32Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 140);
+  const offset = this.bb!.__offset(this.bb_pos, 142);
   return offset ? new Int32Array(this.bb!.bytes().buffer, this.bb!.bytes().byteOffset + this.bb!.__vector(this.bb_pos + offset), this.bb!.__vector_len(this.bb_pos + offset)) : null;
 }
 
 workshopRarities(index: number, obj?:clz_Torappu_BuildingData_WorkshopRarityInfo):clz_Torappu_BuildingData_WorkshopRarityInfo|null {
-  const offset = this.bb!.__offset(this.bb_pos, 142);
+  const offset = this.bb!.__offset(this.bb_pos, 144);
   return offset ? (obj || new clz_Torappu_BuildingData_WorkshopRarityInfo()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 workshopRaritiesLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 142);
+  const offset = this.bb!.__offset(this.bb_pos, 144);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 todoItemSortPriorityDict(index: number, obj?:dict__string__int):dict__string__int|null {
-  const offset = this.bb!.__offset(this.bb_pos, 144);
+  const offset = this.bb!.__offset(this.bb_pos, 146);
   return offset ? (obj || new dict__string__int()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 todoItemSortPriorityDictLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 144);
+  const offset = this.bb!.__offset(this.bb_pos, 146);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 slotPrequeDatas(index: number, obj?:dict__string__clz_Torappu_BuildingData_SlotPrequeData):dict__string__clz_Torappu_BuildingData_SlotPrequeData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 146);
+  const offset = this.bb!.__offset(this.bb_pos, 148);
   return offset ? (obj || new dict__string__clz_Torappu_BuildingData_SlotPrequeData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 slotPrequeDatasLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 146);
+  const offset = this.bb!.__offset(this.bb_pos, 148);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 dormitoryPrequeDatas(index: number, obj?:dict__string__clz_Torappu_BuildingData_DormitoryPrequeData):dict__string__clz_Torappu_BuildingData_DormitoryPrequeData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 148);
+  const offset = this.bb!.__offset(this.bb_pos, 150);
   return offset ? (obj || new dict__string__clz_Torappu_BuildingData_DormitoryPrequeData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 dormitoryPrequeDatasLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 148);
+  const offset = this.bb!.__offset(this.bb_pos, 150);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 workshopTargetDesDict(index: number, obj?:dict__string__string):dict__string__string|null {
-  const offset = this.bb!.__offset(this.bb_pos, 150);
+  const offset = this.bb!.__offset(this.bb_pos, 152);
   return offset ? (obj || new dict__string__string()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 workshopTargetDesDictLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 150);
+  const offset = this.bb!.__offset(this.bb_pos, 152);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 tradingOrderDesDict(index: number, obj?:dict__string__string):dict__string__string|null {
-  const offset = this.bb!.__offset(this.bb_pos, 152);
+  const offset = this.bb!.__offset(this.bb_pos, 154);
   return offset ? (obj || new dict__string__string()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 tradingOrderDesDictLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 152);
+  const offset = this.bb!.__offset(this.bb_pos, 154);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 stationManageConstData(obj?:clz_Torappu_BuildingData_StationManageConstData):clz_Torappu_BuildingData_StationManageConstData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 154);
+  const offset = this.bb!.__offset(this.bb_pos, 156);
   return offset ? (obj || new clz_Torappu_BuildingData_StationManageConstData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 stationManageFilterInfos(index: number, obj?:dict__int__clz_Torappu_BuildingData_StationManageFilterInfo):dict__int__clz_Torappu_BuildingData_StationManageFilterInfo|null {
-  const offset = this.bb!.__offset(this.bb_pos, 156);
+  const offset = this.bb!.__offset(this.bb_pos, 158);
   return offset ? (obj || new dict__int__clz_Torappu_BuildingData_StationManageFilterInfo()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 stationManageFilterInfosLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 156);
+  const offset = this.bb!.__offset(this.bb_pos, 158);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 musicData(obj?:clz_Torappu_BuildingData_MusicData):clz_Torappu_BuildingData_MusicData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 158);
+  const offset = this.bb!.__offset(this.bb_pos, 160);
   return offset ? (obj || new clz_Torappu_BuildingData_MusicData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 emojis(index: number):string
 emojis(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 emojis(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 160);
+  const offset = this.bb!.__offset(this.bb_pos, 162);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 emojisLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 160);
+  const offset = this.bb!.__offset(this.bb_pos, 162);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 categoryNames(index: number, obj?:dict__string__string):dict__string__string|null {
-  const offset = this.bb!.__offset(this.bb_pos, 162);
+  const offset = this.bb!.__offset(this.bb_pos, 164);
   return offset ? (obj || new dict__string__string()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 categoryNamesLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 162);
+  const offset = this.bb!.__offset(this.bb_pos, 164);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 buffSortData(index: number, obj?:dict__string__clz_Torappu_BuildingData_BuildingRoomTypeBuffSortData):dict__string__clz_Torappu_BuildingData_BuildingRoomTypeBuffSortData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 164);
+  const offset = this.bb!.__offset(this.bb_pos, 166);
   return offset ? (obj || new dict__string__clz_Torappu_BuildingData_BuildingRoomTypeBuffSortData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 buffSortDataLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 164);
+  const offset = this.bb!.__offset(this.bb_pos, 166);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 tradingRoomInfoData(obj?:clz_Torappu_BuildingData_TradingRoomInfoData):clz_Torappu_BuildingData_TradingRoomInfoData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 166);
+  const offset = this.bb!.__offset(this.bb_pos, 168);
   return offset ? (obj || new clz_Torappu_BuildingData_TradingRoomInfoData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 static startclz_Torappu_BuildingData(builder:flatbuffers.Builder) {
-  builder.startObject(82);
+  builder.startObject(83);
 }
 
 static addControlSlotId(builder:flatbuffers.Builder, controlSlotIdOffset:flatbuffers.Offset) {
@@ -867,12 +872,16 @@ static addCanNotVisitToast(builder:flatbuffers.Builder, canNotVisitToastOffset:f
   builder.addFieldOffset(40, canNotVisitToastOffset, 0);
 }
 
+static addMeetingMessageBoardEmoteTime(builder:flatbuffers.Builder, meetingMessageBoardEmoteTime:number) {
+  builder.addFieldInt32(41, meetingMessageBoardEmoteTime, 0);
+}
+
 static addMusicPlayerOpenTime(builder:flatbuffers.Builder, musicPlayerOpenTime:bigint) {
-  builder.addFieldInt64(41, musicPlayerOpenTime, BigInt('0'));
+  builder.addFieldInt64(42, musicPlayerOpenTime, BigInt('0'));
 }
 
 static addRoomsWithoutRemoveStaff(builder:flatbuffers.Builder, roomsWithoutRemoveStaffOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(42, roomsWithoutRemoveStaffOffset, 0);
+  builder.addFieldOffset(43, roomsWithoutRemoveStaffOffset, 0);
 }
 
 static createRoomsWithoutRemoveStaffVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -888,7 +897,7 @@ static startRoomsWithoutRemoveStaffVector(builder:flatbuffers.Builder, numElems:
 }
 
 static addPrivateFavorLevelThresholds(builder:flatbuffers.Builder, privateFavorLevelThresholdsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(43, privateFavorLevelThresholdsOffset, 0);
+  builder.addFieldOffset(44, privateFavorLevelThresholdsOffset, 0);
 }
 
 static createPrivateFavorLevelThresholdsVector(builder:flatbuffers.Builder, data:number[]|Int32Array):flatbuffers.Offset;
@@ -909,7 +918,7 @@ static startPrivateFavorLevelThresholdsVector(builder:flatbuffers.Builder, numEl
 }
 
 static addRoomUnlockConds(builder:flatbuffers.Builder, roomUnlockCondsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(44, roomUnlockCondsOffset, 0);
+  builder.addFieldOffset(45, roomUnlockCondsOffset, 0);
 }
 
 static createRoomUnlockCondsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -925,7 +934,7 @@ static startRoomUnlockCondsVector(builder:flatbuffers.Builder, numElems:number) 
 }
 
 static addRooms(builder:flatbuffers.Builder, roomsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(45, roomsOffset, 0);
+  builder.addFieldOffset(46, roomsOffset, 0);
 }
 
 static createRoomsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -941,7 +950,7 @@ static startRoomsVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addLayouts(builder:flatbuffers.Builder, layoutsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(46, layoutsOffset, 0);
+  builder.addFieldOffset(47, layoutsOffset, 0);
 }
 
 static createLayoutsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -957,7 +966,7 @@ static startLayoutsVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addPrefabs(builder:flatbuffers.Builder, prefabsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(47, prefabsOffset, 0);
+  builder.addFieldOffset(48, prefabsOffset, 0);
 }
 
 static createPrefabsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -973,51 +982,51 @@ static startPrefabsVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addControlData(builder:flatbuffers.Builder, controlDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(48, controlDataOffset, 0);
+  builder.addFieldOffset(49, controlDataOffset, 0);
 }
 
 static addManufactData(builder:flatbuffers.Builder, manufactDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(49, manufactDataOffset, 0);
+  builder.addFieldOffset(50, manufactDataOffset, 0);
 }
 
 static addShopData(builder:flatbuffers.Builder, shopDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(50, shopDataOffset, 0);
+  builder.addFieldOffset(51, shopDataOffset, 0);
 }
 
 static addHireData(builder:flatbuffers.Builder, hireDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(51, hireDataOffset, 0);
+  builder.addFieldOffset(52, hireDataOffset, 0);
 }
 
 static addDormData(builder:flatbuffers.Builder, dormDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(52, dormDataOffset, 0);
+  builder.addFieldOffset(53, dormDataOffset, 0);
 }
 
 static addPrivateRoomData(builder:flatbuffers.Builder, privateRoomDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(53, privateRoomDataOffset, 0);
+  builder.addFieldOffset(54, privateRoomDataOffset, 0);
 }
 
 static addMeetingData(builder:flatbuffers.Builder, meetingDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(54, meetingDataOffset, 0);
+  builder.addFieldOffset(55, meetingDataOffset, 0);
 }
 
 static addTradingData(builder:flatbuffers.Builder, tradingDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(55, tradingDataOffset, 0);
+  builder.addFieldOffset(56, tradingDataOffset, 0);
 }
 
 static addWorkshopData(builder:flatbuffers.Builder, workshopDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(56, workshopDataOffset, 0);
+  builder.addFieldOffset(57, workshopDataOffset, 0);
 }
 
 static addTrainingData(builder:flatbuffers.Builder, trainingDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(57, trainingDataOffset, 0);
+  builder.addFieldOffset(58, trainingDataOffset, 0);
 }
 
 static addPowerData(builder:flatbuffers.Builder, powerDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(58, powerDataOffset, 0);
+  builder.addFieldOffset(59, powerDataOffset, 0);
 }
 
 static addChars(builder:flatbuffers.Builder, charsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(59, charsOffset, 0);
+  builder.addFieldOffset(60, charsOffset, 0);
 }
 
 static createCharsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1033,7 +1042,7 @@ static startCharsVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addBuffs(builder:flatbuffers.Builder, buffsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(60, buffsOffset, 0);
+  builder.addFieldOffset(61, buffsOffset, 0);
 }
 
 static createBuffsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1049,7 +1058,7 @@ static startBuffsVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addWorkshopBonus(builder:flatbuffers.Builder, workshopBonusOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(61, workshopBonusOffset, 0);
+  builder.addFieldOffset(62, workshopBonusOffset, 0);
 }
 
 static createWorkshopBonusVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1065,11 +1074,11 @@ static startWorkshopBonusVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addCustomData(builder:flatbuffers.Builder, customDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(62, customDataOffset, 0);
+  builder.addFieldOffset(63, customDataOffset, 0);
 }
 
 static addManufactFormulas(builder:flatbuffers.Builder, manufactFormulasOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(63, manufactFormulasOffset, 0);
+  builder.addFieldOffset(64, manufactFormulasOffset, 0);
 }
 
 static createManufactFormulasVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1085,7 +1094,7 @@ static startManufactFormulasVector(builder:flatbuffers.Builder, numElems:number)
 }
 
 static addShopFormulas(builder:flatbuffers.Builder, shopFormulasOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(64, shopFormulasOffset, 0);
+  builder.addFieldOffset(65, shopFormulasOffset, 0);
 }
 
 static createShopFormulasVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1101,7 +1110,7 @@ static startShopFormulasVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addWorkshopFormulas(builder:flatbuffers.Builder, workshopFormulasOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(65, workshopFormulasOffset, 0);
+  builder.addFieldOffset(66, workshopFormulasOffset, 0);
 }
 
 static createWorkshopFormulasVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1117,11 +1126,11 @@ static startWorkshopFormulasVector(builder:flatbuffers.Builder, numElems:number)
 }
 
 static addCreditFormula(builder:flatbuffers.Builder, creditFormulaOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(66, creditFormulaOffset, 0);
+  builder.addFieldOffset(67, creditFormulaOffset, 0);
 }
 
 static addGoldItems(builder:flatbuffers.Builder, goldItemsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(67, goldItemsOffset, 0);
+  builder.addFieldOffset(68, goldItemsOffset, 0);
 }
 
 static createGoldItemsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1137,7 +1146,7 @@ static startGoldItemsVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addAssistantUnlock(builder:flatbuffers.Builder, assistantUnlockOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(68, assistantUnlockOffset, 0);
+  builder.addFieldOffset(69, assistantUnlockOffset, 0);
 }
 
 static createAssistantUnlockVector(builder:flatbuffers.Builder, data:number[]|Int32Array):flatbuffers.Offset;
@@ -1158,7 +1167,7 @@ static startAssistantUnlockVector(builder:flatbuffers.Builder, numElems:number) 
 }
 
 static addWorkshopRarities(builder:flatbuffers.Builder, workshopRaritiesOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(69, workshopRaritiesOffset, 0);
+  builder.addFieldOffset(70, workshopRaritiesOffset, 0);
 }
 
 static createWorkshopRaritiesVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1174,7 +1183,7 @@ static startWorkshopRaritiesVector(builder:flatbuffers.Builder, numElems:number)
 }
 
 static addTodoItemSortPriorityDict(builder:flatbuffers.Builder, todoItemSortPriorityDictOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(70, todoItemSortPriorityDictOffset, 0);
+  builder.addFieldOffset(71, todoItemSortPriorityDictOffset, 0);
 }
 
 static createTodoItemSortPriorityDictVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1190,7 +1199,7 @@ static startTodoItemSortPriorityDictVector(builder:flatbuffers.Builder, numElems
 }
 
 static addSlotPrequeDatas(builder:flatbuffers.Builder, slotPrequeDatasOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(71, slotPrequeDatasOffset, 0);
+  builder.addFieldOffset(72, slotPrequeDatasOffset, 0);
 }
 
 static createSlotPrequeDatasVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1206,7 +1215,7 @@ static startSlotPrequeDatasVector(builder:flatbuffers.Builder, numElems:number) 
 }
 
 static addDormitoryPrequeDatas(builder:flatbuffers.Builder, dormitoryPrequeDatasOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(72, dormitoryPrequeDatasOffset, 0);
+  builder.addFieldOffset(73, dormitoryPrequeDatasOffset, 0);
 }
 
 static createDormitoryPrequeDatasVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1222,7 +1231,7 @@ static startDormitoryPrequeDatasVector(builder:flatbuffers.Builder, numElems:num
 }
 
 static addWorkshopTargetDesDict(builder:flatbuffers.Builder, workshopTargetDesDictOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(73, workshopTargetDesDictOffset, 0);
+  builder.addFieldOffset(74, workshopTargetDesDictOffset, 0);
 }
 
 static createWorkshopTargetDesDictVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1238,7 +1247,7 @@ static startWorkshopTargetDesDictVector(builder:flatbuffers.Builder, numElems:nu
 }
 
 static addTradingOrderDesDict(builder:flatbuffers.Builder, tradingOrderDesDictOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(74, tradingOrderDesDictOffset, 0);
+  builder.addFieldOffset(75, tradingOrderDesDictOffset, 0);
 }
 
 static createTradingOrderDesDictVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1254,11 +1263,11 @@ static startTradingOrderDesDictVector(builder:flatbuffers.Builder, numElems:numb
 }
 
 static addStationManageConstData(builder:flatbuffers.Builder, stationManageConstDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(75, stationManageConstDataOffset, 0);
+  builder.addFieldOffset(76, stationManageConstDataOffset, 0);
 }
 
 static addStationManageFilterInfos(builder:flatbuffers.Builder, stationManageFilterInfosOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(76, stationManageFilterInfosOffset, 0);
+  builder.addFieldOffset(77, stationManageFilterInfosOffset, 0);
 }
 
 static createStationManageFilterInfosVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1274,11 +1283,11 @@ static startStationManageFilterInfosVector(builder:flatbuffers.Builder, numElems
 }
 
 static addMusicData(builder:flatbuffers.Builder, musicDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(77, musicDataOffset, 0);
+  builder.addFieldOffset(78, musicDataOffset, 0);
 }
 
 static addEmojis(builder:flatbuffers.Builder, emojisOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(78, emojisOffset, 0);
+  builder.addFieldOffset(79, emojisOffset, 0);
 }
 
 static createEmojisVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1294,7 +1303,7 @@ static startEmojisVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addCategoryNames(builder:flatbuffers.Builder, categoryNamesOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(79, categoryNamesOffset, 0);
+  builder.addFieldOffset(80, categoryNamesOffset, 0);
 }
 
 static createCategoryNamesVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1310,7 +1319,7 @@ static startCategoryNamesVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addBuffSortData(builder:flatbuffers.Builder, buffSortDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(80, buffSortDataOffset, 0);
+  builder.addFieldOffset(81, buffSortDataOffset, 0);
 }
 
 static createBuffSortDataVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -1326,7 +1335,7 @@ static startBuffSortDataVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addTradingRoomInfoData(builder:flatbuffers.Builder, tradingRoomInfoDataOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(81, tradingRoomInfoDataOffset, 0);
+  builder.addFieldOffset(82, tradingRoomInfoDataOffset, 0);
 }
 
 static endclz_Torappu_BuildingData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -1386,6 +1395,7 @@ unpack(): clz_Torappu_BuildingDataT {
     this.betaRemoveTime(),
     this.furniHighlightTime(),
     this.canNotVisitToast(),
+    this.meetingMessageBoardEmoteTime(),
     this.musicPlayerOpenTime(),
     this.bb!.createScalarList<string>(this.roomsWithoutRemoveStaff.bind(this), this.roomsWithoutRemoveStaffLength()),
     this.bb!.createScalarList<number>(this.privateFavorLevelThresholds.bind(this), this.privateFavorLevelThresholdsLength()),
@@ -1473,6 +1483,7 @@ unpackTo(_o: clz_Torappu_BuildingDataT): void {
   _o.betaRemoveTime = this.betaRemoveTime();
   _o.furniHighlightTime = this.furniHighlightTime();
   _o.canNotVisitToast = this.canNotVisitToast();
+  _o.meetingMessageBoardEmoteTime = this.meetingMessageBoardEmoteTime();
   _o.musicPlayerOpenTime = this.musicPlayerOpenTime();
   _o.roomsWithoutRemoveStaff = this.bb!.createScalarList<string>(this.roomsWithoutRemoveStaff.bind(this), this.roomsWithoutRemoveStaffLength());
   _o.privateFavorLevelThresholds = this.bb!.createScalarList<number>(this.privateFavorLevelThresholds.bind(this), this.privateFavorLevelThresholdsLength());
@@ -1560,6 +1571,7 @@ constructor(
   public betaRemoveTime: bigint = BigInt('0'),
   public furniHighlightTime: number = 0.0,
   public canNotVisitToast: string|Uint8Array|null = null,
+  public meetingMessageBoardEmoteTime: number = 0,
   public musicPlayerOpenTime: bigint = BigInt('0'),
   public roomsWithoutRemoveStaff: (string)[] = [],
   public privateFavorLevelThresholds: (number)[] = [],
@@ -1697,6 +1709,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_BuildingData.addBetaRemoveTime(builder, this.betaRemoveTime);
   clz_Torappu_BuildingData.addFurniHighlightTime(builder, this.furniHighlightTime);
   clz_Torappu_BuildingData.addCanNotVisitToast(builder, canNotVisitToast);
+  clz_Torappu_BuildingData.addMeetingMessageBoardEmoteTime(builder, this.meetingMessageBoardEmoteTime);
   clz_Torappu_BuildingData.addMusicPlayerOpenTime(builder, this.musicPlayerOpenTime);
   clz_Torappu_BuildingData.addRoomsWithoutRemoveStaff(builder, roomsWithoutRemoveStaff);
   clz_Torappu_BuildingData.addPrivateFavorLevelThresholds(builder, privateFavorLevelThresholds);

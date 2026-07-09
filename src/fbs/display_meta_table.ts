@@ -18,6 +18,7 @@ export { clz_Torappu_AvatarConstData, clz_Torappu_AvatarConstDataT } from './clz
 export { clz_Torappu_DisplayMetaData, clz_Torappu_DisplayMetaDataT } from './clz-torappu-display-meta-data.js';
 export { clz_Torappu_EmoticonData, clz_Torappu_EmoticonDataT } from './clz-torappu-emoticon-data.js';
 export { clz_Torappu_EmoticonData_EmojiData, clz_Torappu_EmoticonData_EmojiDataT } from './clz-torappu-emoticon-data-emoji-data.js';
+export { clz_Torappu_EmoticonData_EmoticonThemeTypeData, clz_Torappu_EmoticonData_EmoticonThemeTypeDataT } from './clz-torappu-emoticon-data-emoticon-theme-type-data.js';
 export { clz_Torappu_GuidebookConfigData, clz_Torappu_GuidebookConfigDataT } from './clz-torappu-guidebook-config-data.js';
 export { clz_Torappu_GuidebookGroupData, clz_Torappu_GuidebookGroupDataT } from './clz-torappu-guidebook-group-data.js';
 export { clz_Torappu_HomeBackgroundData, clz_Torappu_HomeBackgroundDataT } from './clz-torappu-home-background-data.js';
@@ -68,6 +69,7 @@ export { dict__string__clz_Torappu_ArtGalleryCollectSetMissionData, dict__string
 export { dict__string__clz_Torappu_ArtGalleryCollectTypeData, dict__string__clz_Torappu_ArtGalleryCollectTypeDataT } from './dict--string--clz-torappu-art-gallery-collect-type-data.js';
 export { dict__string__clz_Torappu_ArtMagazineLeafData, dict__string__clz_Torappu_ArtMagazineLeafDataT } from './dict--string--clz-torappu-art-magazine-leaf-data.js';
 export { dict__string__clz_Torappu_EmoticonData_EmojiData, dict__string__clz_Torappu_EmoticonData_EmojiDataT } from './dict--string--clz-torappu-emoticon-data-emoji-data.js';
+export { dict__string__clz_Torappu_EmoticonData_EmoticonThemeTypeData, dict__string__clz_Torappu_EmoticonData_EmoticonThemeTypeDataT } from './dict--string--clz-torappu-emoticon-data-emoticon-theme-type-data.js';
 export { dict__string__clz_Torappu_GuidebookGroupData, dict__string__clz_Torappu_GuidebookGroupDataT } from './dict--string--clz-torappu-guidebook-group-data.js';
 export { dict__string__clz_Torappu_HomeBackgroundLimitData, dict__string__clz_Torappu_HomeBackgroundLimitDataT } from './dict--string--clz-torappu-home-background-limit-data.js';
 export { dict__string__clz_Torappu_HomeThemeLimitData, dict__string__clz_Torappu_HomeThemeLimitDataT } from './dict--string--clz-torappu-home-theme-limit-data.js';

@@ -13,8 +13,10 @@ import { clz_Torappu_ActArchiveDisasterData, clz_Torappu_ActArchiveDisasterDataT
 import { clz_Torappu_ActArchiveEndbookData, clz_Torappu_ActArchiveEndbookDataT } from './clz-torappu-act-archive-endbook-data.js';
 import { clz_Torappu_ActArchiveFragmentData, clz_Torappu_ActArchiveFragmentDataT } from './clz-torappu-act-archive-fragment-data.js';
 import { clz_Torappu_ActArchiveRelicData, clz_Torappu_ActArchiveRelicDataT } from './clz-torappu-act-archive-relic-data.js';
+import { clz_Torappu_ActArchiveScrapData, clz_Torappu_ActArchiveScrapDataT } from './clz-torappu-act-archive-scrap-data.js';
 import { clz_Torappu_ActArchiveTotemData, clz_Torappu_ActArchiveTotemDataT } from './clz-torappu-act-archive-totem-data.js';
 import { clz_Torappu_ActArchiveTrapData, clz_Torappu_ActArchiveTrapDataT } from './clz-torappu-act-archive-trap-data.js';
+import { clz_Torappu_ActArchiveWeatherData, clz_Torappu_ActArchiveWeatherDataT } from './clz-torappu-act-archive-weather-data.js';
 import { clz_Torappu_ActArchiveWrathData, clz_Torappu_ActArchiveWrathDataT } from './clz-torappu-act-archive-wrath-data.js';
 
 
@@ -96,8 +98,18 @@ copper(obj?:clz_Torappu_ActArchiveCopperData):clz_Torappu_ActArchiveCopperData|n
   return offset ? (obj || new clz_Torappu_ActArchiveCopperData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
+scrap(obj?:clz_Torappu_ActArchiveScrapData):clz_Torappu_ActArchiveScrapData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 28);
+  return offset ? (obj || new clz_Torappu_ActArchiveScrapData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
+weather(obj?:clz_Torappu_ActArchiveWeatherData):clz_Torappu_ActArchiveWeatherData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 30);
+  return offset ? (obj || new clz_Torappu_ActArchiveWeatherData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
 static startclz_Torappu_RoguelikeArchiveComponentData(builder:flatbuffers.Builder) {
-  builder.startObject(12);
+  builder.startObject(14);
 }
 
 static addRelic(builder:flatbuffers.Builder, relicOffset:flatbuffers.Offset) {
@@ -148,6 +160,14 @@ static addCopper(builder:flatbuffers.Builder, copperOffset:flatbuffers.Offset) {
   builder.addFieldOffset(11, copperOffset, 0);
 }
 
+static addScrap(builder:flatbuffers.Builder, scrapOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(12, scrapOffset, 0);
+}
+
+static addWeather(builder:flatbuffers.Builder, weatherOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(13, weatherOffset, 0);
+}
+
 static endclz_Torappu_RoguelikeArchiveComponentData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -167,7 +187,9 @@ unpack(): clz_Torappu_RoguelikeArchiveComponentDataT {
     (this.fragment() !== null ? this.fragment()!.unpack() : null),
     (this.disaster() !== null ? this.disaster()!.unpack() : null),
     (this.wrath() !== null ? this.wrath()!.unpack() : null),
-    (this.copper() !== null ? this.copper()!.unpack() : null)
+    (this.copper() !== null ? this.copper()!.unpack() : null),
+    (this.scrap() !== null ? this.scrap()!.unpack() : null),
+    (this.weather() !== null ? this.weather()!.unpack() : null)
   );
 }
 
@@ -185,6 +207,8 @@ unpackTo(_o: clz_Torappu_RoguelikeArchiveComponentDataT): void {
   _o.disaster = (this.disaster() !== null ? this.disaster()!.unpack() : null);
   _o.wrath = (this.wrath() !== null ? this.wrath()!.unpack() : null);
   _o.copper = (this.copper() !== null ? this.copper()!.unpack() : null);
+  _o.scrap = (this.scrap() !== null ? this.scrap()!.unpack() : null);
+  _o.weather = (this.weather() !== null ? this.weather()!.unpack() : null);
 }
 }
 
@@ -201,7 +225,9 @@ constructor(
   public fragment: clz_Torappu_ActArchiveFragmentDataT|null = null,
   public disaster: clz_Torappu_ActArchiveDisasterDataT|null = null,
   public wrath: clz_Torappu_ActArchiveWrathDataT|null = null,
-  public copper: clz_Torappu_ActArchiveCopperDataT|null = null
+  public copper: clz_Torappu_ActArchiveCopperDataT|null = null,
+  public scrap: clz_Torappu_ActArchiveScrapDataT|null = null,
+  public weather: clz_Torappu_ActArchiveWeatherDataT|null = null
 ){}
 
 
@@ -218,6 +244,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const disaster = (this.disaster !== null ? this.disaster!.pack(builder) : 0);
   const wrath = (this.wrath !== null ? this.wrath!.pack(builder) : 0);
   const copper = (this.copper !== null ? this.copper!.pack(builder) : 0);
+  const scrap = (this.scrap !== null ? this.scrap!.pack(builder) : 0);
+  const weather = (this.weather !== null ? this.weather!.pack(builder) : 0);
 
   clz_Torappu_RoguelikeArchiveComponentData.startclz_Torappu_RoguelikeArchiveComponentData(builder);
   clz_Torappu_RoguelikeArchiveComponentData.addRelic(builder, relic);
@@ -232,6 +260,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_RoguelikeArchiveComponentData.addDisaster(builder, disaster);
   clz_Torappu_RoguelikeArchiveComponentData.addWrath(builder, wrath);
   clz_Torappu_RoguelikeArchiveComponentData.addCopper(builder, copper);
+  clz_Torappu_RoguelikeArchiveComponentData.addScrap(builder, scrap);
+  clz_Torappu_RoguelikeArchiveComponentData.addWeather(builder, weather);
 
   return clz_Torappu_RoguelikeArchiveComponentData.endclz_Torappu_RoguelikeArchiveComponentData(builder);
 }

@@ -181,8 +181,13 @@ hideEndingStory():boolean {
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
+haveLegacy():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 54);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
 static startclz_Torappu_RoguelikeTopicDifficulty(builder:flatbuffers.Builder) {
-  builder.startObject(25);
+  builder.startObject(26);
 }
 
 static addModeDifficulty(builder:flatbuffers.Builder, modeDifficulty:enum__Torappu_RoguelikeTopicMode) {
@@ -297,12 +302,16 @@ static addHideEndingStory(builder:flatbuffers.Builder, hideEndingStory:boolean) 
   builder.addFieldInt8(24, +hideEndingStory, +false);
 }
 
+static addHaveLegacy(builder:flatbuffers.Builder, haveLegacy:boolean) {
+  builder.addFieldInt8(25, +haveLegacy, +false);
+}
+
 static endclz_Torappu_RoguelikeTopicDifficulty(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_RoguelikeTopicDifficulty(builder:flatbuffers.Builder, modeDifficulty:enum__Torappu_RoguelikeTopicMode, grade:number, nameOffset:flatbuffers.Offset, nameImageOffset:flatbuffers.Offset, subNameOffset:flatbuffers.Offset, enrollIdOffset:flatbuffers.Offset, haveInitialRelicIcon:boolean, scoreFactor:number, canUnlockItem:boolean, doMonthTask:boolean, ruleDescOffset:flatbuffers.Offset, ruleDescReplacementsOffset:flatbuffers.Offset, failTitleOffset:flatbuffers.Offset, failImageIdOffset:flatbuffers.Offset, failForceDescOffset:flatbuffers.Offset, sortId:number, equivalentGrade:number, colorOffset:flatbuffers.Offset, bpValue:number, bossValue:number, addDescOffset:flatbuffers.Offset, warningType:enum__Torappu_RoguelikeTopicDifficultyWarningType, unlockTextOffset:flatbuffers.Offset, displayIconIdOffset:flatbuffers.Offset, hideEndingStory:boolean):flatbuffers.Offset {
+static createclz_Torappu_RoguelikeTopicDifficulty(builder:flatbuffers.Builder, modeDifficulty:enum__Torappu_RoguelikeTopicMode, grade:number, nameOffset:flatbuffers.Offset, nameImageOffset:flatbuffers.Offset, subNameOffset:flatbuffers.Offset, enrollIdOffset:flatbuffers.Offset, haveInitialRelicIcon:boolean, scoreFactor:number, canUnlockItem:boolean, doMonthTask:boolean, ruleDescOffset:flatbuffers.Offset, ruleDescReplacementsOffset:flatbuffers.Offset, failTitleOffset:flatbuffers.Offset, failImageIdOffset:flatbuffers.Offset, failForceDescOffset:flatbuffers.Offset, sortId:number, equivalentGrade:number, colorOffset:flatbuffers.Offset, bpValue:number, bossValue:number, addDescOffset:flatbuffers.Offset, warningType:enum__Torappu_RoguelikeTopicDifficultyWarningType, unlockTextOffset:flatbuffers.Offset, displayIconIdOffset:flatbuffers.Offset, hideEndingStory:boolean, haveLegacy:boolean):flatbuffers.Offset {
   clz_Torappu_RoguelikeTopicDifficulty.startclz_Torappu_RoguelikeTopicDifficulty(builder);
   clz_Torappu_RoguelikeTopicDifficulty.addModeDifficulty(builder, modeDifficulty);
   clz_Torappu_RoguelikeTopicDifficulty.addGrade(builder, grade);
@@ -329,6 +338,7 @@ static createclz_Torappu_RoguelikeTopicDifficulty(builder:flatbuffers.Builder, m
   clz_Torappu_RoguelikeTopicDifficulty.addUnlockText(builder, unlockTextOffset);
   clz_Torappu_RoguelikeTopicDifficulty.addDisplayIconId(builder, displayIconIdOffset);
   clz_Torappu_RoguelikeTopicDifficulty.addHideEndingStory(builder, hideEndingStory);
+  clz_Torappu_RoguelikeTopicDifficulty.addHaveLegacy(builder, haveLegacy);
   return clz_Torappu_RoguelikeTopicDifficulty.endclz_Torappu_RoguelikeTopicDifficulty(builder);
 }
 
@@ -358,7 +368,8 @@ unpack(): clz_Torappu_RoguelikeTopicDifficultyT {
     this.warningType(),
     this.unlockText(),
     this.displayIconId(),
-    this.hideEndingStory()
+    this.hideEndingStory(),
+    this.haveLegacy()
   );
 }
 
@@ -389,6 +400,7 @@ unpackTo(_o: clz_Torappu_RoguelikeTopicDifficultyT): void {
   _o.unlockText = this.unlockText();
   _o.displayIconId = this.displayIconId();
   _o.hideEndingStory = this.hideEndingStory();
+  _o.haveLegacy = this.haveLegacy();
 }
 }
 
@@ -418,7 +430,8 @@ constructor(
   public warningType: enum__Torappu_RoguelikeTopicDifficultyWarningType = enum__Torappu_RoguelikeTopicDifficultyWarningType.NONE,
   public unlockText: string|Uint8Array|null = null,
   public displayIconId: string|Uint8Array|null = null,
-  public hideEndingStory: boolean = false
+  public hideEndingStory: boolean = false,
+  public haveLegacy: boolean = false
 ){}
 
 
@@ -462,7 +475,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.warningType,
     unlockText,
     displayIconId,
-    this.hideEndingStory
+    this.hideEndingStory,
+    this.haveLegacy
   );
 }
 }

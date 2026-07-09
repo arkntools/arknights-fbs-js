@@ -26,5 +26,9 @@ export enum enum__Torappu_RoguelikeGameChoiceType {
   ITEM_TOP_UP = 20,
   GILD_COPPER_ALL = 21,
   JUMP_PROB = 22,
-  JUMP = 23
+  JUMP = 23,
+  ZONE_END = 24,
+  MOVE = 25,
+  VISION = 26,
+  SCRAP_PAY_SHOW = 27
 }

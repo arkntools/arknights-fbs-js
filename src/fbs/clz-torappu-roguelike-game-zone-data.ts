@@ -106,8 +106,15 @@ bgmSignalWithLowSan(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+transitionEffectId():string|null
+transitionEffectId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+transitionEffectId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 28);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 static startclz_Torappu_RoguelikeGameZoneData(builder:flatbuffers.Builder) {
-  builder.startObject(12);
+  builder.startObject(13);
 }
 
 static addId(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset) {
@@ -158,12 +165,16 @@ static addBgmSignalWithLowSan(builder:flatbuffers.Builder, bgmSignalWithLowSanOf
   builder.addFieldOffset(11, bgmSignalWithLowSanOffset, 0);
 }
 
+static addTransitionEffectId(builder:flatbuffers.Builder, transitionEffectIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(12, transitionEffectIdOffset, 0);
+}
+
 static endclz_Torappu_RoguelikeGameZoneData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_RoguelikeGameZoneData(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, nameOffset:flatbuffers.Offset, clockPerformanceOffset:flatbuffers.Offset, displayTimeOffset:flatbuffers.Offset, descriptionOffset:flatbuffers.Offset, buffDescriptionOffset:flatbuffers.Offset, endingDescriptionOffset:flatbuffers.Offset, backgroundIdOffset:flatbuffers.Offset, zoneIconIdOffset:flatbuffers.Offset, isHiddenZone:boolean, bgmSignalOffset:flatbuffers.Offset, bgmSignalWithLowSanOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_RoguelikeGameZoneData(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, nameOffset:flatbuffers.Offset, clockPerformanceOffset:flatbuffers.Offset, displayTimeOffset:flatbuffers.Offset, descriptionOffset:flatbuffers.Offset, buffDescriptionOffset:flatbuffers.Offset, endingDescriptionOffset:flatbuffers.Offset, backgroundIdOffset:flatbuffers.Offset, zoneIconIdOffset:flatbuffers.Offset, isHiddenZone:boolean, bgmSignalOffset:flatbuffers.Offset, bgmSignalWithLowSanOffset:flatbuffers.Offset, transitionEffectIdOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_RoguelikeGameZoneData.startclz_Torappu_RoguelikeGameZoneData(builder);
   clz_Torappu_RoguelikeGameZoneData.addId(builder, idOffset);
   clz_Torappu_RoguelikeGameZoneData.addName(builder, nameOffset);
@@ -177,6 +188,7 @@ static createclz_Torappu_RoguelikeGameZoneData(builder:flatbuffers.Builder, idOf
   clz_Torappu_RoguelikeGameZoneData.addIsHiddenZone(builder, isHiddenZone);
   clz_Torappu_RoguelikeGameZoneData.addBgmSignal(builder, bgmSignalOffset);
   clz_Torappu_RoguelikeGameZoneData.addBgmSignalWithLowSan(builder, bgmSignalWithLowSanOffset);
+  clz_Torappu_RoguelikeGameZoneData.addTransitionEffectId(builder, transitionEffectIdOffset);
   return clz_Torappu_RoguelikeGameZoneData.endclz_Torappu_RoguelikeGameZoneData(builder);
 }
 
@@ -193,7 +205,8 @@ unpack(): clz_Torappu_RoguelikeGameZoneDataT {
     this.zoneIconId(),
     this.isHiddenZone(),
     this.bgmSignal(),
-    this.bgmSignalWithLowSan()
+    this.bgmSignalWithLowSan(),
+    this.transitionEffectId()
   );
 }
 
@@ -211,6 +224,7 @@ unpackTo(_o: clz_Torappu_RoguelikeGameZoneDataT): void {
   _o.isHiddenZone = this.isHiddenZone();
   _o.bgmSignal = this.bgmSignal();
   _o.bgmSignalWithLowSan = this.bgmSignalWithLowSan();
+  _o.transitionEffectId = this.transitionEffectId();
 }
 }
 
@@ -227,7 +241,8 @@ constructor(
   public zoneIconId: string|Uint8Array|null = null,
   public isHiddenZone: boolean = false,
   public bgmSignal: string|Uint8Array|null = null,
-  public bgmSignalWithLowSan: string|Uint8Array|null = null
+  public bgmSignalWithLowSan: string|Uint8Array|null = null,
+  public transitionEffectId: string|Uint8Array|null = null
 ){}
 
 
@@ -243,6 +258,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const zoneIconId = (this.zoneIconId !== null ? builder.createString(this.zoneIconId!) : 0);
   const bgmSignal = (this.bgmSignal !== null ? builder.createString(this.bgmSignal!) : 0);
   const bgmSignalWithLowSan = (this.bgmSignalWithLowSan !== null ? builder.createString(this.bgmSignalWithLowSan!) : 0);
+  const transitionEffectId = (this.transitionEffectId !== null ? builder.createString(this.transitionEffectId!) : 0);
 
   return clz_Torappu_RoguelikeGameZoneData.createclz_Torappu_RoguelikeGameZoneData(builder,
     id,
@@ -256,7 +272,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     zoneIconId,
     this.isHiddenZone,
     bgmSignal,
-    bgmSignalWithLowSan
+    bgmSignalWithLowSan,
+    transitionEffectId
   );
 }
 }

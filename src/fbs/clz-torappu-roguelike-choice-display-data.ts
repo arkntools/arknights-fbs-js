@@ -69,8 +69,15 @@ taskId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+instId():string|null
+instId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+instId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 18);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 static startclz_Torappu_RoguelikeChoiceDisplayData(builder:flatbuffers.Builder) {
-  builder.startObject(7);
+  builder.startObject(8);
 }
 
 static addType(builder:flatbuffers.Builder, type:enum__Torappu_RoguelikeChoiceDisplayType) {
@@ -101,12 +108,16 @@ static addTaskId(builder:flatbuffers.Builder, taskIdOffset:flatbuffers.Offset) {
   builder.addFieldOffset(6, taskIdOffset, 0);
 }
 
+static addInstId(builder:flatbuffers.Builder, instIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(7, instIdOffset, 0);
+}
+
 static endclz_Torappu_RoguelikeChoiceDisplayData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_RoguelikeChoiceDisplayData(builder:flatbuffers.Builder, type:enum__Torappu_RoguelikeChoiceDisplayType, costHintType:enum__Torappu_RoguelikeChoiceHintType, effectHintType:enum__Torappu_RoguelikeChoiceHintType, funcIconIdOffset:flatbuffers.Offset, itemIdOffset:flatbuffers.Offset, difficultyUpgradeRelicGroupIdOffset:flatbuffers.Offset, taskIdOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_RoguelikeChoiceDisplayData(builder:flatbuffers.Builder, type:enum__Torappu_RoguelikeChoiceDisplayType, costHintType:enum__Torappu_RoguelikeChoiceHintType, effectHintType:enum__Torappu_RoguelikeChoiceHintType, funcIconIdOffset:flatbuffers.Offset, itemIdOffset:flatbuffers.Offset, difficultyUpgradeRelicGroupIdOffset:flatbuffers.Offset, taskIdOffset:flatbuffers.Offset, instIdOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_RoguelikeChoiceDisplayData.startclz_Torappu_RoguelikeChoiceDisplayData(builder);
   clz_Torappu_RoguelikeChoiceDisplayData.addType(builder, type);
   clz_Torappu_RoguelikeChoiceDisplayData.addCostHintType(builder, costHintType);
@@ -115,6 +126,7 @@ static createclz_Torappu_RoguelikeChoiceDisplayData(builder:flatbuffers.Builder,
   clz_Torappu_RoguelikeChoiceDisplayData.addItemId(builder, itemIdOffset);
   clz_Torappu_RoguelikeChoiceDisplayData.addDifficultyUpgradeRelicGroupId(builder, difficultyUpgradeRelicGroupIdOffset);
   clz_Torappu_RoguelikeChoiceDisplayData.addTaskId(builder, taskIdOffset);
+  clz_Torappu_RoguelikeChoiceDisplayData.addInstId(builder, instIdOffset);
   return clz_Torappu_RoguelikeChoiceDisplayData.endclz_Torappu_RoguelikeChoiceDisplayData(builder);
 }
 
@@ -126,7 +138,8 @@ unpack(): clz_Torappu_RoguelikeChoiceDisplayDataT {
     this.funcIconId(),
     this.itemId(),
     this.difficultyUpgradeRelicGroupId(),
-    this.taskId()
+    this.taskId(),
+    this.instId()
   );
 }
 
@@ -139,6 +152,7 @@ unpackTo(_o: clz_Torappu_RoguelikeChoiceDisplayDataT): void {
   _o.itemId = this.itemId();
   _o.difficultyUpgradeRelicGroupId = this.difficultyUpgradeRelicGroupId();
   _o.taskId = this.taskId();
+  _o.instId = this.instId();
 }
 }
 
@@ -150,7 +164,8 @@ constructor(
   public funcIconId: string|Uint8Array|null = null,
   public itemId: string|Uint8Array|null = null,
   public difficultyUpgradeRelicGroupId: string|Uint8Array|null = null,
-  public taskId: string|Uint8Array|null = null
+  public taskId: string|Uint8Array|null = null,
+  public instId: string|Uint8Array|null = null
 ){}
 
 
@@ -159,6 +174,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const itemId = (this.itemId !== null ? builder.createString(this.itemId!) : 0);
   const difficultyUpgradeRelicGroupId = (this.difficultyUpgradeRelicGroupId !== null ? builder.createString(this.difficultyUpgradeRelicGroupId!) : 0);
   const taskId = (this.taskId !== null ? builder.createString(this.taskId!) : 0);
+  const instId = (this.instId !== null ? builder.createString(this.instId!) : 0);
 
   return clz_Torappu_RoguelikeChoiceDisplayData.createclz_Torappu_RoguelikeChoiceDisplayData(builder,
     this.type,
@@ -167,7 +183,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     funcIconId,
     itemId,
     difficultyUpgradeRelicGroupId,
-    taskId
+    taskId,
+    instId
   );
 }
 }

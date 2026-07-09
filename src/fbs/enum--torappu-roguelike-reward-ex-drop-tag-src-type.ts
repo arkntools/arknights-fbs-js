@@ -8,5 +8,10 @@ export enum enum__Torappu_RoguelikeRewardExDropTagSrcType {
   TOTEM = 2,
   EXPLORE_TOOL = 3,
   COPPER = 4,
-  EVIL_TEMPLE = 5
+  EVIL_TEMPLE = 5,
+  TREASURE_MAP = 6,
+  LOOP_CHIP = 7,
+  STEP = 8,
+  GREED = 9,
+  GOLDEN_AGE = 10
 }

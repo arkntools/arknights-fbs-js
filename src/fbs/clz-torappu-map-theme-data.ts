@@ -66,8 +66,22 @@ emissionColor(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+highlandBuildableColor():string|null
+highlandBuildableColor(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+highlandBuildableColor(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+highlandEmissionColor():string|null
+highlandEmissionColor(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+highlandEmissionColor(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 18);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 static startclz_Torappu_MapThemeData(builder:flatbuffers.Builder) {
-  builder.startObject(6);
+  builder.startObject(8);
 }
 
 static addThemeId(builder:flatbuffers.Builder, themeIdOffset:flatbuffers.Offset) {
@@ -94,12 +108,20 @@ static addEmissionColor(builder:flatbuffers.Builder, emissionColorOffset:flatbuf
   builder.addFieldOffset(5, emissionColorOffset, 0);
 }
 
+static addHighlandBuildableColor(builder:flatbuffers.Builder, highlandBuildableColorOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(6, highlandBuildableColorOffset, 0);
+}
+
+static addHighlandEmissionColor(builder:flatbuffers.Builder, highlandEmissionColorOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(7, highlandEmissionColorOffset, 0);
+}
+
 static endclz_Torappu_MapThemeData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_MapThemeData(builder:flatbuffers.Builder, themeIdOffset:flatbuffers.Offset, unitColorOffset:flatbuffers.Offset, buildableColorOffset:flatbuffers.Offset, themeTypeOffset:flatbuffers.Offset, trapTintColorOffset:flatbuffers.Offset, emissionColorOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_MapThemeData(builder:flatbuffers.Builder, themeIdOffset:flatbuffers.Offset, unitColorOffset:flatbuffers.Offset, buildableColorOffset:flatbuffers.Offset, themeTypeOffset:flatbuffers.Offset, trapTintColorOffset:flatbuffers.Offset, emissionColorOffset:flatbuffers.Offset, highlandBuildableColorOffset:flatbuffers.Offset, highlandEmissionColorOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_MapThemeData.startclz_Torappu_MapThemeData(builder);
   clz_Torappu_MapThemeData.addThemeId(builder, themeIdOffset);
   clz_Torappu_MapThemeData.addUnitColor(builder, unitColorOffset);
@@ -107,6 +129,8 @@ static createclz_Torappu_MapThemeData(builder:flatbuffers.Builder, themeIdOffset
   clz_Torappu_MapThemeData.addThemeType(builder, themeTypeOffset);
   clz_Torappu_MapThemeData.addTrapTintColor(builder, trapTintColorOffset);
   clz_Torappu_MapThemeData.addEmissionColor(builder, emissionColorOffset);
+  clz_Torappu_MapThemeData.addHighlandBuildableColor(builder, highlandBuildableColorOffset);
+  clz_Torappu_MapThemeData.addHighlandEmissionColor(builder, highlandEmissionColorOffset);
   return clz_Torappu_MapThemeData.endclz_Torappu_MapThemeData(builder);
 }
 
@@ -117,7 +141,9 @@ unpack(): clz_Torappu_MapThemeDataT {
     this.buildableColor(),
     this.themeType(),
     this.trapTintColor(),
-    this.emissionColor()
+    this.emissionColor(),
+    this.highlandBuildableColor(),
+    this.highlandEmissionColor()
   );
 }
 
@@ -129,6 +155,8 @@ unpackTo(_o: clz_Torappu_MapThemeDataT): void {
   _o.themeType = this.themeType();
   _o.trapTintColor = this.trapTintColor();
   _o.emissionColor = this.emissionColor();
+  _o.highlandBuildableColor = this.highlandBuildableColor();
+  _o.highlandEmissionColor = this.highlandEmissionColor();
 }
 }
 
@@ -139,7 +167,9 @@ constructor(
   public buildableColor: string|Uint8Array|null = null,
   public themeType: string|Uint8Array|null = null,
   public trapTintColor: string|Uint8Array|null = null,
-  public emissionColor: string|Uint8Array|null = null
+  public emissionColor: string|Uint8Array|null = null,
+  public highlandBuildableColor: string|Uint8Array|null = null,
+  public highlandEmissionColor: string|Uint8Array|null = null
 ){}
 
 
@@ -150,6 +180,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const themeType = (this.themeType !== null ? builder.createString(this.themeType!) : 0);
   const trapTintColor = (this.trapTintColor !== null ? builder.createString(this.trapTintColor!) : 0);
   const emissionColor = (this.emissionColor !== null ? builder.createString(this.emissionColor!) : 0);
+  const highlandBuildableColor = (this.highlandBuildableColor !== null ? builder.createString(this.highlandBuildableColor!) : 0);
+  const highlandEmissionColor = (this.highlandEmissionColor !== null ? builder.createString(this.highlandEmissionColor!) : 0);
 
   return clz_Torappu_MapThemeData.createclz_Torappu_MapThemeData(builder,
     themeId,
@@ -157,7 +189,9 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     buildableColor,
     themeType,
     trapTintColor,
-    emissionColor
+    emissionColor,
+    highlandBuildableColor,
+    highlandEmissionColor
   );
 }
 }

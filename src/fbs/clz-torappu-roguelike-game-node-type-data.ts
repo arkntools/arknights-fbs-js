@@ -31,23 +31,34 @@ name(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-description():string|null
-description(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-description(optionalEncoding?:any):string|Uint8Array|null {
+subName():string|null
+subName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+subName(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 6);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+description():string|null
+description(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+description(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 8);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 static startclz_Torappu_RoguelikeGameNodeTypeData(builder:flatbuffers.Builder) {
-  builder.startObject(2);
+  builder.startObject(3);
 }
 
 static addName(builder:flatbuffers.Builder, nameOffset:flatbuffers.Offset) {
   builder.addFieldOffset(0, nameOffset, 0);
 }
 
+static addSubName(builder:flatbuffers.Builder, subNameOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(1, subNameOffset, 0);
+}
+
 static addDescription(builder:flatbuffers.Builder, descriptionOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(1, descriptionOffset, 0);
+  builder.addFieldOffset(2, descriptionOffset, 0);
 }
 
 static endclz_Torappu_RoguelikeGameNodeTypeData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -55,9 +66,10 @@ static endclz_Torappu_RoguelikeGameNodeTypeData(builder:flatbuffers.Builder):fla
   return offset;
 }
 
-static createclz_Torappu_RoguelikeGameNodeTypeData(builder:flatbuffers.Builder, nameOffset:flatbuffers.Offset, descriptionOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_RoguelikeGameNodeTypeData(builder:flatbuffers.Builder, nameOffset:flatbuffers.Offset, subNameOffset:flatbuffers.Offset, descriptionOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_RoguelikeGameNodeTypeData.startclz_Torappu_RoguelikeGameNodeTypeData(builder);
   clz_Torappu_RoguelikeGameNodeTypeData.addName(builder, nameOffset);
+  clz_Torappu_RoguelikeGameNodeTypeData.addSubName(builder, subNameOffset);
   clz_Torappu_RoguelikeGameNodeTypeData.addDescription(builder, descriptionOffset);
   return clz_Torappu_RoguelikeGameNodeTypeData.endclz_Torappu_RoguelikeGameNodeTypeData(builder);
 }
@@ -65,6 +77,7 @@ static createclz_Torappu_RoguelikeGameNodeTypeData(builder:flatbuffers.Builder, 
 unpack(): clz_Torappu_RoguelikeGameNodeTypeDataT {
   return new clz_Torappu_RoguelikeGameNodeTypeDataT(
     this.name(),
+    this.subName(),
     this.description()
   );
 }
@@ -72,6 +85,7 @@ unpack(): clz_Torappu_RoguelikeGameNodeTypeDataT {
 
 unpackTo(_o: clz_Torappu_RoguelikeGameNodeTypeDataT): void {
   _o.name = this.name();
+  _o.subName = this.subName();
   _o.description = this.description();
 }
 }
@@ -79,16 +93,19 @@ unpackTo(_o: clz_Torappu_RoguelikeGameNodeTypeDataT): void {
 export class clz_Torappu_RoguelikeGameNodeTypeDataT implements flatbuffers.IGeneratedObject {
 constructor(
   public name: string|Uint8Array|null = null,
+  public subName: string|Uint8Array|null = null,
   public description: string|Uint8Array|null = null
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const name = (this.name !== null ? builder.createString(this.name!) : 0);
+  const subName = (this.subName !== null ? builder.createString(this.subName!) : 0);
   const description = (this.description !== null ? builder.createString(this.description!) : 0);
 
   return clz_Torappu_RoguelikeGameNodeTypeData.createclz_Torappu_RoguelikeGameNodeTypeData(builder,
     name,
+    subName,
     description
   );
 }

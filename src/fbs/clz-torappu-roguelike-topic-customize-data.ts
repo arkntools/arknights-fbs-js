@@ -9,6 +9,7 @@ import { clz_Torappu_RL02CustomizeData, clz_Torappu_RL02CustomizeDataT } from '.
 import { clz_Torappu_RL03CustomizeData, clz_Torappu_RL03CustomizeDataT } from './clz-torappu-rl03-customize-data.js';
 import { clz_Torappu_RL04CustomizeData, clz_Torappu_RL04CustomizeDataT } from './clz-torappu-rl04-customize-data.js';
 import { clz_Torappu_RL05CustomizeData, clz_Torappu_RL05CustomizeDataT } from './clz-torappu-rl05-customize-data.js';
+import { clz_Torappu_RL06CustomizeData, clz_Torappu_RL06CustomizeDataT } from './clz-torappu-rl06-customize-data.js';
 
 
 export class clz_Torappu_RoguelikeTopicCustomizeData implements flatbuffers.IUnpackableObject<clz_Torappu_RoguelikeTopicCustomizeDataT> {
@@ -54,8 +55,13 @@ rogue5(obj?:clz_Torappu_RL05CustomizeData):clz_Torappu_RL05CustomizeData|null {
   return offset ? (obj || new clz_Torappu_RL05CustomizeData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
+rogue6(obj?:clz_Torappu_RL06CustomizeData):clz_Torappu_RL06CustomizeData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? (obj || new clz_Torappu_RL06CustomizeData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
 static startclz_Torappu_RoguelikeTopicCustomizeData(builder:flatbuffers.Builder) {
-  builder.startObject(5);
+  builder.startObject(6);
 }
 
 static addRogue1(builder:flatbuffers.Builder, rogue1Offset:flatbuffers.Offset) {
@@ -78,6 +84,10 @@ static addRogue5(builder:flatbuffers.Builder, rogue5Offset:flatbuffers.Offset) {
   builder.addFieldOffset(4, rogue5Offset, 0);
 }
 
+static addRogue6(builder:flatbuffers.Builder, rogue6Offset:flatbuffers.Offset) {
+  builder.addFieldOffset(5, rogue6Offset, 0);
+}
+
 static endclz_Torappu_RoguelikeTopicCustomizeData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -90,7 +100,8 @@ unpack(): clz_Torappu_RoguelikeTopicCustomizeDataT {
     (this.rogue2() !== null ? this.rogue2()!.unpack() : null),
     (this.rogue3() !== null ? this.rogue3()!.unpack() : null),
     (this.rogue4() !== null ? this.rogue4()!.unpack() : null),
-    (this.rogue5() !== null ? this.rogue5()!.unpack() : null)
+    (this.rogue5() !== null ? this.rogue5()!.unpack() : null),
+    (this.rogue6() !== null ? this.rogue6()!.unpack() : null)
   );
 }
 
@@ -101,6 +112,7 @@ unpackTo(_o: clz_Torappu_RoguelikeTopicCustomizeDataT): void {
   _o.rogue3 = (this.rogue3() !== null ? this.rogue3()!.unpack() : null);
   _o.rogue4 = (this.rogue4() !== null ? this.rogue4()!.unpack() : null);
   _o.rogue5 = (this.rogue5() !== null ? this.rogue5()!.unpack() : null);
+  _o.rogue6 = (this.rogue6() !== null ? this.rogue6()!.unpack() : null);
 }
 }
 
@@ -110,7 +122,8 @@ constructor(
   public rogue2: clz_Torappu_RL02CustomizeDataT|null = null,
   public rogue3: clz_Torappu_RL03CustomizeDataT|null = null,
   public rogue4: clz_Torappu_RL04CustomizeDataT|null = null,
-  public rogue5: clz_Torappu_RL05CustomizeDataT|null = null
+  public rogue5: clz_Torappu_RL05CustomizeDataT|null = null,
+  public rogue6: clz_Torappu_RL06CustomizeDataT|null = null
 ){}
 
 
@@ -120,6 +133,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const rogue3 = (this.rogue3 !== null ? this.rogue3!.pack(builder) : 0);
   const rogue4 = (this.rogue4 !== null ? this.rogue4!.pack(builder) : 0);
   const rogue5 = (this.rogue5 !== null ? this.rogue5!.pack(builder) : 0);
+  const rogue6 = (this.rogue6 !== null ? this.rogue6!.pack(builder) : 0);
 
   clz_Torappu_RoguelikeTopicCustomizeData.startclz_Torappu_RoguelikeTopicCustomizeData(builder);
   clz_Torappu_RoguelikeTopicCustomizeData.addRogue1(builder, rogue1);
@@ -127,6 +141,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_RoguelikeTopicCustomizeData.addRogue3(builder, rogue3);
   clz_Torappu_RoguelikeTopicCustomizeData.addRogue4(builder, rogue4);
   clz_Torappu_RoguelikeTopicCustomizeData.addRogue5(builder, rogue5);
+  clz_Torappu_RoguelikeTopicCustomizeData.addRogue6(builder, rogue6);
 
   return clz_Torappu_RoguelikeTopicCustomizeData.endclz_Torappu_RoguelikeTopicCustomizeData(builder);
 }

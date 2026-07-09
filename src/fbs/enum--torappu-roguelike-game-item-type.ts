@@ -49,5 +49,9 @@ export enum enum__Torappu_RoguelikeGameItemType {
   WRATH = 43,
   SPECIAL_ZONE_AP = 44,
   COPPER_DRAW_NUM = 45,
-  STASH_RECRUIT_LIMIT = 46
+  STASH_RECRUIT_LIMIT = 46,
+  NODE_BUOY = 47,
+  SCRAP = 48,
+  LEGACY = 49,
+  CHARACTER = 50
 }

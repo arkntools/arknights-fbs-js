@@ -5,6 +5,7 @@
 import * as flatbuffers from 'flatbuffers';
 
 import { dict__string__clz_Torappu_EmoticonData_EmojiData, dict__string__clz_Torappu_EmoticonData_EmojiDataT } from './dict--string--clz-torappu-emoticon-data-emoji-data.js';
+import { dict__string__clz_Torappu_EmoticonData_EmoticonThemeTypeData, dict__string__clz_Torappu_EmoticonData_EmoticonThemeTypeDataT } from './dict--string--clz-torappu-emoticon-data-emoticon-theme-type-data.js';
 import { dict__string__list_string, dict__string__list_stringT } from './dict--string--list-string.js';
 
 
@@ -46,8 +47,28 @@ emoticonThemeDataDictLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+emoticonThemeTypeDict(index: number, obj?:dict__string__clz_Torappu_EmoticonData_EmoticonThemeTypeData):dict__string__clz_Torappu_EmoticonData_EmoticonThemeTypeData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 8);
+  return offset ? (obj || new dict__string__clz_Torappu_EmoticonData_EmoticonThemeTypeData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+emoticonThemeTypeDictLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 8);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+emoticonThemeReverseDict(index: number, obj?:dict__string__list_string):dict__string__list_string|null {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? (obj || new dict__string__list_string()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+emoticonThemeReverseDictLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_EmoticonData(builder:flatbuffers.Builder) {
-  builder.startObject(2);
+  builder.startObject(4);
 }
 
 static addEmojiDataDict(builder:flatbuffers.Builder, emojiDataDictOffset:flatbuffers.Offset) {
@@ -82,22 +103,58 @@ static startEmoticonThemeDataDictVector(builder:flatbuffers.Builder, numElems:nu
   builder.startVector(4, numElems, 4);
 }
 
+static addEmoticonThemeTypeDict(builder:flatbuffers.Builder, emoticonThemeTypeDictOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(2, emoticonThemeTypeDictOffset, 0);
+}
+
+static createEmoticonThemeTypeDictVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startEmoticonThemeTypeDictVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addEmoticonThemeReverseDict(builder:flatbuffers.Builder, emoticonThemeReverseDictOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(3, emoticonThemeReverseDictOffset, 0);
+}
+
+static createEmoticonThemeReverseDictVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startEmoticonThemeReverseDictVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static endclz_Torappu_EmoticonData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_EmoticonData(builder:flatbuffers.Builder, emojiDataDictOffset:flatbuffers.Offset, emoticonThemeDataDictOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_EmoticonData(builder:flatbuffers.Builder, emojiDataDictOffset:flatbuffers.Offset, emoticonThemeDataDictOffset:flatbuffers.Offset, emoticonThemeTypeDictOffset:flatbuffers.Offset, emoticonThemeReverseDictOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_EmoticonData.startclz_Torappu_EmoticonData(builder);
   clz_Torappu_EmoticonData.addEmojiDataDict(builder, emojiDataDictOffset);
   clz_Torappu_EmoticonData.addEmoticonThemeDataDict(builder, emoticonThemeDataDictOffset);
+  clz_Torappu_EmoticonData.addEmoticonThemeTypeDict(builder, emoticonThemeTypeDictOffset);
+  clz_Torappu_EmoticonData.addEmoticonThemeReverseDict(builder, emoticonThemeReverseDictOffset);
   return clz_Torappu_EmoticonData.endclz_Torappu_EmoticonData(builder);
 }
 
 unpack(): clz_Torappu_EmoticonDataT {
   return new clz_Torappu_EmoticonDataT(
     this.bb!.createObjList<dict__string__clz_Torappu_EmoticonData_EmojiData, dict__string__clz_Torappu_EmoticonData_EmojiDataT>(this.emojiDataDict.bind(this), this.emojiDataDictLength()),
-    this.bb!.createObjList<dict__string__list_string, dict__string__list_stringT>(this.emoticonThemeDataDict.bind(this), this.emoticonThemeDataDictLength())
+    this.bb!.createObjList<dict__string__list_string, dict__string__list_stringT>(this.emoticonThemeDataDict.bind(this), this.emoticonThemeDataDictLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_EmoticonData_EmoticonThemeTypeData, dict__string__clz_Torappu_EmoticonData_EmoticonThemeTypeDataT>(this.emoticonThemeTypeDict.bind(this), this.emoticonThemeTypeDictLength()),
+    this.bb!.createObjList<dict__string__list_string, dict__string__list_stringT>(this.emoticonThemeReverseDict.bind(this), this.emoticonThemeReverseDictLength())
   );
 }
 
@@ -105,23 +162,31 @@ unpack(): clz_Torappu_EmoticonDataT {
 unpackTo(_o: clz_Torappu_EmoticonDataT): void {
   _o.emojiDataDict = this.bb!.createObjList<dict__string__clz_Torappu_EmoticonData_EmojiData, dict__string__clz_Torappu_EmoticonData_EmojiDataT>(this.emojiDataDict.bind(this), this.emojiDataDictLength());
   _o.emoticonThemeDataDict = this.bb!.createObjList<dict__string__list_string, dict__string__list_stringT>(this.emoticonThemeDataDict.bind(this), this.emoticonThemeDataDictLength());
+  _o.emoticonThemeTypeDict = this.bb!.createObjList<dict__string__clz_Torappu_EmoticonData_EmoticonThemeTypeData, dict__string__clz_Torappu_EmoticonData_EmoticonThemeTypeDataT>(this.emoticonThemeTypeDict.bind(this), this.emoticonThemeTypeDictLength());
+  _o.emoticonThemeReverseDict = this.bb!.createObjList<dict__string__list_string, dict__string__list_stringT>(this.emoticonThemeReverseDict.bind(this), this.emoticonThemeReverseDictLength());
 }
 }
 
 export class clz_Torappu_EmoticonDataT implements flatbuffers.IGeneratedObject {
 constructor(
   public emojiDataDict: (dict__string__clz_Torappu_EmoticonData_EmojiDataT)[] = [],
-  public emoticonThemeDataDict: (dict__string__list_stringT)[] = []
+  public emoticonThemeDataDict: (dict__string__list_stringT)[] = [],
+  public emoticonThemeTypeDict: (dict__string__clz_Torappu_EmoticonData_EmoticonThemeTypeDataT)[] = [],
+  public emoticonThemeReverseDict: (dict__string__list_stringT)[] = []
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const emojiDataDict = clz_Torappu_EmoticonData.createEmojiDataDictVector(builder, builder.createObjectOffsetList(this.emojiDataDict));
   const emoticonThemeDataDict = clz_Torappu_EmoticonData.createEmoticonThemeDataDictVector(builder, builder.createObjectOffsetList(this.emoticonThemeDataDict));
+  const emoticonThemeTypeDict = clz_Torappu_EmoticonData.createEmoticonThemeTypeDictVector(builder, builder.createObjectOffsetList(this.emoticonThemeTypeDict));
+  const emoticonThemeReverseDict = clz_Torappu_EmoticonData.createEmoticonThemeReverseDictVector(builder, builder.createObjectOffsetList(this.emoticonThemeReverseDict));
 
   return clz_Torappu_EmoticonData.createclz_Torappu_EmoticonData(builder,
     emojiDataDict,
-    emoticonThemeDataDict
+    emoticonThemeDataDict,
+    emoticonThemeTypeDict,
+    emoticonThemeReverseDict
   );
 }
 }

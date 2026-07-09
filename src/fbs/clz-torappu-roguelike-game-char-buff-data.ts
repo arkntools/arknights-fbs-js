@@ -45,46 +45,53 @@ iconId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+relatedItemId():string|null
+relatedItemId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+relatedItemId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 10);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 outerName():string|null
 outerName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 outerName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 10);
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 innerName():string|null
 innerName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 innerName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
+  const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 functionDesc():string|null
 functionDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 functionDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 desc():string|null
 desc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 desc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 buffs(index: number, obj?:clz_Torappu_RoguelikeBuff):clz_Torappu_RoguelikeBuff|null {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? (obj || new clz_Torappu_RoguelikeBuff()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 buffsLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_RoguelikeGameCharBuffData(builder:flatbuffers.Builder) {
-  builder.startObject(8);
+  builder.startObject(9);
 }
 
 static addId(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset) {
@@ -99,24 +106,28 @@ static addIconId(builder:flatbuffers.Builder, iconIdOffset:flatbuffers.Offset) {
   builder.addFieldOffset(2, iconIdOffset, 0);
 }
 
+static addRelatedItemId(builder:flatbuffers.Builder, relatedItemIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(3, relatedItemIdOffset, 0);
+}
+
 static addOuterName(builder:flatbuffers.Builder, outerNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, outerNameOffset, 0);
+  builder.addFieldOffset(4, outerNameOffset, 0);
 }
 
 static addInnerName(builder:flatbuffers.Builder, innerNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(4, innerNameOffset, 0);
+  builder.addFieldOffset(5, innerNameOffset, 0);
 }
 
 static addFunctionDesc(builder:flatbuffers.Builder, functionDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, functionDescOffset, 0);
+  builder.addFieldOffset(6, functionDescOffset, 0);
 }
 
 static addDesc(builder:flatbuffers.Builder, descOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(6, descOffset, 0);
+  builder.addFieldOffset(7, descOffset, 0);
 }
 
 static addBuffs(builder:flatbuffers.Builder, buffsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(7, buffsOffset, 0);
+  builder.addFieldOffset(8, buffsOffset, 0);
 }
 
 static createBuffsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -136,11 +147,12 @@ static endclz_Torappu_RoguelikeGameCharBuffData(builder:flatbuffers.Builder):fla
   return offset;
 }
 
-static createclz_Torappu_RoguelikeGameCharBuffData(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, buffType:enum__Torappu_RoguelikeGameCharBuffType, iconIdOffset:flatbuffers.Offset, outerNameOffset:flatbuffers.Offset, innerNameOffset:flatbuffers.Offset, functionDescOffset:flatbuffers.Offset, descOffset:flatbuffers.Offset, buffsOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_RoguelikeGameCharBuffData(builder:flatbuffers.Builder, idOffset:flatbuffers.Offset, buffType:enum__Torappu_RoguelikeGameCharBuffType, iconIdOffset:flatbuffers.Offset, relatedItemIdOffset:flatbuffers.Offset, outerNameOffset:flatbuffers.Offset, innerNameOffset:flatbuffers.Offset, functionDescOffset:flatbuffers.Offset, descOffset:flatbuffers.Offset, buffsOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_RoguelikeGameCharBuffData.startclz_Torappu_RoguelikeGameCharBuffData(builder);
   clz_Torappu_RoguelikeGameCharBuffData.addId(builder, idOffset);
   clz_Torappu_RoguelikeGameCharBuffData.addBuffType(builder, buffType);
   clz_Torappu_RoguelikeGameCharBuffData.addIconId(builder, iconIdOffset);
+  clz_Torappu_RoguelikeGameCharBuffData.addRelatedItemId(builder, relatedItemIdOffset);
   clz_Torappu_RoguelikeGameCharBuffData.addOuterName(builder, outerNameOffset);
   clz_Torappu_RoguelikeGameCharBuffData.addInnerName(builder, innerNameOffset);
   clz_Torappu_RoguelikeGameCharBuffData.addFunctionDesc(builder, functionDescOffset);
@@ -154,6 +166,7 @@ unpack(): clz_Torappu_RoguelikeGameCharBuffDataT {
     this.id(),
     this.buffType(),
     this.iconId(),
+    this.relatedItemId(),
     this.outerName(),
     this.innerName(),
     this.functionDesc(),
@@ -167,6 +180,7 @@ unpackTo(_o: clz_Torappu_RoguelikeGameCharBuffDataT): void {
   _o.id = this.id();
   _o.buffType = this.buffType();
   _o.iconId = this.iconId();
+  _o.relatedItemId = this.relatedItemId();
   _o.outerName = this.outerName();
   _o.innerName = this.innerName();
   _o.functionDesc = this.functionDesc();
@@ -180,6 +194,7 @@ constructor(
   public id: string|Uint8Array|null = null,
   public buffType: enum__Torappu_RoguelikeGameCharBuffType = enum__Torappu_RoguelikeGameCharBuffType.NONE,
   public iconId: string|Uint8Array|null = null,
+  public relatedItemId: string|Uint8Array|null = null,
   public outerName: string|Uint8Array|null = null,
   public innerName: string|Uint8Array|null = null,
   public functionDesc: string|Uint8Array|null = null,
@@ -191,6 +206,7 @@ constructor(
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const id = (this.id !== null ? builder.createString(this.id!) : 0);
   const iconId = (this.iconId !== null ? builder.createString(this.iconId!) : 0);
+  const relatedItemId = (this.relatedItemId !== null ? builder.createString(this.relatedItemId!) : 0);
   const outerName = (this.outerName !== null ? builder.createString(this.outerName!) : 0);
   const innerName = (this.innerName !== null ? builder.createString(this.innerName!) : 0);
   const functionDesc = (this.functionDesc !== null ? builder.createString(this.functionDesc!) : 0);
@@ -201,6 +217,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     id,
     this.buffType,
     iconId,
+    relatedItemId,
     outerName,
     innerName,
     functionDesc,

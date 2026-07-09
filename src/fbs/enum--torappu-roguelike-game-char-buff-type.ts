@@ -5,5 +5,6 @@
 export enum enum__Torappu_RoguelikeGameCharBuffType {
   NONE = 0,
   MUTATION = 1,
-  EVOLUTION = 2
+  EVOLUTION = 2,
+  FROM_RELIC = 3
 }

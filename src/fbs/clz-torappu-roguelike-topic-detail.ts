@@ -47,6 +47,7 @@ import { dict__string__clz_Torappu_RoguelikeGameTrapData, dict__string__clz_Tora
 import { dict__string__clz_Torappu_RoguelikeGameUpgradeTicketData, dict__string__clz_Torappu_RoguelikeGameUpgradeTicketDataT } from './dict--string--clz-torappu-roguelike-game-upgrade-ticket-data.js';
 import { dict__string__clz_Torappu_RoguelikeGameVariationData, dict__string__clz_Torappu_RoguelikeGameVariationDataT } from './dict--string--clz-torappu-roguelike-game-variation-data.js';
 import { dict__string__clz_Torappu_RoguelikeGameZoneData, dict__string__clz_Torappu_RoguelikeGameZoneDataT } from './dict--string--clz-torappu-roguelike-game-zone-data.js';
+import { dict__string__clz_Torappu_RoguelikeLegacyItemData, dict__string__clz_Torappu_RoguelikeLegacyItemDataT } from './dict--string--clz-torappu-roguelike-legacy-item-data.js';
 import { dict__string__clz_Torappu_RoguelikePredefinedStyleData, dict__string__clz_Torappu_RoguelikePredefinedStyleDataT } from './dict--string--clz-torappu-roguelike-predefined-style-data.js';
 import { dict__string__clz_Torappu_RoguelikeRelicTipsData, dict__string__clz_Torappu_RoguelikeRelicTipsDataT } from './dict--string--clz-torappu-roguelike-relic-tips-data.js';
 import { dict__string__clz_Torappu_RoguelikeRollNodeData, dict__string__clz_Torappu_RoguelikeRollNodeDataT } from './dict--string--clz-torappu-roguelike-roll-node-data.js';
@@ -567,13 +568,23 @@ relicTipsDataLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-activity(obj?:clz_Torappu_RoguelikeActivityData):clz_Torappu_RoguelikeActivityData|null {
+legacyItems(index: number, obj?:dict__string__clz_Torappu_RoguelikeLegacyItemData):dict__string__clz_Torappu_RoguelikeLegacyItemData|null {
   const offset = this.bb!.__offset(this.bb_pos, 108);
+  return offset ? (obj || new dict__string__clz_Torappu_RoguelikeLegacyItemData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+legacyItemsLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 108);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+activity(obj?:clz_Torappu_RoguelikeActivityData):clz_Torappu_RoguelikeActivityData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 110);
   return offset ? (obj || new clz_Torappu_RoguelikeActivityData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 static startclz_Torappu_RoguelikeTopicDetail(builder:flatbuffers.Builder) {
-  builder.startObject(53);
+  builder.startObject(54);
 }
 
 static addUpdates(builder:flatbuffers.Builder, updatesOffset:flatbuffers.Offset) {
@@ -1336,8 +1347,24 @@ static startRelicTipsDataVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
+static addLegacyItems(builder:flatbuffers.Builder, legacyItemsOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(52, legacyItemsOffset, 0);
+}
+
+static createLegacyItemsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startLegacyItemsVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static addActivity(builder:flatbuffers.Builder, activityOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(52, activityOffset, 0);
+  builder.addFieldOffset(53, activityOffset, 0);
 }
 
 static endclz_Torappu_RoguelikeTopicDetail(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -1400,6 +1427,7 @@ unpack(): clz_Torappu_RoguelikeTopicDetailT {
     this.bb!.createObjList<dict__string__clz_Torappu_RoguelikeGameExploreToolData, dict__string__clz_Torappu_RoguelikeGameExploreToolDataT>(this.exploreTools.bind(this), this.exploreToolsLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_RoguelikeRollNodeData, dict__string__clz_Torappu_RoguelikeRollNodeDataT>(this.rollNodeData.bind(this), this.rollNodeDataLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_RoguelikeRelicTipsData, dict__string__clz_Torappu_RoguelikeRelicTipsDataT>(this.relicTipsData.bind(this), this.relicTipsDataLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_RoguelikeLegacyItemData, dict__string__clz_Torappu_RoguelikeLegacyItemDataT>(this.legacyItems.bind(this), this.legacyItemsLength()),
     (this.activity() !== null ? this.activity()!.unpack() : null)
   );
 }
@@ -1458,6 +1486,7 @@ unpackTo(_o: clz_Torappu_RoguelikeTopicDetailT): void {
   _o.exploreTools = this.bb!.createObjList<dict__string__clz_Torappu_RoguelikeGameExploreToolData, dict__string__clz_Torappu_RoguelikeGameExploreToolDataT>(this.exploreTools.bind(this), this.exploreToolsLength());
   _o.rollNodeData = this.bb!.createObjList<dict__string__clz_Torappu_RoguelikeRollNodeData, dict__string__clz_Torappu_RoguelikeRollNodeDataT>(this.rollNodeData.bind(this), this.rollNodeDataLength());
   _o.relicTipsData = this.bb!.createObjList<dict__string__clz_Torappu_RoguelikeRelicTipsData, dict__string__clz_Torappu_RoguelikeRelicTipsDataT>(this.relicTipsData.bind(this), this.relicTipsDataLength());
+  _o.legacyItems = this.bb!.createObjList<dict__string__clz_Torappu_RoguelikeLegacyItemData, dict__string__clz_Torappu_RoguelikeLegacyItemDataT>(this.legacyItems.bind(this), this.legacyItemsLength());
   _o.activity = (this.activity() !== null ? this.activity()!.unpack() : null);
 }
 }
@@ -1516,6 +1545,7 @@ constructor(
   public exploreTools: (dict__string__clz_Torappu_RoguelikeGameExploreToolDataT)[] = [],
   public rollNodeData: (dict__string__clz_Torappu_RoguelikeRollNodeDataT)[] = [],
   public relicTipsData: (dict__string__clz_Torappu_RoguelikeRelicTipsDataT)[] = [],
+  public legacyItems: (dict__string__clz_Torappu_RoguelikeLegacyItemDataT)[] = [],
   public activity: clz_Torappu_RoguelikeActivityDataT|null = null
 ){}
 
@@ -1573,6 +1603,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const exploreTools = clz_Torappu_RoguelikeTopicDetail.createExploreToolsVector(builder, builder.createObjectOffsetList(this.exploreTools));
   const rollNodeData = clz_Torappu_RoguelikeTopicDetail.createRollNodeDataVector(builder, builder.createObjectOffsetList(this.rollNodeData));
   const relicTipsData = clz_Torappu_RoguelikeTopicDetail.createRelicTipsDataVector(builder, builder.createObjectOffsetList(this.relicTipsData));
+  const legacyItems = clz_Torappu_RoguelikeTopicDetail.createLegacyItemsVector(builder, builder.createObjectOffsetList(this.legacyItems));
   const activity = (this.activity !== null ? this.activity!.pack(builder) : 0);
 
   clz_Torappu_RoguelikeTopicDetail.startclz_Torappu_RoguelikeTopicDetail(builder);
@@ -1628,6 +1659,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_RoguelikeTopicDetail.addExploreTools(builder, exploreTools);
   clz_Torappu_RoguelikeTopicDetail.addRollNodeData(builder, rollNodeData);
   clz_Torappu_RoguelikeTopicDetail.addRelicTipsData(builder, relicTipsData);
+  clz_Torappu_RoguelikeTopicDetail.addLegacyItems(builder, legacyItems);
   clz_Torappu_RoguelikeTopicDetail.addActivity(builder, activity);
 
   return clz_Torappu_RoguelikeTopicDetail.endclz_Torappu_RoguelikeTopicDetail(builder);
