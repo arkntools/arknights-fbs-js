@@ -2,6 +2,15 @@
 
 /* eslint-disable @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any, @typescript-eslint/no-non-null-assertion */
 
+export { clz_Torappu_ArkOdcBasicData, clz_Torappu_ArkOdcBasicDataT } from './clz-torappu-ark-odc-basic-data.js';
+export { clz_Torappu_ArkOdcConstData, clz_Torappu_ArkOdcConstDataT } from './clz-torappu-ark-odc-const-data.js';
+export { clz_Torappu_ArkOdcLoadingData, clz_Torappu_ArkOdcLoadingDataT } from './clz-torappu-ark-odc-loading-data.js';
+export { clz_Torappu_ArkOdcMoveConstData, clz_Torappu_ArkOdcMoveConstDataT } from './clz-torappu-ark-odc-move-const-data.js';
+export { clz_Torappu_ArkOdcTable, clz_Torappu_ArkOdcTableT } from './clz-torappu-ark-odc-table.js';
+export { clz_Torappu_ArkOdcTaskTrackingConstData, clz_Torappu_ArkOdcTaskTrackingConstDataT } from './clz-torappu-ark-odc-task-tracking-const-data.js';
+export { clz_Torappu_ArkOdcTaskTrackingData, clz_Torappu_ArkOdcTaskTrackingDataT } from './clz-torappu-ark-odc-task-tracking-data.js';
+export { clz_Torappu_ArkOdcTaskTrackingEntryData, clz_Torappu_ArkOdcTaskTrackingEntryDataT } from './clz-torappu-ark-odc-task-tracking-entry-data.js';
+export { clz_Torappu_ArkOdcTaskTrackingMainData, clz_Torappu_ArkOdcTaskTrackingMainDataT } from './clz-torappu-ark-odc-task-tracking-main-data.js';
 export { clz_Torappu_ArkventAnimMixData, clz_Torappu_ArkventAnimMixDataT } from './clz-torappu-arkvent-anim-mix-data.js';
 export { clz_Torappu_ArkventAudioSourceData, clz_Torappu_ArkventAudioSourceDataT } from './clz-torappu-arkvent-audio-source-data.js';
 export { clz_Torappu_ArkventAudioSpatialProfile, clz_Torappu_ArkventAudioSpatialProfileT } from './clz-torappu-arkvent-audio-spatial-profile.js';
@@ -13,6 +22,7 @@ export { clz_Torappu_ArkventCameraPlatformConfig, clz_Torappu_ArkventCameraPlatf
 export { clz_Torappu_ArkventData, clz_Torappu_ArkventDataT } from './clz-torappu-arkvent-data.js';
 export { clz_Torappu_ArkventHeadUIData, clz_Torappu_ArkventHeadUIDataT } from './clz-torappu-arkvent-head-uidata.js';
 export { clz_Torappu_ArkventInteractBtnStyleData, clz_Torappu_ArkventInteractBtnStyleDataT } from './clz-torappu-arkvent-interact-btn-style-data.js';
+export { clz_Torappu_ArkventMovePresetData, clz_Torappu_ArkventMovePresetDataT } from './clz-torappu-arkvent-move-preset-data.js';
 export { clz_Torappu_ArkventNameMappingData, clz_Torappu_ArkventNameMappingDataT } from './clz-torappu-arkvent-name-mapping-data.js';
 export { clz_Torappu_ArkventRangeData, clz_Torappu_ArkventRangeDataT } from './clz-torappu-arkvent-range-data.js';
 export { clz_Torappu_ArkventSceneData, clz_Torappu_ArkventSceneDataT } from './clz-torappu-arkvent-scene-data.js';
@@ -20,16 +30,23 @@ export { clz_Torappu_ArkventTaskActorData, clz_Torappu_ArkventTaskActorDataT } f
 export { clz_Torappu_ArkventTaskActorTriggerOperation, clz_Torappu_ArkventTaskActorTriggerOperationT } from './clz-torappu-arkvent-task-actor-trigger-operation.js';
 export { clz_Torappu_ArkventTaskData, clz_Torappu_ArkventTaskDataT } from './clz-torappu-arkvent-task-data.js';
 export { clz_Torappu_ArkventTaskShowCondition, clz_Torappu_ArkventTaskShowConditionT } from './clz-torappu-arkvent-task-show-condition.js';
+export { clz_Torappu_ItemBundle, clz_Torappu_ItemBundleT } from './clz-torappu-item-bundle.js';
 export { clz_UnityEngine_Vector3, clz_UnityEngine_Vector3T } from './clz-unity-engine-vector3.js';
 export { dict__int__clz_Torappu_ArkventSceneData, dict__int__clz_Torappu_ArkventSceneDataT } from './dict--int--clz-torappu-arkvent-scene-data.js';
 export { dict__int__list_clz_Torappu_ArkventAudioSourceData, dict__int__list_clz_Torappu_ArkventAudioSourceDataT } from './dict--int--list-clz-torappu-arkvent-audio-source-data.js';
+export { dict__string__clz_Torappu_ArkOdcBasicData, dict__string__clz_Torappu_ArkOdcBasicDataT } from './dict--string--clz-torappu-ark-odc-basic-data.js';
+export { dict__string__clz_Torappu_ArkOdcLoadingData, dict__string__clz_Torappu_ArkOdcLoadingDataT } from './dict--string--clz-torappu-ark-odc-loading-data.js';
+export { dict__string__clz_Torappu_ArkOdcTaskTrackingEntryData, dict__string__clz_Torappu_ArkOdcTaskTrackingEntryDataT } from './dict--string--clz-torappu-ark-odc-task-tracking-entry-data.js';
+export { dict__string__clz_Torappu_ArkOdcTaskTrackingMainData, dict__string__clz_Torappu_ArkOdcTaskTrackingMainDataT } from './dict--string--clz-torappu-ark-odc-task-tracking-main-data.js';
 export { dict__string__clz_Torappu_ArkventBarkPoolData, dict__string__clz_Torappu_ArkventBarkPoolDataT } from './dict--string--clz-torappu-arkvent-bark-pool-data.js';
 export { dict__string__clz_Torappu_ArkventCameraConfigData, dict__string__clz_Torappu_ArkventCameraConfigDataT } from './dict--string--clz-torappu-arkvent-camera-config-data.js';
+export { dict__string__clz_Torappu_ArkventData, dict__string__clz_Torappu_ArkventDataT } from './dict--string--clz-torappu-arkvent-data.js';
 export { dict__string__clz_Torappu_ArkventHeadUIData, dict__string__clz_Torappu_ArkventHeadUIDataT } from './dict--string--clz-torappu-arkvent-head-uidata.js';
 export { dict__string__clz_Torappu_ArkventInteractBtnStyleData, dict__string__clz_Torappu_ArkventInteractBtnStyleDataT } from './dict--string--clz-torappu-arkvent-interact-btn-style-data.js';
 export { dict__string__clz_Torappu_ArkventTaskActorData, dict__string__clz_Torappu_ArkventTaskActorDataT } from './dict--string--clz-torappu-arkvent-task-actor-data.js';
 export { dict__string__float, dict__string__floatT } from './dict--string--float.js';
 export { dict__string__list_clz_Torappu_ArkventTaskActorTriggerOperation, dict__string__list_clz_Torappu_ArkventTaskActorTriggerOperationT } from './dict--string--list-clz-torappu-arkvent-task-actor-trigger-operation.js';
+export { dict__string__list_clz_Torappu_ItemBundle, dict__string__list_clz_Torappu_ItemBundleT } from './dict--string--list-clz-torappu-item-bundle.js';
 export { dict__string__string, dict__string__stringT } from './dict--string--string.js';
 export { enum__Torappu_ArkventAudioMetaFlag } from './enum--torappu-arkvent-audio-meta-flag.js';
 export { enum__Torappu_ArkventAudioRollOffType } from './enum--torappu-arkvent-audio-roll-off-type.js';
@@ -42,3 +59,7 @@ export { enum__Torappu_ArkventSpineFaceType } from './enum--torappu-arkvent-spin
 export { enum__Torappu_ArkventTaskActorTriggerType } from './enum--torappu-arkvent-task-actor-trigger-type.js';
 export { enum__Torappu_ArkventTaskActorType } from './enum--torappu-arkvent-task-actor-type.js';
 export { enum__Torappu_ArkventTaskVarSeqCompareOperation } from './enum--torappu-arkvent-task-var-seq-compare-operation.js';
+export { enum__Torappu_EasingType } from './enum--torappu-easing-type.js';
+export { enum__Torappu_ItemType } from './enum--torappu-item-type.js';
+export { enum__Torappu_SpineFlipMode } from './enum--torappu-spine-flip-mode.js';
+export { enum__Torappu_TurningMode } from './enum--torappu-turning-mode.js';

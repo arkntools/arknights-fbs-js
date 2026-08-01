@@ -181,14 +181,6 @@ static endclz_Torappu_ArkventData(builder:flatbuffers.Builder):flatbuffers.Offse
   return offset;
 }
 
-static finishclz_Torappu_ArkventDataBuffer(builder:flatbuffers.Builder, offset:flatbuffers.Offset) {
-  builder.finish(offset);
-}
-
-static finishSizePrefixedclz_Torappu_ArkventDataBuffer(builder:flatbuffers.Builder, offset:flatbuffers.Offset) {
-  builder.finish(offset, undefined, true);
-}
-
 
 unpack(): clz_Torappu_ArkventDataT {
   return new clz_Torappu_ArkventDataT(
