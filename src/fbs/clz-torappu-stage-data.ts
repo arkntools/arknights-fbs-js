@@ -139,274 +139,281 @@ loadingPicId(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-canPractice():boolean {
+battleFinishLoadingPicId():string|null
+battleFinishLoadingPicId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+battleFinishLoadingPicId(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 36);
-  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-canBattleReplay():boolean {
+canPractice():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 38);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-apCost():number {
+canBattleReplay():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 40);
-  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-apFailReturn():number {
+apCost():number {
   const offset = this.bb!.__offset(this.bb_pos, 42);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-maxSlot():number {
+apFailReturn():number {
   const offset = this.bb!.__offset(this.bb_pos, 44);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+maxSlot():number {
+  const offset = this.bb!.__offset(this.bb_pos, 46);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 etItemId():string|null
 etItemId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 etItemId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 46);
+  const offset = this.bb!.__offset(this.bb_pos, 48);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 etCost():number {
-  const offset = this.bb!.__offset(this.bb_pos, 48);
+  const offset = this.bb!.__offset(this.bb_pos, 50);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 etFailReturn():number {
-  const offset = this.bb!.__offset(this.bb_pos, 50);
+  const offset = this.bb!.__offset(this.bb_pos, 52);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 etButtonStyle():string|null
 etButtonStyle(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 etButtonStyle(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 52);
+  const offset = this.bb!.__offset(this.bb_pos, 54);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 apProtectTimes():number {
-  const offset = this.bb!.__offset(this.bb_pos, 54);
-  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
-}
-
-diamondOnceDrop():number {
   const offset = this.bb!.__offset(this.bb_pos, 56);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-practiceTicketCost():number {
+diamondOnceDrop():number {
   const offset = this.bb!.__offset(this.bb_pos, 58);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-dailyStageDifficulty():number {
+practiceTicketCost():number {
   const offset = this.bb!.__offset(this.bb_pos, 60);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-expGain():number {
+dailyStageDifficulty():number {
   const offset = this.bb!.__offset(this.bb_pos, 62);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-goldGain():number {
+expGain():number {
   const offset = this.bb!.__offset(this.bb_pos, 64);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-loseExpGain():number {
+goldGain():number {
   const offset = this.bb!.__offset(this.bb_pos, 66);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-loseGoldGain():number {
+loseExpGain():number {
   const offset = this.bb!.__offset(this.bb_pos, 68);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-passFavor():number {
+loseGoldGain():number {
   const offset = this.bb!.__offset(this.bb_pos, 70);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-completeFavor():number {
+passFavor():number {
   const offset = this.bb!.__offset(this.bb_pos, 72);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-slProgress():number {
+completeFavor():number {
   const offset = this.bb!.__offset(this.bb_pos, 74);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+slProgress():number {
+  const offset = this.bb!.__offset(this.bb_pos, 76);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 displayMainItem():string|null
 displayMainItem(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 displayMainItem(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 76);
+  const offset = this.bb!.__offset(this.bb_pos, 78);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 hilightMark():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 78);
-  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
-}
-
-bossMark():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 80);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-isPredefined():boolean {
+bossMark():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 82);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-isHardPredefined():boolean {
+isPredefined():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 84);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-isSkillSelectablePredefined():boolean {
+isHardPredefined():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 86);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-isStoryOnly():boolean {
+isSkillSelectablePredefined():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 88);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-appearanceStyle():enum__Torappu_AppearanceStyle {
+isStoryOnly():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 90);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+appearanceStyle():enum__Torappu_AppearanceStyle {
+  const offset = this.bb!.__offset(this.bb_pos, 92);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_AppearanceStyle.MAIN_NORMAL;
 }
 
 stageDropInfo(obj?:clz_Torappu_StageData_StageDropInfo):clz_Torappu_StageData_StageDropInfo|null {
-  const offset = this.bb!.__offset(this.bb_pos, 92);
+  const offset = this.bb!.__offset(this.bb_pos, 94);
   return offset ? (obj || new clz_Torappu_StageData_StageDropInfo()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 canUseCharm():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 94);
-  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
-}
-
-canUseTech():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 96);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-canUseTrapTool():boolean {
+canUseTech():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 98);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-canUseBattlePerformance():boolean {
+canUseTrapTool():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 100);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-canUseFirework():boolean {
+canUseBattlePerformance():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 102);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-canMultipleBattle():boolean {
+canUseFirework():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 104);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+canMultipleBattle():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 106);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 startButtonOverrideId():string|null
 startButtonOverrideId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 startButtonOverrideId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 106);
+  const offset = this.bb!.__offset(this.bb_pos, 108);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 isStagePatch():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 108);
+  const offset = this.bb!.__offset(this.bb_pos, 110);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 mainStageId():string|null
 mainStageId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 mainStageId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 110);
+  const offset = this.bb!.__offset(this.bb_pos, 112);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 extraCondition(index: number, obj?:clz_Torappu_StageData_ExtraConditionDesc):clz_Torappu_StageData_ExtraConditionDesc|null {
-  const offset = this.bb!.__offset(this.bb_pos, 112);
+  const offset = this.bb!.__offset(this.bb_pos, 114);
   return offset ? (obj || new clz_Torappu_StageData_ExtraConditionDesc()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 extraConditionLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 112);
+  const offset = this.bb!.__offset(this.bb_pos, 114);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 extraInfo(index: number, obj?:clz_Torappu_StageData_SpecialStoryInfo):clz_Torappu_StageData_SpecialStoryInfo|null {
-  const offset = this.bb!.__offset(this.bb_pos, 114);
+  const offset = this.bb!.__offset(this.bb_pos, 116);
   return offset ? (obj || new clz_Torappu_StageData_SpecialStoryInfo()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 extraInfoLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 114);
+  const offset = this.bb!.__offset(this.bb_pos, 116);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 sixStarBaseDesc():string|null
 sixStarBaseDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 sixStarBaseDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 116);
+  const offset = this.bb!.__offset(this.bb_pos, 118);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 sixStarDisplayRewardList(index: number, obj?:clz_Torappu_ItemBundle):clz_Torappu_ItemBundle|null {
-  const offset = this.bb!.__offset(this.bb_pos, 118);
+  const offset = this.bb!.__offset(this.bb_pos, 120);
   return offset ? (obj || new clz_Torappu_ItemBundle()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 sixStarDisplayRewardListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 118);
+  const offset = this.bb!.__offset(this.bb_pos, 120);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 advancedRuneIdList1(index: number):string
 advancedRuneIdList1(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 advancedRuneIdList1(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 120);
+  const offset = this.bb!.__offset(this.bb_pos, 122);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 advancedRuneIdList1Length():number {
-  const offset = this.bb!.__offset(this.bb_pos, 120);
+  const offset = this.bb!.__offset(this.bb_pos, 122);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 advancedRuneIdList2(index: number):string
 advancedRuneIdList2(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 advancedRuneIdList2(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 122);
+  const offset = this.bb!.__offset(this.bb_pos, 124);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 advancedRuneIdList2Length():number {
-  const offset = this.bb!.__offset(this.bb_pos, 122);
+  const offset = this.bb!.__offset(this.bb_pos, 124);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 useSpecialSizeMapPreview():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 124);
+  const offset = this.bb!.__offset(this.bb_pos, 126);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 static startclz_Torappu_StageData(builder:flatbuffers.Builder) {
-  builder.startObject(61);
+  builder.startObject(62);
 }
 
 static addStageType(builder:flatbuffers.Builder, stageType:enum__Torappu_StageType) {
@@ -485,160 +492,164 @@ static addLoadingPicId(builder:flatbuffers.Builder, loadingPicIdOffset:flatbuffe
   builder.addFieldOffset(15, loadingPicIdOffset, 0);
 }
 
+static addBattleFinishLoadingPicId(builder:flatbuffers.Builder, battleFinishLoadingPicIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(16, battleFinishLoadingPicIdOffset, 0);
+}
+
 static addCanPractice(builder:flatbuffers.Builder, canPractice:boolean) {
-  builder.addFieldInt8(16, +canPractice, +false);
+  builder.addFieldInt8(17, +canPractice, +false);
 }
 
 static addCanBattleReplay(builder:flatbuffers.Builder, canBattleReplay:boolean) {
-  builder.addFieldInt8(17, +canBattleReplay, +false);
+  builder.addFieldInt8(18, +canBattleReplay, +false);
 }
 
 static addApCost(builder:flatbuffers.Builder, apCost:number) {
-  builder.addFieldInt32(18, apCost, 0);
+  builder.addFieldInt32(19, apCost, 0);
 }
 
 static addApFailReturn(builder:flatbuffers.Builder, apFailReturn:number) {
-  builder.addFieldInt32(19, apFailReturn, 0);
+  builder.addFieldInt32(20, apFailReturn, 0);
 }
 
 static addMaxSlot(builder:flatbuffers.Builder, maxSlot:number) {
-  builder.addFieldInt32(20, maxSlot, 0);
+  builder.addFieldInt32(21, maxSlot, 0);
 }
 
 static addEtItemId(builder:flatbuffers.Builder, etItemIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(21, etItemIdOffset, 0);
+  builder.addFieldOffset(22, etItemIdOffset, 0);
 }
 
 static addEtCost(builder:flatbuffers.Builder, etCost:number) {
-  builder.addFieldInt32(22, etCost, 0);
+  builder.addFieldInt32(23, etCost, 0);
 }
 
 static addEtFailReturn(builder:flatbuffers.Builder, etFailReturn:number) {
-  builder.addFieldInt32(23, etFailReturn, 0);
+  builder.addFieldInt32(24, etFailReturn, 0);
 }
 
 static addEtButtonStyle(builder:flatbuffers.Builder, etButtonStyleOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(24, etButtonStyleOffset, 0);
+  builder.addFieldOffset(25, etButtonStyleOffset, 0);
 }
 
 static addApProtectTimes(builder:flatbuffers.Builder, apProtectTimes:number) {
-  builder.addFieldInt32(25, apProtectTimes, 0);
+  builder.addFieldInt32(26, apProtectTimes, 0);
 }
 
 static addDiamondOnceDrop(builder:flatbuffers.Builder, diamondOnceDrop:number) {
-  builder.addFieldInt32(26, diamondOnceDrop, 0);
+  builder.addFieldInt32(27, diamondOnceDrop, 0);
 }
 
 static addPracticeTicketCost(builder:flatbuffers.Builder, practiceTicketCost:number) {
-  builder.addFieldInt32(27, practiceTicketCost, 0);
+  builder.addFieldInt32(28, practiceTicketCost, 0);
 }
 
 static addDailyStageDifficulty(builder:flatbuffers.Builder, dailyStageDifficulty:number) {
-  builder.addFieldInt32(28, dailyStageDifficulty, 0);
+  builder.addFieldInt32(29, dailyStageDifficulty, 0);
 }
 
 static addExpGain(builder:flatbuffers.Builder, expGain:number) {
-  builder.addFieldInt32(29, expGain, 0);
+  builder.addFieldInt32(30, expGain, 0);
 }
 
 static addGoldGain(builder:flatbuffers.Builder, goldGain:number) {
-  builder.addFieldInt32(30, goldGain, 0);
+  builder.addFieldInt32(31, goldGain, 0);
 }
 
 static addLoseExpGain(builder:flatbuffers.Builder, loseExpGain:number) {
-  builder.addFieldInt32(31, loseExpGain, 0);
+  builder.addFieldInt32(32, loseExpGain, 0);
 }
 
 static addLoseGoldGain(builder:flatbuffers.Builder, loseGoldGain:number) {
-  builder.addFieldInt32(32, loseGoldGain, 0);
+  builder.addFieldInt32(33, loseGoldGain, 0);
 }
 
 static addPassFavor(builder:flatbuffers.Builder, passFavor:number) {
-  builder.addFieldInt32(33, passFavor, 0);
+  builder.addFieldInt32(34, passFavor, 0);
 }
 
 static addCompleteFavor(builder:flatbuffers.Builder, completeFavor:number) {
-  builder.addFieldInt32(34, completeFavor, 0);
+  builder.addFieldInt32(35, completeFavor, 0);
 }
 
 static addSlProgress(builder:flatbuffers.Builder, slProgress:number) {
-  builder.addFieldInt32(35, slProgress, 0);
+  builder.addFieldInt32(36, slProgress, 0);
 }
 
 static addDisplayMainItem(builder:flatbuffers.Builder, displayMainItemOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(36, displayMainItemOffset, 0);
+  builder.addFieldOffset(37, displayMainItemOffset, 0);
 }
 
 static addHilightMark(builder:flatbuffers.Builder, hilightMark:boolean) {
-  builder.addFieldInt8(37, +hilightMark, +false);
+  builder.addFieldInt8(38, +hilightMark, +false);
 }
 
 static addBossMark(builder:flatbuffers.Builder, bossMark:boolean) {
-  builder.addFieldInt8(38, +bossMark, +false);
+  builder.addFieldInt8(39, +bossMark, +false);
 }
 
 static addIsPredefined(builder:flatbuffers.Builder, isPredefined:boolean) {
-  builder.addFieldInt8(39, +isPredefined, +false);
+  builder.addFieldInt8(40, +isPredefined, +false);
 }
 
 static addIsHardPredefined(builder:flatbuffers.Builder, isHardPredefined:boolean) {
-  builder.addFieldInt8(40, +isHardPredefined, +false);
+  builder.addFieldInt8(41, +isHardPredefined, +false);
 }
 
 static addIsSkillSelectablePredefined(builder:flatbuffers.Builder, isSkillSelectablePredefined:boolean) {
-  builder.addFieldInt8(41, +isSkillSelectablePredefined, +false);
+  builder.addFieldInt8(42, +isSkillSelectablePredefined, +false);
 }
 
 static addIsStoryOnly(builder:flatbuffers.Builder, isStoryOnly:boolean) {
-  builder.addFieldInt8(42, +isStoryOnly, +false);
+  builder.addFieldInt8(43, +isStoryOnly, +false);
 }
 
 static addAppearanceStyle(builder:flatbuffers.Builder, appearanceStyle:enum__Torappu_AppearanceStyle) {
-  builder.addFieldInt32(43, appearanceStyle, enum__Torappu_AppearanceStyle.MAIN_NORMAL);
+  builder.addFieldInt32(44, appearanceStyle, enum__Torappu_AppearanceStyle.MAIN_NORMAL);
 }
 
 static addStageDropInfo(builder:flatbuffers.Builder, stageDropInfoOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(44, stageDropInfoOffset, 0);
+  builder.addFieldOffset(45, stageDropInfoOffset, 0);
 }
 
 static addCanUseCharm(builder:flatbuffers.Builder, canUseCharm:boolean) {
-  builder.addFieldInt8(45, +canUseCharm, +false);
+  builder.addFieldInt8(46, +canUseCharm, +false);
 }
 
 static addCanUseTech(builder:flatbuffers.Builder, canUseTech:boolean) {
-  builder.addFieldInt8(46, +canUseTech, +false);
+  builder.addFieldInt8(47, +canUseTech, +false);
 }
 
 static addCanUseTrapTool(builder:flatbuffers.Builder, canUseTrapTool:boolean) {
-  builder.addFieldInt8(47, +canUseTrapTool, +false);
+  builder.addFieldInt8(48, +canUseTrapTool, +false);
 }
 
 static addCanUseBattlePerformance(builder:flatbuffers.Builder, canUseBattlePerformance:boolean) {
-  builder.addFieldInt8(48, +canUseBattlePerformance, +false);
+  builder.addFieldInt8(49, +canUseBattlePerformance, +false);
 }
 
 static addCanUseFirework(builder:flatbuffers.Builder, canUseFirework:boolean) {
-  builder.addFieldInt8(49, +canUseFirework, +false);
+  builder.addFieldInt8(50, +canUseFirework, +false);
 }
 
 static addCanMultipleBattle(builder:flatbuffers.Builder, canMultipleBattle:boolean) {
-  builder.addFieldInt8(50, +canMultipleBattle, +false);
+  builder.addFieldInt8(51, +canMultipleBattle, +false);
 }
 
 static addStartButtonOverrideId(builder:flatbuffers.Builder, startButtonOverrideIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(51, startButtonOverrideIdOffset, 0);
+  builder.addFieldOffset(52, startButtonOverrideIdOffset, 0);
 }
 
 static addIsStagePatch(builder:flatbuffers.Builder, isStagePatch:boolean) {
-  builder.addFieldInt8(52, +isStagePatch, +false);
+  builder.addFieldInt8(53, +isStagePatch, +false);
 }
 
 static addMainStageId(builder:flatbuffers.Builder, mainStageIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(53, mainStageIdOffset, 0);
+  builder.addFieldOffset(54, mainStageIdOffset, 0);
 }
 
 static addExtraCondition(builder:flatbuffers.Builder, extraConditionOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(54, extraConditionOffset, 0);
+  builder.addFieldOffset(55, extraConditionOffset, 0);
 }
 
 static createExtraConditionVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -654,7 +665,7 @@ static startExtraConditionVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addExtraInfo(builder:flatbuffers.Builder, extraInfoOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(55, extraInfoOffset, 0);
+  builder.addFieldOffset(56, extraInfoOffset, 0);
 }
 
 static createExtraInfoVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -670,11 +681,11 @@ static startExtraInfoVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addSixStarBaseDesc(builder:flatbuffers.Builder, sixStarBaseDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(56, sixStarBaseDescOffset, 0);
+  builder.addFieldOffset(57, sixStarBaseDescOffset, 0);
 }
 
 static addSixStarDisplayRewardList(builder:flatbuffers.Builder, sixStarDisplayRewardListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(57, sixStarDisplayRewardListOffset, 0);
+  builder.addFieldOffset(58, sixStarDisplayRewardListOffset, 0);
 }
 
 static createSixStarDisplayRewardListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -690,7 +701,7 @@ static startSixStarDisplayRewardListVector(builder:flatbuffers.Builder, numElems
 }
 
 static addAdvancedRuneIdList1(builder:flatbuffers.Builder, advancedRuneIdList1Offset:flatbuffers.Offset) {
-  builder.addFieldOffset(58, advancedRuneIdList1Offset, 0);
+  builder.addFieldOffset(59, advancedRuneIdList1Offset, 0);
 }
 
 static createAdvancedRuneIdList1Vector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -706,7 +717,7 @@ static startAdvancedRuneIdList1Vector(builder:flatbuffers.Builder, numElems:numb
 }
 
 static addAdvancedRuneIdList2(builder:flatbuffers.Builder, advancedRuneIdList2Offset:flatbuffers.Offset) {
-  builder.addFieldOffset(59, advancedRuneIdList2Offset, 0);
+  builder.addFieldOffset(60, advancedRuneIdList2Offset, 0);
 }
 
 static createAdvancedRuneIdList2Vector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -722,7 +733,7 @@ static startAdvancedRuneIdList2Vector(builder:flatbuffers.Builder, numElems:numb
 }
 
 static addUseSpecialSizeMapPreview(builder:flatbuffers.Builder, useSpecialSizeMapPreview:boolean) {
-  builder.addFieldInt8(60, +useSpecialSizeMapPreview, +false);
+  builder.addFieldInt8(61, +useSpecialSizeMapPreview, +false);
 }
 
 static endclz_Torappu_StageData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -749,6 +760,7 @@ unpack(): clz_Torappu_StageDataT {
     this.dangerLevel(),
     this.dangerPoint(),
     this.loadingPicId(),
+    this.battleFinishLoadingPicId(),
     this.canPractice(),
     this.canBattleReplay(),
     this.apCost(),
@@ -815,6 +827,7 @@ unpackTo(_o: clz_Torappu_StageDataT): void {
   _o.dangerLevel = this.dangerLevel();
   _o.dangerPoint = this.dangerPoint();
   _o.loadingPicId = this.loadingPicId();
+  _o.battleFinishLoadingPicId = this.battleFinishLoadingPicId();
   _o.canPractice = this.canPractice();
   _o.canBattleReplay = this.canBattleReplay();
   _o.apCost = this.apCost();
@@ -881,6 +894,7 @@ constructor(
   public dangerLevel: string|Uint8Array|null = null,
   public dangerPoint: number = 0.0,
   public loadingPicId: string|Uint8Array|null = null,
+  public battleFinishLoadingPicId: string|Uint8Array|null = null,
   public canPractice: boolean = false,
   public canBattleReplay: boolean = false,
   public apCost: number = 0,
@@ -941,6 +955,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const sixStarStageId = (this.sixStarStageId !== null ? builder.createString(this.sixStarStageId!) : 0);
   const dangerLevel = (this.dangerLevel !== null ? builder.createString(this.dangerLevel!) : 0);
   const loadingPicId = (this.loadingPicId !== null ? builder.createString(this.loadingPicId!) : 0);
+  const battleFinishLoadingPicId = (this.battleFinishLoadingPicId !== null ? builder.createString(this.battleFinishLoadingPicId!) : 0);
   const etItemId = (this.etItemId !== null ? builder.createString(this.etItemId!) : 0);
   const etButtonStyle = (this.etButtonStyle !== null ? builder.createString(this.etButtonStyle!) : 0);
   const displayMainItem = (this.displayMainItem !== null ? builder.createString(this.displayMainItem!) : 0);
@@ -971,6 +986,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_StageData.addDangerLevel(builder, dangerLevel);
   clz_Torappu_StageData.addDangerPoint(builder, this.dangerPoint);
   clz_Torappu_StageData.addLoadingPicId(builder, loadingPicId);
+  clz_Torappu_StageData.addBattleFinishLoadingPicId(builder, battleFinishLoadingPicId);
   clz_Torappu_StageData.addCanPractice(builder, this.canPractice);
   clz_Torappu_StageData.addCanBattleReplay(builder, this.canBattleReplay);
   clz_Torappu_StageData.addApCost(builder, this.apCost);

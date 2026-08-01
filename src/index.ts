@@ -1,4 +1,5 @@
 export * from './unpack/activity_table';
+export * from './unpack/arkvent_table';
 export * from './unpack/audio_data';
 export * from './unpack/bake_muzzle_data';
 export * from './unpack/battle_equip_table';

@@ -10,6 +10,7 @@ import { clz_Torappu_ActivityTable_ActivityHiddenStageData, clz_Torappu_Activity
 import { clz_Torappu_ActivityThemeData, clz_Torappu_ActivityThemeDataT } from './clz-torappu-activity-theme-data.js';
 import { clz_Torappu_Anniv7thMainlineData, clz_Torappu_Anniv7thMainlineDataT } from './clz-torappu-anniv7th-mainline-data.js';
 import { clz_Torappu_AprilFoolTable, clz_Torappu_AprilFoolTableT } from './clz-torappu-april-fool-table.js';
+import { clz_Torappu_ArkhubData, clz_Torappu_ArkhubDataT } from './clz-torappu-arkhub-data.js';
 import { clz_Torappu_AutoChessData, clz_Torappu_AutoChessDataT } from './clz-torappu-auto-chess-data.js';
 import { clz_Torappu_CartData, clz_Torappu_CartDataT } from './clz-torappu-cart-data.js';
 import { clz_Torappu_FifthAnnivExploreData, clz_Torappu_FifthAnnivExploreDataT } from './clz-torappu-fifth-anniv-explore-data.js';
@@ -266,88 +267,93 @@ autoChessData(obj?:clz_Torappu_AutoChessData):clz_Torappu_AutoChessData|null {
   return offset ? (obj || new clz_Torappu_AutoChessData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-stringRes(index: number, obj?:dict__string__list_dict__string__string):dict__string__list_dict__string__string|null {
+arkhubData(obj?:clz_Torappu_ArkhubData):clz_Torappu_ArkhubData|null {
   const offset = this.bb!.__offset(this.bb_pos, 56);
+  return offset ? (obj || new clz_Torappu_ArkhubData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
+stringRes(index: number, obj?:dict__string__list_dict__string__string):dict__string__list_dict__string__string|null {
+  const offset = this.bb!.__offset(this.bb_pos, 58);
   return offset ? (obj || new dict__string__list_dict__string__string()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 stringResLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 56);
+  const offset = this.bb!.__offset(this.bb_pos, 58);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 activityTraps(index: number, obj?:dict__string__clz_Torappu_ActivityTable_ActivityTrapsData):dict__string__clz_Torappu_ActivityTable_ActivityTrapsData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 58);
+  const offset = this.bb!.__offset(this.bb_pos, 60);
   return offset ? (obj || new dict__string__clz_Torappu_ActivityTable_ActivityTrapsData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 activityTrapsLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 58);
+  const offset = this.bb!.__offset(this.bb_pos, 60);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 activityTrapMissions(index: number, obj?:dict__string__clz_Torappu_ActivityTable_ActivityTrapMissionsData):dict__string__clz_Torappu_ActivityTable_ActivityTrapMissionsData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 60);
+  const offset = this.bb!.__offset(this.bb_pos, 62);
   return offset ? (obj || new dict__string__clz_Torappu_ActivityTable_ActivityTrapMissionsData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 activityTrapMissionsLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 60);
+  const offset = this.bb!.__offset(this.bb_pos, 62);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 trapRuneDataDict(index: number, obj?:dict__string__clz_Torappu_RuneTable_PackedRuneData):dict__string__clz_Torappu_RuneTable_PackedRuneData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 62);
+  const offset = this.bb!.__offset(this.bb_pos, 64);
   return offset ? (obj || new dict__string__clz_Torappu_RuneTable_PackedRuneData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 trapRuneDataDictLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 62);
+  const offset = this.bb!.__offset(this.bb_pos, 64);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 activityTemplateMissionStyles(index: number, obj?:dict__string__clz_Torappu_TemplateMissionStyleData):dict__string__clz_Torappu_TemplateMissionStyleData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 64);
+  const offset = this.bb!.__offset(this.bb_pos, 66);
   return offset ? (obj || new dict__string__clz_Torappu_TemplateMissionStyleData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 activityTemplateMissionStylesLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 64);
+  const offset = this.bb!.__offset(this.bb_pos, 66);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 activityCrossDayTrackTypeDataDict(index: number, obj?:dict__string__clz_Torappu_CrossDayTrackTypeData):dict__string__clz_Torappu_CrossDayTrackTypeData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 66);
+  const offset = this.bb!.__offset(this.bb_pos, 68);
   return offset ? (obj || new dict__string__clz_Torappu_CrossDayTrackTypeData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 activityCrossDayTrackTypeDataDictLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 66);
+  const offset = this.bb!.__offset(this.bb_pos, 68);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 activityCrossDayTrackTypeMap(index: number, obj?:dict__string__list_string):dict__string__list_string|null {
-  const offset = this.bb!.__offset(this.bb_pos, 68);
+  const offset = this.bb!.__offset(this.bb_pos, 70);
   return offset ? (obj || new dict__string__list_string()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 activityCrossDayTrackTypeMapLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 68);
+  const offset = this.bb!.__offset(this.bb_pos, 70);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 activityStoryReadTipsDatas(index: number, obj?:dict__string__clz_Torappu_StoryReadTipsData):dict__string__clz_Torappu_StoryReadTipsData|null {
-  const offset = this.bb!.__offset(this.bb_pos, 70);
+  const offset = this.bb!.__offset(this.bb_pos, 72);
   return offset ? (obj || new dict__string__clz_Torappu_StoryReadTipsData()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 activityStoryReadTipsDatasLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 70);
+  const offset = this.bb!.__offset(this.bb_pos, 72);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_ActivityTable(builder:flatbuffers.Builder) {
-  builder.startObject(34);
+  builder.startObject(35);
 }
 
 static addBasicInfo(builder:flatbuffers.Builder, basicInfoOffset:flatbuffers.Offset) {
@@ -646,8 +652,12 @@ static addAutoChessData(builder:flatbuffers.Builder, autoChessDataOffset:flatbuf
   builder.addFieldOffset(25, autoChessDataOffset, 0);
 }
 
+static addArkhubData(builder:flatbuffers.Builder, arkhubDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(26, arkhubDataOffset, 0);
+}
+
 static addStringRes(builder:flatbuffers.Builder, stringResOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(26, stringResOffset, 0);
+  builder.addFieldOffset(27, stringResOffset, 0);
 }
 
 static createStringResVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -663,7 +673,7 @@ static startStringResVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addActivityTraps(builder:flatbuffers.Builder, activityTrapsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(27, activityTrapsOffset, 0);
+  builder.addFieldOffset(28, activityTrapsOffset, 0);
 }
 
 static createActivityTrapsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -679,7 +689,7 @@ static startActivityTrapsVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addActivityTrapMissions(builder:flatbuffers.Builder, activityTrapMissionsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(28, activityTrapMissionsOffset, 0);
+  builder.addFieldOffset(29, activityTrapMissionsOffset, 0);
 }
 
 static createActivityTrapMissionsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -695,7 +705,7 @@ static startActivityTrapMissionsVector(builder:flatbuffers.Builder, numElems:num
 }
 
 static addTrapRuneDataDict(builder:flatbuffers.Builder, trapRuneDataDictOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(29, trapRuneDataDictOffset, 0);
+  builder.addFieldOffset(30, trapRuneDataDictOffset, 0);
 }
 
 static createTrapRuneDataDictVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -711,7 +721,7 @@ static startTrapRuneDataDictVector(builder:flatbuffers.Builder, numElems:number)
 }
 
 static addActivityTemplateMissionStyles(builder:flatbuffers.Builder, activityTemplateMissionStylesOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(30, activityTemplateMissionStylesOffset, 0);
+  builder.addFieldOffset(31, activityTemplateMissionStylesOffset, 0);
 }
 
 static createActivityTemplateMissionStylesVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -727,7 +737,7 @@ static startActivityTemplateMissionStylesVector(builder:flatbuffers.Builder, num
 }
 
 static addActivityCrossDayTrackTypeDataDict(builder:flatbuffers.Builder, activityCrossDayTrackTypeDataDictOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(31, activityCrossDayTrackTypeDataDictOffset, 0);
+  builder.addFieldOffset(32, activityCrossDayTrackTypeDataDictOffset, 0);
 }
 
 static createActivityCrossDayTrackTypeDataDictVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -743,7 +753,7 @@ static startActivityCrossDayTrackTypeDataDictVector(builder:flatbuffers.Builder,
 }
 
 static addActivityCrossDayTrackTypeMap(builder:flatbuffers.Builder, activityCrossDayTrackTypeMapOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(32, activityCrossDayTrackTypeMapOffset, 0);
+  builder.addFieldOffset(33, activityCrossDayTrackTypeMapOffset, 0);
 }
 
 static createActivityCrossDayTrackTypeMapVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -759,7 +769,7 @@ static startActivityCrossDayTrackTypeMapVector(builder:flatbuffers.Builder, numE
 }
 
 static addActivityStoryReadTipsDatas(builder:flatbuffers.Builder, activityStoryReadTipsDatasOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(33, activityStoryReadTipsDatasOffset, 0);
+  builder.addFieldOffset(34, activityStoryReadTipsDatasOffset, 0);
 }
 
 static createActivityStoryReadTipsDatasVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -816,6 +826,7 @@ unpack(): clz_Torappu_ActivityTableT {
     (this.fifthAnnivExploreData() !== null ? this.fifthAnnivExploreData()!.unpack() : null),
     (this.anniv7thData() !== null ? this.anniv7thData()!.unpack() : null),
     (this.autoChessData() !== null ? this.autoChessData()!.unpack() : null),
+    (this.arkhubData() !== null ? this.arkhubData()!.unpack() : null),
     this.bb!.createObjList<dict__string__list_dict__string__string, dict__string__list_dict__string__stringT>(this.stringRes.bind(this), this.stringResLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_ActivityTable_ActivityTrapsData, dict__string__clz_Torappu_ActivityTable_ActivityTrapsDataT>(this.activityTraps.bind(this), this.activityTrapsLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_ActivityTable_ActivityTrapMissionsData, dict__string__clz_Torappu_ActivityTable_ActivityTrapMissionsDataT>(this.activityTrapMissions.bind(this), this.activityTrapMissionsLength()),
@@ -855,6 +866,7 @@ unpackTo(_o: clz_Torappu_ActivityTableT): void {
   _o.fifthAnnivExploreData = (this.fifthAnnivExploreData() !== null ? this.fifthAnnivExploreData()!.unpack() : null);
   _o.anniv7thData = (this.anniv7thData() !== null ? this.anniv7thData()!.unpack() : null);
   _o.autoChessData = (this.autoChessData() !== null ? this.autoChessData()!.unpack() : null);
+  _o.arkhubData = (this.arkhubData() !== null ? this.arkhubData()!.unpack() : null);
   _o.stringRes = this.bb!.createObjList<dict__string__list_dict__string__string, dict__string__list_dict__string__stringT>(this.stringRes.bind(this), this.stringResLength());
   _o.activityTraps = this.bb!.createObjList<dict__string__clz_Torappu_ActivityTable_ActivityTrapsData, dict__string__clz_Torappu_ActivityTable_ActivityTrapsDataT>(this.activityTraps.bind(this), this.activityTrapsLength());
   _o.activityTrapMissions = this.bb!.createObjList<dict__string__clz_Torappu_ActivityTable_ActivityTrapMissionsData, dict__string__clz_Torappu_ActivityTable_ActivityTrapMissionsDataT>(this.activityTrapMissions.bind(this), this.activityTrapMissionsLength());
@@ -894,6 +906,7 @@ constructor(
   public fifthAnnivExploreData: clz_Torappu_FifthAnnivExploreDataT|null = null,
   public anniv7thData: clz_Torappu_Anniv7thMainlineDataT|null = null,
   public autoChessData: clz_Torappu_AutoChessDataT|null = null,
+  public arkhubData: clz_Torappu_ArkhubDataT|null = null,
   public stringRes: (dict__string__list_dict__string__stringT)[] = [],
   public activityTraps: (dict__string__clz_Torappu_ActivityTable_ActivityTrapsDataT)[] = [],
   public activityTrapMissions: (dict__string__clz_Torappu_ActivityTable_ActivityTrapMissionsDataT)[] = [],
@@ -932,6 +945,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const fifthAnnivExploreData = (this.fifthAnnivExploreData !== null ? this.fifthAnnivExploreData!.pack(builder) : 0);
   const anniv7thData = (this.anniv7thData !== null ? this.anniv7thData!.pack(builder) : 0);
   const autoChessData = (this.autoChessData !== null ? this.autoChessData!.pack(builder) : 0);
+  const arkhubData = (this.arkhubData !== null ? this.arkhubData!.pack(builder) : 0);
   const stringRes = clz_Torappu_ActivityTable.createStringResVector(builder, builder.createObjectOffsetList(this.stringRes));
   const activityTraps = clz_Torappu_ActivityTable.createActivityTrapsVector(builder, builder.createObjectOffsetList(this.activityTraps));
   const activityTrapMissions = clz_Torappu_ActivityTable.createActivityTrapMissionsVector(builder, builder.createObjectOffsetList(this.activityTrapMissions));
@@ -968,6 +982,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_ActivityTable.addFifthAnnivExploreData(builder, fifthAnnivExploreData);
   clz_Torappu_ActivityTable.addAnniv7thData(builder, anniv7thData);
   clz_Torappu_ActivityTable.addAutoChessData(builder, autoChessData);
+  clz_Torappu_ActivityTable.addArkhubData(builder, arkhubData);
   clz_Torappu_ActivityTable.addStringRes(builder, stringRes);
   clz_Torappu_ActivityTable.addActivityTraps(builder, activityTraps);
   clz_Torappu_ActivityTable.addActivityTrapMissions(builder, activityTrapMissions);

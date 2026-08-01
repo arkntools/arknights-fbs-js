@@ -159,8 +159,13 @@ teleportImmune():boolean {
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
+groundBoundImmune():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 58);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
 static startclz_Torappu_AttributesData(builder:flatbuffers.Builder) {
-  builder.startObject(27);
+  builder.startObject(28);
 }
 
 static addMaxHp(builder:flatbuffers.Builder, maxHp:number) {
@@ -271,12 +276,16 @@ static addTeleportImmune(builder:flatbuffers.Builder, teleportImmune:boolean) {
   builder.addFieldInt8(26, +teleportImmune, +false);
 }
 
+static addGroundBoundImmune(builder:flatbuffers.Builder, groundBoundImmune:boolean) {
+  builder.addFieldInt8(27, +groundBoundImmune, +false);
+}
+
 static endclz_Torappu_AttributesData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_AttributesData(builder:flatbuffers.Builder, maxHp:number, atk:number, def:number, magicResistance:number, cost:number, blockCnt:number, moveSpeed:number, attackSpeed:number, baseAttackTime:number, respawnTime:number, hpRecoveryPerSec:number, spRecoveryPerSec:number, maxDeployCount:number, maxDeckStackCnt:number, tauntLevel:number, massLevel:number, baseForceLevel:number, stunImmune:boolean, silenceImmune:boolean, sleepImmune:boolean, frozenImmune:boolean, levitateImmune:boolean, disarmedCombatImmune:boolean, fearedImmune:boolean, palsyImmune:boolean, attractImmune:boolean, teleportImmune:boolean):flatbuffers.Offset {
+static createclz_Torappu_AttributesData(builder:flatbuffers.Builder, maxHp:number, atk:number, def:number, magicResistance:number, cost:number, blockCnt:number, moveSpeed:number, attackSpeed:number, baseAttackTime:number, respawnTime:number, hpRecoveryPerSec:number, spRecoveryPerSec:number, maxDeployCount:number, maxDeckStackCnt:number, tauntLevel:number, massLevel:number, baseForceLevel:number, stunImmune:boolean, silenceImmune:boolean, sleepImmune:boolean, frozenImmune:boolean, levitateImmune:boolean, disarmedCombatImmune:boolean, fearedImmune:boolean, palsyImmune:boolean, attractImmune:boolean, teleportImmune:boolean, groundBoundImmune:boolean):flatbuffers.Offset {
   clz_Torappu_AttributesData.startclz_Torappu_AttributesData(builder);
   clz_Torappu_AttributesData.addMaxHp(builder, maxHp);
   clz_Torappu_AttributesData.addAtk(builder, atk);
@@ -305,6 +314,7 @@ static createclz_Torappu_AttributesData(builder:flatbuffers.Builder, maxHp:numbe
   clz_Torappu_AttributesData.addPalsyImmune(builder, palsyImmune);
   clz_Torappu_AttributesData.addAttractImmune(builder, attractImmune);
   clz_Torappu_AttributesData.addTeleportImmune(builder, teleportImmune);
+  clz_Torappu_AttributesData.addGroundBoundImmune(builder, groundBoundImmune);
   return clz_Torappu_AttributesData.endclz_Torappu_AttributesData(builder);
 }
 
@@ -336,7 +346,8 @@ unpack(): clz_Torappu_AttributesDataT {
     this.fearedImmune(),
     this.palsyImmune(),
     this.attractImmune(),
-    this.teleportImmune()
+    this.teleportImmune(),
+    this.groundBoundImmune()
   );
 }
 
@@ -369,6 +380,7 @@ unpackTo(_o: clz_Torappu_AttributesDataT): void {
   _o.palsyImmune = this.palsyImmune();
   _o.attractImmune = this.attractImmune();
   _o.teleportImmune = this.teleportImmune();
+  _o.groundBoundImmune = this.groundBoundImmune();
 }
 }
 
@@ -400,7 +412,8 @@ constructor(
   public fearedImmune: boolean = false,
   public palsyImmune: boolean = false,
   public attractImmune: boolean = false,
-  public teleportImmune: boolean = false
+  public teleportImmune: boolean = false,
+  public groundBoundImmune: boolean = false
 ){}
 
 
@@ -432,7 +445,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.fearedImmune,
     this.palsyImmune,
     this.attractImmune,
-    this.teleportImmune
+    this.teleportImmune,
+    this.groundBoundImmune
   );
 }
 }

@@ -54,6 +54,9 @@ export { clz_Torappu_NameCardV2SkinData, clz_Torappu_NameCardV2SkinDataT } from 
 export { clz_Torappu_NameCardV2TimeLimitInfo, clz_Torappu_NameCardV2TimeLimitInfoT } from './clz-torappu-name-card-v2-time-limit-info.js';
 export { clz_Torappu_PCKeyConstData, clz_Torappu_PCKeyConstDataT } from './clz-torappu-pckey-const-data.js';
 export { clz_Torappu_PCKeyData, clz_Torappu_PCKeyDataT } from './clz-torappu-pckey-data.js';
+export { clz_Torappu_PixelMapConstData, clz_Torappu_PixelMapConstDataT } from './clz-torappu-pixel-map-const-data.js';
+export { clz_Torappu_PixelMapData, clz_Torappu_PixelMapDataT } from './clz-torappu-pixel-map-data.js';
+export { clz_Torappu_PixelMapParamData, clz_Torappu_PixelMapParamDataT } from './clz-torappu-pixel-map-param-data.js';
 export { clz_Torappu_PlayerAvatarData, clz_Torappu_PlayerAvatarDataT } from './clz-torappu-player-avatar-data.js';
 export { clz_Torappu_PlayerAvatarGroupData, clz_Torappu_PlayerAvatarGroupDataT } from './clz-torappu-player-avatar-group-data.js';
 export { clz_Torappu_PlayerAvatarLimitData, clz_Torappu_PlayerAvatarLimitDataT } from './clz-torappu-player-avatar-limit-data.js';
@@ -84,6 +87,7 @@ export { dict__string__clz_Torappu_NameCardV2ModuleData, dict__string__clz_Torap
 export { dict__string__clz_Torappu_NameCardV2RemovableModuleData, dict__string__clz_Torappu_NameCardV2RemovableModuleDataT } from './dict--string--clz-torappu-name-card-v2-removable-module-data.js';
 export { dict__string__clz_Torappu_NameCardV2SkinData, dict__string__clz_Torappu_NameCardV2SkinDataT } from './dict--string--clz-torappu-name-card-v2-skin-data.js';
 export { dict__string__clz_Torappu_NameCardV2TimeLimitInfo, dict__string__clz_Torappu_NameCardV2TimeLimitInfoT } from './dict--string--clz-torappu-name-card-v2-time-limit-info.js';
+export { dict__string__clz_Torappu_PixelMapParamData, dict__string__clz_Torappu_PixelMapParamDataT } from './dict--string--clz-torappu-pixel-map-param-data.js';
 export { dict__string__clz_Torappu_StickerItemData, dict__string__clz_Torappu_StickerItemDataT } from './dict--string--clz-torappu-sticker-item-data.js';
 export { dict__string__clz_Torappu_StoryVariantData, dict__string__clz_Torappu_StoryVariantDataT } from './dict--string--clz-torappu-story-variant-data.js';
 export { dict__string__int, dict__string__intT } from './dict--string--int.js';

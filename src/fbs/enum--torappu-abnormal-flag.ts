@@ -48,5 +48,6 @@ export enum enum__Torappu_AbnormalFlag {
   FEARED_PRIVATE = 42,
   DOZE = 43,
   TELEPORTED = 44,
-  E_NUM = 45
+  GROUND_BOUND = 45,
+  E_NUM = 46
 }

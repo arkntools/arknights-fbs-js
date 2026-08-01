@@ -102,28 +102,35 @@ templateColor(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-skinDefaultPos(obj?:clz_UnityEngine_Vector2):clz_UnityEngine_Vector2|null {
+templateColor2():string|null
+templateColor2(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+templateColor2(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 28);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+skinDefaultPos(obj?:clz_UnityEngine_Vector2):clz_UnityEngine_Vector2|null {
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? (obj || new clz_UnityEngine_Vector2()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 skinDefaultScale():number {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 leafDecorMaxNumMap(index: number, obj?:dict__string__int):dict__string__int|null {
-  const offset = this.bb!.__offset(this.bb_pos, 32);
+  const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? (obj || new dict__string__int()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 leafDecorMaxNumMapLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 32);
+  const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_MagazineLeafItemData(builder:flatbuffers.Builder) {
-  builder.startObject(15);
+  builder.startObject(16);
 }
 
 static addLeafId(builder:flatbuffers.Builder, leafIdOffset:flatbuffers.Offset) {
@@ -174,16 +181,20 @@ static addTemplateColor(builder:flatbuffers.Builder, templateColorOffset:flatbuf
   builder.addFieldOffset(11, templateColorOffset, 0);
 }
 
+static addTemplateColor2(builder:flatbuffers.Builder, templateColor2Offset:flatbuffers.Offset) {
+  builder.addFieldOffset(12, templateColor2Offset, 0);
+}
+
 static addSkinDefaultPos(builder:flatbuffers.Builder, skinDefaultPosOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(12, skinDefaultPosOffset, 0);
+  builder.addFieldOffset(13, skinDefaultPosOffset, 0);
 }
 
 static addSkinDefaultScale(builder:flatbuffers.Builder, skinDefaultScale:number) {
-  builder.addFieldFloat32(13, skinDefaultScale, 0.0);
+  builder.addFieldFloat32(14, skinDefaultScale, 0.0);
 }
 
 static addLeafDecorMaxNumMap(builder:flatbuffers.Builder, leafDecorMaxNumMapOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(14, leafDecorMaxNumMapOffset, 0);
+  builder.addFieldOffset(15, leafDecorMaxNumMapOffset, 0);
 }
 
 static createLeafDecorMaxNumMapVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -218,6 +229,7 @@ unpack(): clz_Torappu_MagazineLeafItemDataT {
     this.templateId(),
     this.templateStartTime(),
     this.templateColor(),
+    this.templateColor2(),
     (this.skinDefaultPos() !== null ? this.skinDefaultPos()!.unpack() : null),
     this.skinDefaultScale(),
     this.bb!.createObjList<dict__string__int, dict__string__intT>(this.leafDecorMaxNumMap.bind(this), this.leafDecorMaxNumMapLength())
@@ -238,6 +250,7 @@ unpackTo(_o: clz_Torappu_MagazineLeafItemDataT): void {
   _o.templateId = this.templateId();
   _o.templateStartTime = this.templateStartTime();
   _o.templateColor = this.templateColor();
+  _o.templateColor2 = this.templateColor2();
   _o.skinDefaultPos = (this.skinDefaultPos() !== null ? this.skinDefaultPos()!.unpack() : null);
   _o.skinDefaultScale = this.skinDefaultScale();
   _o.leafDecorMaxNumMap = this.bb!.createObjList<dict__string__int, dict__string__intT>(this.leafDecorMaxNumMap.bind(this), this.leafDecorMaxNumMapLength());
@@ -258,6 +271,7 @@ constructor(
   public templateId: string|Uint8Array|null = null,
   public templateStartTime: bigint = BigInt('0'),
   public templateColor: string|Uint8Array|null = null,
+  public templateColor2: string|Uint8Array|null = null,
   public skinDefaultPos: clz_UnityEngine_Vector2T|null = null,
   public skinDefaultScale: number = 0.0,
   public leafDecorMaxNumMap: (dict__string__intT)[] = []
@@ -272,6 +286,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const approach = (this.approach !== null ? builder.createString(this.approach!) : 0);
   const templateId = (this.templateId !== null ? builder.createString(this.templateId!) : 0);
   const templateColor = (this.templateColor !== null ? builder.createString(this.templateColor!) : 0);
+  const templateColor2 = (this.templateColor2 !== null ? builder.createString(this.templateColor2!) : 0);
   const skinDefaultPos = (this.skinDefaultPos !== null ? this.skinDefaultPos!.pack(builder) : 0);
   const leafDecorMaxNumMap = clz_Torappu_MagazineLeafItemData.createLeafDecorMaxNumMapVector(builder, builder.createObjectOffsetList(this.leafDecorMaxNumMap));
 
@@ -288,6 +303,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_MagazineLeafItemData.addTemplateId(builder, templateId);
   clz_Torappu_MagazineLeafItemData.addTemplateStartTime(builder, this.templateStartTime);
   clz_Torappu_MagazineLeafItemData.addTemplateColor(builder, templateColor);
+  clz_Torappu_MagazineLeafItemData.addTemplateColor2(builder, templateColor2);
   clz_Torappu_MagazineLeafItemData.addSkinDefaultPos(builder, skinDefaultPos);
   clz_Torappu_MagazineLeafItemData.addSkinDefaultScale(builder, this.skinDefaultScale);
   clz_Torappu_MagazineLeafItemData.addLeafDecorMaxNumMap(builder, leafDecorMaxNumMap);

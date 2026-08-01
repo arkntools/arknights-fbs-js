@@ -54,5 +54,8 @@ export enum enum__Torappu_UIGuideTarget {
   AUTO_CHESS = 50,
   ART_GALLERY = 51,
   ART_MAGAZINE = 52,
-  ACT_FOOTBALL = 53
+  ACT_FOOTBALL = 53,
+  PIXEL_MAP = 54,
+  ARK_HUB = 55,
+  ARK_ODC = 56
 }

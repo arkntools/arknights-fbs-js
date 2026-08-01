@@ -182,8 +182,13 @@ teleportImmune(obj?:clz_Torappu_Undefinable_1_System_Boolean_):clz_Torappu_Undef
   return offset ? (obj || new clz_Torappu_Undefinable_1_System_Boolean_()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
+groundBoundImmune(obj?:clz_Torappu_Undefinable_1_System_Boolean_):clz_Torappu_Undefinable_1_System_Boolean_|null {
+  const offset = this.bb!.__offset(this.bb_pos, 66);
+  return offset ? (obj || new clz_Torappu_Undefinable_1_System_Boolean_()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
 static startclz_Torappu_EnemyDatabase_AttributesData(builder:flatbuffers.Builder) {
-  builder.startObject(31);
+  builder.startObject(32);
 }
 
 static addMaxHp(builder:flatbuffers.Builder, maxHpOffset:flatbuffers.Offset) {
@@ -310,6 +315,10 @@ static addTeleportImmune(builder:flatbuffers.Builder, teleportImmuneOffset:flatb
   builder.addFieldOffset(30, teleportImmuneOffset, 0);
 }
 
+static addGroundBoundImmune(builder:flatbuffers.Builder, groundBoundImmuneOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(31, groundBoundImmuneOffset, 0);
+}
+
 static endclz_Torappu_EnemyDatabase_AttributesData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -348,7 +357,8 @@ unpack(): clz_Torappu_EnemyDatabase_AttributesDataT {
     (this.fearedImmune() !== null ? this.fearedImmune()!.unpack() : null),
     (this.palsyImmune() !== null ? this.palsyImmune()!.unpack() : null),
     (this.attractImmune() !== null ? this.attractImmune()!.unpack() : null),
-    (this.teleportImmune() !== null ? this.teleportImmune()!.unpack() : null)
+    (this.teleportImmune() !== null ? this.teleportImmune()!.unpack() : null),
+    (this.groundBoundImmune() !== null ? this.groundBoundImmune()!.unpack() : null)
   );
 }
 
@@ -385,6 +395,7 @@ unpackTo(_o: clz_Torappu_EnemyDatabase_AttributesDataT): void {
   _o.palsyImmune = (this.palsyImmune() !== null ? this.palsyImmune()!.unpack() : null);
   _o.attractImmune = (this.attractImmune() !== null ? this.attractImmune()!.unpack() : null);
   _o.teleportImmune = (this.teleportImmune() !== null ? this.teleportImmune()!.unpack() : null);
+  _o.groundBoundImmune = (this.groundBoundImmune() !== null ? this.groundBoundImmune()!.unpack() : null);
 }
 }
 
@@ -420,7 +431,8 @@ constructor(
   public fearedImmune: clz_Torappu_Undefinable_1_System_Boolean_T|null = null,
   public palsyImmune: clz_Torappu_Undefinable_1_System_Boolean_T|null = null,
   public attractImmune: clz_Torappu_Undefinable_1_System_Boolean_T|null = null,
-  public teleportImmune: clz_Torappu_Undefinable_1_System_Boolean_T|null = null
+  public teleportImmune: clz_Torappu_Undefinable_1_System_Boolean_T|null = null,
+  public groundBoundImmune: clz_Torappu_Undefinable_1_System_Boolean_T|null = null
 ){}
 
 
@@ -456,6 +468,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const palsyImmune = (this.palsyImmune !== null ? this.palsyImmune!.pack(builder) : 0);
   const attractImmune = (this.attractImmune !== null ? this.attractImmune!.pack(builder) : 0);
   const teleportImmune = (this.teleportImmune !== null ? this.teleportImmune!.pack(builder) : 0);
+  const groundBoundImmune = (this.groundBoundImmune !== null ? this.groundBoundImmune!.pack(builder) : 0);
 
   clz_Torappu_EnemyDatabase_AttributesData.startclz_Torappu_EnemyDatabase_AttributesData(builder);
   clz_Torappu_EnemyDatabase_AttributesData.addMaxHp(builder, maxHp);
@@ -489,6 +502,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_EnemyDatabase_AttributesData.addPalsyImmune(builder, palsyImmune);
   clz_Torappu_EnemyDatabase_AttributesData.addAttractImmune(builder, attractImmune);
   clz_Torappu_EnemyDatabase_AttributesData.addTeleportImmune(builder, teleportImmune);
+  clz_Torappu_EnemyDatabase_AttributesData.addGroundBoundImmune(builder, groundBoundImmune);
 
   return clz_Torappu_EnemyDatabase_AttributesData.endclz_Torappu_EnemyDatabase_AttributesData(builder);
 }

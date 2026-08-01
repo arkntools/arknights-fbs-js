@@ -13,6 +13,7 @@ import { clz_Torappu_MailArchiveData, clz_Torappu_MailArchiveDataT } from './clz
 import { clz_Torappu_MailSenderData, clz_Torappu_MailSenderDataT } from './clz-torappu-mail-sender-data.js';
 import { clz_Torappu_NameCardV2Data, clz_Torappu_NameCardV2DataT } from './clz-torappu-name-card-v2-data.js';
 import { clz_Torappu_PCKeyData, clz_Torappu_PCKeyDataT } from './clz-torappu-pckey-data.js';
+import { clz_Torappu_PixelMapData, clz_Torappu_PixelMapDataT } from './clz-torappu-pixel-map-data.js';
 import { clz_Torappu_PlayerAvatarData, clz_Torappu_PlayerAvatarDataT } from './clz-torappu-player-avatar-data.js';
 import { clz_Torappu_ResolutionSettingItemData, clz_Torappu_ResolutionSettingItemDataT } from './clz-torappu-resolution-setting-item-data.js';
 import { clz_Torappu_StickerData, clz_Torappu_StickerDataT } from './clz-torappu-sticker-data.js';
@@ -123,8 +124,13 @@ avgDialogSettingData(obj?:clz_Torappu_AVGDialogSettingData):clz_Torappu_AVGDialo
   return offset ? (obj || new clz_Torappu_AVGDialogSettingData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
+pixelMapData(obj?:clz_Torappu_PixelMapData):clz_Torappu_PixelMapData|null {
+  const offset = this.bb!.__offset(this.bb_pos, 32);
+  return offset ? (obj || new clz_Torappu_PixelMapData()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
 static startclz_Torappu_DisplayMetaData(builder:flatbuffers.Builder) {
-  builder.startObject(14);
+  builder.startObject(15);
 }
 
 static addPlayerAvatarData(builder:flatbuffers.Builder, playerAvatarDataOffset:flatbuffers.Offset) {
@@ -219,6 +225,10 @@ static addAvgDialogSettingData(builder:flatbuffers.Builder, avgDialogSettingData
   builder.addFieldOffset(13, avgDialogSettingDataOffset, 0);
 }
 
+static addPixelMapData(builder:flatbuffers.Builder, pixelMapDataOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(14, pixelMapDataOffset, 0);
+}
+
 static endclz_Torappu_DisplayMetaData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -248,7 +258,8 @@ unpack(): clz_Torappu_DisplayMetaDataT {
     (this.artGalleryCollectData() !== null ? this.artGalleryCollectData()!.unpack() : null),
     (this.magazineLeafData() !== null ? this.magazineLeafData()!.unpack() : null),
     (this.stickerData() !== null ? this.stickerData()!.unpack() : null),
-    (this.avgDialogSettingData() !== null ? this.avgDialogSettingData()!.unpack() : null)
+    (this.avgDialogSettingData() !== null ? this.avgDialogSettingData()!.unpack() : null),
+    (this.pixelMapData() !== null ? this.pixelMapData()!.unpack() : null)
   );
 }
 
@@ -268,6 +279,7 @@ unpackTo(_o: clz_Torappu_DisplayMetaDataT): void {
   _o.magazineLeafData = (this.magazineLeafData() !== null ? this.magazineLeafData()!.unpack() : null);
   _o.stickerData = (this.stickerData() !== null ? this.stickerData()!.unpack() : null);
   _o.avgDialogSettingData = (this.avgDialogSettingData() !== null ? this.avgDialogSettingData()!.unpack() : null);
+  _o.pixelMapData = (this.pixelMapData() !== null ? this.pixelMapData()!.unpack() : null);
 }
 }
 
@@ -286,7 +298,8 @@ constructor(
   public artGalleryCollectData: clz_Torappu_ArtGalleryCollectDataT|null = null,
   public magazineLeafData: clz_Torappu_MagazineLeafDataT|null = null,
   public stickerData: clz_Torappu_StickerDataT|null = null,
-  public avgDialogSettingData: clz_Torappu_AVGDialogSettingDataT|null = null
+  public avgDialogSettingData: clz_Torappu_AVGDialogSettingDataT|null = null,
+  public pixelMapData: clz_Torappu_PixelMapDataT|null = null
 ){}
 
 
@@ -305,6 +318,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const magazineLeafData = (this.magazineLeafData !== null ? this.magazineLeafData!.pack(builder) : 0);
   const stickerData = (this.stickerData !== null ? this.stickerData!.pack(builder) : 0);
   const avgDialogSettingData = (this.avgDialogSettingData !== null ? this.avgDialogSettingData!.pack(builder) : 0);
+  const pixelMapData = (this.pixelMapData !== null ? this.pixelMapData!.pack(builder) : 0);
 
   clz_Torappu_DisplayMetaData.startclz_Torappu_DisplayMetaData(builder);
   clz_Torappu_DisplayMetaData.addPlayerAvatarData(builder, playerAvatarData);
@@ -321,6 +335,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_DisplayMetaData.addMagazineLeafData(builder, magazineLeafData);
   clz_Torappu_DisplayMetaData.addStickerData(builder, stickerData);
   clz_Torappu_DisplayMetaData.addAvgDialogSettingData(builder, avgDialogSettingData);
+  clz_Torappu_DisplayMetaData.addPixelMapData(builder, pixelMapData);
 
   return clz_Torappu_DisplayMetaData.endclz_Torappu_DisplayMetaData(builder);
 }

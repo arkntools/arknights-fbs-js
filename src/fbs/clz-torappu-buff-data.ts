@@ -77,170 +77,175 @@ isLevitatable():boolean {
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-statusResistable():enum__Torappu_BuffData_StatusResistable {
+isGroundBoundable():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 22);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+statusResistable():enum__Torappu_BuffData_StatusResistable {
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.readUint8(this.bb_pos + offset) : enum__Torappu_BuffData_StatusResistable.NO;
 }
 
 templateKey():string|null
 templateKey(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 templateKey(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 disableOverride():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 overrideKey():string|null
 overrideKey(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 overrideKey(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 28);
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 overrideType():enum__Torappu_BuffData_OverrideType {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_BuffData_OverrideType.DEFAULT;
 }
 
 maxStackCnt():number {
-  const offset = this.bb!.__offset(this.bb_pos, 32);
+  const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 refreshRemainingTimeWhenStackMax():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 34);
-  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
-}
-
-clearAllStackCntWhenTimeUp():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 36);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-maxValidStackCnt():number {
+clearAllStackCntWhenTimeUp():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 38);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+maxValidStackCnt():number {
+  const offset = this.bb!.__offset(this.bb_pos, 40);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 independentCharacterSource():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 40);
+  const offset = this.bb!.__offset(this.bb_pos, 42);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 overrideEffectKey():string|null
 overrideEffectKey(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 overrideEffectKey(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 42);
+  const offset = this.bb!.__offset(this.bb_pos, 44);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 overrideOnEventPriority():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 44);
+  const offset = this.bb!.__offset(this.bb_pos, 46);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 onEventPriority():enum__Torappu_BuffData_OnEventPriority {
-  const offset = this.bb!.__offset(this.bb_pos, 46);
+  const offset = this.bb!.__offset(this.bb_pos, 48);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_BuffData_OnEventPriority.DEFAULT;
 }
 
 audioSignal():string|null
 audioSignal(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 audioSignal(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 48);
+  const offset = this.bb!.__offset(this.bb_pos, 50);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 lifeTimeType():enum__Torappu_LifeType {
-  const offset = this.bb!.__offset(this.bb_pos, 50);
+  const offset = this.bb!.__offset(this.bb_pos, 52);
   return offset ? this.bb!.readUint8(this.bb_pos + offset) : enum__Torappu_LifeType.IMMEDIATELY;
 }
 
 takeSnapshotWhenExtend():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 52);
+  const offset = this.bb!.__offset(this.bb_pos, 54);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 durationKey():string|null
 durationKey(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 durationKey(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 54);
+  const offset = this.bb!.__offset(this.bb_pos, 56);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 lifeTime():number {
-  const offset = this.bb!.__offset(this.bb_pos, 56);
+  const offset = this.bb!.__offset(this.bb_pos, 58);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 triggerLifeType():enum__Torappu_LifeType {
-  const offset = this.bb!.__offset(this.bb_pos, 58);
+  const offset = this.bb!.__offset(this.bb_pos, 60);
   return offset ? this.bb!.readUint8(this.bb_pos + offset) : enum__Torappu_LifeType.IMMEDIATELY;
 }
 
 triggerCnt():number {
-  const offset = this.bb!.__offset(this.bb_pos, 60);
+  const offset = this.bb!.__offset(this.bb_pos, 62);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 triggerInterval():number {
-  const offset = this.bb!.__offset(this.bb_pos, 62);
+  const offset = this.bb!.__offset(this.bb_pos, 64);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 waitFirstTriggerInterval():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 64);
+  const offset = this.bb!.__offset(this.bb_pos, 66);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 firstTriggerInterval():number {
-  const offset = this.bb!.__offset(this.bb_pos, 66);
+  const offset = this.bb!.__offset(this.bb_pos, 68);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 priority():number {
-  const offset = this.bb!.__offset(this.bb_pos, 68);
+  const offset = this.bb!.__offset(this.bb_pos, 70);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 priorityBbkeys(index: number):string
 priorityBbkeys(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 priorityBbkeys(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 70);
+  const offset = this.bb!.__offset(this.bb_pos, 72);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 priorityBbkeysLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 70);
+  const offset = this.bb!.__offset(this.bb_pos, 72);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 stripBlackboardParamsWithBuffKey():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 72);
+  const offset = this.bb!.__offset(this.bb_pos, 74);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 blackboard(index: number, obj?:clz_Torappu_Blackboard_DataPair):clz_Torappu_Blackboard_DataPair|null {
-  const offset = this.bb!.__offset(this.bb_pos, 74);
+  const offset = this.bb!.__offset(this.bb_pos, 76);
   return offset ? (obj || new clz_Torappu_Blackboard_DataPair()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 blackboardLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 74);
+  const offset = this.bb!.__offset(this.bb_pos, 76);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 enableInitDirectionFromSource():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 76);
+  const offset = this.bb!.__offset(this.bb_pos, 78);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 static startclz_Torappu_BuffData(builder:flatbuffers.Builder) {
-  builder.startObject(37);
+  builder.startObject(38);
 }
 
 static addAttributes(builder:flatbuffers.Builder, attributesOffset:flatbuffers.Offset) {
@@ -279,104 +284,108 @@ static addIsLevitatable(builder:flatbuffers.Builder, isLevitatable:boolean) {
   builder.addFieldInt8(8, +isLevitatable, +false);
 }
 
+static addIsGroundBoundable(builder:flatbuffers.Builder, isGroundBoundable:boolean) {
+  builder.addFieldInt8(9, +isGroundBoundable, +false);
+}
+
 static addStatusResistable(builder:flatbuffers.Builder, statusResistable:enum__Torappu_BuffData_StatusResistable) {
-  builder.addFieldInt8(9, statusResistable, enum__Torappu_BuffData_StatusResistable.NO);
+  builder.addFieldInt8(10, statusResistable, enum__Torappu_BuffData_StatusResistable.NO);
 }
 
 static addTemplateKey(builder:flatbuffers.Builder, templateKeyOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(10, templateKeyOffset, 0);
+  builder.addFieldOffset(11, templateKeyOffset, 0);
 }
 
 static addDisableOverride(builder:flatbuffers.Builder, disableOverride:boolean) {
-  builder.addFieldInt8(11, +disableOverride, +false);
+  builder.addFieldInt8(12, +disableOverride, +false);
 }
 
 static addOverrideKey(builder:flatbuffers.Builder, overrideKeyOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(12, overrideKeyOffset, 0);
+  builder.addFieldOffset(13, overrideKeyOffset, 0);
 }
 
 static addOverrideType(builder:flatbuffers.Builder, overrideType:enum__Torappu_BuffData_OverrideType) {
-  builder.addFieldInt32(13, overrideType, enum__Torappu_BuffData_OverrideType.DEFAULT);
+  builder.addFieldInt32(14, overrideType, enum__Torappu_BuffData_OverrideType.DEFAULT);
 }
 
 static addMaxStackCnt(builder:flatbuffers.Builder, maxStackCnt:number) {
-  builder.addFieldInt32(14, maxStackCnt, 0);
+  builder.addFieldInt32(15, maxStackCnt, 0);
 }
 
 static addRefreshRemainingTimeWhenStackMax(builder:flatbuffers.Builder, refreshRemainingTimeWhenStackMax:boolean) {
-  builder.addFieldInt8(15, +refreshRemainingTimeWhenStackMax, +false);
+  builder.addFieldInt8(16, +refreshRemainingTimeWhenStackMax, +false);
 }
 
 static addClearAllStackCntWhenTimeUp(builder:flatbuffers.Builder, clearAllStackCntWhenTimeUp:boolean) {
-  builder.addFieldInt8(16, +clearAllStackCntWhenTimeUp, +false);
+  builder.addFieldInt8(17, +clearAllStackCntWhenTimeUp, +false);
 }
 
 static addMaxValidStackCnt(builder:flatbuffers.Builder, maxValidStackCnt:number) {
-  builder.addFieldInt32(17, maxValidStackCnt, 0);
+  builder.addFieldInt32(18, maxValidStackCnt, 0);
 }
 
 static addIndependentCharacterSource(builder:flatbuffers.Builder, independentCharacterSource:boolean) {
-  builder.addFieldInt8(18, +independentCharacterSource, +false);
+  builder.addFieldInt8(19, +independentCharacterSource, +false);
 }
 
 static addOverrideEffectKey(builder:flatbuffers.Builder, overrideEffectKeyOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(19, overrideEffectKeyOffset, 0);
+  builder.addFieldOffset(20, overrideEffectKeyOffset, 0);
 }
 
 static addOverrideOnEventPriority(builder:flatbuffers.Builder, overrideOnEventPriority:boolean) {
-  builder.addFieldInt8(20, +overrideOnEventPriority, +false);
+  builder.addFieldInt8(21, +overrideOnEventPriority, +false);
 }
 
 static addOnEventPriority(builder:flatbuffers.Builder, onEventPriority:enum__Torappu_BuffData_OnEventPriority) {
-  builder.addFieldInt32(21, onEventPriority, enum__Torappu_BuffData_OnEventPriority.DEFAULT);
+  builder.addFieldInt32(22, onEventPriority, enum__Torappu_BuffData_OnEventPriority.DEFAULT);
 }
 
 static addAudioSignal(builder:flatbuffers.Builder, audioSignalOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(22, audioSignalOffset, 0);
+  builder.addFieldOffset(23, audioSignalOffset, 0);
 }
 
 static addLifeTimeType(builder:flatbuffers.Builder, lifeTimeType:enum__Torappu_LifeType) {
-  builder.addFieldInt8(23, lifeTimeType, enum__Torappu_LifeType.IMMEDIATELY);
+  builder.addFieldInt8(24, lifeTimeType, enum__Torappu_LifeType.IMMEDIATELY);
 }
 
 static addTakeSnapshotWhenExtend(builder:flatbuffers.Builder, takeSnapshotWhenExtend:boolean) {
-  builder.addFieldInt8(24, +takeSnapshotWhenExtend, +false);
+  builder.addFieldInt8(25, +takeSnapshotWhenExtend, +false);
 }
 
 static addDurationKey(builder:flatbuffers.Builder, durationKeyOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(25, durationKeyOffset, 0);
+  builder.addFieldOffset(26, durationKeyOffset, 0);
 }
 
 static addLifeTime(builder:flatbuffers.Builder, lifeTime:number) {
-  builder.addFieldFloat32(26, lifeTime, 0.0);
+  builder.addFieldFloat32(27, lifeTime, 0.0);
 }
 
 static addTriggerLifeType(builder:flatbuffers.Builder, triggerLifeType:enum__Torappu_LifeType) {
-  builder.addFieldInt8(27, triggerLifeType, enum__Torappu_LifeType.IMMEDIATELY);
+  builder.addFieldInt8(28, triggerLifeType, enum__Torappu_LifeType.IMMEDIATELY);
 }
 
 static addTriggerCnt(builder:flatbuffers.Builder, triggerCnt:number) {
-  builder.addFieldInt32(28, triggerCnt, 0);
+  builder.addFieldInt32(29, triggerCnt, 0);
 }
 
 static addTriggerInterval(builder:flatbuffers.Builder, triggerInterval:number) {
-  builder.addFieldFloat32(29, triggerInterval, 0.0);
+  builder.addFieldFloat32(30, triggerInterval, 0.0);
 }
 
 static addWaitFirstTriggerInterval(builder:flatbuffers.Builder, waitFirstTriggerInterval:boolean) {
-  builder.addFieldInt8(30, +waitFirstTriggerInterval, +false);
+  builder.addFieldInt8(31, +waitFirstTriggerInterval, +false);
 }
 
 static addFirstTriggerInterval(builder:flatbuffers.Builder, firstTriggerInterval:number) {
-  builder.addFieldFloat32(31, firstTriggerInterval, 0.0);
+  builder.addFieldFloat32(32, firstTriggerInterval, 0.0);
 }
 
 static addPriority(builder:flatbuffers.Builder, priority:number) {
-  builder.addFieldInt32(32, priority, 0);
+  builder.addFieldInt32(33, priority, 0);
 }
 
 static addPriorityBbkeys(builder:flatbuffers.Builder, priorityBbkeysOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(33, priorityBbkeysOffset, 0);
+  builder.addFieldOffset(34, priorityBbkeysOffset, 0);
 }
 
 static createPriorityBbkeysVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -392,11 +401,11 @@ static startPriorityBbkeysVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addStripBlackboardParamsWithBuffKey(builder:flatbuffers.Builder, stripBlackboardParamsWithBuffKey:boolean) {
-  builder.addFieldInt8(34, +stripBlackboardParamsWithBuffKey, +false);
+  builder.addFieldInt8(35, +stripBlackboardParamsWithBuffKey, +false);
 }
 
 static addBlackboard(builder:flatbuffers.Builder, blackboardOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(35, blackboardOffset, 0);
+  builder.addFieldOffset(36, blackboardOffset, 0);
 }
 
 static createBlackboardVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -412,7 +421,7 @@ static startBlackboardVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addEnableInitDirectionFromSource(builder:flatbuffers.Builder, enableInitDirectionFromSource:boolean) {
-  builder.addFieldInt8(36, +enableInitDirectionFromSource, +false);
+  builder.addFieldInt8(37, +enableInitDirectionFromSource, +false);
 }
 
 static endclz_Torappu_BuffData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -420,7 +429,7 @@ static endclz_Torappu_BuffData(builder:flatbuffers.Builder):flatbuffers.Offset {
   return offset;
 }
 
-static createclz_Torappu_BuffData(builder:flatbuffers.Builder, attributesOffset:flatbuffers.Offset, buffKeyOffset:flatbuffers.Offset, loadFromDb:boolean, isDurableBuff:boolean, isDamageMissable:boolean, isSilenceable:boolean, isStunnable:boolean, isFreezable:boolean, isLevitatable:boolean, statusResistable:enum__Torappu_BuffData_StatusResistable, templateKeyOffset:flatbuffers.Offset, disableOverride:boolean, overrideKeyOffset:flatbuffers.Offset, overrideType:enum__Torappu_BuffData_OverrideType, maxStackCnt:number, refreshRemainingTimeWhenStackMax:boolean, clearAllStackCntWhenTimeUp:boolean, maxValidStackCnt:number, independentCharacterSource:boolean, overrideEffectKeyOffset:flatbuffers.Offset, overrideOnEventPriority:boolean, onEventPriority:enum__Torappu_BuffData_OnEventPriority, audioSignalOffset:flatbuffers.Offset, lifeTimeType:enum__Torappu_LifeType, takeSnapshotWhenExtend:boolean, durationKeyOffset:flatbuffers.Offset, lifeTime:number, triggerLifeType:enum__Torappu_LifeType, triggerCnt:number, triggerInterval:number, waitFirstTriggerInterval:boolean, firstTriggerInterval:number, priority:number, priorityBbkeysOffset:flatbuffers.Offset, stripBlackboardParamsWithBuffKey:boolean, blackboardOffset:flatbuffers.Offset, enableInitDirectionFromSource:boolean):flatbuffers.Offset {
+static createclz_Torappu_BuffData(builder:flatbuffers.Builder, attributesOffset:flatbuffers.Offset, buffKeyOffset:flatbuffers.Offset, loadFromDb:boolean, isDurableBuff:boolean, isDamageMissable:boolean, isSilenceable:boolean, isStunnable:boolean, isFreezable:boolean, isLevitatable:boolean, isGroundBoundable:boolean, statusResistable:enum__Torappu_BuffData_StatusResistable, templateKeyOffset:flatbuffers.Offset, disableOverride:boolean, overrideKeyOffset:flatbuffers.Offset, overrideType:enum__Torappu_BuffData_OverrideType, maxStackCnt:number, refreshRemainingTimeWhenStackMax:boolean, clearAllStackCntWhenTimeUp:boolean, maxValidStackCnt:number, independentCharacterSource:boolean, overrideEffectKeyOffset:flatbuffers.Offset, overrideOnEventPriority:boolean, onEventPriority:enum__Torappu_BuffData_OnEventPriority, audioSignalOffset:flatbuffers.Offset, lifeTimeType:enum__Torappu_LifeType, takeSnapshotWhenExtend:boolean, durationKeyOffset:flatbuffers.Offset, lifeTime:number, triggerLifeType:enum__Torappu_LifeType, triggerCnt:number, triggerInterval:number, waitFirstTriggerInterval:boolean, firstTriggerInterval:number, priority:number, priorityBbkeysOffset:flatbuffers.Offset, stripBlackboardParamsWithBuffKey:boolean, blackboardOffset:flatbuffers.Offset, enableInitDirectionFromSource:boolean):flatbuffers.Offset {
   clz_Torappu_BuffData.startclz_Torappu_BuffData(builder);
   clz_Torappu_BuffData.addAttributes(builder, attributesOffset);
   clz_Torappu_BuffData.addBuffKey(builder, buffKeyOffset);
@@ -431,6 +440,7 @@ static createclz_Torappu_BuffData(builder:flatbuffers.Builder, attributesOffset:
   clz_Torappu_BuffData.addIsStunnable(builder, isStunnable);
   clz_Torappu_BuffData.addIsFreezable(builder, isFreezable);
   clz_Torappu_BuffData.addIsLevitatable(builder, isLevitatable);
+  clz_Torappu_BuffData.addIsGroundBoundable(builder, isGroundBoundable);
   clz_Torappu_BuffData.addStatusResistable(builder, statusResistable);
   clz_Torappu_BuffData.addTemplateKey(builder, templateKeyOffset);
   clz_Torappu_BuffData.addDisableOverride(builder, disableOverride);
@@ -473,6 +483,7 @@ unpack(): clz_Torappu_BuffDataT {
     this.isStunnable(),
     this.isFreezable(),
     this.isLevitatable(),
+    this.isGroundBoundable(),
     this.statusResistable(),
     this.templateKey(),
     this.disableOverride(),
@@ -515,6 +526,7 @@ unpackTo(_o: clz_Torappu_BuffDataT): void {
   _o.isStunnable = this.isStunnable();
   _o.isFreezable = this.isFreezable();
   _o.isLevitatable = this.isLevitatable();
+  _o.isGroundBoundable = this.isGroundBoundable();
   _o.statusResistable = this.statusResistable();
   _o.templateKey = this.templateKey();
   _o.disableOverride = this.disableOverride();
@@ -557,6 +569,7 @@ constructor(
   public isStunnable: boolean = false,
   public isFreezable: boolean = false,
   public isLevitatable: boolean = false,
+  public isGroundBoundable: boolean = false,
   public statusResistable: enum__Torappu_BuffData_StatusResistable = enum__Torappu_BuffData_StatusResistable.NO,
   public templateKey: string|Uint8Array|null = null,
   public disableOverride: boolean = false,
@@ -609,6 +622,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.isStunnable,
     this.isFreezable,
     this.isLevitatable,
+    this.isGroundBoundable,
     this.statusResistable,
     templateKey,
     this.disableOverride,

@@ -5,5 +5,6 @@
 export enum enum__Torappu_KeyEffectGroup {
   BATTLE = 0,
   OUT_BATTLE = 1,
-  ALL = 2
+  ARKVENT = 2,
+  ALL = 3
 }

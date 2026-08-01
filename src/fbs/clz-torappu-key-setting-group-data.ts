@@ -57,9 +57,19 @@ isHidden():boolean {
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-relatedActType():enum__Torappu_ActivityType {
+relatedActTypes(index: number):enum__Torappu_ActivityType|null {
   const offset = this.bb!.__offset(this.bb_pos, 14);
-  return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_ActivityType.DEFAULT;
+  return offset ? this.bb!.readInt32(this.bb!.__vector(this.bb_pos + offset) + index * 4) : null;
+}
+
+relatedActTypesLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+relatedActTypesArray():Int32Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? new Int32Array(this.bb!.bytes().buffer, this.bb!.bytes().byteOffset + this.bb!.__vector(this.bb_pos + offset), this.bb!.__vector_len(this.bb_pos + offset)) : null;
 }
 
 gameModeTag():string|null
@@ -113,8 +123,20 @@ static addIsHidden(builder:flatbuffers.Builder, isHidden:boolean) {
   builder.addFieldInt8(4, +isHidden, +false);
 }
 
-static addRelatedActType(builder:flatbuffers.Builder, relatedActType:enum__Torappu_ActivityType) {
-  builder.addFieldInt32(5, relatedActType, enum__Torappu_ActivityType.DEFAULT);
+static addRelatedActTypes(builder:flatbuffers.Builder, relatedActTypesOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(5, relatedActTypesOffset, 0);
+}
+
+static createRelatedActTypesVector(builder:flatbuffers.Builder, data:enum__Torappu_ActivityType[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addInt32(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startRelatedActTypesVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
 }
 
 static addGameModeTag(builder:flatbuffers.Builder, gameModeTagOffset:flatbuffers.Offset) {
@@ -150,14 +172,14 @@ static endclz_Torappu_KeySettingGroupData(builder:flatbuffers.Builder):flatbuffe
   return offset;
 }
 
-static createclz_Torappu_KeySettingGroupData(builder:flatbuffers.Builder, groupIdOffset:flatbuffers.Offset, nameOffset:flatbuffers.Offset, funcType:enum__Torappu_KeySettingGroup, keyEffectGroup:enum__Torappu_KeyEffectGroup, isHidden:boolean, relatedActType:enum__Torappu_ActivityType, gameModeTagOffset:flatbuffers.Offset, sortId:number, startTs:bigint, itemListOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_KeySettingGroupData(builder:flatbuffers.Builder, groupIdOffset:flatbuffers.Offset, nameOffset:flatbuffers.Offset, funcType:enum__Torappu_KeySettingGroup, keyEffectGroup:enum__Torappu_KeyEffectGroup, isHidden:boolean, relatedActTypesOffset:flatbuffers.Offset, gameModeTagOffset:flatbuffers.Offset, sortId:number, startTs:bigint, itemListOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_KeySettingGroupData.startclz_Torappu_KeySettingGroupData(builder);
   clz_Torappu_KeySettingGroupData.addGroupId(builder, groupIdOffset);
   clz_Torappu_KeySettingGroupData.addName(builder, nameOffset);
   clz_Torappu_KeySettingGroupData.addFuncType(builder, funcType);
   clz_Torappu_KeySettingGroupData.addKeyEffectGroup(builder, keyEffectGroup);
   clz_Torappu_KeySettingGroupData.addIsHidden(builder, isHidden);
-  clz_Torappu_KeySettingGroupData.addRelatedActType(builder, relatedActType);
+  clz_Torappu_KeySettingGroupData.addRelatedActTypes(builder, relatedActTypesOffset);
   clz_Torappu_KeySettingGroupData.addGameModeTag(builder, gameModeTagOffset);
   clz_Torappu_KeySettingGroupData.addSortId(builder, sortId);
   clz_Torappu_KeySettingGroupData.addStartTs(builder, startTs);
@@ -172,7 +194,7 @@ unpack(): clz_Torappu_KeySettingGroupDataT {
     this.funcType(),
     this.keyEffectGroup(),
     this.isHidden(),
-    this.relatedActType(),
+    this.bb!.createScalarList<enum__Torappu_ActivityType>(this.relatedActTypes.bind(this), this.relatedActTypesLength()),
     this.gameModeTag(),
     this.sortId(),
     this.startTs(),
@@ -187,7 +209,7 @@ unpackTo(_o: clz_Torappu_KeySettingGroupDataT): void {
   _o.funcType = this.funcType();
   _o.keyEffectGroup = this.keyEffectGroup();
   _o.isHidden = this.isHidden();
-  _o.relatedActType = this.relatedActType();
+  _o.relatedActTypes = this.bb!.createScalarList<enum__Torappu_ActivityType>(this.relatedActTypes.bind(this), this.relatedActTypesLength());
   _o.gameModeTag = this.gameModeTag();
   _o.sortId = this.sortId();
   _o.startTs = this.startTs();
@@ -202,7 +224,7 @@ constructor(
   public funcType: enum__Torappu_KeySettingGroup = enum__Torappu_KeySettingGroup.BATTLE,
   public keyEffectGroup: enum__Torappu_KeyEffectGroup = enum__Torappu_KeyEffectGroup.BATTLE,
   public isHidden: boolean = false,
-  public relatedActType: enum__Torappu_ActivityType = enum__Torappu_ActivityType.DEFAULT,
+  public relatedActTypes: (enum__Torappu_ActivityType)[] = [],
   public gameModeTag: string|Uint8Array|null = null,
   public sortId: number = 0,
   public startTs: bigint = BigInt('0'),
@@ -213,6 +235,7 @@ constructor(
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const groupId = (this.groupId !== null ? builder.createString(this.groupId!) : 0);
   const name = (this.name !== null ? builder.createString(this.name!) : 0);
+  const relatedActTypes = clz_Torappu_KeySettingGroupData.createRelatedActTypesVector(builder, this.relatedActTypes);
   const gameModeTag = (this.gameModeTag !== null ? builder.createString(this.gameModeTag!) : 0);
   const itemList = clz_Torappu_KeySettingGroupData.createItemListVector(builder, builder.createObjectOffsetList(this.itemList));
 
@@ -222,7 +245,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.funcType,
     this.keyEffectGroup,
     this.isHidden,
-    this.relatedActType,
+    relatedActTypes,
     gameModeTag,
     this.sortId,
     this.startTs,

@@ -65,6 +65,8 @@ export enum enum__Torappu_ActivityType {
   RECRUIT_ONLY = 59,
   TYPE_ACT46SIDE = 60,
   AUTOCHESS_SEASON = 61,
-  ACT_FOOTBALL = 62,
-  ENUM = 63
+  ARK_HUB = 62,
+  ACT_FOOTBALL = 63,
+  TYPE_ACT53SIDE = 64,
+  ENUM = 65
 }

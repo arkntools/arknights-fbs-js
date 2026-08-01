@@ -4,6 +4,7 @@
 
 import * as flatbuffers from 'flatbuffers';
 
+import { dict__string__clz_Torappu_DynEntryAnimationInfo, dict__string__clz_Torappu_DynEntryAnimationInfoT } from './dict--string--clz-torappu-dyn-entry-animation-info.js';
 import { dict__string__clz_Torappu_DynEntrySwitchInfo, dict__string__clz_Torappu_DynEntrySwitchInfoT } from './dict--string--clz-torappu-dyn-entry-switch-info.js';
 
 
@@ -45,8 +46,18 @@ randomEntrySwitchInfoLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+entryAnimationInfo(index: number, obj?:dict__string__clz_Torappu_DynEntryAnimationInfo):dict__string__clz_Torappu_DynEntryAnimationInfo|null {
+  const offset = this.bb!.__offset(this.bb_pos, 8);
+  return offset ? (obj || new dict__string__clz_Torappu_DynEntryAnimationInfo()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+entryAnimationInfoLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 8);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_ActivityDynEntrySwitchData(builder:flatbuffers.Builder) {
-  builder.startObject(2);
+  builder.startObject(3);
 }
 
 static addEntrySwitchInfo(builder:flatbuffers.Builder, entrySwitchInfoOffset:flatbuffers.Offset) {
@@ -81,22 +92,40 @@ static startRandomEntrySwitchInfoVector(builder:flatbuffers.Builder, numElems:nu
   builder.startVector(4, numElems, 4);
 }
 
+static addEntryAnimationInfo(builder:flatbuffers.Builder, entryAnimationInfoOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(2, entryAnimationInfoOffset, 0);
+}
+
+static createEntryAnimationInfoVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startEntryAnimationInfoVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
 static endclz_Torappu_ActivityDynEntrySwitchData(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createclz_Torappu_ActivityDynEntrySwitchData(builder:flatbuffers.Builder, entrySwitchInfoOffset:flatbuffers.Offset, randomEntrySwitchInfoOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_ActivityDynEntrySwitchData(builder:flatbuffers.Builder, entrySwitchInfoOffset:flatbuffers.Offset, randomEntrySwitchInfoOffset:flatbuffers.Offset, entryAnimationInfoOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_ActivityDynEntrySwitchData.startclz_Torappu_ActivityDynEntrySwitchData(builder);
   clz_Torappu_ActivityDynEntrySwitchData.addEntrySwitchInfo(builder, entrySwitchInfoOffset);
   clz_Torappu_ActivityDynEntrySwitchData.addRandomEntrySwitchInfo(builder, randomEntrySwitchInfoOffset);
+  clz_Torappu_ActivityDynEntrySwitchData.addEntryAnimationInfo(builder, entryAnimationInfoOffset);
   return clz_Torappu_ActivityDynEntrySwitchData.endclz_Torappu_ActivityDynEntrySwitchData(builder);
 }
 
 unpack(): clz_Torappu_ActivityDynEntrySwitchDataT {
   return new clz_Torappu_ActivityDynEntrySwitchDataT(
     this.bb!.createObjList<dict__string__clz_Torappu_DynEntrySwitchInfo, dict__string__clz_Torappu_DynEntrySwitchInfoT>(this.entrySwitchInfo.bind(this), this.entrySwitchInfoLength()),
-    this.bb!.createObjList<dict__string__clz_Torappu_DynEntrySwitchInfo, dict__string__clz_Torappu_DynEntrySwitchInfoT>(this.randomEntrySwitchInfo.bind(this), this.randomEntrySwitchInfoLength())
+    this.bb!.createObjList<dict__string__clz_Torappu_DynEntrySwitchInfo, dict__string__clz_Torappu_DynEntrySwitchInfoT>(this.randomEntrySwitchInfo.bind(this), this.randomEntrySwitchInfoLength()),
+    this.bb!.createObjList<dict__string__clz_Torappu_DynEntryAnimationInfo, dict__string__clz_Torappu_DynEntryAnimationInfoT>(this.entryAnimationInfo.bind(this), this.entryAnimationInfoLength())
   );
 }
 
@@ -104,23 +133,27 @@ unpack(): clz_Torappu_ActivityDynEntrySwitchDataT {
 unpackTo(_o: clz_Torappu_ActivityDynEntrySwitchDataT): void {
   _o.entrySwitchInfo = this.bb!.createObjList<dict__string__clz_Torappu_DynEntrySwitchInfo, dict__string__clz_Torappu_DynEntrySwitchInfoT>(this.entrySwitchInfo.bind(this), this.entrySwitchInfoLength());
   _o.randomEntrySwitchInfo = this.bb!.createObjList<dict__string__clz_Torappu_DynEntrySwitchInfo, dict__string__clz_Torappu_DynEntrySwitchInfoT>(this.randomEntrySwitchInfo.bind(this), this.randomEntrySwitchInfoLength());
+  _o.entryAnimationInfo = this.bb!.createObjList<dict__string__clz_Torappu_DynEntryAnimationInfo, dict__string__clz_Torappu_DynEntryAnimationInfoT>(this.entryAnimationInfo.bind(this), this.entryAnimationInfoLength());
 }
 }
 
 export class clz_Torappu_ActivityDynEntrySwitchDataT implements flatbuffers.IGeneratedObject {
 constructor(
   public entrySwitchInfo: (dict__string__clz_Torappu_DynEntrySwitchInfoT)[] = [],
-  public randomEntrySwitchInfo: (dict__string__clz_Torappu_DynEntrySwitchInfoT)[] = []
+  public randomEntrySwitchInfo: (dict__string__clz_Torappu_DynEntrySwitchInfoT)[] = [],
+  public entryAnimationInfo: (dict__string__clz_Torappu_DynEntryAnimationInfoT)[] = []
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const entrySwitchInfo = clz_Torappu_ActivityDynEntrySwitchData.createEntrySwitchInfoVector(builder, builder.createObjectOffsetList(this.entrySwitchInfo));
   const randomEntrySwitchInfo = clz_Torappu_ActivityDynEntrySwitchData.createRandomEntrySwitchInfoVector(builder, builder.createObjectOffsetList(this.randomEntrySwitchInfo));
+  const entryAnimationInfo = clz_Torappu_ActivityDynEntrySwitchData.createEntryAnimationInfoVector(builder, builder.createObjectOffsetList(this.entryAnimationInfo));
 
   return clz_Torappu_ActivityDynEntrySwitchData.createclz_Torappu_ActivityDynEntrySwitchData(builder,
     entrySwitchInfo,
-    randomEntrySwitchInfo
+    randomEntrySwitchInfo,
+    entryAnimationInfo
   );
 }
 }
