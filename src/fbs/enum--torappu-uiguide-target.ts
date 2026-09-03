@@ -57,5 +57,7 @@ export enum enum__Torappu_UIGuideTarget {
   ACT_FOOTBALL = 53,
   PIXEL_MAP = 54,
   ARK_HUB = 55,
-  ARK_ODC = 56
+  ARK_ODC = 56,
+  ACT54SIDE_CARD = 57,
+  ACT_VASEBREAKER = 58
 }

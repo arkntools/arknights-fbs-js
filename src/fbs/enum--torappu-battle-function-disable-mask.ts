@@ -22,5 +22,6 @@ export enum enum__Torappu_BattleFunctionDisableMask {
   CHARACTER_LIMIT = 32768,
   AUTOCHESS_SELL_OR_DESTORY = 65536,
   CHARACTER_MENU_PANEL = 131072,
-  ALL = 262143
+  DRAG_UI_CARD = 262144,
+  ALL = 524287
 }

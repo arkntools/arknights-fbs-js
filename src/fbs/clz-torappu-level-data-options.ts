@@ -61,48 +61,53 @@ steeringEnabled():boolean {
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-isTrainingLevel():boolean {
+reachableCheckIgnoreStartTile():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-isHardTrainingLevel():boolean {
+isTrainingLevel():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-isPredefinedCardsSelectable():boolean {
+isHardTrainingLevel():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-displayRestTime():boolean {
+isPredefinedCardsSelectable():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-maxPlayTime():number {
+displayRestTime():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 26);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+maxPlayTime():number {
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 functionDisableMask():enum__Torappu_BattleFunctionDisableMask {
-  const offset = this.bb!.__offset(this.bb_pos, 28);
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_BattleFunctionDisableMask.NONE;
 }
 
 configBlackBoard(index: number, obj?:clz_Torappu_Blackboard_DataPair):clz_Torappu_Blackboard_DataPair|null {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? (obj || new clz_Torappu_Blackboard_DataPair()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 configBlackBoardLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_LevelData_Options(builder:flatbuffers.Builder) {
-  builder.startObject(14);
+  builder.startObject(15);
 }
 
 static addCharacterLimit(builder:flatbuffers.Builder, characterLimit:number) {
@@ -133,32 +138,36 @@ static addSteeringEnabled(builder:flatbuffers.Builder, steeringEnabled:boolean) 
   builder.addFieldInt8(6, +steeringEnabled, +false);
 }
 
+static addReachableCheckIgnoreStartTile(builder:flatbuffers.Builder, reachableCheckIgnoreStartTile:boolean) {
+  builder.addFieldInt8(7, +reachableCheckIgnoreStartTile, +false);
+}
+
 static addIsTrainingLevel(builder:flatbuffers.Builder, isTrainingLevel:boolean) {
-  builder.addFieldInt8(7, +isTrainingLevel, +false);
+  builder.addFieldInt8(8, +isTrainingLevel, +false);
 }
 
 static addIsHardTrainingLevel(builder:flatbuffers.Builder, isHardTrainingLevel:boolean) {
-  builder.addFieldInt8(8, +isHardTrainingLevel, +false);
+  builder.addFieldInt8(9, +isHardTrainingLevel, +false);
 }
 
 static addIsPredefinedCardsSelectable(builder:flatbuffers.Builder, isPredefinedCardsSelectable:boolean) {
-  builder.addFieldInt8(9, +isPredefinedCardsSelectable, +false);
+  builder.addFieldInt8(10, +isPredefinedCardsSelectable, +false);
 }
 
 static addDisplayRestTime(builder:flatbuffers.Builder, displayRestTime:boolean) {
-  builder.addFieldInt8(10, +displayRestTime, +false);
+  builder.addFieldInt8(11, +displayRestTime, +false);
 }
 
 static addMaxPlayTime(builder:flatbuffers.Builder, maxPlayTime:number) {
-  builder.addFieldFloat32(11, maxPlayTime, 0.0);
+  builder.addFieldFloat32(12, maxPlayTime, 0.0);
 }
 
 static addFunctionDisableMask(builder:flatbuffers.Builder, functionDisableMask:enum__Torappu_BattleFunctionDisableMask) {
-  builder.addFieldInt32(12, functionDisableMask, enum__Torappu_BattleFunctionDisableMask.NONE);
+  builder.addFieldInt32(13, functionDisableMask, enum__Torappu_BattleFunctionDisableMask.NONE);
 }
 
 static addConfigBlackBoard(builder:flatbuffers.Builder, configBlackBoardOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(13, configBlackBoardOffset, 0);
+  builder.addFieldOffset(14, configBlackBoardOffset, 0);
 }
 
 static createConfigBlackBoardVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -178,7 +187,7 @@ static endclz_Torappu_LevelData_Options(builder:flatbuffers.Builder):flatbuffers
   return offset;
 }
 
-static createclz_Torappu_LevelData_Options(builder:flatbuffers.Builder, characterLimit:number, maxLifePoint:number, initialCost:number, maxCost:number, costIncreaseTime:number, moveMultiplier:number, steeringEnabled:boolean, isTrainingLevel:boolean, isHardTrainingLevel:boolean, isPredefinedCardsSelectable:boolean, displayRestTime:boolean, maxPlayTime:number, functionDisableMask:enum__Torappu_BattleFunctionDisableMask, configBlackBoardOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_LevelData_Options(builder:flatbuffers.Builder, characterLimit:number, maxLifePoint:number, initialCost:number, maxCost:number, costIncreaseTime:number, moveMultiplier:number, steeringEnabled:boolean, reachableCheckIgnoreStartTile:boolean, isTrainingLevel:boolean, isHardTrainingLevel:boolean, isPredefinedCardsSelectable:boolean, displayRestTime:boolean, maxPlayTime:number, functionDisableMask:enum__Torappu_BattleFunctionDisableMask, configBlackBoardOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_LevelData_Options.startclz_Torappu_LevelData_Options(builder);
   clz_Torappu_LevelData_Options.addCharacterLimit(builder, characterLimit);
   clz_Torappu_LevelData_Options.addMaxLifePoint(builder, maxLifePoint);
@@ -187,6 +196,7 @@ static createclz_Torappu_LevelData_Options(builder:flatbuffers.Builder, characte
   clz_Torappu_LevelData_Options.addCostIncreaseTime(builder, costIncreaseTime);
   clz_Torappu_LevelData_Options.addMoveMultiplier(builder, moveMultiplier);
   clz_Torappu_LevelData_Options.addSteeringEnabled(builder, steeringEnabled);
+  clz_Torappu_LevelData_Options.addReachableCheckIgnoreStartTile(builder, reachableCheckIgnoreStartTile);
   clz_Torappu_LevelData_Options.addIsTrainingLevel(builder, isTrainingLevel);
   clz_Torappu_LevelData_Options.addIsHardTrainingLevel(builder, isHardTrainingLevel);
   clz_Torappu_LevelData_Options.addIsPredefinedCardsSelectable(builder, isPredefinedCardsSelectable);
@@ -206,6 +216,7 @@ unpack(): clz_Torappu_LevelData_OptionsT {
     this.costIncreaseTime(),
     this.moveMultiplier(),
     this.steeringEnabled(),
+    this.reachableCheckIgnoreStartTile(),
     this.isTrainingLevel(),
     this.isHardTrainingLevel(),
     this.isPredefinedCardsSelectable(),
@@ -225,6 +236,7 @@ unpackTo(_o: clz_Torappu_LevelData_OptionsT): void {
   _o.costIncreaseTime = this.costIncreaseTime();
   _o.moveMultiplier = this.moveMultiplier();
   _o.steeringEnabled = this.steeringEnabled();
+  _o.reachableCheckIgnoreStartTile = this.reachableCheckIgnoreStartTile();
   _o.isTrainingLevel = this.isTrainingLevel();
   _o.isHardTrainingLevel = this.isHardTrainingLevel();
   _o.isPredefinedCardsSelectable = this.isPredefinedCardsSelectable();
@@ -244,6 +256,7 @@ constructor(
   public costIncreaseTime: number = 0.0,
   public moveMultiplier: number = 0.0,
   public steeringEnabled: boolean = false,
+  public reachableCheckIgnoreStartTile: boolean = false,
   public isTrainingLevel: boolean = false,
   public isHardTrainingLevel: boolean = false,
   public isPredefinedCardsSelectable: boolean = false,
@@ -265,6 +278,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     this.costIncreaseTime,
     this.moveMultiplier,
     this.steeringEnabled,
+    this.reachableCheckIgnoreStartTile,
     this.isTrainingLevel,
     this.isHardTrainingLevel,
     this.isPredefinedCardsSelectable,

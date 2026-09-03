@@ -10,6 +10,7 @@ import { clz_Torappu_ItemData_StageDropInfo, clz_Torappu_ItemData_StageDropInfoT
 import { clz_Torappu_ItemData_VoucherRelateInfo, clz_Torappu_ItemData_VoucherRelateInfoT } from './clz-torappu-item-data-voucher-relate-info.js';
 import { enum__Torappu_ItemClassifyType } from './enum--torappu-item-classify-type.js';
 import { enum__Torappu_ItemRarity } from './enum--torappu-item-rarity.js';
+import { enum__Torappu_ItemReslockStatus } from './enum--torappu-item-reslock-status.js';
 import { enum__Torappu_ItemType } from './enum--torappu-item-type.js';
 
 
@@ -102,58 +103,68 @@ hideInItemGet():boolean {
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
-classifyType():enum__Torappu_ItemClassifyType {
+reslockStatus():enum__Torappu_ItemReslockStatus {
   const offset = this.bb!.__offset(this.bb_pos, 26);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_ItemReslockStatus.NOT_SUPPORT_RESLOCK;
+}
+
+canReslock():boolean {
+  const offset = this.bb!.__offset(this.bb_pos, 28);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+classifyType():enum__Torappu_ItemClassifyType {
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_ItemClassifyType.NONE;
 }
 
 itemType():enum__Torappu_ItemType {
-  const offset = this.bb!.__offset(this.bb_pos, 28);
+  const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_ItemType.NONE;
 }
 
 stageDropList(index: number, obj?:clz_Torappu_ItemData_StageDropInfo):clz_Torappu_ItemData_StageDropInfo|null {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? (obj || new clz_Torappu_ItemData_StageDropInfo()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 stageDropListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 buildingProductList(index: number, obj?:clz_Torappu_ItemData_BuildingProductInfo):clz_Torappu_ItemData_BuildingProductInfo|null {
-  const offset = this.bb!.__offset(this.bb_pos, 32);
+  const offset = this.bb!.__offset(this.bb_pos, 36);
   return offset ? (obj || new clz_Torappu_ItemData_BuildingProductInfo()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 buildingProductListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 32);
+  const offset = this.bb!.__offset(this.bb_pos, 36);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 voucherRelateList(index: number, obj?:clz_Torappu_ItemData_VoucherRelateInfo):clz_Torappu_ItemData_VoucherRelateInfo|null {
-  const offset = this.bb!.__offset(this.bb_pos, 34);
+  const offset = this.bb!.__offset(this.bb_pos, 38);
   return offset ? (obj || new clz_Torappu_ItemData_VoucherRelateInfo()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 voucherRelateListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 34);
+  const offset = this.bb!.__offset(this.bb_pos, 38);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 shopRelateInfoList(index: number, obj?:clz_Torappu_ItemData_ShopRelateInfo):clz_Torappu_ItemData_ShopRelateInfo|null {
-  const offset = this.bb!.__offset(this.bb_pos, 36);
+  const offset = this.bb!.__offset(this.bb_pos, 40);
   return offset ? (obj || new clz_Torappu_ItemData_ShopRelateInfo()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
 shopRelateInfoListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 36);
+  const offset = this.bb!.__offset(this.bb_pos, 40);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_ItemData(builder:flatbuffers.Builder) {
-  builder.startObject(17);
+  builder.startObject(19);
 }
 
 static addItemId(builder:flatbuffers.Builder, itemIdOffset:flatbuffers.Offset) {
@@ -200,16 +211,24 @@ static addHideInItemGet(builder:flatbuffers.Builder, hideInItemGet:boolean) {
   builder.addFieldInt8(10, +hideInItemGet, +false);
 }
 
+static addReslockStatus(builder:flatbuffers.Builder, reslockStatus:enum__Torappu_ItemReslockStatus) {
+  builder.addFieldInt32(11, reslockStatus, enum__Torappu_ItemReslockStatus.NOT_SUPPORT_RESLOCK);
+}
+
+static addCanReslock(builder:flatbuffers.Builder, canReslock:boolean) {
+  builder.addFieldInt8(12, +canReslock, +false);
+}
+
 static addClassifyType(builder:flatbuffers.Builder, classifyType:enum__Torappu_ItemClassifyType) {
-  builder.addFieldInt32(11, classifyType, enum__Torappu_ItemClassifyType.NONE);
+  builder.addFieldInt32(13, classifyType, enum__Torappu_ItemClassifyType.NONE);
 }
 
 static addItemType(builder:flatbuffers.Builder, itemType:enum__Torappu_ItemType) {
-  builder.addFieldInt32(12, itemType, enum__Torappu_ItemType.NONE);
+  builder.addFieldInt32(14, itemType, enum__Torappu_ItemType.NONE);
 }
 
 static addStageDropList(builder:flatbuffers.Builder, stageDropListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(13, stageDropListOffset, 0);
+  builder.addFieldOffset(15, stageDropListOffset, 0);
 }
 
 static createStageDropListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -225,7 +244,7 @@ static startStageDropListVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addBuildingProductList(builder:flatbuffers.Builder, buildingProductListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(14, buildingProductListOffset, 0);
+  builder.addFieldOffset(16, buildingProductListOffset, 0);
 }
 
 static createBuildingProductListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -241,7 +260,7 @@ static startBuildingProductListVector(builder:flatbuffers.Builder, numElems:numb
 }
 
 static addVoucherRelateList(builder:flatbuffers.Builder, voucherRelateListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(15, voucherRelateListOffset, 0);
+  builder.addFieldOffset(17, voucherRelateListOffset, 0);
 }
 
 static createVoucherRelateListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -257,7 +276,7 @@ static startVoucherRelateListVector(builder:flatbuffers.Builder, numElems:number
 }
 
 static addShopRelateInfoList(builder:flatbuffers.Builder, shopRelateInfoListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(16, shopRelateInfoListOffset, 0);
+  builder.addFieldOffset(18, shopRelateInfoListOffset, 0);
 }
 
 static createShopRelateInfoListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -277,7 +296,7 @@ static endclz_Torappu_ItemData(builder:flatbuffers.Builder):flatbuffers.Offset {
   return offset;
 }
 
-static createclz_Torappu_ItemData(builder:flatbuffers.Builder, itemIdOffset:flatbuffers.Offset, nameOffset:flatbuffers.Offset, descriptionOffset:flatbuffers.Offset, rarity:enum__Torappu_ItemRarity, iconIdOffset:flatbuffers.Offset, overrideBkgOffset:flatbuffers.Offset, stackIconIdOffset:flatbuffers.Offset, sortId:number, usageOffset:flatbuffers.Offset, obtainApproachOffset:flatbuffers.Offset, hideInItemGet:boolean, classifyType:enum__Torappu_ItemClassifyType, itemType:enum__Torappu_ItemType, stageDropListOffset:flatbuffers.Offset, buildingProductListOffset:flatbuffers.Offset, voucherRelateListOffset:flatbuffers.Offset, shopRelateInfoListOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_ItemData(builder:flatbuffers.Builder, itemIdOffset:flatbuffers.Offset, nameOffset:flatbuffers.Offset, descriptionOffset:flatbuffers.Offset, rarity:enum__Torappu_ItemRarity, iconIdOffset:flatbuffers.Offset, overrideBkgOffset:flatbuffers.Offset, stackIconIdOffset:flatbuffers.Offset, sortId:number, usageOffset:flatbuffers.Offset, obtainApproachOffset:flatbuffers.Offset, hideInItemGet:boolean, reslockStatus:enum__Torappu_ItemReslockStatus, canReslock:boolean, classifyType:enum__Torappu_ItemClassifyType, itemType:enum__Torappu_ItemType, stageDropListOffset:flatbuffers.Offset, buildingProductListOffset:flatbuffers.Offset, voucherRelateListOffset:flatbuffers.Offset, shopRelateInfoListOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_ItemData.startclz_Torappu_ItemData(builder);
   clz_Torappu_ItemData.addItemId(builder, itemIdOffset);
   clz_Torappu_ItemData.addName(builder, nameOffset);
@@ -290,6 +309,8 @@ static createclz_Torappu_ItemData(builder:flatbuffers.Builder, itemIdOffset:flat
   clz_Torappu_ItemData.addUsage(builder, usageOffset);
   clz_Torappu_ItemData.addObtainApproach(builder, obtainApproachOffset);
   clz_Torappu_ItemData.addHideInItemGet(builder, hideInItemGet);
+  clz_Torappu_ItemData.addReslockStatus(builder, reslockStatus);
+  clz_Torappu_ItemData.addCanReslock(builder, canReslock);
   clz_Torappu_ItemData.addClassifyType(builder, classifyType);
   clz_Torappu_ItemData.addItemType(builder, itemType);
   clz_Torappu_ItemData.addStageDropList(builder, stageDropListOffset);
@@ -312,6 +333,8 @@ unpack(): clz_Torappu_ItemDataT {
     this.usage(),
     this.obtainApproach(),
     this.hideInItemGet(),
+    this.reslockStatus(),
+    this.canReslock(),
     this.classifyType(),
     this.itemType(),
     this.bb!.createObjList<clz_Torappu_ItemData_StageDropInfo, clz_Torappu_ItemData_StageDropInfoT>(this.stageDropList.bind(this), this.stageDropListLength()),
@@ -334,6 +357,8 @@ unpackTo(_o: clz_Torappu_ItemDataT): void {
   _o.usage = this.usage();
   _o.obtainApproach = this.obtainApproach();
   _o.hideInItemGet = this.hideInItemGet();
+  _o.reslockStatus = this.reslockStatus();
+  _o.canReslock = this.canReslock();
   _o.classifyType = this.classifyType();
   _o.itemType = this.itemType();
   _o.stageDropList = this.bb!.createObjList<clz_Torappu_ItemData_StageDropInfo, clz_Torappu_ItemData_StageDropInfoT>(this.stageDropList.bind(this), this.stageDropListLength());
@@ -356,6 +381,8 @@ constructor(
   public usage: string|Uint8Array|null = null,
   public obtainApproach: string|Uint8Array|null = null,
   public hideInItemGet: boolean = false,
+  public reslockStatus: enum__Torappu_ItemReslockStatus = enum__Torappu_ItemReslockStatus.NOT_SUPPORT_RESLOCK,
+  public canReslock: boolean = false,
   public classifyType: enum__Torappu_ItemClassifyType = enum__Torappu_ItemClassifyType.NONE,
   public itemType: enum__Torappu_ItemType = enum__Torappu_ItemType.NONE,
   public stageDropList: (clz_Torappu_ItemData_StageDropInfoT)[] = [],
@@ -391,6 +418,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     usage,
     obtainApproach,
     this.hideInItemGet,
+    this.reslockStatus,
+    this.canReslock,
     this.classifyType,
     this.itemType,
     stageDropList,

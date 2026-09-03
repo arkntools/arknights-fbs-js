@@ -2,10 +2,10 @@
 
 /* eslint-disable @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any, @typescript-eslint/no-non-null-assertion */
 
-export enum enum__Torappu_ItemClassifyType {
-  NONE = 0,
-  CONSUME = 1,
-  NORMAL = 2,
-  MATERIAL = 3,
-  MEMENTO = 4
+export enum enum__Torappu_ItemReslockStatus {
+  NOT_SUPPORT_RESLOCK = 0,
+  MAT_GACHA_RESLOCK_BLACKLIST = 1,
+  CHAR_POTENTIAL_BLACKLIST = 2,
+  COMMON_BLACKLIST = 999,
+  CAN_RESLOCK = 1000
 }

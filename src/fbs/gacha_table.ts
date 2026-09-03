@@ -8,7 +8,7 @@ export { clz_Torappu_GachaData_CarouselData, clz_Torappu_GachaData_CarouselDataT
 export { clz_Torappu_GachaData_FesGachaPoolRelateItem, clz_Torappu_GachaData_FesGachaPoolRelateItemT } from './clz-torappu-gacha-data-fes-gacha-pool-relate-item.js';
 export { clz_Torappu_GachaData_FreeLimitGachaData, clz_Torappu_GachaData_FreeLimitGachaDataT } from './clz-torappu-gacha-data-free-limit-gacha-data.js';
 export { clz_Torappu_GachaData_LimitTenGachaTkt, clz_Torappu_GachaData_LimitTenGachaTktT } from './clz-torappu-gacha-data-limit-ten-gacha-tkt.js';
-export { clz_Torappu_GachaData_LinkageTenGachaTkt, clz_Torappu_GachaData_LinkageTenGachaTktT } from './clz-torappu-gacha-data-linkage-ten-gacha-tkt.js';
+export { clz_Torappu_GachaData_LinkageGachaTkt, clz_Torappu_GachaData_LinkageGachaTktT } from './clz-torappu-gacha-data-linkage-gacha-tkt.js';
 export { clz_Torappu_GachaData_NormalGachaTkt, clz_Torappu_GachaData_NormalGachaTktT } from './clz-torappu-gacha-data-normal-gacha-tkt.js';
 export { clz_Torappu_GachaData_RecruitRange, clz_Torappu_GachaData_RecruitRangeT } from './clz-torappu-gacha-data-recruit-range.js';
 export { clz_Torappu_GachaPoolClientData, clz_Torappu_GachaPoolClientDataT } from './clz-torappu-gacha-pool-client-data.js';

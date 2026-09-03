@@ -7,7 +7,7 @@ import * as flatbuffers from 'flatbuffers';
 import { clz_Torappu_GachaData_CarouselData, clz_Torappu_GachaData_CarouselDataT } from './clz-torappu-gacha-data-carousel-data.js';
 import { clz_Torappu_GachaData_FreeLimitGachaData, clz_Torappu_GachaData_FreeLimitGachaDataT } from './clz-torappu-gacha-data-free-limit-gacha-data.js';
 import { clz_Torappu_GachaData_LimitTenGachaTkt, clz_Torappu_GachaData_LimitTenGachaTktT } from './clz-torappu-gacha-data-limit-ten-gacha-tkt.js';
-import { clz_Torappu_GachaData_LinkageTenGachaTkt, clz_Torappu_GachaData_LinkageTenGachaTktT } from './clz-torappu-gacha-data-linkage-ten-gacha-tkt.js';
+import { clz_Torappu_GachaData_LinkageGachaTkt, clz_Torappu_GachaData_LinkageGachaTktT } from './clz-torappu-gacha-data-linkage-gacha-tkt.js';
 import { clz_Torappu_GachaData_NormalGachaTkt, clz_Torappu_GachaData_NormalGachaTktT } from './clz-torappu-gacha-data-normal-gacha-tkt.js';
 import { clz_Torappu_GachaPoolClientData, clz_Torappu_GachaPoolClientDataT } from './clz-torappu-gacha-pool-client-data.js';
 import { clz_Torappu_GachaTag, clz_Torappu_GachaTagT } from './clz-torappu-gacha-tag.js';
@@ -157,12 +157,12 @@ limitTenGachaItemLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-linkageTenGachaItem(index: number, obj?:clz_Torappu_GachaData_LinkageTenGachaTkt):clz_Torappu_GachaData_LinkageTenGachaTkt|null {
+linkageGachaItem(index: number, obj?:clz_Torappu_GachaData_LinkageGachaTkt):clz_Torappu_GachaData_LinkageGachaTkt|null {
   const offset = this.bb!.__offset(this.bb_pos, 32);
-  return offset ? (obj || new clz_Torappu_GachaData_LinkageTenGachaTkt()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new clz_Torappu_GachaData_LinkageGachaTkt()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
-linkageTenGachaItemLength():number {
+linkageGachaItemLength():number {
   const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
@@ -375,11 +375,11 @@ static startLimitTenGachaItemVector(builder:flatbuffers.Builder, numElems:number
   builder.startVector(4, numElems, 4);
 }
 
-static addLinkageTenGachaItem(builder:flatbuffers.Builder, linkageTenGachaItemOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(14, linkageTenGachaItemOffset, 0);
+static addLinkageGachaItem(builder:flatbuffers.Builder, linkageGachaItemOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(14, linkageGachaItemOffset, 0);
 }
 
-static createLinkageTenGachaItemVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+static createLinkageGachaItemVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
   builder.startVector(4, data.length, 4);
   for (let i = data.length - 1; i >= 0; i--) {
     builder.addOffset(data[i]!);
@@ -387,7 +387,7 @@ static createLinkageTenGachaItemVector(builder:flatbuffers.Builder, data:flatbuf
   return builder.endVector();
 }
 
-static startLinkageTenGachaItemVector(builder:flatbuffers.Builder, numElems:number) {
+static startLinkageGachaItemVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
@@ -485,7 +485,7 @@ unpack(): clz_Torappu_GachaDataT {
     this.bb!.createObjList<clz_Torappu_GachaData_CarouselData, clz_Torappu_GachaData_CarouselDataT>(this.carousel.bind(this), this.carouselLength()),
     this.bb!.createObjList<clz_Torappu_GachaData_FreeLimitGachaData, clz_Torappu_GachaData_FreeLimitGachaDataT>(this.freeGacha.bind(this), this.freeGachaLength()),
     this.bb!.createObjList<clz_Torappu_GachaData_LimitTenGachaTkt, clz_Torappu_GachaData_LimitTenGachaTktT>(this.limitTenGachaItem.bind(this), this.limitTenGachaItemLength()),
-    this.bb!.createObjList<clz_Torappu_GachaData_LinkageTenGachaTkt, clz_Torappu_GachaData_LinkageTenGachaTktT>(this.linkageTenGachaItem.bind(this), this.linkageTenGachaItemLength()),
+    this.bb!.createObjList<clz_Torappu_GachaData_LinkageGachaTkt, clz_Torappu_GachaData_LinkageGachaTktT>(this.linkageGachaItem.bind(this), this.linkageGachaItemLength()),
     this.bb!.createObjList<clz_Torappu_GachaData_NormalGachaTkt, clz_Torappu_GachaData_NormalGachaTktT>(this.normalGachaItem.bind(this), this.normalGachaItemLength()),
     this.bb!.createObjList<dict__string__clz_Torappu_GachaData_FesGachaPoolRelateItem, dict__string__clz_Torappu_GachaData_FesGachaPoolRelateItemT>(this.fesGachaPoolRelateItem.bind(this), this.fesGachaPoolRelateItemLength()),
     this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.dicRecruit6StarHint.bind(this), this.dicRecruit6StarHintLength()),
@@ -509,7 +509,7 @@ unpackTo(_o: clz_Torappu_GachaDataT): void {
   _o.carousel = this.bb!.createObjList<clz_Torappu_GachaData_CarouselData, clz_Torappu_GachaData_CarouselDataT>(this.carousel.bind(this), this.carouselLength());
   _o.freeGacha = this.bb!.createObjList<clz_Torappu_GachaData_FreeLimitGachaData, clz_Torappu_GachaData_FreeLimitGachaDataT>(this.freeGacha.bind(this), this.freeGachaLength());
   _o.limitTenGachaItem = this.bb!.createObjList<clz_Torappu_GachaData_LimitTenGachaTkt, clz_Torappu_GachaData_LimitTenGachaTktT>(this.limitTenGachaItem.bind(this), this.limitTenGachaItemLength());
-  _o.linkageTenGachaItem = this.bb!.createObjList<clz_Torappu_GachaData_LinkageTenGachaTkt, clz_Torappu_GachaData_LinkageTenGachaTktT>(this.linkageTenGachaItem.bind(this), this.linkageTenGachaItemLength());
+  _o.linkageGachaItem = this.bb!.createObjList<clz_Torappu_GachaData_LinkageGachaTkt, clz_Torappu_GachaData_LinkageGachaTktT>(this.linkageGachaItem.bind(this), this.linkageGachaItemLength());
   _o.normalGachaItem = this.bb!.createObjList<clz_Torappu_GachaData_NormalGachaTkt, clz_Torappu_GachaData_NormalGachaTktT>(this.normalGachaItem.bind(this), this.normalGachaItemLength());
   _o.fesGachaPoolRelateItem = this.bb!.createObjList<dict__string__clz_Torappu_GachaData_FesGachaPoolRelateItem, dict__string__clz_Torappu_GachaData_FesGachaPoolRelateItemT>(this.fesGachaPoolRelateItem.bind(this), this.fesGachaPoolRelateItemLength());
   _o.dicRecruit6StarHint = this.bb!.createObjList<dict__string__string, dict__string__stringT>(this.dicRecruit6StarHint.bind(this), this.dicRecruit6StarHintLength());
@@ -533,7 +533,7 @@ constructor(
   public carousel: (clz_Torappu_GachaData_CarouselDataT)[] = [],
   public freeGacha: (clz_Torappu_GachaData_FreeLimitGachaDataT)[] = [],
   public limitTenGachaItem: (clz_Torappu_GachaData_LimitTenGachaTktT)[] = [],
-  public linkageTenGachaItem: (clz_Torappu_GachaData_LinkageTenGachaTktT)[] = [],
+  public linkageGachaItem: (clz_Torappu_GachaData_LinkageGachaTktT)[] = [],
   public normalGachaItem: (clz_Torappu_GachaData_NormalGachaTktT)[] = [],
   public fesGachaPoolRelateItem: (dict__string__clz_Torappu_GachaData_FesGachaPoolRelateItemT)[] = [],
   public dicRecruit6StarHint: (dict__string__stringT)[] = [],
@@ -555,7 +555,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const carousel = clz_Torappu_GachaData.createCarouselVector(builder, builder.createObjectOffsetList(this.carousel));
   const freeGacha = clz_Torappu_GachaData.createFreeGachaVector(builder, builder.createObjectOffsetList(this.freeGacha));
   const limitTenGachaItem = clz_Torappu_GachaData.createLimitTenGachaItemVector(builder, builder.createObjectOffsetList(this.limitTenGachaItem));
-  const linkageTenGachaItem = clz_Torappu_GachaData.createLinkageTenGachaItemVector(builder, builder.createObjectOffsetList(this.linkageTenGachaItem));
+  const linkageGachaItem = clz_Torappu_GachaData.createLinkageGachaItemVector(builder, builder.createObjectOffsetList(this.linkageGachaItem));
   const normalGachaItem = clz_Torappu_GachaData.createNormalGachaItemVector(builder, builder.createObjectOffsetList(this.normalGachaItem));
   const fesGachaPoolRelateItem = clz_Torappu_GachaData.createFesGachaPoolRelateItemVector(builder, builder.createObjectOffsetList(this.fesGachaPoolRelateItem));
   const dicRecruit6StarHint = clz_Torappu_GachaData.createDicRecruit6StarHintVector(builder, builder.createObjectOffsetList(this.dicRecruit6StarHint));
@@ -576,7 +576,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_GachaData.addCarousel(builder, carousel);
   clz_Torappu_GachaData.addFreeGacha(builder, freeGacha);
   clz_Torappu_GachaData.addLimitTenGachaItem(builder, limitTenGachaItem);
-  clz_Torappu_GachaData.addLinkageTenGachaItem(builder, linkageTenGachaItem);
+  clz_Torappu_GachaData.addLinkageGachaItem(builder, linkageGachaItem);
   clz_Torappu_GachaData.addNormalGachaItem(builder, normalGachaItem);
   clz_Torappu_GachaData.addFesGachaPoolRelateItem(builder, fesGachaPoolRelateItem);
   clz_Torappu_GachaData.addDicRecruit6StarHint(builder, dicRecruit6StarHint);

@@ -96,5 +96,6 @@ export enum enum__Torappu_ItemType {
   PLOT_ITEM = 90,
   MAGAZINE_LEAF = 91,
   STICKER = 92,
-  ARKHUB = 93
+  ARKHUB = 93,
+  LINKAGE_TKT_GACHA = 94
 }

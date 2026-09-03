@@ -27,103 +27,112 @@ static getSizePrefixedRootAsclz_Torappu_TemplateMissionStyleData(bb:flatbuffers.
   return (obj || new clz_Torappu_TemplateMissionStyleData()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-bigRewardType():enum__Torappu_TemplateMissionBigRewardType {
+isMissionBgCustomType():boolean {
   const offset = this.bb!.__offset(this.bb_pos, 4);
+  return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
+}
+
+bigRewardType():enum__Torappu_TemplateMissionBigRewardType {
+  const offset = this.bb!.__offset(this.bb_pos, 6);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_TemplateMissionBigRewardType.NONE;
 }
 
 bigRewardParamList(index: number):string
 bigRewardParamList(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 bigRewardParamList(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 6);
+  const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 bigRewardParamListLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 6);
+  const offset = this.bb!.__offset(this.bb_pos, 8);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 isMissionListCommonType():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 8);
+  const offset = this.bb!.__offset(this.bb_pos, 10);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 isMissionItemCommonType():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 10);
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 missionItemMainColor():string|null
 missionItemMainColor(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 missionItemMainColor(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
+  const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 isMissionItemCompleteUseMainColor():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 missionItemCompleteColor():string|null
 missionItemCompleteColor(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 missionItemCompleteColor(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 isMissionRewardItemCommonType():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 isClaimAllBtnCommonType():boolean {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
 claimAllBtnMainColor():string|null
 claimAllBtnMainColor(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 claimAllBtnMainColor(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 claimAllBtnTips():string|null
 claimAllBtnTips(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 claimAllBtnTips(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 titleType():enum__Torappu_TemplateMissionTitleType {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_TemplateMissionTitleType.COMMON;
 }
 
 coinType():enum__Torappu_TemplateMissionCoinInfoType {
-  const offset = this.bb!.__offset(this.bb_pos, 28);
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_TemplateMissionCoinInfoType.COMMON;
 }
 
 coinBackColor():string|null
 coinBackColor(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 coinBackColor(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 static startclz_Torappu_TemplateMissionStyleData(builder:flatbuffers.Builder) {
-  builder.startObject(14);
+  builder.startObject(15);
+}
+
+static addIsMissionBgCustomType(builder:flatbuffers.Builder, isMissionBgCustomType:boolean) {
+  builder.addFieldInt8(0, +isMissionBgCustomType, +false);
 }
 
 static addBigRewardType(builder:flatbuffers.Builder, bigRewardType:enum__Torappu_TemplateMissionBigRewardType) {
-  builder.addFieldInt32(0, bigRewardType, enum__Torappu_TemplateMissionBigRewardType.NONE);
+  builder.addFieldInt32(1, bigRewardType, enum__Torappu_TemplateMissionBigRewardType.NONE);
 }
 
 static addBigRewardParamList(builder:flatbuffers.Builder, bigRewardParamListOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(1, bigRewardParamListOffset, 0);
+  builder.addFieldOffset(2, bigRewardParamListOffset, 0);
 }
 
 static createBigRewardParamListVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -139,51 +148,51 @@ static startBigRewardParamListVector(builder:flatbuffers.Builder, numElems:numbe
 }
 
 static addIsMissionListCommonType(builder:flatbuffers.Builder, isMissionListCommonType:boolean) {
-  builder.addFieldInt8(2, +isMissionListCommonType, +false);
+  builder.addFieldInt8(3, +isMissionListCommonType, +false);
 }
 
 static addIsMissionItemCommonType(builder:flatbuffers.Builder, isMissionItemCommonType:boolean) {
-  builder.addFieldInt8(3, +isMissionItemCommonType, +false);
+  builder.addFieldInt8(4, +isMissionItemCommonType, +false);
 }
 
 static addMissionItemMainColor(builder:flatbuffers.Builder, missionItemMainColorOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(4, missionItemMainColorOffset, 0);
+  builder.addFieldOffset(5, missionItemMainColorOffset, 0);
 }
 
 static addIsMissionItemCompleteUseMainColor(builder:flatbuffers.Builder, isMissionItemCompleteUseMainColor:boolean) {
-  builder.addFieldInt8(5, +isMissionItemCompleteUseMainColor, +false);
+  builder.addFieldInt8(6, +isMissionItemCompleteUseMainColor, +false);
 }
 
 static addMissionItemCompleteColor(builder:flatbuffers.Builder, missionItemCompleteColorOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(6, missionItemCompleteColorOffset, 0);
+  builder.addFieldOffset(7, missionItemCompleteColorOffset, 0);
 }
 
 static addIsMissionRewardItemCommonType(builder:flatbuffers.Builder, isMissionRewardItemCommonType:boolean) {
-  builder.addFieldInt8(7, +isMissionRewardItemCommonType, +false);
+  builder.addFieldInt8(8, +isMissionRewardItemCommonType, +false);
 }
 
 static addIsClaimAllBtnCommonType(builder:flatbuffers.Builder, isClaimAllBtnCommonType:boolean) {
-  builder.addFieldInt8(8, +isClaimAllBtnCommonType, +false);
+  builder.addFieldInt8(9, +isClaimAllBtnCommonType, +false);
 }
 
 static addClaimAllBtnMainColor(builder:flatbuffers.Builder, claimAllBtnMainColorOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(9, claimAllBtnMainColorOffset, 0);
+  builder.addFieldOffset(10, claimAllBtnMainColorOffset, 0);
 }
 
 static addClaimAllBtnTips(builder:flatbuffers.Builder, claimAllBtnTipsOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(10, claimAllBtnTipsOffset, 0);
+  builder.addFieldOffset(11, claimAllBtnTipsOffset, 0);
 }
 
 static addTitleType(builder:flatbuffers.Builder, titleType:enum__Torappu_TemplateMissionTitleType) {
-  builder.addFieldInt32(11, titleType, enum__Torappu_TemplateMissionTitleType.COMMON);
+  builder.addFieldInt32(12, titleType, enum__Torappu_TemplateMissionTitleType.COMMON);
 }
 
 static addCoinType(builder:flatbuffers.Builder, coinType:enum__Torappu_TemplateMissionCoinInfoType) {
-  builder.addFieldInt32(12, coinType, enum__Torappu_TemplateMissionCoinInfoType.COMMON);
+  builder.addFieldInt32(13, coinType, enum__Torappu_TemplateMissionCoinInfoType.COMMON);
 }
 
 static addCoinBackColor(builder:flatbuffers.Builder, coinBackColorOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(13, coinBackColorOffset, 0);
+  builder.addFieldOffset(14, coinBackColorOffset, 0);
 }
 
 static endclz_Torappu_TemplateMissionStyleData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -191,8 +200,9 @@ static endclz_Torappu_TemplateMissionStyleData(builder:flatbuffers.Builder):flat
   return offset;
 }
 
-static createclz_Torappu_TemplateMissionStyleData(builder:flatbuffers.Builder, bigRewardType:enum__Torappu_TemplateMissionBigRewardType, bigRewardParamListOffset:flatbuffers.Offset, isMissionListCommonType:boolean, isMissionItemCommonType:boolean, missionItemMainColorOffset:flatbuffers.Offset, isMissionItemCompleteUseMainColor:boolean, missionItemCompleteColorOffset:flatbuffers.Offset, isMissionRewardItemCommonType:boolean, isClaimAllBtnCommonType:boolean, claimAllBtnMainColorOffset:flatbuffers.Offset, claimAllBtnTipsOffset:flatbuffers.Offset, titleType:enum__Torappu_TemplateMissionTitleType, coinType:enum__Torappu_TemplateMissionCoinInfoType, coinBackColorOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_TemplateMissionStyleData(builder:flatbuffers.Builder, isMissionBgCustomType:boolean, bigRewardType:enum__Torappu_TemplateMissionBigRewardType, bigRewardParamListOffset:flatbuffers.Offset, isMissionListCommonType:boolean, isMissionItemCommonType:boolean, missionItemMainColorOffset:flatbuffers.Offset, isMissionItemCompleteUseMainColor:boolean, missionItemCompleteColorOffset:flatbuffers.Offset, isMissionRewardItemCommonType:boolean, isClaimAllBtnCommonType:boolean, claimAllBtnMainColorOffset:flatbuffers.Offset, claimAllBtnTipsOffset:flatbuffers.Offset, titleType:enum__Torappu_TemplateMissionTitleType, coinType:enum__Torappu_TemplateMissionCoinInfoType, coinBackColorOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_TemplateMissionStyleData.startclz_Torappu_TemplateMissionStyleData(builder);
+  clz_Torappu_TemplateMissionStyleData.addIsMissionBgCustomType(builder, isMissionBgCustomType);
   clz_Torappu_TemplateMissionStyleData.addBigRewardType(builder, bigRewardType);
   clz_Torappu_TemplateMissionStyleData.addBigRewardParamList(builder, bigRewardParamListOffset);
   clz_Torappu_TemplateMissionStyleData.addIsMissionListCommonType(builder, isMissionListCommonType);
@@ -212,6 +222,7 @@ static createclz_Torappu_TemplateMissionStyleData(builder:flatbuffers.Builder, b
 
 unpack(): clz_Torappu_TemplateMissionStyleDataT {
   return new clz_Torappu_TemplateMissionStyleDataT(
+    this.isMissionBgCustomType(),
     this.bigRewardType(),
     this.bb!.createScalarList<string>(this.bigRewardParamList.bind(this), this.bigRewardParamListLength()),
     this.isMissionListCommonType(),
@@ -231,6 +242,7 @@ unpack(): clz_Torappu_TemplateMissionStyleDataT {
 
 
 unpackTo(_o: clz_Torappu_TemplateMissionStyleDataT): void {
+  _o.isMissionBgCustomType = this.isMissionBgCustomType();
   _o.bigRewardType = this.bigRewardType();
   _o.bigRewardParamList = this.bb!.createScalarList<string>(this.bigRewardParamList.bind(this), this.bigRewardParamListLength());
   _o.isMissionListCommonType = this.isMissionListCommonType();
@@ -250,6 +262,7 @@ unpackTo(_o: clz_Torappu_TemplateMissionStyleDataT): void {
 
 export class clz_Torappu_TemplateMissionStyleDataT implements flatbuffers.IGeneratedObject {
 constructor(
+  public isMissionBgCustomType: boolean = false,
   public bigRewardType: enum__Torappu_TemplateMissionBigRewardType = enum__Torappu_TemplateMissionBigRewardType.NONE,
   public bigRewardParamList: (string)[] = [],
   public isMissionListCommonType: boolean = false,
@@ -276,6 +289,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const coinBackColor = (this.coinBackColor !== null ? builder.createString(this.coinBackColor!) : 0);
 
   return clz_Torappu_TemplateMissionStyleData.createclz_Torappu_TemplateMissionStyleData(builder,
+    this.isMissionBgCustomType,
     this.bigRewardType,
     bigRewardParamList,
     this.isMissionListCommonType,

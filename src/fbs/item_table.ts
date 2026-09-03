@@ -33,6 +33,7 @@ export { enum__Torappu_BuildingData_RoomType } from './enum--torappu-building-da
 export { enum__Torappu_ItemClassifyType } from './enum--torappu-item-classify-type.js';
 export { enum__Torappu_ItemDropShopType } from './enum--torappu-item-drop-shop-type.js';
 export { enum__Torappu_ItemRarity } from './enum--torappu-item-rarity.js';
+export { enum__Torappu_ItemReslockStatus } from './enum--torappu-item-reslock-status.js';
 export { enum__Torappu_ItemType } from './enum--torappu-item-type.js';
 export { enum__Torappu_OccPer } from './enum--torappu-occ-per.js';
 export { enum__Torappu_VoucherDisplayType } from './enum--torappu-voucher-display-type.js';
