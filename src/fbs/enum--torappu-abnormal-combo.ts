@@ -5,5 +5,6 @@
 export enum enum__Torappu_AbnormalCombo {
   SLEEPING = 0,
   SHELTERING = 1,
-  E_NUM = 2
+  ISOLATE = 2,
+  E_NUM = 3
 }

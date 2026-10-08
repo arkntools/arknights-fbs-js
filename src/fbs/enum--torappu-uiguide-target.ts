@@ -59,5 +59,7 @@ export enum enum__Torappu_UIGuideTarget {
   ARK_HUB = 55,
   ARK_ODC = 56,
   ACT54SIDE_CARD = 57,
-  ACT_VASEBREAKER = 58
+  ACT_VASEBREAKER = 58,
+  BUILDING_RECYCLE = 59,
+  ACT_ARCADE_V2 = 60
 }

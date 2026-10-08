@@ -73,84 +73,98 @@ rewardAvatarText(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
+rewardBackgroundId():string|null
+rewardBackgroundId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+rewardBackgroundId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 18);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+rewardBackgroundText():string|null
+rewardBackgroundText(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+rewardBackgroundText(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 20);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 badgeCollectionName():string|null
 badgeCollectionName(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 badgeCollectionName(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 collectionEntryRelatedBadge():string|null
 collectionEntryRelatedBadge(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 collectionEntryRelatedBadge(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 zoneEntryUnlockToast():string|null
 zoneEntryUnlockToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 zoneEntryUnlockToast(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 zoneEntryEndText():string|null
 zoneEntryEndText(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 zoneEntryEndText(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
+  const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 zoneEntryEndToast():string|null
 zoneEntryEndToast(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 zoneEntryEndToast(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 26);
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 rankUnlockNextStage():string|null
 rankUnlockNextStage(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 rankUnlockNextStage(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 28);
+  const offset = this.bb!.__offset(this.bb_pos, 32);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 stageScoreDisplayLimit():number {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
+  const offset = this.bb!.__offset(this.bb_pos, 34);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 zoneUltiScoreDisplayLimit():number {
-  const offset = this.bb!.__offset(this.bb_pos, 32);
+  const offset = this.bb!.__offset(this.bb_pos, 36);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 enemyHudScore(index: number):string
 enemyHudScore(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 enemyHudScore(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 34);
+  const offset = this.bb!.__offset(this.bb_pos, 38);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 enemyHudScoreLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 34);
+  const offset = this.bb!.__offset(this.bb_pos, 38);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 trapNotBuildableInRest(index: number):string
 trapNotBuildableInRest(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 trapNotBuildableInRest(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 36);
+  const offset = this.bb!.__offset(this.bb_pos, 40);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 trapNotBuildableInRestLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 36);
+  const offset = this.bb!.__offset(this.bb_pos, 40);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_ActArcadeData_ArcadeConstData(builder:flatbuffers.Builder) {
-  builder.startObject(17);
+  builder.startObject(19);
 }
 
 static addMilestoneName(builder:flatbuffers.Builder, milestoneNameOffset:flatbuffers.Offset) {
@@ -181,40 +195,48 @@ static addRewardAvatarText(builder:flatbuffers.Builder, rewardAvatarTextOffset:f
   builder.addFieldOffset(6, rewardAvatarTextOffset, 0);
 }
 
+static addRewardBackgroundId(builder:flatbuffers.Builder, rewardBackgroundIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(7, rewardBackgroundIdOffset, 0);
+}
+
+static addRewardBackgroundText(builder:flatbuffers.Builder, rewardBackgroundTextOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(8, rewardBackgroundTextOffset, 0);
+}
+
 static addBadgeCollectionName(builder:flatbuffers.Builder, badgeCollectionNameOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(7, badgeCollectionNameOffset, 0);
+  builder.addFieldOffset(9, badgeCollectionNameOffset, 0);
 }
 
 static addCollectionEntryRelatedBadge(builder:flatbuffers.Builder, collectionEntryRelatedBadgeOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(8, collectionEntryRelatedBadgeOffset, 0);
+  builder.addFieldOffset(10, collectionEntryRelatedBadgeOffset, 0);
 }
 
 static addZoneEntryUnlockToast(builder:flatbuffers.Builder, zoneEntryUnlockToastOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(9, zoneEntryUnlockToastOffset, 0);
+  builder.addFieldOffset(11, zoneEntryUnlockToastOffset, 0);
 }
 
 static addZoneEntryEndText(builder:flatbuffers.Builder, zoneEntryEndTextOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(10, zoneEntryEndTextOffset, 0);
+  builder.addFieldOffset(12, zoneEntryEndTextOffset, 0);
 }
 
 static addZoneEntryEndToast(builder:flatbuffers.Builder, zoneEntryEndToastOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(11, zoneEntryEndToastOffset, 0);
+  builder.addFieldOffset(13, zoneEntryEndToastOffset, 0);
 }
 
 static addRankUnlockNextStage(builder:flatbuffers.Builder, rankUnlockNextStageOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(12, rankUnlockNextStageOffset, 0);
+  builder.addFieldOffset(14, rankUnlockNextStageOffset, 0);
 }
 
 static addStageScoreDisplayLimit(builder:flatbuffers.Builder, stageScoreDisplayLimit:number) {
-  builder.addFieldInt32(13, stageScoreDisplayLimit, 0);
+  builder.addFieldInt32(15, stageScoreDisplayLimit, 0);
 }
 
 static addZoneUltiScoreDisplayLimit(builder:flatbuffers.Builder, zoneUltiScoreDisplayLimit:number) {
-  builder.addFieldInt32(14, zoneUltiScoreDisplayLimit, 0);
+  builder.addFieldInt32(16, zoneUltiScoreDisplayLimit, 0);
 }
 
 static addEnemyHudScore(builder:flatbuffers.Builder, enemyHudScoreOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(15, enemyHudScoreOffset, 0);
+  builder.addFieldOffset(17, enemyHudScoreOffset, 0);
 }
 
 static createEnemyHudScoreVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -230,7 +252,7 @@ static startEnemyHudScoreVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addTrapNotBuildableInRest(builder:flatbuffers.Builder, trapNotBuildableInRestOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(16, trapNotBuildableInRestOffset, 0);
+  builder.addFieldOffset(18, trapNotBuildableInRestOffset, 0);
 }
 
 static createTrapNotBuildableInRestVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -250,7 +272,7 @@ static endclz_Torappu_ActArcadeData_ArcadeConstData(builder:flatbuffers.Builder)
   return offset;
 }
 
-static createclz_Torappu_ActArcadeData_ArcadeConstData(builder:flatbuffers.Builder, milestoneNameOffset:flatbuffers.Offset, milestoneNameEnOffset:flatbuffers.Offset, milestoneItemIdOffset:flatbuffers.Offset, rewardHomeThemeIdOffset:flatbuffers.Offset, rewardHomeThemeTextOffset:flatbuffers.Offset, rewardAvatarIdOffset:flatbuffers.Offset, rewardAvatarTextOffset:flatbuffers.Offset, badgeCollectionNameOffset:flatbuffers.Offset, collectionEntryRelatedBadgeOffset:flatbuffers.Offset, zoneEntryUnlockToastOffset:flatbuffers.Offset, zoneEntryEndTextOffset:flatbuffers.Offset, zoneEntryEndToastOffset:flatbuffers.Offset, rankUnlockNextStageOffset:flatbuffers.Offset, stageScoreDisplayLimit:number, zoneUltiScoreDisplayLimit:number, enemyHudScoreOffset:flatbuffers.Offset, trapNotBuildableInRestOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_ActArcadeData_ArcadeConstData(builder:flatbuffers.Builder, milestoneNameOffset:flatbuffers.Offset, milestoneNameEnOffset:flatbuffers.Offset, milestoneItemIdOffset:flatbuffers.Offset, rewardHomeThemeIdOffset:flatbuffers.Offset, rewardHomeThemeTextOffset:flatbuffers.Offset, rewardAvatarIdOffset:flatbuffers.Offset, rewardAvatarTextOffset:flatbuffers.Offset, rewardBackgroundIdOffset:flatbuffers.Offset, rewardBackgroundTextOffset:flatbuffers.Offset, badgeCollectionNameOffset:flatbuffers.Offset, collectionEntryRelatedBadgeOffset:flatbuffers.Offset, zoneEntryUnlockToastOffset:flatbuffers.Offset, zoneEntryEndTextOffset:flatbuffers.Offset, zoneEntryEndToastOffset:flatbuffers.Offset, rankUnlockNextStageOffset:flatbuffers.Offset, stageScoreDisplayLimit:number, zoneUltiScoreDisplayLimit:number, enemyHudScoreOffset:flatbuffers.Offset, trapNotBuildableInRestOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_ActArcadeData_ArcadeConstData.startclz_Torappu_ActArcadeData_ArcadeConstData(builder);
   clz_Torappu_ActArcadeData_ArcadeConstData.addMilestoneName(builder, milestoneNameOffset);
   clz_Torappu_ActArcadeData_ArcadeConstData.addMilestoneNameEn(builder, milestoneNameEnOffset);
@@ -259,6 +281,8 @@ static createclz_Torappu_ActArcadeData_ArcadeConstData(builder:flatbuffers.Build
   clz_Torappu_ActArcadeData_ArcadeConstData.addRewardHomeThemeText(builder, rewardHomeThemeTextOffset);
   clz_Torappu_ActArcadeData_ArcadeConstData.addRewardAvatarId(builder, rewardAvatarIdOffset);
   clz_Torappu_ActArcadeData_ArcadeConstData.addRewardAvatarText(builder, rewardAvatarTextOffset);
+  clz_Torappu_ActArcadeData_ArcadeConstData.addRewardBackgroundId(builder, rewardBackgroundIdOffset);
+  clz_Torappu_ActArcadeData_ArcadeConstData.addRewardBackgroundText(builder, rewardBackgroundTextOffset);
   clz_Torappu_ActArcadeData_ArcadeConstData.addBadgeCollectionName(builder, badgeCollectionNameOffset);
   clz_Torappu_ActArcadeData_ArcadeConstData.addCollectionEntryRelatedBadge(builder, collectionEntryRelatedBadgeOffset);
   clz_Torappu_ActArcadeData_ArcadeConstData.addZoneEntryUnlockToast(builder, zoneEntryUnlockToastOffset);
@@ -281,6 +305,8 @@ unpack(): clz_Torappu_ActArcadeData_ArcadeConstDataT {
     this.rewardHomeThemeText(),
     this.rewardAvatarId(),
     this.rewardAvatarText(),
+    this.rewardBackgroundId(),
+    this.rewardBackgroundText(),
     this.badgeCollectionName(),
     this.collectionEntryRelatedBadge(),
     this.zoneEntryUnlockToast(),
@@ -303,6 +329,8 @@ unpackTo(_o: clz_Torappu_ActArcadeData_ArcadeConstDataT): void {
   _o.rewardHomeThemeText = this.rewardHomeThemeText();
   _o.rewardAvatarId = this.rewardAvatarId();
   _o.rewardAvatarText = this.rewardAvatarText();
+  _o.rewardBackgroundId = this.rewardBackgroundId();
+  _o.rewardBackgroundText = this.rewardBackgroundText();
   _o.badgeCollectionName = this.badgeCollectionName();
   _o.collectionEntryRelatedBadge = this.collectionEntryRelatedBadge();
   _o.zoneEntryUnlockToast = this.zoneEntryUnlockToast();
@@ -325,6 +353,8 @@ constructor(
   public rewardHomeThemeText: string|Uint8Array|null = null,
   public rewardAvatarId: string|Uint8Array|null = null,
   public rewardAvatarText: string|Uint8Array|null = null,
+  public rewardBackgroundId: string|Uint8Array|null = null,
+  public rewardBackgroundText: string|Uint8Array|null = null,
   public badgeCollectionName: string|Uint8Array|null = null,
   public collectionEntryRelatedBadge: string|Uint8Array|null = null,
   public zoneEntryUnlockToast: string|Uint8Array|null = null,
@@ -346,6 +376,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const rewardHomeThemeText = (this.rewardHomeThemeText !== null ? builder.createString(this.rewardHomeThemeText!) : 0);
   const rewardAvatarId = (this.rewardAvatarId !== null ? builder.createString(this.rewardAvatarId!) : 0);
   const rewardAvatarText = (this.rewardAvatarText !== null ? builder.createString(this.rewardAvatarText!) : 0);
+  const rewardBackgroundId = (this.rewardBackgroundId !== null ? builder.createString(this.rewardBackgroundId!) : 0);
+  const rewardBackgroundText = (this.rewardBackgroundText !== null ? builder.createString(this.rewardBackgroundText!) : 0);
   const badgeCollectionName = (this.badgeCollectionName !== null ? builder.createString(this.badgeCollectionName!) : 0);
   const collectionEntryRelatedBadge = (this.collectionEntryRelatedBadge !== null ? builder.createString(this.collectionEntryRelatedBadge!) : 0);
   const zoneEntryUnlockToast = (this.zoneEntryUnlockToast !== null ? builder.createString(this.zoneEntryUnlockToast!) : 0);
@@ -363,6 +395,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     rewardHomeThemeText,
     rewardAvatarId,
     rewardAvatarText,
+    rewardBackgroundId,
+    rewardBackgroundText,
     badgeCollectionName,
     collectionEntryRelatedBadge,
     zoneEntryUnlockToast,

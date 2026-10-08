@@ -13,5 +13,6 @@ export enum enum__Torappu_RoguelikeRewardExDropTagSrcType {
   LOOP_CHIP = 7,
   STEP = 8,
   GREED = 9,
-  GOLDEN_AGE = 10
+  GOLDEN_AGE = 10,
+  ADVENTURER_EXTRA = 11
 }

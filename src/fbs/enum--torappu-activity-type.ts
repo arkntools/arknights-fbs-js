@@ -70,5 +70,6 @@ export enum enum__Torappu_ActivityType {
   TYPE_ACT53SIDE = 64,
   TYPE_ACT54SIDE = 65,
   ACT_DP = 66,
-  ENUM = 67
+  REWARD_ONLY = 67,
+  ENUM = 68
 }

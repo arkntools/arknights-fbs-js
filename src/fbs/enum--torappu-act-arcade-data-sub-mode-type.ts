@@ -8,5 +8,6 @@ export enum enum__Torappu_ActArcadeData_SubModeType {
   DRAW = 1,
   LINE = 2,
   CAR = 3,
-  E_NUM = 4
+  FISH = 4,
+  E_NUM = 5
 }

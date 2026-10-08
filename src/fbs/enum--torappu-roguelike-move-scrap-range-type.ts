@@ -4,5 +4,6 @@
 
 export enum enum__Torappu_RoguelikeMoveScrapRangeType {
   RANGE = 0,
-  FULL_MAP = 1
+  FULL_MAP = 1,
+  FULL_ROW_COL = 2
 }

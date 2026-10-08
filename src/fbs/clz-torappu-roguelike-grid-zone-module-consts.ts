@@ -39,23 +39,68 @@ secretZoneDisableBuff(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-maxBannerDifficulty():number {
+shadvrTrapIds(index: number):string
+shadvrTrapIds(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
+shadvrTrapIds(index: number,optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 8);
-  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+  return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
-focusViewBossHintStageId(index: number, obj?:dict__string__bool):dict__string__bool|null {
+shadvrTrapIdsLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 8);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
+shadvrFirstDieTrapIds(index: number):string
+shadvrFirstDieTrapIds(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
+shadvrFirstDieTrapIds(index: number,optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 10);
-  return offset ? (obj || new dict__string__bool()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
-focusViewBossHintStageIdLength():number {
+shadvrFirstDieTrapIdsLength():number {
   const offset = this.bb!.__offset(this.bb_pos, 10);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
+shadvrAliveEventId():string|null
+shadvrAliveEventId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+shadvrAliveEventId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+shadvrDieEventId():string|null
+shadvrDieEventId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+shadvrDieEventId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+shadvrFinalRelicId():string|null
+shadvrFinalRelicId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+shadvrFinalRelicId(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
+maxBannerDifficulty():number {
+  const offset = this.bb!.__offset(this.bb_pos, 18);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+focusViewBossHintStageId(index: number, obj?:dict__string__bool):dict__string__bool|null {
+  const offset = this.bb!.__offset(this.bb_pos, 20);
+  return offset ? (obj || new dict__string__bool()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+}
+
+focusViewBossHintStageIdLength():number {
+  const offset = this.bb!.__offset(this.bb_pos, 20);
+  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+}
+
 static startclz_Torappu_RoguelikeGridZoneModuleConsts(builder:flatbuffers.Builder) {
-  builder.startObject(4);
+  builder.startObject(9);
 }
 
 static addSavageBubble(builder:flatbuffers.Builder, savageBubbleOffset:flatbuffers.Offset) {
@@ -66,12 +111,56 @@ static addSecretZoneDisableBuff(builder:flatbuffers.Builder, secretZoneDisableBu
   builder.addFieldOffset(1, secretZoneDisableBuffOffset, 0);
 }
 
+static addShadvrTrapIds(builder:flatbuffers.Builder, shadvrTrapIdsOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(2, shadvrTrapIdsOffset, 0);
+}
+
+static createShadvrTrapIdsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startShadvrTrapIdsVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addShadvrFirstDieTrapIds(builder:flatbuffers.Builder, shadvrFirstDieTrapIdsOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(3, shadvrFirstDieTrapIdsOffset, 0);
+}
+
+static createShadvrFirstDieTrapIdsVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
+  builder.startVector(4, data.length, 4);
+  for (let i = data.length - 1; i >= 0; i--) {
+    builder.addOffset(data[i]!);
+  }
+  return builder.endVector();
+}
+
+static startShadvrFirstDieTrapIdsVector(builder:flatbuffers.Builder, numElems:number) {
+  builder.startVector(4, numElems, 4);
+}
+
+static addShadvrAliveEventId(builder:flatbuffers.Builder, shadvrAliveEventIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(4, shadvrAliveEventIdOffset, 0);
+}
+
+static addShadvrDieEventId(builder:flatbuffers.Builder, shadvrDieEventIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(5, shadvrDieEventIdOffset, 0);
+}
+
+static addShadvrFinalRelicId(builder:flatbuffers.Builder, shadvrFinalRelicIdOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(6, shadvrFinalRelicIdOffset, 0);
+}
+
 static addMaxBannerDifficulty(builder:flatbuffers.Builder, maxBannerDifficulty:number) {
-  builder.addFieldInt32(2, maxBannerDifficulty, 0);
+  builder.addFieldInt32(7, maxBannerDifficulty, 0);
 }
 
 static addFocusViewBossHintStageId(builder:flatbuffers.Builder, focusViewBossHintStageIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, focusViewBossHintStageIdOffset, 0);
+  builder.addFieldOffset(8, focusViewBossHintStageIdOffset, 0);
 }
 
 static createFocusViewBossHintStageIdVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -91,10 +180,15 @@ static endclz_Torappu_RoguelikeGridZoneModuleConsts(builder:flatbuffers.Builder)
   return offset;
 }
 
-static createclz_Torappu_RoguelikeGridZoneModuleConsts(builder:flatbuffers.Builder, savageBubbleOffset:flatbuffers.Offset, secretZoneDisableBuffOffset:flatbuffers.Offset, maxBannerDifficulty:number, focusViewBossHintStageIdOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_RoguelikeGridZoneModuleConsts(builder:flatbuffers.Builder, savageBubbleOffset:flatbuffers.Offset, secretZoneDisableBuffOffset:flatbuffers.Offset, shadvrTrapIdsOffset:flatbuffers.Offset, shadvrFirstDieTrapIdsOffset:flatbuffers.Offset, shadvrAliveEventIdOffset:flatbuffers.Offset, shadvrDieEventIdOffset:flatbuffers.Offset, shadvrFinalRelicIdOffset:flatbuffers.Offset, maxBannerDifficulty:number, focusViewBossHintStageIdOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_RoguelikeGridZoneModuleConsts.startclz_Torappu_RoguelikeGridZoneModuleConsts(builder);
   clz_Torappu_RoguelikeGridZoneModuleConsts.addSavageBubble(builder, savageBubbleOffset);
   clz_Torappu_RoguelikeGridZoneModuleConsts.addSecretZoneDisableBuff(builder, secretZoneDisableBuffOffset);
+  clz_Torappu_RoguelikeGridZoneModuleConsts.addShadvrTrapIds(builder, shadvrTrapIdsOffset);
+  clz_Torappu_RoguelikeGridZoneModuleConsts.addShadvrFirstDieTrapIds(builder, shadvrFirstDieTrapIdsOffset);
+  clz_Torappu_RoguelikeGridZoneModuleConsts.addShadvrAliveEventId(builder, shadvrAliveEventIdOffset);
+  clz_Torappu_RoguelikeGridZoneModuleConsts.addShadvrDieEventId(builder, shadvrDieEventIdOffset);
+  clz_Torappu_RoguelikeGridZoneModuleConsts.addShadvrFinalRelicId(builder, shadvrFinalRelicIdOffset);
   clz_Torappu_RoguelikeGridZoneModuleConsts.addMaxBannerDifficulty(builder, maxBannerDifficulty);
   clz_Torappu_RoguelikeGridZoneModuleConsts.addFocusViewBossHintStageId(builder, focusViewBossHintStageIdOffset);
   return clz_Torappu_RoguelikeGridZoneModuleConsts.endclz_Torappu_RoguelikeGridZoneModuleConsts(builder);
@@ -104,6 +198,11 @@ unpack(): clz_Torappu_RoguelikeGridZoneModuleConstsT {
   return new clz_Torappu_RoguelikeGridZoneModuleConstsT(
     this.savageBubble(),
     this.secretZoneDisableBuff(),
+    this.bb!.createScalarList<string>(this.shadvrTrapIds.bind(this), this.shadvrTrapIdsLength()),
+    this.bb!.createScalarList<string>(this.shadvrFirstDieTrapIds.bind(this), this.shadvrFirstDieTrapIdsLength()),
+    this.shadvrAliveEventId(),
+    this.shadvrDieEventId(),
+    this.shadvrFinalRelicId(),
     this.maxBannerDifficulty(),
     this.bb!.createObjList<dict__string__bool, dict__string__boolT>(this.focusViewBossHintStageId.bind(this), this.focusViewBossHintStageIdLength())
   );
@@ -113,6 +212,11 @@ unpack(): clz_Torappu_RoguelikeGridZoneModuleConstsT {
 unpackTo(_o: clz_Torappu_RoguelikeGridZoneModuleConstsT): void {
   _o.savageBubble = this.savageBubble();
   _o.secretZoneDisableBuff = this.secretZoneDisableBuff();
+  _o.shadvrTrapIds = this.bb!.createScalarList<string>(this.shadvrTrapIds.bind(this), this.shadvrTrapIdsLength());
+  _o.shadvrFirstDieTrapIds = this.bb!.createScalarList<string>(this.shadvrFirstDieTrapIds.bind(this), this.shadvrFirstDieTrapIdsLength());
+  _o.shadvrAliveEventId = this.shadvrAliveEventId();
+  _o.shadvrDieEventId = this.shadvrDieEventId();
+  _o.shadvrFinalRelicId = this.shadvrFinalRelicId();
   _o.maxBannerDifficulty = this.maxBannerDifficulty();
   _o.focusViewBossHintStageId = this.bb!.createObjList<dict__string__bool, dict__string__boolT>(this.focusViewBossHintStageId.bind(this), this.focusViewBossHintStageIdLength());
 }
@@ -122,6 +226,11 @@ export class clz_Torappu_RoguelikeGridZoneModuleConstsT implements flatbuffers.I
 constructor(
   public savageBubble: string|Uint8Array|null = null,
   public secretZoneDisableBuff: string|Uint8Array|null = null,
+  public shadvrTrapIds: (string)[] = [],
+  public shadvrFirstDieTrapIds: (string)[] = [],
+  public shadvrAliveEventId: string|Uint8Array|null = null,
+  public shadvrDieEventId: string|Uint8Array|null = null,
+  public shadvrFinalRelicId: string|Uint8Array|null = null,
   public maxBannerDifficulty: number = 0,
   public focusViewBossHintStageId: (dict__string__boolT)[] = []
 ){}
@@ -130,11 +239,21 @@ constructor(
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const savageBubble = (this.savageBubble !== null ? builder.createString(this.savageBubble!) : 0);
   const secretZoneDisableBuff = (this.secretZoneDisableBuff !== null ? builder.createString(this.secretZoneDisableBuff!) : 0);
+  const shadvrTrapIds = clz_Torappu_RoguelikeGridZoneModuleConsts.createShadvrTrapIdsVector(builder, builder.createObjectOffsetList(this.shadvrTrapIds));
+  const shadvrFirstDieTrapIds = clz_Torappu_RoguelikeGridZoneModuleConsts.createShadvrFirstDieTrapIdsVector(builder, builder.createObjectOffsetList(this.shadvrFirstDieTrapIds));
+  const shadvrAliveEventId = (this.shadvrAliveEventId !== null ? builder.createString(this.shadvrAliveEventId!) : 0);
+  const shadvrDieEventId = (this.shadvrDieEventId !== null ? builder.createString(this.shadvrDieEventId!) : 0);
+  const shadvrFinalRelicId = (this.shadvrFinalRelicId !== null ? builder.createString(this.shadvrFinalRelicId!) : 0);
   const focusViewBossHintStageId = clz_Torappu_RoguelikeGridZoneModuleConsts.createFocusViewBossHintStageIdVector(builder, builder.createObjectOffsetList(this.focusViewBossHintStageId));
 
   return clz_Torappu_RoguelikeGridZoneModuleConsts.createclz_Torappu_RoguelikeGridZoneModuleConsts(builder,
     savageBubble,
     secretZoneDisableBuff,
+    shadvrTrapIds,
+    shadvrFirstDieTrapIds,
+    shadvrAliveEventId,
+    shadvrDieEventId,
+    shadvrFinalRelicId,
     this.maxBannerDifficulty,
     focusViewBossHintStageId
   );

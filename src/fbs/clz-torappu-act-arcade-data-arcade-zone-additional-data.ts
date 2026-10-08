@@ -44,56 +44,42 @@ zoneName(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-zoneEntryPicId():string|null
-zoneEntryPicId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-zoneEntryPicId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 10);
-  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
-}
-
-stageInfoPrefabId():string|null
-stageInfoPrefabId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-stageInfoPrefabId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
-  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
-}
-
 startTs():bigint {
-  const offset = this.bb!.__offset(this.bb_pos, 14);
+  const offset = this.bb!.__offset(this.bb_pos, 10);
   return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
 }
 
 endTs():bigint {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
 }
 
 stages(index: number):string
 stages(index: number,optionalEncoding:flatbuffers.Encoding):string|Uint8Array
 stages(index: number,optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? this.bb!.__string(this.bb!.__vector(this.bb_pos + offset) + index * 4, optionalEncoding) : null;
 }
 
 stagesLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 subModeType():enum__Torappu_ActArcadeData_SubModeType {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_ActArcadeData_SubModeType.MINER;
 }
 
 zoneDesc():string|null
 zoneDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 zoneDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 static startclz_Torappu_ActArcadeData_ArcadeZoneAdditionalData(builder:flatbuffers.Builder) {
-  builder.startObject(10);
+  builder.startObject(8);
 }
 
 static addZoneId(builder:flatbuffers.Builder, zoneIdOffset:flatbuffers.Offset) {
@@ -108,24 +94,16 @@ static addZoneName(builder:flatbuffers.Builder, zoneNameOffset:flatbuffers.Offse
   builder.addFieldOffset(2, zoneNameOffset, 0);
 }
 
-static addZoneEntryPicId(builder:flatbuffers.Builder, zoneEntryPicIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, zoneEntryPicIdOffset, 0);
-}
-
-static addStageInfoPrefabId(builder:flatbuffers.Builder, stageInfoPrefabIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(4, stageInfoPrefabIdOffset, 0);
-}
-
 static addStartTs(builder:flatbuffers.Builder, startTs:bigint) {
-  builder.addFieldInt64(5, startTs, BigInt('0'));
+  builder.addFieldInt64(3, startTs, BigInt('0'));
 }
 
 static addEndTs(builder:flatbuffers.Builder, endTs:bigint) {
-  builder.addFieldInt64(6, endTs, BigInt('0'));
+  builder.addFieldInt64(4, endTs, BigInt('0'));
 }
 
 static addStages(builder:flatbuffers.Builder, stagesOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(7, stagesOffset, 0);
+  builder.addFieldOffset(5, stagesOffset, 0);
 }
 
 static createStagesVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
@@ -141,11 +119,11 @@ static startStagesVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addSubModeType(builder:flatbuffers.Builder, subModeType:enum__Torappu_ActArcadeData_SubModeType) {
-  builder.addFieldInt32(8, subModeType, enum__Torappu_ActArcadeData_SubModeType.MINER);
+  builder.addFieldInt32(6, subModeType, enum__Torappu_ActArcadeData_SubModeType.MINER);
 }
 
 static addZoneDesc(builder:flatbuffers.Builder, zoneDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(9, zoneDescOffset, 0);
+  builder.addFieldOffset(7, zoneDescOffset, 0);
 }
 
 static endclz_Torappu_ActArcadeData_ArcadeZoneAdditionalData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -153,13 +131,11 @@ static endclz_Torappu_ActArcadeData_ArcadeZoneAdditionalData(builder:flatbuffers
   return offset;
 }
 
-static createclz_Torappu_ActArcadeData_ArcadeZoneAdditionalData(builder:flatbuffers.Builder, zoneIdOffset:flatbuffers.Offset, sortId:number, zoneNameOffset:flatbuffers.Offset, zoneEntryPicIdOffset:flatbuffers.Offset, stageInfoPrefabIdOffset:flatbuffers.Offset, startTs:bigint, endTs:bigint, stagesOffset:flatbuffers.Offset, subModeType:enum__Torappu_ActArcadeData_SubModeType, zoneDescOffset:flatbuffers.Offset):flatbuffers.Offset {
+static createclz_Torappu_ActArcadeData_ArcadeZoneAdditionalData(builder:flatbuffers.Builder, zoneIdOffset:flatbuffers.Offset, sortId:number, zoneNameOffset:flatbuffers.Offset, startTs:bigint, endTs:bigint, stagesOffset:flatbuffers.Offset, subModeType:enum__Torappu_ActArcadeData_SubModeType, zoneDescOffset:flatbuffers.Offset):flatbuffers.Offset {
   clz_Torappu_ActArcadeData_ArcadeZoneAdditionalData.startclz_Torappu_ActArcadeData_ArcadeZoneAdditionalData(builder);
   clz_Torappu_ActArcadeData_ArcadeZoneAdditionalData.addZoneId(builder, zoneIdOffset);
   clz_Torappu_ActArcadeData_ArcadeZoneAdditionalData.addSortId(builder, sortId);
   clz_Torappu_ActArcadeData_ArcadeZoneAdditionalData.addZoneName(builder, zoneNameOffset);
-  clz_Torappu_ActArcadeData_ArcadeZoneAdditionalData.addZoneEntryPicId(builder, zoneEntryPicIdOffset);
-  clz_Torappu_ActArcadeData_ArcadeZoneAdditionalData.addStageInfoPrefabId(builder, stageInfoPrefabIdOffset);
   clz_Torappu_ActArcadeData_ArcadeZoneAdditionalData.addStartTs(builder, startTs);
   clz_Torappu_ActArcadeData_ArcadeZoneAdditionalData.addEndTs(builder, endTs);
   clz_Torappu_ActArcadeData_ArcadeZoneAdditionalData.addStages(builder, stagesOffset);
@@ -173,8 +149,6 @@ unpack(): clz_Torappu_ActArcadeData_ArcadeZoneAdditionalDataT {
     this.zoneId(),
     this.sortId(),
     this.zoneName(),
-    this.zoneEntryPicId(),
-    this.stageInfoPrefabId(),
     this.startTs(),
     this.endTs(),
     this.bb!.createScalarList<string>(this.stages.bind(this), this.stagesLength()),
@@ -188,8 +162,6 @@ unpackTo(_o: clz_Torappu_ActArcadeData_ArcadeZoneAdditionalDataT): void {
   _o.zoneId = this.zoneId();
   _o.sortId = this.sortId();
   _o.zoneName = this.zoneName();
-  _o.zoneEntryPicId = this.zoneEntryPicId();
-  _o.stageInfoPrefabId = this.stageInfoPrefabId();
   _o.startTs = this.startTs();
   _o.endTs = this.endTs();
   _o.stages = this.bb!.createScalarList<string>(this.stages.bind(this), this.stagesLength());
@@ -203,8 +175,6 @@ constructor(
   public zoneId: string|Uint8Array|null = null,
   public sortId: number = 0,
   public zoneName: string|Uint8Array|null = null,
-  public zoneEntryPicId: string|Uint8Array|null = null,
-  public stageInfoPrefabId: string|Uint8Array|null = null,
   public startTs: bigint = BigInt('0'),
   public endTs: bigint = BigInt('0'),
   public stages: (string)[] = [],
@@ -216,8 +186,6 @@ constructor(
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const zoneId = (this.zoneId !== null ? builder.createString(this.zoneId!) : 0);
   const zoneName = (this.zoneName !== null ? builder.createString(this.zoneName!) : 0);
-  const zoneEntryPicId = (this.zoneEntryPicId !== null ? builder.createString(this.zoneEntryPicId!) : 0);
-  const stageInfoPrefabId = (this.stageInfoPrefabId !== null ? builder.createString(this.stageInfoPrefabId!) : 0);
   const stages = clz_Torappu_ActArcadeData_ArcadeZoneAdditionalData.createStagesVector(builder, builder.createObjectOffsetList(this.stages));
   const zoneDesc = (this.zoneDesc !== null ? builder.createString(this.zoneDesc!) : 0);
 
@@ -225,8 +193,6 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     zoneId,
     this.sortId,
     zoneName,
-    zoneEntryPicId,
-    stageInfoPrefabId,
     this.startTs,
     this.endTs,
     stages,

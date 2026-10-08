@@ -46,6 +46,13 @@ export { clz_Torappu_BuildingData_PowerPhase, clz_Torappu_BuildingData_PowerPhas
 export { clz_Torappu_BuildingData_PowerRoomBean, clz_Torappu_BuildingData_PowerRoomBeanT } from './clz-torappu-building-data-power-room-bean.js';
 export { clz_Torappu_BuildingData_PrefabInfo, clz_Torappu_BuildingData_PrefabInfoT } from './clz-torappu-building-data-prefab-info.js';
 export { clz_Torappu_BuildingData_PrivatePhase, clz_Torappu_BuildingData_PrivatePhaseT } from './clz-torappu-building-data-private-phase.js';
+export { clz_Torappu_BuildingData_RecycleBean, clz_Torappu_BuildingData_RecycleBeanT } from './clz-torappu-building-data-recycle-bean.js';
+export { clz_Torappu_BuildingData_RecyclePhase, clz_Torappu_BuildingData_RecyclePhaseT } from './clz-torappu-building-data-recycle-phase.js';
+export { clz_Torappu_BuildingData_RecycleRoomConsts, clz_Torappu_BuildingData_RecycleRoomConstsT } from './clz-torappu-building-data-recycle-room-consts.js';
+export { clz_Torappu_BuildingData_RecycleRoomInputItemData, clz_Torappu_BuildingData_RecycleRoomInputItemDataT } from './clz-torappu-building-data-recycle-room-input-item-data.js';
+export { clz_Torappu_BuildingData_RecycleRoomOutputPoolContentData, clz_Torappu_BuildingData_RecycleRoomOutputPoolContentDataT } from './clz-torappu-building-data-recycle-room-output-pool-content-data.js';
+export { clz_Torappu_BuildingData_RecycleRoomOutputPoolData, clz_Torappu_BuildingData_RecycleRoomOutputPoolDataT } from './clz-torappu-building-data-recycle-room-output-pool-data.js';
+export { clz_Torappu_BuildingData_RecycleRoomOutputPoolItemData, clz_Torappu_BuildingData_RecycleRoomOutputPoolItemDataT } from './clz-torappu-building-data-recycle-room-output-pool-item-data.js';
 export { clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_DormPhase_, clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_DormPhase_T } from './clz-torappu-building-data-room-bean1-torappu-building-data-dorm-phase-.js';
 export { clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_PrivatePhase_, clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_PrivatePhase_T } from './clz-torappu-building-data-room-bean1-torappu-building-data-private-phase-.js';
 export { clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_ShopPhase_, clz_Torappu_BuildingData_RoomBean_1_Torappu_BuildingData_ShopPhase_T } from './clz-torappu-building-data-room-bean1-torappu-building-data-shop-phase-.js';
@@ -99,6 +106,9 @@ export { dict__string__clz_Torappu_BuildingData_LayoutData_StoreyData, dict__str
 export { dict__string__clz_Torappu_BuildingData_ManufactFormula, dict__string__clz_Torappu_BuildingData_ManufactFormulaT } from './dict--string--clz-torappu-building-data-manufact-formula.js';
 export { dict__string__clz_Torappu_BuildingData_MusicSingleData, dict__string__clz_Torappu_BuildingData_MusicSingleDataT } from './dict--string--clz-torappu-building-data-music-single-data.js';
 export { dict__string__clz_Torappu_BuildingData_PrefabInfo, dict__string__clz_Torappu_BuildingData_PrefabInfoT } from './dict--string--clz-torappu-building-data-prefab-info.js';
+export { dict__string__clz_Torappu_BuildingData_RecycleRoomInputItemData, dict__string__clz_Torappu_BuildingData_RecycleRoomInputItemDataT } from './dict--string--clz-torappu-building-data-recycle-room-input-item-data.js';
+export { dict__string__clz_Torappu_BuildingData_RecycleRoomOutputPoolContentData, dict__string__clz_Torappu_BuildingData_RecycleRoomOutputPoolContentDataT } from './dict--string--clz-torappu-building-data-recycle-room-output-pool-content-data.js';
+export { dict__string__clz_Torappu_BuildingData_RecycleRoomOutputPoolData, dict__string__clz_Torappu_BuildingData_RecycleRoomOutputPoolDataT } from './dict--string--clz-torappu-building-data-recycle-room-output-pool-data.js';
 export { dict__string__clz_Torappu_BuildingData_RoomData, dict__string__clz_Torappu_BuildingData_RoomDataT } from './dict--string--clz-torappu-building-data-room-data.js';
 export { dict__string__clz_Torappu_BuildingData_RoomUnlockCond, dict__string__clz_Torappu_BuildingData_RoomUnlockCondT } from './dict--string--clz-torappu-building-data-room-unlock-cond.js';
 export { dict__string__clz_Torappu_BuildingData_ShopFormula, dict__string__clz_Torappu_BuildingData_ShopFormulaT } from './dict--string--clz-torappu-building-data-shop-formula.js';

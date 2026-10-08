@@ -16,7 +16,8 @@ export enum enum__Torappu_BuildingData_RoomType {
   TRADING = 512,
   WORKSHOP = 1024,
   TRAINING = 2048,
-  FUNCTIONAL = 3710,
   PRIVATE = 4096,
-  ALL = 8191
+  RECYCLE = 8192,
+  FUNCTIONAL = 11902,
+  ALL = 16383
 }

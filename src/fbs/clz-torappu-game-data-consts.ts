@@ -867,8 +867,20 @@ avgReaderModeDefaultSetting(obj?:clz_Torappu_GameDataConsts_AVGReaderModeDefault
   return offset ? (obj || new clz_Torappu_GameDataConsts_AVGReaderModeDefaultSetting()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
+friendAddUidLimit():number {
+  const offset = this.bb!.__offset(this.bb_pos, 254);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+}
+
+friendUrlFormat():string|null
+friendUrlFormat(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+friendUrlFormat(optionalEncoding?:any):string|Uint8Array|null {
+  const offset = this.bb!.__offset(this.bb_pos, 256);
+  return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
+}
+
 static startclz_Torappu_GameDataConsts(builder:flatbuffers.Builder) {
-  builder.startObject(125);
+  builder.startObject(127);
 }
 
 static addMaxPlayerLevel(builder:flatbuffers.Builder, maxPlayerLevel:number) {
@@ -1670,6 +1682,14 @@ static addAvgReaderModeDefaultSetting(builder:flatbuffers.Builder, avgReaderMode
   builder.addFieldOffset(124, avgReaderModeDefaultSettingOffset, 0);
 }
 
+static addFriendAddUidLimit(builder:flatbuffers.Builder, friendAddUidLimit:number) {
+  builder.addFieldInt32(125, friendAddUidLimit, 0);
+}
+
+static addFriendUrlFormat(builder:flatbuffers.Builder, friendUrlFormatOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(126, friendUrlFormatOffset, 0);
+}
+
 static endclz_Torappu_GameDataConsts(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
@@ -1810,7 +1830,9 @@ unpack(): clz_Torappu_GameDataConstsT {
     this.birthdaySettingShowStageId(),
     this.isBirthdayFuncEnabled(),
     this.isSoCharEnabled(),
-    (this.avgReaderModeDefaultSetting() !== null ? this.avgReaderModeDefaultSetting()!.unpack() : null)
+    (this.avgReaderModeDefaultSetting() !== null ? this.avgReaderModeDefaultSetting()!.unpack() : null),
+    this.friendAddUidLimit(),
+    this.friendUrlFormat()
   );
 }
 
@@ -1941,6 +1963,8 @@ unpackTo(_o: clz_Torappu_GameDataConstsT): void {
   _o.isBirthdayFuncEnabled = this.isBirthdayFuncEnabled();
   _o.isSoCharEnabled = this.isSoCharEnabled();
   _o.avgReaderModeDefaultSetting = (this.avgReaderModeDefaultSetting() !== null ? this.avgReaderModeDefaultSetting()!.unpack() : null);
+  _o.friendAddUidLimit = this.friendAddUidLimit();
+  _o.friendUrlFormat = this.friendUrlFormat();
 }
 }
 
@@ -2070,7 +2094,9 @@ constructor(
   public birthdaySettingShowStageId: string|Uint8Array|null = null,
   public isBirthdayFuncEnabled: boolean = false,
   public isSoCharEnabled: boolean = false,
-  public avgReaderModeDefaultSetting: clz_Torappu_GameDataConsts_AVGReaderModeDefaultSettingT|null = null
+  public avgReaderModeDefaultSetting: clz_Torappu_GameDataConsts_AVGReaderModeDefaultSettingT|null = null,
+  public friendAddUidLimit: number = 0,
+  public friendUrlFormat: string|Uint8Array|null = null
 ){}
 
 
@@ -2126,6 +2152,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   const birthdaySettingLeapConfirmDesc = (this.birthdaySettingLeapConfirmDesc !== null ? builder.createString(this.birthdaySettingLeapConfirmDesc!) : 0);
   const birthdaySettingShowStageId = (this.birthdaySettingShowStageId !== null ? builder.createString(this.birthdaySettingShowStageId!) : 0);
   const avgReaderModeDefaultSetting = (this.avgReaderModeDefaultSetting !== null ? this.avgReaderModeDefaultSetting!.pack(builder) : 0);
+  const friendUrlFormat = (this.friendUrlFormat !== null ? builder.createString(this.friendUrlFormat!) : 0);
 
   clz_Torappu_GameDataConsts.startclz_Torappu_GameDataConsts(builder);
   clz_Torappu_GameDataConsts.addMaxPlayerLevel(builder, this.maxPlayerLevel);
@@ -2253,6 +2280,8 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   clz_Torappu_GameDataConsts.addIsBirthdayFuncEnabled(builder, this.isBirthdayFuncEnabled);
   clz_Torappu_GameDataConsts.addIsSoCharEnabled(builder, this.isSoCharEnabled);
   clz_Torappu_GameDataConsts.addAvgReaderModeDefaultSetting(builder, avgReaderModeDefaultSetting);
+  clz_Torappu_GameDataConsts.addFriendAddUidLimit(builder, this.friendAddUidLimit);
+  clz_Torappu_GameDataConsts.addFriendUrlFormat(builder, friendUrlFormat);
 
   return clz_Torappu_GameDataConsts.endclz_Torappu_GameDataConsts(builder);
 }

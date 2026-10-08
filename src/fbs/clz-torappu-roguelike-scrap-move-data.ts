@@ -4,6 +4,7 @@
 
 import * as flatbuffers from 'flatbuffers';
 
+import { enum__Torappu_RoguelikeEventType } from './enum--torappu-roguelike-event-type.js';
 import { enum__Torappu_RoguelikeMoveScrapRangeType } from './enum--torappu-roguelike-move-scrap-range-type.js';
 
 
@@ -64,27 +65,32 @@ isRandomMove():boolean {
   return offset ? !!this.bb!.readInt8(this.bb_pos + offset) : false;
 }
 
+nodeChangeTargetType():enum__Torappu_RoguelikeEventType {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
+  return offset ? this.bb!.readInt32(this.bb_pos + offset) : enum__Torappu_RoguelikeEventType.NONE;
+}
+
 scrapId():string|null
 scrapId(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 scrapId(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 16);
+  const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 scrapDesc():string|null
 scrapDesc(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
 scrapDesc(optionalEncoding?:any):string|Uint8Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 18);
+  const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
 sellPrice():number {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
 static startclz_Torappu_RoguelikeScrapMoveData(builder:flatbuffers.Builder) {
-  builder.startObject(9);
+  builder.startObject(10);
 }
 
 static addCount(builder:flatbuffers.Builder, count:number) {
@@ -123,16 +129,20 @@ static addIsRandomMove(builder:flatbuffers.Builder, isRandomMove:boolean) {
   builder.addFieldInt8(5, +isRandomMove, +false);
 }
 
+static addNodeChangeTargetType(builder:flatbuffers.Builder, nodeChangeTargetType:enum__Torappu_RoguelikeEventType) {
+  builder.addFieldInt32(6, nodeChangeTargetType, enum__Torappu_RoguelikeEventType.NONE);
+}
+
 static addScrapId(builder:flatbuffers.Builder, scrapIdOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(6, scrapIdOffset, 0);
+  builder.addFieldOffset(7, scrapIdOffset, 0);
 }
 
 static addScrapDesc(builder:flatbuffers.Builder, scrapDescOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(7, scrapDescOffset, 0);
+  builder.addFieldOffset(8, scrapDescOffset, 0);
 }
 
 static addSellPrice(builder:flatbuffers.Builder, sellPrice:number) {
-  builder.addFieldInt32(8, sellPrice, 0);
+  builder.addFieldInt32(9, sellPrice, 0);
 }
 
 static endclz_Torappu_RoguelikeScrapMoveData(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -140,7 +150,7 @@ static endclz_Torappu_RoguelikeScrapMoveData(builder:flatbuffers.Builder):flatbu
   return offset;
 }
 
-static createclz_Torappu_RoguelikeScrapMoveData(builder:flatbuffers.Builder, count:number, rangeOffset:flatbuffers.Offset, rangeType:enum__Torappu_RoguelikeMoveScrapRangeType, nodeOffset:flatbuffers.Offset, step:number, isRandomMove:boolean, scrapIdOffset:flatbuffers.Offset, scrapDescOffset:flatbuffers.Offset, sellPrice:number):flatbuffers.Offset {
+static createclz_Torappu_RoguelikeScrapMoveData(builder:flatbuffers.Builder, count:number, rangeOffset:flatbuffers.Offset, rangeType:enum__Torappu_RoguelikeMoveScrapRangeType, nodeOffset:flatbuffers.Offset, step:number, isRandomMove:boolean, nodeChangeTargetType:enum__Torappu_RoguelikeEventType, scrapIdOffset:flatbuffers.Offset, scrapDescOffset:flatbuffers.Offset, sellPrice:number):flatbuffers.Offset {
   clz_Torappu_RoguelikeScrapMoveData.startclz_Torappu_RoguelikeScrapMoveData(builder);
   clz_Torappu_RoguelikeScrapMoveData.addCount(builder, count);
   clz_Torappu_RoguelikeScrapMoveData.addRange(builder, rangeOffset);
@@ -148,6 +158,7 @@ static createclz_Torappu_RoguelikeScrapMoveData(builder:flatbuffers.Builder, cou
   clz_Torappu_RoguelikeScrapMoveData.addNode(builder, nodeOffset);
   clz_Torappu_RoguelikeScrapMoveData.addStep(builder, step);
   clz_Torappu_RoguelikeScrapMoveData.addIsRandomMove(builder, isRandomMove);
+  clz_Torappu_RoguelikeScrapMoveData.addNodeChangeTargetType(builder, nodeChangeTargetType);
   clz_Torappu_RoguelikeScrapMoveData.addScrapId(builder, scrapIdOffset);
   clz_Torappu_RoguelikeScrapMoveData.addScrapDesc(builder, scrapDescOffset);
   clz_Torappu_RoguelikeScrapMoveData.addSellPrice(builder, sellPrice);
@@ -162,6 +173,7 @@ unpack(): clz_Torappu_RoguelikeScrapMoveDataT {
     this.bb!.createScalarList<string>(this.node.bind(this), this.nodeLength()),
     this.step(),
     this.isRandomMove(),
+    this.nodeChangeTargetType(),
     this.scrapId(),
     this.scrapDesc(),
     this.sellPrice()
@@ -176,6 +188,7 @@ unpackTo(_o: clz_Torappu_RoguelikeScrapMoveDataT): void {
   _o.node = this.bb!.createScalarList<string>(this.node.bind(this), this.nodeLength());
   _o.step = this.step();
   _o.isRandomMove = this.isRandomMove();
+  _o.nodeChangeTargetType = this.nodeChangeTargetType();
   _o.scrapId = this.scrapId();
   _o.scrapDesc = this.scrapDesc();
   _o.sellPrice = this.sellPrice();
@@ -190,6 +203,7 @@ constructor(
   public node: (string)[] = [],
   public step: number = 0,
   public isRandomMove: boolean = false,
+  public nodeChangeTargetType: enum__Torappu_RoguelikeEventType = enum__Torappu_RoguelikeEventType.NONE,
   public scrapId: string|Uint8Array|null = null,
   public scrapDesc: string|Uint8Array|null = null,
   public sellPrice: number = 0
@@ -209,6 +223,7 @@ pack(builder:flatbuffers.Builder): flatbuffers.Offset {
     node,
     this.step,
     this.isRandomMove,
+    this.nodeChangeTargetType,
     scrapId,
     scrapDesc,
     this.sellPrice
